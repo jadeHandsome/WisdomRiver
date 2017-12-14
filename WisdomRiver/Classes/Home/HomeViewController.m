@@ -7,28 +7,55 @@
 //
 
 #import "HomeViewController.h"
-
-@interface HomeViewController ()
+#import "NewPagedFlowView.h"
+@interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end
 
 @implementation HomeViewController
 
-//- (void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:YES];
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated{
-//    [super viewWillDisappear:YES];
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
-//}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"首页";
+    [self setUp];
     // Do any additional setup after loading the view.
+}
+
+- (void)setUp{
+    self.view.backgroundColor = COLOR(245, 245, 245, 1);
+    UIImageView *topImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"banner"]];
+    [self.view addSubview:topImage];
+    [topImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.mas_equalTo(HEIGHT(566) - 64 + navHight);
+    }];
+    
+    
+    
+    
+//    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+//    [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+//
+//    UICollectionView *collectionView = [[UICollectionView alloc] init];
+//    [collectionView setCollectionViewLayout:layout];
+//    collectionView.backgroundColor = [UIColor whiteColor];
+//    collectionView.delegate = self;
+//    collectionView.dataSource = self;
+//    [self.view addSubview:collectionView];
+//    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.bottom.equalTo(self.view);
+//        make.top.equalTo(topImage.mas_bottom).offset(HEIGHT(20));
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {
