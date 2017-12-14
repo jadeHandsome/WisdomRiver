@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "HomeViewController.h"
+#import "BaseTabbarViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -137,9 +138,9 @@
 }
 
 - (void)loginAction:(UIButton *)sender{
-    HomeViewController *homeVC = [HomeViewController new];
-    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    self.view.window.rootViewController = navi;
+    BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];
+    
+    self.view.window.rootViewController = tab;
 }
 
 - (void)registerAction:(UIButton *)sender{
