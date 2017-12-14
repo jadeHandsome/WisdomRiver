@@ -22,15 +22,6 @@
     // Do any additional setup after loading the view.
 }
 
-#pragma mark ----- 隐藏导航栏
-- (void)hideNaviBar{
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-}
-
-- (void)showNaviBar{
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault]; 
-}
-
 #pragma  mark ----- pop退出
 - (void)popOut{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(popOutAction)];

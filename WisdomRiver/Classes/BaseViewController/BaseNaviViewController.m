@@ -7,7 +7,7 @@
 //
 
 #import "BaseNaviViewController.h"
-
+#import "UIImage+Color.h"
 @interface BaseNaviViewController ()<UIGestureRecognizerDelegate>
 
 
@@ -19,10 +19,11 @@
     UINavigationBar *bar = [UINavigationBar appearance];
     bar.shadowImage=[UIImage new];
     [bar setTintColor:[UIColor whiteColor]];
-    [bar setBarTintColor:ThemeColor];
+    [bar setBackgroundImage:[UIImage imageWithColor:ThemeColor Size:CGSizeMake(SIZEWIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
 }
+
 
 
 - (void)viewDidLoad {
