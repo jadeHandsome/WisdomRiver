@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LoginViewController.h"
+#import "BaseNaviViewController.h"
+#import "IQKeyboardManager.h"
 @interface AppDelegate ()
 
 @end
@@ -16,10 +18,31 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self setIQKeyboardManager];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    LoginViewController *loginVC = [LoginViewController new];
+    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
+    self.window.rootViewController = navi;
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
 
+//配置键盘管理
+- (void)setIQKeyboardManager{
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    
+    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:20];
+    
+    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];
+    
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+    
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    
+
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
