@@ -39,6 +39,11 @@
 		1A6304C41FE2739C00AE1751 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304C31FE2739C00AE1751 /* MineViewController.m */; };
 		1A6304C71FE273A800AE1751 /* BussinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304C61FE273A800AE1751 /* BussinessViewController.m */; };
 		1A6304CA1FE273B300AE1751 /* PublickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304C91FE273B300AE1751 /* PublickViewController.m */; };
+		1A6304CE1FE2790D00AE1751 /* BussItemBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304CD1FE2790D00AE1751 /* BussItemBtnView.m */; };
+		1A6304D01FE2791500AE1751 /* BussItemBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6304CF1FE2791500AE1751 /* BussItemBtnView.xib */; };
+		1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304D81FE3A41F00AE1751 /* BussinessTableViewCell.m */; };
+		1A6304DD1FE3ACDB00AE1751 /* BussinessSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304DB1FE3ACDB00AE1751 /* BussinessSubViewController.m */; };
+		1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6304DC1FE3ACDB00AE1751 /* BussinessSubViewController.xib */; };
 		2F009ED99ED1713A8D96FC3A /* libPods-WisdomRiver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C4FF3A16DAF878FEC03101 /* libPods-WisdomRiver.a */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +116,14 @@
 		1A6304C61FE273A800AE1751 /* BussinessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussinessViewController.m; sourceTree = "<group>"; };
 		1A6304C81FE273B300AE1751 /* PublickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublickViewController.h; sourceTree = "<group>"; };
 		1A6304C91FE273B300AE1751 /* PublickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublickViewController.m; sourceTree = "<group>"; };
+		1A6304CC1FE2790D00AE1751 /* BussItemBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussItemBtnView.h; sourceTree = "<group>"; };
+		1A6304CD1FE2790D00AE1751 /* BussItemBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussItemBtnView.m; sourceTree = "<group>"; };
+		1A6304CF1FE2791500AE1751 /* BussItemBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BussItemBtnView.xib; sourceTree = "<group>"; };
+		1A6304D71FE3A41F00AE1751 /* BussinessTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussinessTableViewCell.h; sourceTree = "<group>"; };
+		1A6304D81FE3A41F00AE1751 /* BussinessTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussinessTableViewCell.m; sourceTree = "<group>"; };
+		1A6304DA1FE3ACDB00AE1751 /* BussinessSubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussinessSubViewController.h; sourceTree = "<group>"; };
+		1A6304DB1FE3ACDB00AE1751 /* BussinessSubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussinessSubViewController.m; sourceTree = "<group>"; };
+		1A6304DC1FE3ACDB00AE1751 /* BussinessSubViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BussinessSubViewController.xib; sourceTree = "<group>"; };
 		3053E2B87EDCB750AFCF926B /* Pods-WisdomRiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomRiver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomRiver/Pods-WisdomRiver.debug.xcconfig"; sourceTree = "<group>"; };
 		36E4BBA5093BC898F3DF8F2F /* Pods-WisdomRiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomRiver.release.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomRiver/Pods-WisdomRiver.release.xcconfig"; sourceTree = "<group>"; };
 		C1C4FF3A16DAF878FEC03101 /* libPods-WisdomRiver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WisdomRiver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,10 +323,26 @@
 		1A6304C11FE2738F00AE1751 /* BussiniseService */ = {
 			isa = PBXGroup;
 			children = (
+				1A6304CB1FE278F400AE1751 /* Views */,
 				1A6304C51FE273A800AE1751 /* BussinessViewController.h */,
 				1A6304C61FE273A800AE1751 /* BussinessViewController.m */,
+				1A6304DA1FE3ACDB00AE1751 /* BussinessSubViewController.h */,
+				1A6304DB1FE3ACDB00AE1751 /* BussinessSubViewController.m */,
+				1A6304DC1FE3ACDB00AE1751 /* BussinessSubViewController.xib */,
 			);
 			path = BussiniseService;
+			sourceTree = "<group>";
+		};
+		1A6304CB1FE278F400AE1751 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A6304CC1FE2790D00AE1751 /* BussItemBtnView.h */,
+				1A6304CD1FE2790D00AE1751 /* BussItemBtnView.m */,
+				1A6304CF1FE2791500AE1751 /* BussItemBtnView.xib */,
+				1A6304D71FE3A41F00AE1751 /* BussinessTableViewCell.h */,
+				1A6304D81FE3A41F00AE1751 /* BussinessTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7733BA6F2455F5B3D2D9C9D8 /* Pods */ = {
@@ -394,8 +423,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A6304D01FE2791500AE1751 /* BussItemBtnView.xib in Resources */,
 				11FE0AF91FE21E1200D10A5C /* MBProgressHUD.bundle in Resources */,
 				1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */,
+				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +482,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -481,6 +512,8 @@
 				114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */,
 				11FE0AFC1FE21E1200D10A5C /* UITableView+KREmptyData.m in Sources */,
 				1A6304CA1FE273B300AE1751 /* PublickViewController.m in Sources */,
+				1A6304CE1FE2790D00AE1751 /* BussItemBtnView.m in Sources */,
+				1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */,
 				1A6304B31FE2196400AE1751 /* main.m in Sources */,
 				1A6304BE1FE26F1B00AE1751 /* BaseTabbarViewController.m in Sources */,
 				11FE0AF81FE21E1200D10A5C /* MBProgressHUD+KR.m in Sources */,
@@ -490,6 +523,7 @@
 				114CF5A01FE258C2004B5701 /* UIImage+Color.m in Sources */,
 				1A6304A51FE2196400AE1751 /* AppDelegate.m in Sources */,
 				11FE0AF71FE21E1200D10A5C /* YHMath.m in Sources */,
+				1A6304DD1FE3ACDB00AE1751 /* BussinessSubViewController.m in Sources */,
 				114CF5A71FE26C74004B5701 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

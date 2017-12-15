@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
 #import <UIKit/UIKit.h>
-@interface KRMainNetTool : NSObject
+@interface KRMainNetTool : NSObject<NSURLSessionDelegate>
 singleton_interface(KRMainNetTool)
 /**
  *  不需要上传文件的接口方法
@@ -28,4 +28,6 @@ singleton_interface(KRMainNetTool)
  */
 - (void)upLoadData:(NSString *)url params:(NSDictionary *)param andData:(NSArray *)array waitView:(UIView *)waitView complateHandle:(void(^)(id showdata,NSString *error))complet;
 @property (nonatomic, strong) NSString *isShow;
+
+
 @end

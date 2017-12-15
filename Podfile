@@ -8,4 +8,5 @@ target ‘WisdomRiver’ do
   pod 'IQKeyboardManager’,’~> 4.0.8’
   pod ’SDWebImage’ 
   pod ‘Masonry’
+  pod 'HYBLoopScrollView'
 end
