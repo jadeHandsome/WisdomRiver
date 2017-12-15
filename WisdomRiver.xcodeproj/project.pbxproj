@@ -11,6 +11,9 @@
 		114CF5A01FE258C2004B5701 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF59F1FE258C2004B5701 /* UIImage+Color.m */; };
 		114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5A21FE26AEA004B5701 /* RegisterViewController.m */; };
 		114CF5A71FE26C74004B5701 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5A61FE26C74004B5701 /* HomeViewController.m */; };
+		114CF5B21FE27718004B5701 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B11FE27718004B5701 /* HomeCell.m */; };
+		114CF5B81FE2B581004B5701 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B51FE2B581004B5701 /* NewPagedFlowView.m */; };
+		114CF5B91FE2B581004B5701 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B71FE2B581004B5701 /* PGIndexBannerSubiew.m */; };
 		11FE0AEC1FE21E1200D10A5C /* ImageCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */; };
 		11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC71FE21E1100D10A5C /* KRBaseTool.m */; };
 		11FE0AEE1FE21E1200D10A5C /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC91FE21E1100D10A5C /* KRMainNetTool.m */; };
@@ -56,6 +59,12 @@
 		114CF5A21FE26AEA004B5701 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		114CF5A51FE26C74004B5701 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		114CF5A61FE26C74004B5701 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		114CF5B01FE27718004B5701 /* HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		114CF5B11FE27718004B5701 /* HomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
+		114CF5B41FE2B581004B5701 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		114CF5B51FE2B581004B5701 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
+		114CF5B61FE2B581004B5701 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
+		114CF5B71FE2B581004B5701 /* PGIndexBannerSubiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGIndexBannerSubiew.m; sourceTree = "<group>"; };
 		11FE0AC41FE21E1100D10A5C /* ImageCenterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCenterButton.h; sourceTree = "<group>"; };
 		11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCenterButton.m; sourceTree = "<group>"; };
 		11FE0AC61FE21E1100D10A5C /* KRBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRBaseTool.h; sourceTree = "<group>"; };
@@ -155,10 +164,32 @@
 		114CF5A41FE26C68004B5701 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				114CF5AF1FE276FD004B5701 /* views */,
 				114CF5A51FE26C74004B5701 /* HomeViewController.h */,
 				114CF5A61FE26C74004B5701 /* HomeViewController.m */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		114CF5AF1FE276FD004B5701 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				114CF5B01FE27718004B5701 /* HomeCell.h */,
+				114CF5B11FE27718004B5701 /* HomeCell.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		114CF5B31FE2B581004B5701 /* 自定义banner */ = {
+			isa = PBXGroup;
+			children = (
+				114CF5B41FE2B581004B5701 /* NewPagedFlowView.h */,
+				114CF5B51FE2B581004B5701 /* NewPagedFlowView.m */,
+				114CF5B61FE2B581004B5701 /* PGIndexBannerSubiew.h */,
+				114CF5B71FE2B581004B5701 /* PGIndexBannerSubiew.m */,
+			);
+			name = "自定义banner";
+			path = "../../../自定义banner";
 			sourceTree = "<group>";
 		};
 		11FE0AC21FE21DF500D10A5C /* Classes */ = {
@@ -177,6 +208,7 @@
 		11FE0AC31FE21E1100D10A5C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				114CF5B31FE2B581004B5701 /* 自定义banner */,
 				11FE0B081FE21F6800D10A5C /* Category */,
 				11FE0AC41FE21E1100D10A5C /* ImageCenterButton.h */,
 				11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */,
@@ -498,12 +530,15 @@
 				11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */,
 				11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */,
 				11FE0AF51FE21E1200D10A5C /* TYTabTitleViewCell.m in Sources */,
+				114CF5B21FE27718004B5701 /* HomeCell.m in Sources */,
 				11FE0AFD1FE21E1200D10A5C /* UIView+BorderLine.m in Sources */,
 				1A6304C71FE273A800AE1751 /* BussinessViewController.m in Sources */,
 				11FE0AF01FE21E1200D10A5C /* NSString+LocaString.m in Sources */,
 				11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */,
+				114CF5B81FE2B581004B5701 /* NewPagedFlowView.m in Sources */,
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
+				114CF5B91FE2B581004B5701 /* PGIndexBannerSubiew.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
 				11FE0AF21FE21E1200D10A5C /* TYPagerController.m in Sources */,
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,
