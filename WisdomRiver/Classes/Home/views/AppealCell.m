@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    LRViewBorderRadius(self.container, HEIGHT(10), 0.5, [UIColor lightGrayColor]);
+    LRViewShadow(self.container, [UIColor blackColor], CGSizeMake(1, 1), 0.3, HEIGHT(10));
     // Initialization code
 }
 

@@ -9,10 +9,12 @@
 #import "CommonListViewController.h"
 #import "CommonListCell.h"
 #import "ItemDetailsViewController.h"
+#import "SelectionView.h"
 @interface CommonListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) UIImageView *noDataImage;
+@property (nonatomic, assign) NSInteger currentIndex;
 @end
 
 @implementation CommonListViewController
@@ -87,7 +89,10 @@
 }
 
 - (void)typeItem{
-    
+    SelectionView *selectionView = [[SelectionView alloc] initWithDataArr:@[@"全部社区",@"本社区"] title:@"事项开放社区" currentIndex:self.currentIndex seleted:^(NSInteger index, NSString *selectStr) {
+        self.currentIndex = index;
+    }];
+    [self.view.window addSubview:selectionView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

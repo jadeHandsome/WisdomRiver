@@ -7,18 +7,20 @@
 //
 
 #import "AppealViewController.h"
-
+#import "AppealCell.h"
+#import "SelectionView.h"
+#import "AddCommitController.h"
 @interface AppealViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) UIImageView *noDataImage;
-
+@property (nonatomic, assign) NSInteger currentIndex;
 @end
 
 @implementation AppealViewController
 - (NSMutableArray *)data{
     if (!_data) {
-        _data = [NSMutableArray array];
+        _data = [NSMutableArray arrayWithObject:@{@"title":@"你是傻逼",@"content":@"1231231231ewdadae1wdadscawdas",@"time":@"2017-12-08",@"status":@"未回复"}];
     }
     return _data;
 }
@@ -45,15 +47,29 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH, SIZEHEIGHT - navHight)];
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.rowHeight = HEIGHT(300);
+    tableView.rowHeight = 105;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 #ifdef __IPHONE_11_0
     if ([tableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
         tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
 #endif
-//    [tableView registerClass:[CommonListCell class] forCellReuseIdentifier:@"CommonListCell"];
+    [tableView registerNib:[UINib nibWithNibName:@"AppealCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"AppealCell"];
     [self.view addSubview:tableView];
+    
+    UIButton *addButton = [[UIButton alloc] init];
+    [addButton setTitle:@"+" forState:UIControlStateNormal];
+    [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [addButton setBackgroundColor:ThemeColor];
+    addButton.titleLabel.font = [UIFont systemFontOfSize:30];
+    LRViewBorderRadius(addButton, 22.5, 0, ThemeColor);
+    LRViewShadow(addButton, [UIColor blackColor], CGSizeMake(2, 2), 0.5, 5);
+    [addButton addTarget:self action:@selector(add:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:addButton];
+    [addButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.bottom.equalTo(self.view).offset(-25);
+        make.width.height.mas_equalTo(45);
+    }];
     
     UIImageView *noDataImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"empty"]];
     noDataImage.contentMode = UIViewContentModeScaleAspectFit;
@@ -84,7 +100,10 @@
 }
 
 - (void)typeItem{
-    
+    SelectionView *selectionView = [[SelectionView alloc] initWithDataArr:@[@"全部",@"未回复",@"已回复"] title:@"回复状态" currentIndex:self.currentIndex seleted:^(NSInteger index, NSString *selectStr) {
+        self.currentIndex = index;
+    }];
+    [self.view.window addSubview:selectionView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -96,13 +115,22 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return nil;
+    AppealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppealCell" forIndexPath:indexPath];
+    cell.title.text = self.data[indexPath.row][@"title"];
+    cell.content.text = self.data[indexPath.row][@"content"];
+    cell.time.text = self.data[indexPath.row][@"time"];
+    cell.status.text = self.data[indexPath.row][@"status"];
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+}
+
+- (void)add:(UIButton *)sender{
+    AddCommitController *addVC = [AddCommitController new];
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,6 +11,7 @@
 #import "NewPagedFlowView.h"
 #import "CommonListViewController.h"
 #import "HotNewsViewController.h"
+#import "AppealViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -421,10 +422,13 @@
     else{
         if (indexPath.section == 0 && indexPath.item == 3) {
             HotNewsViewController *hotNewsVC = [HotNewsViewController new];
+            [hotNewsVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:hotNewsVC animated:YES];
         }
         else if (indexPath.section == 0 && indexPath.item == 2) {
-            
+            AppealViewController *appealVC = [AppealViewController new];
+            [appealVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:appealVC animated:YES];
         }
         else{
             CommonListViewController *listVC = [CommonListViewController new];

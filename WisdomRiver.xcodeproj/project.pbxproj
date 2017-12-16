@@ -21,6 +21,9 @@
 		114CF5E31FE3CAFA004B5701 /* AppealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5E21FE3CAFA004B5701 /* AppealViewController.m */; };
 		114CF5E71FE4E2C8004B5701 /* AppealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5E51FE4E2C8004B5701 /* AppealCell.m */; };
 		114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114CF5E61FE4E2C8004B5701 /* AppealCell.xib */; };
+		114CF5EB1FE4F535004B5701 /* SelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5EA1FE4F535004B5701 /* SelectionView.m */; };
+		114CF5EF1FE502C5004B5701 /* AddCommitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5ED1FE502C5004B5701 /* AddCommitController.m */; };
+		114CF5F01FE502C5004B5701 /* AddCommitController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114CF5EE1FE502C5004B5701 /* AddCommitController.xib */; };
 		11FE0AEC1FE21E1200D10A5C /* ImageCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */; };
 		11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC71FE21E1100D10A5C /* KRBaseTool.m */; };
 		11FE0AEE1FE21E1200D10A5C /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC91FE21E1100D10A5C /* KRMainNetTool.m */; };
@@ -85,6 +88,11 @@
 		114CF5E41FE4E2C8004B5701 /* AppealCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppealCell.h; sourceTree = "<group>"; };
 		114CF5E51FE4E2C8004B5701 /* AppealCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppealCell.m; sourceTree = "<group>"; };
 		114CF5E61FE4E2C8004B5701 /* AppealCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppealCell.xib; sourceTree = "<group>"; };
+		114CF5E91FE4F535004B5701 /* SelectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectionView.h; sourceTree = "<group>"; };
+		114CF5EA1FE4F535004B5701 /* SelectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectionView.m; sourceTree = "<group>"; };
+		114CF5EC1FE502C5004B5701 /* AddCommitController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCommitController.h; sourceTree = "<group>"; };
+		114CF5ED1FE502C5004B5701 /* AddCommitController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCommitController.m; sourceTree = "<group>"; };
+		114CF5EE1FE502C5004B5701 /* AddCommitController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommitController.xib; sourceTree = "<group>"; };
 		11FE0AC41FE21E1100D10A5C /* ImageCenterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCenterButton.h; sourceTree = "<group>"; };
 		11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCenterButton.m; sourceTree = "<group>"; };
 		11FE0AC61FE21E1100D10A5C /* KRBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRBaseTool.h; sourceTree = "<group>"; };
@@ -200,6 +208,8 @@
 				114CF5E41FE4E2C8004B5701 /* AppealCell.h */,
 				114CF5E51FE4E2C8004B5701 /* AppealCell.m */,
 				114CF5E61FE4E2C8004B5701 /* AppealCell.xib */,
+				114CF5E91FE4F535004B5701 /* SelectionView.h */,
+				114CF5EA1FE4F535004B5701 /* SelectionView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -229,6 +239,9 @@
 				114CF5DF1FE3C7ED004B5701 /* HotNewsViewController.m */,
 				114CF5E11FE3CAFA004B5701 /* AppealViewController.h */,
 				114CF5E21FE3CAFA004B5701 /* AppealViewController.m */,
+				114CF5EC1FE502C5004B5701 /* AddCommitController.h */,
+				114CF5ED1FE502C5004B5701 /* AddCommitController.m */,
+				114CF5EE1FE502C5004B5701 /* AddCommitController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -498,12 +511,10 @@
 			files = (
 				1A6304D01FE2791500AE1751 /* BussItemBtnView.xib in Resources */,
 				11FE0AF91FE21E1200D10A5C /* MBProgressHUD.bundle in Resources */,
+				114CF5F01FE502C5004B5701 /* AddCommitController.xib in Resources */,
 				1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */,
-
 				114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */,
-
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +570,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -579,6 +590,7 @@
 				114CF5E31FE3CAFA004B5701 /* AppealViewController.m in Sources */,
 				114CF5B21FE27718004B5701 /* HomeCell.m in Sources */,
 				11FE0AFD1FE21E1200D10A5C /* UIView+BorderLine.m in Sources */,
+				114CF5EB1FE4F535004B5701 /* SelectionView.m in Sources */,
 				1A6304C71FE273A800AE1751 /* BussinessViewController.m in Sources */,
 				11FE0AF01FE21E1200D10A5C /* NSString+LocaString.m in Sources */,
 				11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */,
@@ -586,6 +598,7 @@
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
 				114CF5B91FE2B581004B5701 /* PGIndexBannerSubiew.m in Sources */,
+				114CF5EF1FE502C5004B5701 /* AddCommitController.m in Sources */,
 				114CF5E01FE3C7ED004B5701 /* HotNewsViewController.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
 				11FE0AF21FE21E1200D10A5C /* TYPagerController.m in Sources */,
