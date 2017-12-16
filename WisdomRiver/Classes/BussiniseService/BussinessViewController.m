@@ -85,6 +85,8 @@
     cell.block = ^(NSDictionary *dic) {
         BussinessSubViewController *sub = [BussinessSubViewController new];
         sub.moduleId = dic[@"id"];
+        sub.hidesBottomBarWhenPushed = YES;
+        sub.titleStr = dic[@"name"];
         [weakSelf.navigationController pushViewController:sub animated:YES];
     };
     return cell;

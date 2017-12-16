@@ -12,8 +12,6 @@
 		114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5A21FE26AEA004B5701 /* RegisterViewController.m */; };
 		114CF5A71FE26C74004B5701 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5A61FE26C74004B5701 /* HomeViewController.m */; };
 		114CF5B21FE27718004B5701 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B11FE27718004B5701 /* HomeCell.m */; };
-		114CF5B81FE2B581004B5701 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B51FE2B581004B5701 /* NewPagedFlowView.m */; };
-		114CF5B91FE2B581004B5701 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B71FE2B581004B5701 /* PGIndexBannerSubiew.m */; };
 		11FE0AEC1FE21E1200D10A5C /* ImageCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */; };
 		11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC71FE21E1100D10A5C /* KRBaseTool.m */; };
 		11FE0AEE1FE21E1200D10A5C /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC91FE21E1100D10A5C /* KRMainNetTool.m */; };
@@ -35,6 +33,12 @@
 		11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B021FE21E2100D10A5C /* BaseViewController.m */; };
 		11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B0A1FE21F6800D10A5C /* CALayer+CircleBoard.m */; };
 		11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B0C1FE21F6800D10A5C /* UIView+EX.m */; };
+		1A1A4D671FE4C00800C66AA3 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D631FE4C00800C66AA3 /* PGIndexBannerSubiew.m */; };
+		1A1A4D681FE4C00800C66AA3 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D641FE4C00800C66AA3 /* NewPagedFlowView.m */; };
+		1A1A4D6C1FE4CE2100C66AA3 /* BussinCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6A1FE4CE2100C66AA3 /* BussinCollectionViewCell.m */; };
+		1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */; };
+		1A1A4D711FE4D8D300C66AA3 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */; };
+		1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */; };
 		1A6304A51FE2196400AE1751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304A41FE2196400AE1751 /* AppDelegate.m */; };
 		1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6304AC1FE2196400AE1751 /* Assets.xcassets */; };
 		1A6304B31FE2196400AE1751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304B21FE2196400AE1751 /* main.m */; };
@@ -61,10 +65,6 @@
 		114CF5A61FE26C74004B5701 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		114CF5B01FE27718004B5701 /* HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
 		114CF5B11FE27718004B5701 /* HomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
-		114CF5B41FE2B581004B5701 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
-		114CF5B51FE2B581004B5701 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
-		114CF5B61FE2B581004B5701 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
-		114CF5B71FE2B581004B5701 /* PGIndexBannerSubiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGIndexBannerSubiew.m; sourceTree = "<group>"; };
 		11FE0AC41FE21E1100D10A5C /* ImageCenterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCenterButton.h; sourceTree = "<group>"; };
 		11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCenterButton.m; sourceTree = "<group>"; };
 		11FE0AC61FE21E1100D10A5C /* KRBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRBaseTool.h; sourceTree = "<group>"; };
@@ -111,6 +111,16 @@
 		11FE0B0A1FE21F6800D10A5C /* CALayer+CircleBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CircleBoard.m"; sourceTree = "<group>"; };
 		11FE0B0B1FE21F6800D10A5C /* UIView+EX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EX.h"; sourceTree = "<group>"; };
 		11FE0B0C1FE21F6800D10A5C /* UIView+EX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EX.m"; sourceTree = "<group>"; };
+		1A1A4D631FE4C00800C66AA3 /* PGIndexBannerSubiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGIndexBannerSubiew.m; sourceTree = "<group>"; };
+		1A1A4D641FE4C00800C66AA3 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
+		1A1A4D651FE4C00800C66AA3 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
+		1A1A4D661FE4C00800C66AA3 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		1A1A4D691FE4CE2100C66AA3 /* BussinCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussinCollectionViewCell.h; sourceTree = "<group>"; };
+		1A1A4D6A1FE4CE2100C66AA3 /* BussinCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussinCollectionViewCell.m; sourceTree = "<group>"; };
+		1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BussinCollectionViewCell.xib; sourceTree = "<group>"; };
+		1A1A4D6E1FE4D8D300C66AA3 /* GoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
+		1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
+		1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailViewController.xib; sourceTree = "<group>"; };
 		1A6304A01FE2196400AE1751 /* WisdomRiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WisdomRiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6304A31FE2196400AE1751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A6304A41FE2196400AE1751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -180,18 +190,6 @@
 			path = views;
 			sourceTree = "<group>";
 		};
-		114CF5B31FE2B581004B5701 /* 自定义banner */ = {
-			isa = PBXGroup;
-			children = (
-				114CF5B41FE2B581004B5701 /* NewPagedFlowView.h */,
-				114CF5B51FE2B581004B5701 /* NewPagedFlowView.m */,
-				114CF5B61FE2B581004B5701 /* PGIndexBannerSubiew.h */,
-				114CF5B71FE2B581004B5701 /* PGIndexBannerSubiew.m */,
-			);
-			name = "自定义banner";
-			path = "../../../自定义banner";
-			sourceTree = "<group>";
-		};
 		11FE0AC21FE21DF500D10A5C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +206,7 @@
 		11FE0AC31FE21E1100D10A5C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				114CF5B31FE2B581004B5701 /* 自定义banner */,
+				1A1A4D621FE4C00800C66AA3 /* 自定义banner */,
 				11FE0B081FE21F6800D10A5C /* Category */,
 				11FE0AC41FE21E1100D10A5C /* ImageCenterButton.h */,
 				11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */,
@@ -306,6 +304,17 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		1A1A4D621FE4C00800C66AA3 /* 自定义banner */ = {
+			isa = PBXGroup;
+			children = (
+				1A1A4D631FE4C00800C66AA3 /* PGIndexBannerSubiew.m */,
+				1A1A4D641FE4C00800C66AA3 /* NewPagedFlowView.m */,
+				1A1A4D651FE4C00800C66AA3 /* PGIndexBannerSubiew.h */,
+				1A1A4D661FE4C00800C66AA3 /* NewPagedFlowView.h */,
+			);
+			path = "自定义banner";
+			sourceTree = "<group>";
+		};
 		1A6304971FE2196300AE1751 = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +370,9 @@
 				1A6304DA1FE3ACDB00AE1751 /* BussinessSubViewController.h */,
 				1A6304DB1FE3ACDB00AE1751 /* BussinessSubViewController.m */,
 				1A6304DC1FE3ACDB00AE1751 /* BussinessSubViewController.xib */,
+				1A1A4D6E1FE4D8D300C66AA3 /* GoodsDetailViewController.h */,
+				1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */,
+				1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */,
 			);
 			path = BussiniseService;
 			sourceTree = "<group>";
@@ -373,6 +385,9 @@
 				1A6304CF1FE2791500AE1751 /* BussItemBtnView.xib */,
 				1A6304D71FE3A41F00AE1751 /* BussinessTableViewCell.h */,
 				1A6304D81FE3A41F00AE1751 /* BussinessTableViewCell.m */,
+				1A1A4D691FE4CE2100C66AA3 /* BussinCollectionViewCell.h */,
+				1A1A4D6A1FE4CE2100C66AA3 /* BussinCollectionViewCell.m */,
+				1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,6 +474,8 @@
 				11FE0AF91FE21E1200D10A5C /* MBProgressHUD.bundle in Resources */,
 				1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */,
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
+				1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */,
+				1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,18 +544,20 @@
 				11FE0AF41FE21E1200D10A5C /* TYTabPagerController.m in Sources */,
 				114CF59D1FE250BD004B5701 /* LoginViewController.m in Sources */,
 				11FE0AF31FE21E1200D10A5C /* TYTabButtonPagerController.m in Sources */,
+				1A1A4D6C1FE4CE2100C66AA3 /* BussinCollectionViewCell.m in Sources */,
 				11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */,
 				11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */,
 				11FE0AF51FE21E1200D10A5C /* TYTabTitleViewCell.m in Sources */,
 				114CF5B21FE27718004B5701 /* HomeCell.m in Sources */,
+				1A1A4D711FE4D8D300C66AA3 /* GoodsDetailViewController.m in Sources */,
+				1A1A4D681FE4C00800C66AA3 /* NewPagedFlowView.m in Sources */,
 				11FE0AFD1FE21E1200D10A5C /* UIView+BorderLine.m in Sources */,
 				1A6304C71FE273A800AE1751 /* BussinessViewController.m in Sources */,
 				11FE0AF01FE21E1200D10A5C /* NSString+LocaString.m in Sources */,
 				11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */,
-				114CF5B81FE2B581004B5701 /* NewPagedFlowView.m in Sources */,
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
+				1A1A4D671FE4C00800C66AA3 /* PGIndexBannerSubiew.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
-				114CF5B91FE2B581004B5701 /* PGIndexBannerSubiew.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
 				11FE0AF21FE21E1200D10A5C /* TYPagerController.m in Sources */,
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,

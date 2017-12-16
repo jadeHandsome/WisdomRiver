@@ -10,4 +10,5 @@
 
 @interface BussinessSubViewController : BaseViewController
 @property (nonatomic, strong) NSString *moduleId;
+@property (nonatomic, strong) NSString *titleStr;
 @end
