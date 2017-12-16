@@ -10,6 +10,7 @@
 #import "RegisterViewController.h"
 #import "HomeViewController.h"
 #import "BaseTabbarViewController.h"
+
 @interface LoginViewController ()
 
 @end
@@ -59,6 +60,7 @@
     }];
     UITextField *userField = [[UITextField alloc] init];
     userField.placeholder = @"请输入手机号";
+    userField.keyboardType = UIKeyboardTypeNumberPad;
     [userView addSubview:userField];
     [userField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(userImage.mas_right).offset(WIDTH(30));
@@ -113,6 +115,7 @@
     [loginBtn setBackgroundColor:ThemeColor];
     [loginBtn addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
     LRViewBorderRadius(loginBtn, HEIGHT(63), 0.5, ThemeColor);
+    LRViewShadow(loginBtn, [UIColor blackColor], CGSizeMake(2, 2), 0.5, HEIGHT(10));
     [self.view addSubview:loginBtn];
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(pwdView.mas_bottom).offset(HEIGHT(50));
@@ -127,7 +130,8 @@
     registerBtn.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(48)];
     [registerBtn setBackgroundColor:[UIColor whiteColor]];
     [registerBtn addTarget:self action:@selector(registerAction:) forControlEvents:UIControlEventTouchUpInside];
-    LRViewBorderRadius(registerBtn, HEIGHT(63), 0.5, [UIColor lightGrayColor]);
+    LRViewBorderRadius(registerBtn, HEIGHT(63), 0.5, [UIColor whiteColor]);
+    LRViewShadow(registerBtn, [UIColor blackColor], CGSizeMake(2, 2), 0.5, HEIGHT(10));
     [self.view addSubview:registerBtn];
     [registerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(loginBtn.mas_bottom).offset(HEIGHT(40));

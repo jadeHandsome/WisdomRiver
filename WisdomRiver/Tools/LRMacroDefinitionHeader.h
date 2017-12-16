@@ -63,6 +63,15 @@
 [View.layer setBorderWidth:(Width)];\
 [View.layer setBorderColor:[Color CGColor]]
 
+//7.1.设置 view 圆角阴影
+#define LRViewShadow(View, Color, shadowOffset, shadowOpacity, shadowRadius)\
+\
+[View.layer setShadowColor:[Color CGColor]];\
+[View.layer setShadowOffset:(shadowOffset)];\
+[View.layer setShadowOpacity:(shadowOpacity)];\
+[View.layer setShadowRadius:(shadowRadius)];\
+[View.layer setMasksToBounds:NO]
+
 //8.由角度转换弧度 由弧度转换角度
 #define LRDegreesToRadian(x) (M_PI * (x) / 180.0)
 #define LRRadianToDegrees(radian) (radian*180.0)/(M_PI)

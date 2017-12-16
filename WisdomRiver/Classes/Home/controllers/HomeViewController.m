@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "HomeCell.h"
 #import "NewPagedFlowView.h"
+#import "CommonListViewController.h"
+#import "HotNewsViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -52,7 +54,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -83,7 +85,7 @@
     _pageFlowView.isCarousel = NO;
     _pageFlowView.orientation = NewPagedFlowViewOrientationHorizontal;
     _pageFlowView.isOpenAutoScroll = YES;
-    
+    _pageFlowView.autoTime = 3.0;
     
     //初始化pageControl
     UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,(HEIGHT(896) - 64 + navHight) / 2 , SIZEWIDTH, (HEIGHT(236) - 64 + navHight) / 2)];
@@ -101,6 +103,7 @@
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.delegate = self;
     collectionView.dataSource = self;
+    collectionView.bounces = NO;
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.showsHorizontalScrollIndicator = NO;
     [collectionView registerClass:[HomeCell class] forCellWithReuseIdentifier:@"HomeCell"];
@@ -409,6 +412,30 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return 0;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section != 0 && indexPath.item == 0) {
+        
+    }
+    else{
+        if (indexPath.section == 0 && indexPath.item == 3) {
+            HotNewsViewController *hotNewsVC = [HotNewsViewController new];
+            [self.navigationController pushViewController:hotNewsVC animated:YES];
+        }
+        else if (indexPath.section == 0 && indexPath.item == 2) {
+            
+        }
+        else{
+            CommonListViewController *listVC = [CommonListViewController new];
+            listVC.naviTitle = self.dataArr[indexPath.section][indexPath.item][@"title"];
+            [listVC setHidesBottomBarWhenPushed:YES];
+            if (indexPath.section == 0) {
+                listVC.haveType = YES;
+            }
+            [self.navigationController pushViewController:listVC animated:YES];
+        }
+    }
 }
 
 

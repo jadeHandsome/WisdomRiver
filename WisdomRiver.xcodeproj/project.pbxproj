@@ -14,6 +14,13 @@
 		114CF5B21FE27718004B5701 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B11FE27718004B5701 /* HomeCell.m */; };
 		114CF5B81FE2B581004B5701 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B51FE2B581004B5701 /* NewPagedFlowView.m */; };
 		114CF5B91FE2B581004B5701 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5B71FE2B581004B5701 /* PGIndexBannerSubiew.m */; };
+		114CF5D41FE39334004B5701 /* CommonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5D31FE39334004B5701 /* CommonListViewController.m */; };
+		114CF5D71FE39DBF004B5701 /* CommonListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5D61FE39DBF004B5701 /* CommonListCell.m */; };
+		114CF5DD1FE3B35D004B5701 /* ItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5DC1FE3B35D004B5701 /* ItemDetailsViewController.m */; };
+		114CF5E01FE3C7ED004B5701 /* HotNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5DF1FE3C7ED004B5701 /* HotNewsViewController.m */; };
+		114CF5E31FE3CAFA004B5701 /* AppealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5E21FE3CAFA004B5701 /* AppealViewController.m */; };
+		114CF5E71FE4E2C8004B5701 /* AppealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5E51FE4E2C8004B5701 /* AppealCell.m */; };
+		114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114CF5E61FE4E2C8004B5701 /* AppealCell.xib */; };
 		11FE0AEC1FE21E1200D10A5C /* ImageCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */; };
 		11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC71FE21E1100D10A5C /* KRBaseTool.m */; };
 		11FE0AEE1FE21E1200D10A5C /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0AC91FE21E1100D10A5C /* KRMainNetTool.m */; };
@@ -60,6 +67,19 @@
 		114CF5B51FE2B581004B5701 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
 		114CF5B61FE2B581004B5701 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
 		114CF5B71FE2B581004B5701 /* PGIndexBannerSubiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGIndexBannerSubiew.m; sourceTree = "<group>"; };
+		114CF5D21FE39334004B5701 /* CommonListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonListViewController.h; sourceTree = "<group>"; };
+		114CF5D31FE39334004B5701 /* CommonListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonListViewController.m; sourceTree = "<group>"; };
+		114CF5D51FE39DBF004B5701 /* CommonListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonListCell.h; sourceTree = "<group>"; };
+		114CF5D61FE39DBF004B5701 /* CommonListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonListCell.m; sourceTree = "<group>"; };
+		114CF5DB1FE3B35D004B5701 /* ItemDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemDetailsViewController.h; sourceTree = "<group>"; };
+		114CF5DC1FE3B35D004B5701 /* ItemDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemDetailsViewController.m; sourceTree = "<group>"; };
+		114CF5DE1FE3C7ED004B5701 /* HotNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotNewsViewController.h; sourceTree = "<group>"; };
+		114CF5DF1FE3C7ED004B5701 /* HotNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotNewsViewController.m; sourceTree = "<group>"; };
+		114CF5E11FE3CAFA004B5701 /* AppealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppealViewController.h; sourceTree = "<group>"; };
+		114CF5E21FE3CAFA004B5701 /* AppealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppealViewController.m; sourceTree = "<group>"; };
+		114CF5E41FE4E2C8004B5701 /* AppealCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppealCell.h; sourceTree = "<group>"; };
+		114CF5E51FE4E2C8004B5701 /* AppealCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppealCell.m; sourceTree = "<group>"; };
+		114CF5E61FE4E2C8004B5701 /* AppealCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppealCell.xib; sourceTree = "<group>"; };
 		11FE0AC41FE21E1100D10A5C /* ImageCenterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCenterButton.h; sourceTree = "<group>"; };
 		11FE0AC51FE21E1100D10A5C /* ImageCenterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCenterButton.m; sourceTree = "<group>"; };
 		11FE0AC61FE21E1100D10A5C /* KRBaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRBaseTool.h; sourceTree = "<group>"; };
@@ -151,9 +171,8 @@
 		114CF5A41FE26C68004B5701 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				114CF5D11FE392AF004B5701 /* controllers */,
 				114CF5AF1FE276FD004B5701 /* views */,
-				114CF5A51FE26C74004B5701 /* HomeViewController.h */,
-				114CF5A61FE26C74004B5701 /* HomeViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -163,6 +182,11 @@
 			children = (
 				114CF5B01FE27718004B5701 /* HomeCell.h */,
 				114CF5B11FE27718004B5701 /* HomeCell.m */,
+				114CF5D51FE39DBF004B5701 /* CommonListCell.h */,
+				114CF5D61FE39DBF004B5701 /* CommonListCell.m */,
+				114CF5E41FE4E2C8004B5701 /* AppealCell.h */,
+				114CF5E51FE4E2C8004B5701 /* AppealCell.m */,
+				114CF5E61FE4E2C8004B5701 /* AppealCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -177,6 +201,23 @@
 			);
 			name = "自定义banner";
 			path = "../../../自定义banner";
+			sourceTree = "<group>";
+		};
+		114CF5D11FE392AF004B5701 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				114CF5A51FE26C74004B5701 /* HomeViewController.h */,
+				114CF5A61FE26C74004B5701 /* HomeViewController.m */,
+				114CF5D21FE39334004B5701 /* CommonListViewController.h */,
+				114CF5D31FE39334004B5701 /* CommonListViewController.m */,
+				114CF5DB1FE3B35D004B5701 /* ItemDetailsViewController.h */,
+				114CF5DC1FE3B35D004B5701 /* ItemDetailsViewController.m */,
+				114CF5DE1FE3C7ED004B5701 /* HotNewsViewController.h */,
+				114CF5DF1FE3C7ED004B5701 /* HotNewsViewController.m */,
+				114CF5E11FE3CAFA004B5701 /* AppealViewController.h */,
+				114CF5E21FE3CAFA004B5701 /* AppealViewController.m */,
+			);
+			path = controllers;
 			sourceTree = "<group>";
 		};
 		11FE0AC21FE21DF500D10A5C /* Classes */ = {
@@ -428,6 +469,7 @@
 			files = (
 				11FE0AF91FE21E1200D10A5C /* MBProgressHUD.bundle in Resources */,
 				1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */,
+				114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,10 +537,12 @@
 			files = (
 				11FE0AF41FE21E1200D10A5C /* TYTabPagerController.m in Sources */,
 				114CF59D1FE250BD004B5701 /* LoginViewController.m in Sources */,
+				114CF5DD1FE3B35D004B5701 /* ItemDetailsViewController.m in Sources */,
 				11FE0AF31FE21E1200D10A5C /* TYTabButtonPagerController.m in Sources */,
 				11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */,
 				11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */,
 				11FE0AF51FE21E1200D10A5C /* TYTabTitleViewCell.m in Sources */,
+				114CF5E31FE3CAFA004B5701 /* AppealViewController.m in Sources */,
 				114CF5B21FE27718004B5701 /* HomeCell.m in Sources */,
 				11FE0AFD1FE21E1200D10A5C /* UIView+BorderLine.m in Sources */,
 				1A6304C71FE273A800AE1751 /* BussinessViewController.m in Sources */,
@@ -508,15 +552,18 @@
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
 				114CF5B91FE2B581004B5701 /* PGIndexBannerSubiew.m in Sources */,
+				114CF5E01FE3C7ED004B5701 /* HotNewsViewController.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
 				11FE0AF21FE21E1200D10A5C /* TYPagerController.m in Sources */,
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,
 				11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */,
+				114CF5D41FE39334004B5701 /* CommonListViewController.m in Sources */,
 				1A6304C41FE2739C00AE1751 /* MineViewController.m in Sources */,
 				114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */,
 				11FE0AFC1FE21E1200D10A5C /* UITableView+KREmptyData.m in Sources */,
 				1A6304CA1FE273B300AE1751 /* PublickViewController.m in Sources */,
 				1A6304B31FE2196400AE1751 /* main.m in Sources */,
+				114CF5D71FE39DBF004B5701 /* CommonListCell.m in Sources */,
 				1A6304BE1FE26F1B00AE1751 /* BaseTabbarViewController.m in Sources */,
 				11FE0AF81FE21E1200D10A5C /* MBProgressHUD+KR.m in Sources */,
 				11FE0AEE1FE21E1200D10A5C /* KRMainNetTool.m in Sources */,
@@ -524,6 +571,7 @@
 				11FE0AEC1FE21E1200D10A5C /* ImageCenterButton.m in Sources */,
 				114CF5A01FE258C2004B5701 /* UIImage+Color.m in Sources */,
 				1A6304A51FE2196400AE1751 /* AppDelegate.m in Sources */,
+				114CF5E71FE4E2C8004B5701 /* AppealCell.m in Sources */,
 				11FE0AF71FE21E1200D10A5C /* YHMath.m in Sources */,
 				114CF5A71FE26C74004B5701 /* HomeViewController.m in Sources */,
 			);
@@ -645,6 +693,7 @@
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = text.WisdomRiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -661,6 +710,7 @@
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = text.WisdomRiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
