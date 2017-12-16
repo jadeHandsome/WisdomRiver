@@ -12,6 +12,7 @@
 #import "CommonListViewController.h"
 #import "HotNewsViewController.h"
 #import "AppealViewController.h"
+#import "AddItemsViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -417,7 +418,15 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section != 0 && indexPath.item == 0) {
-        
+        AddItemsViewController *addItemsVC = [AddItemsViewController new];
+        if (indexPath.section == 1) {
+            addItemsVC.naviTitle = @"选择部门";
+        }
+        else{
+            addItemsVC.naviTitle = @"选择主题";
+        }
+        addItemsVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:addItemsVC animated:YES];
     }
     else{
         if (indexPath.section == 0 && indexPath.item == 3) {

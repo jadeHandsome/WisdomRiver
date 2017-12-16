@@ -7,23 +7,57 @@
 //
 
 #import "HotNewsViewController.h"
-
-@interface HotNewsViewController ()<UIScrollViewDelegate>
+#import "CommonListCell.h"
+#import "HotNewsDetailViewController.h"
+@interface HotNewsViewController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *preBtn;
 @property (nonatomic, strong) UIButton *button1;
 @property (nonatomic, strong) UIButton *button2;
 @property (nonatomic, strong) UIButton *button3;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UITableView *policyTableView;
+@property (nonatomic, strong) UITableView *notificationTableView;
+@property (nonatomic, strong) UITableView *informationTableView;
+@property (nonatomic, strong) NSMutableArray *policyArr;
+@property (nonatomic, strong) NSMutableArray *notificationArr;
+@property (nonatomic, strong) NSMutableArray *informationArr;
+
 @end
 
 @implementation HotNewsViewController
+- (NSMutableArray *)policyArr{
+    if (!_policyArr) {
+        _policyArr = [NSMutableArray arrayWithObject:@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"}];
+    }
+    return _policyArr;
+}
+
+- (NSMutableArray *)notificationArr{
+    if (!_notificationArr) {
+        _notificationArr = [NSMutableArray arrayWithObjects:@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"},@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"}, nil];
+    }
+    return _notificationArr;
+}
+
+- (NSMutableArray *)informationArr{
+    if (!_informationArr) {
+        _informationArr = [NSMutableArray arrayWithObjects:@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"},@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"},@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"},@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"}, nil];
+    }
+    return _informationArr;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self popOut];
     [self setUp];
+    [self request];
     // Do any additional setup after loading the view.
+}
+
+- (void)request{
+    
 }
 
 - (void)setUp{
@@ -83,7 +117,7 @@
     self.lineView = lineView;
     [buttonsView addSubview:lineView];
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, HEIGHT(152), SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(302))];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, HEIGHT(152), SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
 #ifdef __IPHONE_11_0
     if ([scrollView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
         scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -99,7 +133,44 @@
     self.scrollView = scrollView;
     [self.view addSubview:scrollView];
 
-
+    _policyTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
+    _policyTableView.delegate = self;
+    _policyTableView.dataSource = self;
+    _policyTableView.rowHeight = HEIGHT(300);
+    _policyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+#ifdef __IPHONE_11_0
+    if ([_policyTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        _policyTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+#endif
+    [_policyTableView registerClass:[CommonListCell class] forCellReuseIdentifier:@"CommonListCell"];
+    [scrollView addSubview:_policyTableView];
+    
+    _notificationTableView = [[UITableView alloc] initWithFrame:CGRectMake(SIZEWIDTH, 0, SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
+    _notificationTableView.delegate = self;
+    _notificationTableView.dataSource = self;
+    _notificationTableView.rowHeight = HEIGHT(300);
+    _notificationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+#ifdef __IPHONE_11_0
+    if ([_notificationTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        _notificationTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+#endif
+    [_notificationTableView registerClass:[CommonListCell class] forCellReuseIdentifier:@"CommonListCell"];
+    [scrollView addSubview:_notificationTableView];
+    
+    _informationTableView = [[UITableView alloc] initWithFrame:CGRectMake(SIZEWIDTH*2, 0, SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
+    _informationTableView.delegate = self;
+    _informationTableView.dataSource = self;
+    _informationTableView.rowHeight = HEIGHT(300);
+    _informationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+#ifdef __IPHONE_11_0
+    if ([_informationTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        _informationTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+#endif
+    [_informationTableView registerClass:[CommonListCell class] forCellReuseIdentifier:@"CommonListCell"];
+    [scrollView addSubview:_informationTableView];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -111,6 +182,57 @@
     self.preBtn.selected = YES;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (tableView == _policyTableView) {
+        return self.policyArr.count;
+    }
+    else if (tableView == _notificationTableView){
+        return self.notificationArr.count;
+    }
+    else{
+        return self.informationArr.count;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CommonListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommonListCell" forIndexPath:indexPath];
+    NSDictionary *dic;
+    if (tableView == _policyTableView) {
+        dic = self.policyArr[indexPath.row];
+    }
+    else if (tableView == _notificationTableView){
+        dic = self.notificationArr[indexPath.row];
+    }
+    else{
+        dic = self.informationArr[indexPath.row];
+    }
+    cell.title.text = dic[@"title"];
+    cell.content.text = dic[@"content"];
+    cell.iconImage.image = [UIImage imageNamed:@"zcjd_icon"];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    HotNewsDetailViewController *detailVC = [HotNewsDetailViewController new];
+    if (tableView == _policyTableView) {
+        detailVC.naviTitle = @"政策解读";
+        detailVC.dic = self.policyArr[indexPath.row];
+    }
+    else if (tableView == _notificationTableView){
+        detailVC.naviTitle = @"通知公告";
+        detailVC.dic = self.notificationArr[indexPath.row];
+    }
+    else{
+        detailVC.naviTitle = @"便民信息";
+        detailVC.dic = self.informationArr[indexPath.row];
+    }
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 
 - (void)change:(UIButton *)sender{
     self.preBtn.selected = NO;
