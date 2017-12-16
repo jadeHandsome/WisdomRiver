@@ -15,8 +15,12 @@
                 <outlet property="imageNumLabel" destination="bpg-kO-DVf" id="jZf-LA-nYD"/>
                 <outlet property="imageTitlelabel" destination="XDh-eS-fsr" id="Ojf-Tr-mtI"/>
                 <outlet property="leftItemLabel" destination="OrR-TA-0G6" id="cOk-b0-XA6"/>
+                <outlet property="searchBar" destination="83Y-2M-WAn" id="UEZ-K5-m75"/>
+                <outlet property="shadView" destination="2tL-Vs-xlI" id="hHh-ep-ITq"/>
                 <outlet property="titleHeght" destination="4Q5-mM-XmW" id="A3Q-GZ-T6n"/>
+                <outlet property="topCountName" destination="bpg-kO-DVf" id="9ew-tP-89I"/>
                 <outlet property="topHeight" destination="Myd-fr-NKP" id="hWE-9y-o1h"/>
+                <outlet property="topNameLabel" destination="XDh-eS-fsr" id="bsA-iB-5yL"/>
                 <outlet property="topView" destination="Sr0-AX-qHE" id="aTl-SE-coO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
