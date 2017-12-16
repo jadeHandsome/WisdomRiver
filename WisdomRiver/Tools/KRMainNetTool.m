@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseNaviViewController.h"
 
-#define baseURL @"http://47.92.87.19/"
+#define baseURL @"http://182.151.204.201:8081/"
 @implementation KRMainNetTool
 singleton_implementation(KRMainNetTool)
 //不需要上传文件的接口方法
@@ -66,17 +66,17 @@ singleton_implementation(KRMainNetTool)
         } else {
             response = responseObject;
         }
-        NSNumber *num = response[@"errorCode"];
+        NSNumber *num = response[@"success"];
         //判断返回的状态，200即为服务器查询成功，500服务器查询失败
         //NSLog(@"%@",responseObject);
-        if ([num longValue] == 0) {
+        if ([num longValue] == 1) {
             if (model == nil) {
-                if (response[@"responseParams"]) {
+                if (response) {
                     if ([self.isShow isEqualToString:@"1"]) {
                         //[waitView hideBubble];
                     }
                     
-                    complet(response[@"responseParams"],nil);
+                    complet(response,nil);
                 } else {
                     if ([self.isShow isEqualToString:@"1"]) {
                         //[waitView hideBubble];
@@ -87,7 +87,7 @@ singleton_implementation(KRMainNetTool)
                 
             } else {
                 //[waitView hideBubble];
-                complet([self getModelArrayWith:response[@"responseParams"] andModel:model],nil);
+                complet([self getModelArrayWith:response andModel:model],nil);
             }
         } else if ([num longLongValue] == 6) {
             //登录失效
