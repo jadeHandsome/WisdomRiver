@@ -54,7 +54,6 @@
     [buyCar.tabBarItem setImage:[[UIImage imageNamed:@"个人中心未选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [buyCar.tabBarItem setSelectedImage:[[UIImage imageNamed:@"个人中心选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     //我的
-    
     self.viewControllers = @[homeNav,community,install,buyCar];
     
 }
