@@ -82,8 +82,8 @@ singleton_implementation(KRMainNetTool)
                     if ([self.isShow isEqualToString:@"1"]) {
                         //[waitView hideBubble];
                     }
-                    [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
-                    complet(response[@"errorMsg"],nil);
+                    [MBProgressHUD showError:response[@"mess"] toView:waitView];
+                    complet(nil,response[@"mess"]);
                 }
                 
             } else {
@@ -98,8 +98,8 @@ singleton_implementation(KRMainNetTool)
             [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
         } else {
             
-            [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
-            complet(nil,response[@"errorMsg"]);
+            [MBProgressHUD showError:response[@"mess"] toView:waitView];
+            complet(nil,response[@"mess"]);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         //网络请求失败，隐藏HUD，服务器响应失败。网络问题 或者服务器崩溃

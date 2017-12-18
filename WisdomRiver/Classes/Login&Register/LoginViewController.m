@@ -12,7 +12,8 @@
 #import "BaseTabbarViewController.h"
 
 @interface LoginViewController ()
-
+@property (nonatomic, strong) UITextField *phoneField;
+@property (nonatomic, strong) UITextField *pwdField;
 @end
 
 @implementation LoginViewController
@@ -61,6 +62,7 @@
     UITextField *userField = [[UITextField alloc] init];
     userField.placeholder = @"请输入手机号";
     userField.keyboardType = UIKeyboardTypeNumberPad;
+    self.phoneField = userField;
     [userView addSubview:userField];
     [userField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(userImage.mas_right).offset(WIDTH(30));
@@ -94,6 +96,7 @@
     }];
     UITextField *pwdField = [[UITextField alloc] init];
     pwdField.placeholder = @"请输入密码";
+    self.pwdField = pwdField;
     [pwdView addSubview:pwdField];
     [pwdField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(pwdImage.mas_right).offset(WIDTH(30));
@@ -142,9 +145,29 @@
 }
 
 - (void)loginAction:(UIButton *)sender{
-    BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];
-    
-    self.view.window.rootViewController = tab;
+    if ([self cheakPhoneNumber:self.phoneField.text]) {
+        if (self.pwdField.text) {
+            NSDictionary *params = @{@"phone":self.phoneField.text,@"password":self.pwdField.text};
+            [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appMain/login" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+                if (showdata) {
+                    [self showHUDWithText:showdata[@"mess"]];
+                    [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:showdata[@"user"]];
+                    BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];
+                    self.view.window.rootViewController = tab;
+                }
+                else{
+                    [self showHUDWithText:@"服务器异常，请稍后再试"];
+                }
+            }];
+        }
+        else{
+            [self showHUDWithText:@"密码不能为空"];
+        }
+    }
+    else{
+        [self showHUDWithText:@"手机号格式错误"];
+    }
+
 }
 
 - (void)registerAction:(UIButton *)sender{
