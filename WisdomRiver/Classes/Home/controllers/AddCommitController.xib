@@ -11,6 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCommitController">
             <connections>
+                <outlet property="placeholderLabel" destination="r2d-Vc-Uxt" id="mIl-PA-IOg"/>
+                <outlet property="submitBtn" destination="7EN-Xd-zIB" id="cbT-jt-3bb"/>
+                <outlet property="textNum" destination="8m6-iF-jGj" id="fUz-Ii-N1d"/>
+                <outlet property="textView" destination="VNI-JR-XS7" id="8ob-SZ-81M"/>
+                <outlet property="titleField" destination="AB1-U9-sRr" id="5bW-a3-ts4"/>
+                <outlet property="typeLabel" destination="oTQ-HY-DrO" id="xfW-Tt-shO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -79,6 +85,7 @@
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="oTQ-HY-DrO" firstAttribute="centerY" secondItem="ceT-GK-SqR" secondAttribute="centerY" id="7mN-qh-Bae"/>
                         <constraint firstItem="Pdu-4T-qFY" firstAttribute="leading" secondItem="ceT-GK-SqR" secondAttribute="leading" constant="20" id="GmP-1q-lgg"/>
@@ -88,6 +95,9 @@
                         <constraint firstItem="Pdu-4T-qFY" firstAttribute="centerY" secondItem="ceT-GK-SqR" secondAttribute="centerY" id="mRc-Bc-36M"/>
                         <constraint firstItem="oTQ-HY-DrO" firstAttribute="leading" secondItem="Pdu-4T-qFY" secondAttribute="trailing" constant="15" id="r5R-UR-TS0"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="cgG-4F-KIY" appends="YES" id="RWo-tE-nJa"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGj-Kl-2yJ">
                     <rect key="frame" x="0.0" y="110" width="375" height="120"/>
@@ -133,6 +143,9 @@
                     <state key="normal" title="提交">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="submit:" destination="-1" eventType="touchUpInside" id="xqJ-vn-Nox"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -150,8 +163,13 @@
                 <constraint firstItem="MGj-Kl-2yJ" firstAttribute="top" secondItem="ceT-GK-SqR" secondAttribute="bottom" constant="10" id="sII-4n-a38"/>
                 <constraint firstItem="MGj-Kl-2yJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ySW-mA-cV1"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="147.5"/>
+            <point key="canvasLocation" x="-39" y="148"/>
         </view>
+        <tapGestureRecognizer id="cgG-4F-KIY">
+            <connections>
+                <action selector="chooseType:" destination="-1" id="qqi-p1-aaC"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="icon_right_arrow" width="7" height="11"/>
