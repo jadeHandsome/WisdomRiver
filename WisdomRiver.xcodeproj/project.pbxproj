@@ -53,6 +53,9 @@
 		1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */; };
 		1A1A4D711FE4D8D300C66AA3 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */; };
 		1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */; };
+		1A61F7F61FE750C900C07E7C /* PublicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61F7F41FE750C900C07E7C /* PublicCollectionViewCell.m */; };
+		1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A61F7F51FE750C900C07E7C /* PublicCollectionViewCell.xib */; };
+		1A61F7FA1FE75B9900C07E7C /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61F7F91FE75B9900C07E7C /* BaseWebViewController.m */; };
 		1A6304A51FE2196400AE1751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304A41FE2196400AE1751 /* AppDelegate.m */; };
 		1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6304AC1FE2196400AE1751 /* Assets.xcassets */; };
 		1A6304B31FE2196400AE1751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304B21FE2196400AE1751 /* main.m */; };
@@ -67,6 +70,7 @@
 		1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6304DC1FE3ACDB00AE1751 /* BussinessSubViewController.xib */; };
 		1A8F9EDA1FE56DB400B062B1 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9ED61FE56DB400B062B1 /* PGIndexBannerSubiew.m */; };
 		1A8F9EDB1FE56DB400B062B1 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9ED71FE56DB400B062B1 /* NewPagedFlowView.m */; };
+		1A8F9EDE1FE657B400B062B1 /* CBSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9EDD1FE657B300B062B1 /* CBSegmentView.m */; };
 		2F009ED99ED1713A8D96FC3A /* libPods-WisdomRiver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C4FF3A16DAF878FEC03101 /* libPods-WisdomRiver.a */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +165,11 @@
 		1A1A4D6E1FE4D8D300C66AA3 /* GoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
 		1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
 		1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailViewController.xib; sourceTree = "<group>"; };
+		1A61F7F31FE750C900C07E7C /* PublicCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCollectionViewCell.h; sourceTree = "<group>"; };
+		1A61F7F41FE750C900C07E7C /* PublicCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCollectionViewCell.m; sourceTree = "<group>"; };
+		1A61F7F51FE750C900C07E7C /* PublicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicCollectionViewCell.xib; sourceTree = "<group>"; };
+		1A61F7F81FE75B9900C07E7C /* BaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		1A61F7F91FE75B9900C07E7C /* BaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		1A6304A01FE2196400AE1751 /* WisdomRiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WisdomRiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6304A31FE2196400AE1751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A6304A41FE2196400AE1751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -187,6 +196,8 @@
 		1A8F9ED71FE56DB400B062B1 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
 		1A8F9ED81FE56DB400B062B1 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
 		1A8F9ED91FE56DB400B062B1 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		1A8F9EDC1FE657B300B062B1 /* CBSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSegmentView.h; sourceTree = "<group>"; };
+		1A8F9EDD1FE657B300B062B1 /* CBSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSegmentView.m; sourceTree = "<group>"; };
 		3053E2B87EDCB750AFCF926B /* Pods-WisdomRiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomRiver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomRiver/Pods-WisdomRiver.debug.xcconfig"; sourceTree = "<group>"; };
 		36E4BBA5093BC898F3DF8F2F /* Pods-WisdomRiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomRiver.release.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomRiver/Pods-WisdomRiver.release.xcconfig"; sourceTree = "<group>"; };
 		C1C4FF3A16DAF878FEC03101 /* libPods-WisdomRiver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WisdomRiver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,6 +296,8 @@
 		11FE0AC31FE21E1100D10A5C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1A8F9EDC1FE657B300B062B1 /* CBSegmentView.h */,
+				1A8F9EDD1FE657B300B062B1 /* CBSegmentView.m */,
 				1A8F9ED51FE56DB400B062B1 /* 自定义banner */,
 				11FE0B081FE21F6800D10A5C /* Category */,
 				11FE0AC41FE21E1100D10A5C /* ImageCenterButton.h */,
@@ -352,6 +365,8 @@
 				11FE0B021FE21E2100D10A5C /* BaseViewController.m */,
 				1A6304BC1FE26F1B00AE1751 /* BaseTabbarViewController.h */,
 				1A6304BD1FE26F1B00AE1751 /* BaseTabbarViewController.m */,
+				1A61F7F81FE75B9900C07E7C /* BaseWebViewController.h */,
+				1A61F7F91FE75B9900C07E7C /* BaseWebViewController.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -417,6 +432,9 @@
 			children = (
 				1A6304C81FE273B300AE1751 /* PublickViewController.h */,
 				1A6304C91FE273B300AE1751 /* PublickViewController.m */,
+				1A61F7F31FE750C900C07E7C /* PublicCollectionViewCell.h */,
+				1A61F7F41FE750C900C07E7C /* PublicCollectionViewCell.m */,
+				1A61F7F51FE750C900C07E7C /* PublicCollectionViewCell.xib */,
 			);
 			path = PublickSevise;
 			sourceTree = "<group>";
@@ -565,7 +583,11 @@
 				1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */,
 				11DD5BA11FE580EF0053A3DB /* AddItemsViewController.xib in Resources */,
 				114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */,
+
+				1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */,
+
 				11DD5BA61FE585720053A3DB /* SelectCell.xib in Resources */,
+
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
 				1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */,
 				1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */,
@@ -635,6 +657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11FE0AF41FE21E1200D10A5C /* TYTabPagerController.m in Sources */,
+				1A61F7FA1FE75B9900C07E7C /* BaseWebViewController.m in Sources */,
 				114CF59D1FE250BD004B5701 /* LoginViewController.m in Sources */,
 				114CF5DD1FE3B35D004B5701 /* ItemDetailsViewController.m in Sources */,
 				11FE0AF31FE21E1200D10A5C /* TYTabButtonPagerController.m in Sources */,
@@ -665,6 +688,7 @@
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,
 				11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */,
 				114CF5D41FE39334004B5701 /* CommonListViewController.m in Sources */,
+				1A61F7F61FE750C900C07E7C /* PublicCollectionViewCell.m in Sources */,
 				1A6304C41FE2739C00AE1751 /* MineViewController.m in Sources */,
 				114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */,
 				11FE0AFC1FE21E1200D10A5C /* UITableView+KREmptyData.m in Sources */,
@@ -677,6 +701,7 @@
 				11FE0AF81FE21E1200D10A5C /* MBProgressHUD+KR.m in Sources */,
 				11FE0AEE1FE21E1200D10A5C /* KRMainNetTool.m in Sources */,
 				11FE0AEF1FE21E1200D10A5C /* KRUserInfo.m in Sources */,
+				1A8F9EDE1FE657B400B062B1 /* CBSegmentView.m in Sources */,
 				11DD5B9B1FE5768D0053A3DB /* HotNewsDetailViewController.m in Sources */,
 				11FE0AEC1FE21E1200D10A5C /* ImageCenterButton.m in Sources */,
 				114CF5A01FE258C2004B5701 /* UIImage+Color.m in Sources */,
