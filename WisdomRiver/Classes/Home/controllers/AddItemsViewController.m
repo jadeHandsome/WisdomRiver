@@ -17,6 +17,13 @@
 
 @implementation AddItemsViewController
 
+- (NSArray *)dataArr{
+    if (!_dataArr) {
+        _dataArr = @[@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3"];
+    }
+    return _dataArr;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self popOut];

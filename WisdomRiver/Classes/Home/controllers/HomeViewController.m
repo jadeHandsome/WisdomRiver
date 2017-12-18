@@ -417,35 +417,41 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section != 0 && indexPath.item == 0) {
-        AddItemsViewController *addItemsVC = [AddItemsViewController new];
-        if (indexPath.section == 1) {
-            addItemsVC.naviTitle = @"选择部门";
-        }
-        else{
-            addItemsVC.naviTitle = @"选择主题";
-        }
-        addItemsVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:addItemsVC animated:YES];
-    }
-    else{
-        if (indexPath.section == 0 && indexPath.item == 3) {
-            HotNewsViewController *hotNewsVC = [HotNewsViewController new];
-            [hotNewsVC setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:hotNewsVC animated:YES];
-        }
-        else if (indexPath.section == 0 && indexPath.item == 2) {
+    if (indexPath.section == 0) {
+        if (indexPath.item == 2) {
             AppealViewController *appealVC = [AppealViewController new];
             [appealVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:appealVC animated:YES];
+        }
+        else if (indexPath.item == 3){
+            HotNewsViewController *hotNewsVC = [HotNewsViewController new];
+            [hotNewsVC setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:hotNewsVC animated:YES];
         }
         else{
             CommonListViewController *listVC = [CommonListViewController new];
             listVC.naviTitle = self.dataArr[indexPath.section][indexPath.item][@"title"];
             [listVC setHidesBottomBarWhenPushed:YES];
-            if (indexPath.section == 0) {
-                listVC.haveType = YES;
+            listVC.haveType = YES;
+            [self.navigationController pushViewController:listVC animated:YES];
+        }
+    }
+    else{
+        if (indexPath.item == 0) {
+            AddItemsViewController *addItemsVC = [AddItemsViewController new];
+            if (indexPath.section == 1) {
+                addItemsVC.naviTitle = @"选择部门";
             }
+            else{
+                addItemsVC.naviTitle = @"选择主题";
+            }
+            addItemsVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:addItemsVC animated:YES];
+        }
+        else{
+            CommonListViewController *listVC = [CommonListViewController new];
+            listVC.naviTitle = self.dataArr[indexPath.section][indexPath.item - 1][@"title"];
+            [listVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:listVC animated:YES];
         }
     }
