@@ -97,6 +97,7 @@
     UITextField *pwdField = [[UITextField alloc] init];
     pwdField.placeholder = @"请输入密码";
     self.pwdField = pwdField;
+    pwdField.secureTextEntry = YES;
     [pwdView addSubview:pwdField];
     [pwdField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(pwdImage.mas_right).offset(WIDTH(30));

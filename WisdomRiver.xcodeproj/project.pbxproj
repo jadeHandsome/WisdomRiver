@@ -53,6 +53,8 @@
 		1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */; };
 		1A1A4D711FE4D8D300C66AA3 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */; };
 		1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */; };
+		1A5114981FE7F53000D87D02 /* BaseMineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5114971FE7F53000D87D02 /* BaseMineView.m */; };
+		1A51149A1FE7F54100D87D02 /* BaseMineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A5114991FE7F54100D87D02 /* BaseMineView.xib */; };
 		1A61F7F61FE750C900C07E7C /* PublicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61F7F41FE750C900C07E7C /* PublicCollectionViewCell.m */; };
 		1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A61F7F51FE750C900C07E7C /* PublicCollectionViewCell.xib */; };
 		1A61F7FA1FE75B9900C07E7C /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61F7F91FE75B9900C07E7C /* BaseWebViewController.m */; };
@@ -165,6 +167,9 @@
 		1A1A4D6E1FE4D8D300C66AA3 /* GoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
 		1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
 		1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailViewController.xib; sourceTree = "<group>"; };
+		1A5114961FE7F53000D87D02 /* BaseMineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseMineView.h; sourceTree = "<group>"; };
+		1A5114971FE7F53000D87D02 /* BaseMineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseMineView.m; sourceTree = "<group>"; };
+		1A5114991FE7F54100D87D02 /* BaseMineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseMineView.xib; sourceTree = "<group>"; };
 		1A61F7F31FE750C900C07E7C /* PublicCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCollectionViewCell.h; sourceTree = "<group>"; };
 		1A61F7F41FE750C900C07E7C /* PublicCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCollectionViewCell.m; sourceTree = "<group>"; };
 		1A61F7F51FE750C900C07E7C /* PublicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -444,6 +449,9 @@
 			children = (
 				1A6304C21FE2739C00AE1751 /* MineViewController.h */,
 				1A6304C31FE2739C00AE1751 /* MineViewController.m */,
+				1A5114961FE7F53000D87D02 /* BaseMineView.h */,
+				1A5114971FE7F53000D87D02 /* BaseMineView.m */,
+				1A5114991FE7F54100D87D02 /* BaseMineView.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -576,6 +584,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A51149A1FE7F54100D87D02 /* BaseMineView.xib in Resources */,
 				1A6304D01FE2791500AE1751 /* BussItemBtnView.xib in Resources */,
 				11FE0AF91FE21E1200D10A5C /* MBProgressHUD.bundle in Resources */,
 				11DD5B9C1FE5768D0053A3DB /* HotNewsDetailViewController.xib in Resources */,
@@ -583,11 +592,8 @@
 				1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */,
 				11DD5BA11FE580EF0053A3DB /* AddItemsViewController.xib in Resources */,
 				114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */,
-
 				1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */,
-
 				11DD5BA61FE585720053A3DB /* SelectCell.xib in Resources */,
-
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
 				1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */,
 				1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */,
@@ -677,10 +683,7 @@
 				11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */,
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
-
 				11DD5BA51FE585720053A3DB /* SelectCell.m in Sources */,
-				114CF5B91FE2B581004B5701 /* PGIndexBannerSubiew.m in Sources */,
-
 				114CF5EF1FE502C5004B5701 /* AddCommitController.m in Sources */,
 				114CF5E01FE3C7ED004B5701 /* HotNewsViewController.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
@@ -694,6 +697,7 @@
 				11FE0AFC1FE21E1200D10A5C /* UITableView+KREmptyData.m in Sources */,
 				1A6304CA1FE273B300AE1751 /* PublickViewController.m in Sources */,
 				1A6304CE1FE2790D00AE1751 /* BussItemBtnView.m in Sources */,
+				1A5114981FE7F53000D87D02 /* BaseMineView.m in Sources */,
 				1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */,
 				1A6304B31FE2196400AE1751 /* main.m in Sources */,
 				114CF5D71FE39DBF004B5701 /* CommonListCell.m in Sources */,

@@ -26,7 +26,7 @@
         
         _collectionFlowyout = [[UICollectionViewFlowLayout alloc] init];
         
-        _collectionFlowyout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width*0.5, HEIGHT(790));
+        _collectionFlowyout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width*0.5, HEIGHT(700));
         
         _collectionFlowyout.minimumLineSpacing = 0;
         
