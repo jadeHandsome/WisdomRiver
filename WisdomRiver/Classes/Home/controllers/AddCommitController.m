@@ -14,11 +14,14 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
-
 @property (weak, nonatomic) IBOutlet UILabel *textNum;
+@property (nonatomic, strong) NSArray *typeArr;
+@property (nonatomic, strong) NSArray *typeTextArr;
+@property (nonatomic, assign) NSInteger selectIndex;
 @end
 
 @implementation AddCommitController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +30,22 @@
     self.view.backgroundColor = COLOR(245, 245, 245, 1);
     LRViewBorderRadius(self.submitBtn, 20, 0, ThemeColor);
     self.textView.delegate = self;
+    [self getTypeData];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)getTypeData{
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/appealManagementType" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            self.typeArr = showdata[@"list"];
+            NSMutableArray *muArr = [NSMutableArray array];
+            for (NSDictionary *dic in self.typeArr) {
+                NSString *text = dic[@"name"];
+                [muArr addObject:text];
+            }
+            self.typeTextArr = muArr;
+        }
+    }];
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
@@ -48,13 +66,31 @@
 }
 
 - (IBAction)chooseType:(id)sender {
-    SelectionView *selectionView = [[SelectionView alloc] initWithDataArr:@[@"投诉",@"求助",@"建议",@"其它"] title:@"请选择类型" currentIndex:0 seleted:^(NSInteger index, NSString *selectStr) {
+    SelectionView *selectionView = [[SelectionView alloc] initWithDataArr:self.typeTextArr title:@"请选择类型" currentIndex:0 seleted:^(NSInteger index, NSString *selectStr) {
         self.typeLabel.text = selectStr;
+        self.selectIndex = index;
     }];
     [self.view.window addSubview:selectionView];
 }
 - (IBAction)submit:(UIButton *)sender {
-    
+    if (self.titleField.text.length == 0) {
+        [self showHUDWithText:@"请输入标题"];
+    }
+    else if ([self.typeLabel.text isEqualToString:@"类型"]){
+        [self showHUDWithText:@"请选择类型"];
+    }
+    else if (self.textView.text.length == 0) {
+        [self showHUDWithText:@"请输入内容"];
+    }
+    else{
+        NSDictionary *params = @{@"title":self.titleField.text,@"type":self.typeArr[self.selectIndex][@"id"],@"content":self.textView.text};
+        [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/appealManagement" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            if (showdata) {
+                [self showHUDWithText:showdata[@"mess"]];
+                [self performSelector:@selector(popOutAction) withObject:nil afterDelay:1.0];
+            }
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

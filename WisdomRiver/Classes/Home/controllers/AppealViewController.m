@@ -15,12 +15,14 @@
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) UIImageView *noDataImage;
 @property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, assign) NSInteger currPage;
+@property (nonatomic, strong) UITextField *textField;
 @end
 
 @implementation AppealViewController
 - (NSMutableArray *)data{
     if (!_data) {
-        _data = [NSMutableArray arrayWithObject:@{@"title":@"你是傻逼",@"content":@"1231231231ewdadae1wdadscawdas",@"time":@"2017-12-08",@"status":@"未回复"}];
+        _data = [NSMutableArray array];
     }
     return _data;
 }
@@ -29,15 +31,11 @@
     [super viewDidLoad];
     [self popOut];
     [self setUp];
-    [self requestData];
+    self.currPage = 1;
+    [self.tableView.mj_header beginRefreshing];
     // Do any additional setup after loading the view.
 }
 
-- (void)requestData{
-    if (!self.data.count) {
-        self.noDataImage.hidden = NO;
-    }
-}
 
 - (void)setUp{
     self.navigationItem.title = @"诉求互动";
@@ -55,6 +53,9 @@
     }
 #endif
     [tableView registerNib:[UINib nibWithNibName:@"AppealCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"AppealCell"];
+    [KRBaseTool tableViewAddRefreshHeader:tableView withTarget:self refreshingAction:@selector(refreshData)];
+    [KRBaseTool tableViewAddRefreshFooter:tableView withTarget:self refreshingAction:@selector(getMoreData)];
+    self.tableView = tableView;
     [self.view addSubview:tableView];
     
     UIButton *addButton = [[UIButton alloc] init];
@@ -84,6 +85,57 @@
     
 }
 
+//重新获取
+- (void)refreshData{
+    [self requestData:YES];
+}
+
+//获取更多
+- (void)getMoreData{
+    [self requestData:NO];
+}
+
+- (void)requestData:(BOOL)isRefresh{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"pageSize"] = @(20);
+    params[@"currPage"] = isRefresh ? @(1) : @(self.currPage + 1);
+    params[@"title"] = self.textField.text;
+    if (self.currentIndex == 0) {
+        params[@"replyStatus"] = @"";
+    }
+    else if (self.currentIndex == 1){
+        params[@"replyStatus"] = @"0";
+    }
+    else{
+        params[@"replyStatus"] = @"1";
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/getAppealManagement" params:params withModel:nil complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            if (isRefresh) {
+                self.currPage = 1;
+                self.data = [showdata[@"list"] mutableCopy];
+                [self.tableView.mj_header endRefreshing];
+            }
+            else{
+                self.currPage ++;
+                [self.data addObjectsFromArray:showdata[@"list"]];
+                [self.tableView.mj_footer endRefreshing];
+            }
+            if ([showdata[@"lastPage"] integerValue] == 1) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            [self.tableView reloadData];
+        }
+        if (!showdata || self.data.count == 0) {
+            self.noDataImage.hidden = NO;
+        }
+        else{
+            self.noDataImage.hidden = YES;
+        }
+    }];
+}
+
+
 - (void)searchItem{
     UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH / 2, 44)];
     searchField.placeholder = @"输入标题查询";
@@ -92,16 +144,19 @@
     [searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [searchField addTarget:self action:@selector(searchOnReturn:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [searchField becomeFirstResponder];
+    self.textField = searchField;
     self.navigationItem.titleView = searchField;
 }
 
 - (void)searchOnReturn:(UITextField *)sender{
-    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)typeItem{
+    [self.view endEditing:YES];
     SelectionView *selectionView = [[SelectionView alloc] initWithDataArr:@[@"全部",@"未回复",@"已回复"] title:@"回复状态" currentIndex:self.currentIndex seleted:^(NSInteger index, NSString *selectStr) {
         self.currentIndex = index;
+        [self.tableView.mj_header beginRefreshing];
     }];
     [self.view.window addSubview:selectionView];
 }
@@ -117,9 +172,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AppealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppealCell" forIndexPath:indexPath];
     cell.title.text = self.data[indexPath.row][@"title"];
-    cell.content.text = self.data[indexPath.row][@"content"];
-    cell.time.text = self.data[indexPath.row][@"time"];
-    cell.status.text = self.data[indexPath.row][@"status"];
+    cell.content.text = [NSString stringWithFormat:@"诉求内容：%@",self.data[indexPath.row][@"content"]];
+    cell.time.text = [NSString stringWithFormat:@"提交时间：%@",self.data[indexPath.row][@"createdate"]];
+    BOOL status = self.data[indexPath.row][@"reply"] != [NSNull null];
+    cell.status.text =  status? @"已回复" : @"未回复";
+    cell.status.textColor = status ? ThemeColor : ColorRgbValue(0xE2D423);
     return cell;
 }
 

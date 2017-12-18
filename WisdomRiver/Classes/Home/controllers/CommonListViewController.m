@@ -15,13 +15,16 @@
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) UIImageView *noDataImage;
 @property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, assign) NSInteger currPage;
+@property (nonatomic, strong) UITextField *textField;
+
 @end
 
 @implementation CommonListViewController
 
 - (NSMutableArray *)data{
     if (!_data) {
-        _data = [NSMutableArray arrayWithObject:@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"}];
+        _data = [NSMutableArray array];
     }
     return _data;
 }
@@ -32,15 +35,63 @@
     [super viewDidLoad];
     [self popOut];
     [self setUp];
-    [self requestData];
+    self.currPage = 1;
+    [self.tableView.mj_header beginRefreshing];
     // Do any additional setup after loading the view.
 }
 
-- (void)requestData{
-    if (!self.data.count) {
-        self.noDataImage.hidden = NO;
-    }
+//重新获取
+- (void)refreshData{
+    [self requestData:YES];
 }
+
+//获取更多
+- (void)getMoreData{
+    [self requestData:NO];
+}
+
+- (void)requestData:(BOOL)isRefresh{
+    NSString *url = nil;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"pageSize"] = @(20);
+    params[@"currPage"] = isRefresh ? @(1) : @(self.currPage + 1);
+    params[@"name"] = self.textField.text;
+    if ([self.naviTitle isEqualToString:@"网上预审"]) {
+        url = @"appGovernmentFront/getSubscribeGovernmentService";
+        if (self.currentIndex == 0) {
+            params[@"userid"] = [KRUserInfo sharedKRUserInfo].userid;
+        }
+        else{
+            params[@"userid"] = @"";
+        }
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:url params:params withModel:nil complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            if (isRefresh) {
+                self.currPage = 1;
+                self.data = [showdata[@"list"] mutableCopy];
+                [self.tableView.mj_header endRefreshing];
+            }
+            else{
+                self.currPage ++;
+                [self.data addObjectsFromArray:showdata[@"list"]];
+                [self.tableView.mj_footer endRefreshing];
+            }
+            if ([showdata[@"lastPage"] integerValue] == 1) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            [self.tableView reloadData];
+        }
+        if (!showdata || self.data.count == 0) {
+            self.noDataImage.hidden = NO;
+        }
+        else{
+            self.noDataImage.hidden = YES;
+        }
+    }];
+}
+
+
 
 - (void)setUp{
     self.navigationItem.title = self.naviTitle;
@@ -58,6 +109,9 @@
     }
 #endif
     [tableView registerClass:[CommonListCell class] forCellReuseIdentifier:@"CommonListCell"];
+    [KRBaseTool tableViewAddRefreshHeader:tableView withTarget:self refreshingAction:@selector(refreshData)];
+    [KRBaseTool tableViewAddRefreshFooter:tableView withTarget:self refreshingAction:@selector(getMoreData)];
+    self.tableView = tableView;
     [self.view addSubview:tableView];
     
     UIImageView *noDataImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"empty"]];
@@ -81,16 +135,19 @@
     [searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [searchField addTarget:self action:@selector(searchOnReturn:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [searchField becomeFirstResponder];
+    self.textField = searchField;
     self.navigationItem.titleView = searchField;
 }
 
 - (void)searchOnReturn:(UITextField *)sender{
-    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)typeItem{
+    [self.view endEditing:YES];
     SelectionView *selectionView = [[SelectionView alloc] initWithDataArr:@[@"全部社区",@"本社区"] title:@"事项开放社区" currentIndex:self.currentIndex seleted:^(NSInteger index, NSString *selectStr) {
         self.currentIndex = index;
+        [self.tableView.mj_header beginRefreshing];
     }];
     [self.view.window addSubview:selectionView];
 }
@@ -105,8 +162,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CommonListCell *cell = (CommonListCell *)[tableView dequeueReusableCellWithIdentifier:@"CommonListCell" forIndexPath:indexPath];
-    cell.title.text = self.data[indexPath.row][@"title"];
-    cell.content.text = self.data[indexPath.row][@"content"];
+    cell.title.text = self.data[indexPath.row][@"name"];
+    cell.content.text = self.data[indexPath.row][@"preconditionContent"];
     cell.iconImage.image = [UIImage imageNamed:@"icon111"];
     return cell;
 }

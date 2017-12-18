@@ -28,11 +28,12 @@
         make.centerY.equalTo(self);
     }];
     UILabel *title = [[UILabel alloc] init];
-    title.font = [UIFont systemFontOfSize:HEIGHT(42)];
+    title.font = [UIFont boldSystemFontOfSize:HEIGHT(42)];
     self.title = title;
     [self addSubview:title];
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(iconImage.mas_right).offset(WIDTH(28));
+        make.right.equalTo(self).offset(WIDTH(-50));
         make.top.equalTo(self).offset(HEIGHT(66));
     }];
     UILabel *content = [[UILabel alloc] init];

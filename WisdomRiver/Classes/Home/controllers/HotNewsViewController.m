@@ -22,27 +22,30 @@
 @property (nonatomic, strong) NSMutableArray *policyArr;
 @property (nonatomic, strong) NSMutableArray *notificationArr;
 @property (nonatomic, strong) NSMutableArray *informationArr;
-
+@property (nonatomic, strong) NSString *type;//1:政策法规，2：通知公告，3：便民信息
+@property (nonatomic, assign) NSInteger policyCurrPage;
+@property (nonatomic, assign) NSInteger notificationCurrPage;
+@property (nonatomic, assign) NSInteger informationCurrPage;
 @end
 
 @implementation HotNewsViewController
 - (NSMutableArray *)policyArr{
     if (!_policyArr) {
-        _policyArr = [NSMutableArray arrayWithObject:@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"}];
+        _policyArr = [NSMutableArray array];
     }
     return _policyArr;
 }
 
 - (NSMutableArray *)notificationArr{
     if (!_notificationArr) {
-        _notificationArr = [NSMutableArray arrayWithObjects:@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"},@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"}, nil];
+        _notificationArr = [NSMutableArray array];
     }
     return _notificationArr;
 }
 
 - (NSMutableArray *)informationArr{
     if (!_informationArr) {
-        _informationArr = [NSMutableArray arrayWithObjects:@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"},@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"},@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"},@{@"title":@"123213",@"content":@"sadsdadsasdasdasdasdascaacxacscascadqwdqwqdscascZcxcacasdqwdqcscacacadakdhiahdabdkbkdbakbdahdiwhdbajkdbkahdhdlabdlkandkabdjkaskdalhsjadskjdalhd"}, nil];
+        _informationArr = [NSMutableArray array];
     }
     return _informationArr;
 }
@@ -52,13 +55,92 @@
     [super viewDidLoad];
     [self popOut];
     [self setUp];
-    [self request];
+    self.type = @"1";
+    self.policyCurrPage = 1;
+    self.notificationCurrPage = 1;
+    self.informationCurrPage = 1;
+    [_policyTableView.mj_header beginRefreshing];
+    [self requestData:@"2" isRefresh:YES];
+    [self requestData:@"3" isRefresh:YES];
     // Do any additional setup after loading the view.
 }
-
-- (void)request{
-    
+//重新获取
+- (void)refreshData{
+    [self requestData:self.type isRefresh:YES];
 }
+
+//获取更多
+- (void)getMoreData{
+    [self requestData:self.type isRefresh:NO];
+}
+
+- (void)requestData:(NSString *)type isRefresh:(BOOL)isRefresh{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"pageSize"] = @(20);
+    params[@"type"] = type;
+    if ([self.type isEqualToString:@"1"]) {
+        params[@"currPage"] = isRefresh ? @(1) : @(self.policyCurrPage + 1);
+    }
+    else if ([self.type isEqualToString:@"2"]){
+        params[@"currPage"] = isRefresh ? @(1) : @(self.notificationCurrPage + 1);
+    }
+    else{
+        params[@"currPage"] = isRefresh ? @(1) : @(self.informationCurrPage + 1);
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/getPolicies" params:params withModel:nil complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            if ([type isEqualToString:@"1"]) {
+                if (isRefresh) {
+                    self.policyCurrPage = 1;
+                    self.policyArr = [showdata[@"list"] mutableCopy];
+                    [_policyTableView.mj_header endRefreshing];
+                }
+                else{
+                    self.policyCurrPage ++;
+                    [self.policyArr addObjectsFromArray:showdata[@"list"]];
+                    [_policyTableView.mj_footer endRefreshing];
+                }
+                if ([showdata[@"lastPage"] integerValue] == 1) {
+                    [_policyTableView.mj_footer endRefreshingWithNoMoreData];
+                }
+                [_policyTableView reloadData];
+            }
+            else if ([type isEqualToString:@"2"]){
+                if (isRefresh) {
+                    self.notificationCurrPage = 1;
+                    self.notificationArr = [showdata[@"list"] mutableCopy];
+                    [_notificationTableView.mj_header endRefreshing];
+                }
+                else{
+                    self.notificationCurrPage ++;
+                    [self.notificationArr addObjectsFromArray:showdata[@"list"]];
+                    [_notificationTableView.mj_footer endRefreshing];
+                }
+                if ([showdata[@"lastPage"] integerValue] == 1) {
+                    [_notificationTableView.mj_footer endRefreshingWithNoMoreData];
+                }
+                [_notificationTableView reloadData];
+            }
+            else{
+                if (isRefresh) {
+                    self.informationCurrPage = 1;
+                    self.informationArr = [showdata[@"list"] mutableCopy];
+                    [_informationTableView.mj_header endRefreshing];
+                }
+                else{
+                    self.informationCurrPage ++;
+                    [self.informationArr addObjectsFromArray:showdata[@"list"]];
+                    [_informationTableView.mj_footer endRefreshing];
+                }
+                if ([showdata[@"lastPage"] integerValue] == 1) {
+                    [_informationTableView.mj_footer endRefreshingWithNoMoreData];
+                }
+                [_informationTableView reloadData];
+            }
+        }
+    }];
+}
+
 
 - (void)setUp{
     self.navigationItem.title = @"热点资讯";
@@ -144,6 +226,8 @@
     }
 #endif
     [_policyTableView registerClass:[CommonListCell class] forCellReuseIdentifier:@"CommonListCell"];
+    [KRBaseTool tableViewAddRefreshHeader:_policyTableView withTarget:self refreshingAction:@selector(refreshData)];
+    [KRBaseTool tableViewAddRefreshFooter:_policyTableView withTarget:self refreshingAction:@selector(getMoreData)];
     [scrollView addSubview:_policyTableView];
     
     _notificationTableView = [[UITableView alloc] initWithFrame:CGRectMake(SIZEWIDTH, 0, SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
@@ -157,6 +241,8 @@
     }
 #endif
     [_notificationTableView registerClass:[CommonListCell class] forCellReuseIdentifier:@"CommonListCell"];
+    [KRBaseTool tableViewAddRefreshHeader:_notificationTableView withTarget:self refreshingAction:@selector(refreshData)];
+    [KRBaseTool tableViewAddRefreshFooter:_notificationTableView withTarget:self refreshingAction:@selector(getMoreData)];
     [scrollView addSubview:_notificationTableView];
     
     _informationTableView = [[UITableView alloc] initWithFrame:CGRectMake(SIZEWIDTH*2, 0, SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
@@ -170,16 +256,20 @@
     }
 #endif
     [_informationTableView registerClass:[CommonListCell class] forCellReuseIdentifier:@"CommonListCell"];
+    [KRBaseTool tableViewAddRefreshHeader:_informationTableView withTarget:self refreshingAction:@selector(refreshData)];
+    [KRBaseTool tableViewAddRefreshFooter:_informationTableView withTarget:self refreshingAction:@selector(getMoreData)];
     [scrollView addSubview:_informationTableView];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    self.lineView.frame = CGRectMake(scrollView.contentOffset.x / 3, HEIGHT(147), SIZEWIDTH / 3, HEIGHT(5));
-    NSInteger index = scrollView.contentOffset.x / SIZEWIDTH + 1;
-    self.preBtn.selected = NO;
-    self.preBtn = [self.view viewWithTag:index];
-    self.preBtn.selected = YES;
+    if (scrollView == self.scrollView) {
+        self.lineView.frame = CGRectMake(scrollView.contentOffset.x / 3, HEIGHT(147), SIZEWIDTH / 3, HEIGHT(5));
+        NSInteger index = scrollView.contentOffset.x / SIZEWIDTH + 1;
+        self.type = [NSString stringWithFormat:@"%ld",index];
+        self.preBtn.selected = NO;
+        self.preBtn = [self.view viewWithTag:index];
+        self.preBtn.selected = YES;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -211,7 +301,7 @@
         dic = self.informationArr[indexPath.row];
     }
     cell.title.text = dic[@"title"];
-    cell.content.text = dic[@"content"];
+    cell.content.text = dic[@"cont"];
     cell.iconImage.image = [UIImage imageNamed:@"zcjd_icon"];
     return cell;
 }

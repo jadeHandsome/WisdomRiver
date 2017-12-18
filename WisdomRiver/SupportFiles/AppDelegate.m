@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "BaseNaviViewController.h"
 #import "IQKeyboardManager.h"
+#import "BaseTabbarViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,13 +20,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setIQKeyboardManager];
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    LoginViewController *loginVC = [LoginViewController new];
-    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
-    self.window.rootViewController = navi;
-    [self.window makeKeyAndVisible];
+    [self judesFirstView];
+    
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)judesFirstView{
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    NSString *isLogin = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"];
+    UIViewController *firstVC = nil;
+    if ([isLogin isEqualToString:@"1"]) {
+        NSData *jsonData = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+        NSDictionary *userInfo = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:userInfo];
+        BaseTabbarViewController *tab = [[BaseTabbarViewController alloc] init];
+        firstVC = tab;
+    }
+    else{
+        LoginViewController *loginVC = [LoginViewController new];
+        BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
+        firstVC = navi;
+    }
+    self.window.rootViewController = firstVC;
+    [self.window makeKeyAndVisible];
 }
 
 //配置键盘管理

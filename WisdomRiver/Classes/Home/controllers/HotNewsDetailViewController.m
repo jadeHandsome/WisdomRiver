@@ -25,6 +25,9 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+
+
+
 - (void)setUp{
     self.navigationItem.title = self.naviTitle;
     UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(shareItem)];
@@ -32,8 +35,38 @@
     self.navigationItem.rightBarButtonItems = @[rightItem2,rightItem1] ;
     self.titleLabel.text = self.dic[@"title"];
     self.typeLabel.text = self.naviTitle;
-    self.content.text = self.dic[@"content"];
+    NSString *str1 = [self htmlEntityDecode:self.dic[@"content"]];
+    NSAttributedString *str2 = [self attributedStringWithHTMLString:str1];
+    self.content.attributedText = str2;
+//    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH, SIZEHEIGHT - navHight)];
+//    [webView loadHTMLString:str1 baseURL:nil];
+//    [self.view addSubview:webView];
 }
+
+//将 &lt 等类似的字符转化为HTML中的“<”等
+- (NSString *)htmlEntityDecode:(NSString *)string
+{
+    string = [string stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+    string = [string stringByReplacingOccurrencesOfString:@"&apos;" withString:@"'"];
+    string = [string stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+    string = [string stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+    string = [string stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    // Do this last so that, e.g. @"&amp;lt;" goes to @"&lt;" not @"<"
+    
+    return string;
+}
+
+//将HTML字符串转化为NSAttributedString富文本字符串
+- (NSAttributedString *)attributedStringWithHTMLString:(NSString *)htmlString
+{
+    NSDictionary *options = @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType,
+                               NSCharacterEncodingDocumentAttribute :@(NSUTF8StringEncoding) };
+    
+    NSData *data = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    return [[NSAttributedString alloc] initWithData:data options:options documentAttributes:nil error:nil];
+}
+
 
 - (void)shareItem{
     

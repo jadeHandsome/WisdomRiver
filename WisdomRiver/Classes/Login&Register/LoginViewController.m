@@ -151,6 +151,11 @@
             [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appMain/login" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
                 if (showdata) {
                     [self showHUDWithText:showdata[@"mess"]];
+                    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"isLogin"];
+                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:showdata[@"user"]
+                                                                       options:NSJSONWritingPrettyPrinted
+                                                                         error:nil];
+                    [[NSUserDefaults standardUserDefaults] setObject:jsonData forKey:@"userInfo"];
                     [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:showdata[@"user"]];
                     BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];
                     self.view.window.rootViewController = tab;
