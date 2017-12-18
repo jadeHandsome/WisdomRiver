@@ -56,6 +56,7 @@ singleton_implementation(KRMainNetTool)
     if ([KRUserInfo sharedKRUserInfo].token) {
         params[@"token"] = [KRUserInfo sharedKRUserInfo].token;
     }
+//    ((AFJSONResponseSerializer *)manager.responseSerializer).removesKeysWithNullValues = YES;
     [manager POST:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         //请求成功，隐藏HUD并销毁
         [HUD hideAnimated:YES];

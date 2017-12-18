@@ -31,18 +31,15 @@
         [sub removeFromSuperview];
     }
     self.myData = [dic copy];
-    UIView *bottomView = [[UIView alloc]init];
-    [self addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mas_left).with.offset(15);
-        make.right.equalTo(self.mas_right).with.offset(-15);
-        make.top.equalTo(self.mas_top);
-        make.height.equalTo(@(HEIGHT(242)));
-    }];
-    bottomView.layer.shadowOffset = CGSizeMake(0, 0);
-    bottomView.layer.shadowColor = [UIColor blackColor].CGColor;
-    bottomView.layer.shadowOpacity = 0.8f;
-    bottomView.layer.shadowRadius = 10.f;
+//    UIView *bottomView = [[UIView alloc]init];
+//    [self addSubview:bottomView];
+//    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.mas_left).with.offset(15);
+//        make.right.equalTo(self.mas_right).with.offset(-15);
+//        make.top.equalTo(self.mas_top);
+//        make.height.equalTo(@(HEIGHT(242)));
+//    }];
+    
     BussItemBtnView *item = [[[NSBundle mainBundle]loadNibNamed:@"BussItemBtnView" owner:self options:nil]firstObject];
     [self addSubview:item];
     [item mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -51,7 +48,11 @@
         make.top.equalTo(self.mas_top);
         make.height.equalTo(@(HEIGHT(242)));
     }];
+    item.backgroundColor = [UIColor whiteColor];
     LRViewBorderRadius(item, 10, 1, LRRGBColor(240, 240, 240));
+    LRViewShadow(item, [UIColor blackColor], CGSizeMake(2, 2), 0.5, 10);
+    
+    //LRViewBorderRadius(item, 10, 1, LRRGBColor(240, 240, 240));
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click)];
     [item addGestureRecognizer:tap];
     [item setUpWithDic:self.myData];
