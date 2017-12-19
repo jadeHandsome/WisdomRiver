@@ -477,6 +477,10 @@
             HomeCell2 *cell = (HomeCell2 *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCell2" forIndexPath:indexPath];
             cell.titleLabel.text = self.dataArr[indexPath.section][indexPath.item - 1][@"name"];
             //        cell.iconImage.image = self.dataArr[indexPath.section][indexPath.item][@"icon"];
+            NSArray *fileName = self.dataArr[indexPath.section][indexPath.item - 1][@"fileName"];
+            if (fileName.count > 0) {
+                [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseImage,fileName[0][@"id"]]]];
+            }
             if (indexPath.item % 4 == 0) {
                 cell.rightLine.hidden = YES;
             }
