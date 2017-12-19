@@ -12,14 +12,56 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *allImage;
 @property (weak, nonatomic) IBOutlet UIImageView *InvertImage;
-@property (nonatomic, strong) NSArray *dataArr;
+@property (nonatomic, strong) NSArray *allData;
+@property (nonatomic, strong) NSMutableArray *selectData;
+@property (nonatomic, strong) NSMutableArray *dataArr;
 @end
 
 @implementation AddItemsViewController
+- (NSArray *)allData{
+    if (!_allData) {
+        if ([self.naviTitle isEqualToString:@"选择部门"]) {
+            _allData = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allDepartments"]];
+        }
+        else{
+            _allData = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"]];
+        }
+    }
+    return _allData;
+}
 
-- (NSArray *)dataArr{
+- (NSMutableArray *)selectData{
+    if (!_selectData) {
+        NSArray *arr;
+        if ([self.naviTitle isEqualToString:@"选择部门"]) {
+            arr = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectDepartments"]];
+        }
+        else{
+            arr = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectThemes"]];
+        }
+        _selectData = arr.mutableCopy;
+    }
+    return _selectData;
+}
+
+- (NSMutableArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = @[@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3"];
+        _dataArr = [NSMutableArray array];
+        NSMutableArray *nameArr = [NSMutableArray array];
+        for (NSDictionary *dic in self.selectData) {
+            [nameArr addObject:dic[@"name"]];
+        }
+        for (NSDictionary *dic in self.allData) {
+            NSMutableDictionary *Mudic = [NSMutableDictionary dictionary];
+            Mudic[@"title"] = dic[@"name"];
+            if ([nameArr containsObject:dic[@"name"]]) {
+                Mudic[@"select"] = @(YES);
+            }
+            else{
+                Mudic[@"select"] = @(NO);
+            }
+            [_dataArr addObject:Mudic];
+        }
     }
     return _dataArr;
 }
@@ -43,21 +85,58 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectCell" forIndexPath:indexPath];
+    NSMutableDictionary *muDic = self.dataArr[indexPath.row];
+    cell.titleLabel.text = muDic[@"title"];
+    cell.selectImage.highlighted = [muDic[@"select"] boolValue];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    SelectCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selectImage.highlighted = !cell.selectImage.highlighted;
+    NSMutableDictionary *muDic = self.dataArr[indexPath.row];
+    muDic[@"select"] = @(cell.selectImage.highlighted);
 }
 
 - (IBAction)downAction:(UIButton *)sender {
-    
+    [self.selectData removeAllObjects];
+    for (int i = 0; i < self.dataArr.count; i ++) {
+        NSMutableDictionary *Mudic = self.dataArr[i];
+        if ([Mudic[@"select"] boolValue]) {
+            [self.selectData addObject:self.allData[i]];
+        }
+    }
+    NSData *selectData = [NSKeyedArchiver archivedDataWithRootObject:self.selectData];
+    if ([self.naviTitle isEqualToString:@"选择部门"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectDepartments"];
+    }
+    else{
+        [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectThemes"];
+    }
+    self.block(self.selectData);
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)allSelect:(id)sender {
     self.allImage.highlighted = !self.allImage.highlighted;
+    if (self.allImage.highlighted) {
+        for (NSMutableDictionary *muDic in self.dataArr) {
+            muDic[@"select"] = @(YES);
+        }
+    }
+    else{
+        for (NSMutableDictionary *muDic in self.dataArr) {
+            muDic[@"select"] = @(NO);
+        }
+    }
+    [self.tableView reloadData];
 }
 - (IBAction)InvertSelect:(id)sender {
     self.InvertImage.highlighted = !self.InvertImage.highlighted;
+    for (NSMutableDictionary *muDic in self.dataArr) {
+        BOOL select = [muDic[@"select"] boolValue];
+        muDic[@"select"] = @(!select);
+    }
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
