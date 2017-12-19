@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeCell2 : UICollectionViewCell
-
+@property (nonatomic, strong) UIImageView *iconImage;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIView *rightLine;
+@property (nonatomic, strong) UIView *bottomLine;
 @end

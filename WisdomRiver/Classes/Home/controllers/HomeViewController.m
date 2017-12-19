@@ -8,11 +8,14 @@
 
 #import "HomeViewController.h"
 #import "HomeCell.h"
+#import "HomeCell1.h"
+#import "HomeCell2.h"
 #import "NewPagedFlowView.h"
 #import "CommonListViewController.h"
 #import "HotNewsViewController.h"
 #import "AppealViewController.h"
 #import "AddItemsViewController.h"
+#import "HomeReusableView.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,NewPagedFlowViewDelegate,NewPagedFlowViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -111,9 +114,7 @@
     NSArray *allDepartments = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allDepartments"]];
     if (allDepartments.count > 0) {
         NSArray *selectDepartments = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectDepartments"]];
-        NSMutableArray *MuArr = [selectDepartments mutableCopy];
-        [MuArr insertObject:@"1" atIndex:0];
-        [self.dataArr replaceObjectAtIndex:1 withObject:MuArr];
+        [self.dataArr replaceObjectAtIndex:1 withObject:selectDepartments];
         [self.collectionView reloadData];
     }
     else{
@@ -131,9 +132,7 @@
                 }
                 NSData *selectData = [NSKeyedArchiver archivedDataWithRootObject:selectArr];
                 [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectDepartments"];
-                NSMutableArray *MuArr = [selectArr mutableCopy];
-                [MuArr insertObject:@"1" atIndex:0];
-                [self.dataArr replaceObjectAtIndex:1 withObject:MuArr];
+                [self.dataArr replaceObjectAtIndex:1 withObject:selectArr];
                 [self.collectionView reloadData];
             }
         }];
@@ -142,9 +141,7 @@
     NSArray *allThemes = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"]];
     if (allThemes.count > 0) {
         NSArray *selectThemes = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectThemes"]];
-        NSMutableArray *MuArr = [selectThemes mutableCopy];
-        [MuArr insertObject:@"1" atIndex:0];
-        [self.dataArr replaceObjectAtIndex:2 withObject:MuArr];
+        [self.dataArr replaceObjectAtIndex:2 withObject:selectThemes];
         [self.collectionView reloadData];
     }
     else{
@@ -162,9 +159,7 @@
                 }
                 NSData *selectData = [NSKeyedArchiver archivedDataWithRootObject:selectArr];
                 [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectThemes"];
-                NSMutableArray *MuArr = [selectArr mutableCopy];
-                [MuArr insertObject:@"1" atIndex:0];
-                [self.dataArr replaceObjectAtIndex:2 withObject:MuArr];
+                [self.dataArr replaceObjectAtIndex:2 withObject:selectArr];
                 [self.collectionView reloadData];
             }
         }];
@@ -210,7 +205,9 @@
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.showsHorizontalScrollIndicator = NO;
     [collectionView registerClass:[HomeCell class] forCellWithReuseIdentifier:@"HomeCell"];
-    [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeReusableView"];
+    [collectionView registerClass:[HomeCell1 class] forCellWithReuseIdentifier:@"HomeCell1"];
+    [collectionView registerClass:[HomeCell2 class] forCellWithReuseIdentifier:@"HomeCell2"];
+    [collectionView registerClass:[HomeReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeReusableView"];
     self.collectionView = collectionView;
     [self.view addSubview:collectionView];
 }
@@ -456,58 +453,49 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.dataArr[section] count];
+    if (section == 0) {
+        return [self.dataArr[section] count];
+    }
+    return [self.dataArr[section] count] + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    HomeCell *cell = (HomeCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCell" forIndexPath:indexPath];
     if (indexPath.section == 0) {
-        cell.type = 2;
-        cell.iconImage.image = [UIImage imageNamed:self.dataArr[indexPath.section][indexPath.item][@"icon"]];
+        HomeCell *cell = (HomeCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCell" forIndexPath:indexPath];
         cell.titleLabel.text = self.dataArr[indexPath.section][indexPath.item][@"title"];
+        cell.iconImage.image = [UIImage imageNamed:self.dataArr[indexPath.section][indexPath.item][@"icon"]];
+        return cell;
     }
     else{
         if (indexPath.item == 0) {
-            cell.type = 0;
-            cell.iconImage.image = [UIImage imageNamed:@"add_grid"];
-            cell.titleLabel.text = @"";
+            HomeCell1 *cell = (HomeCell1 *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCell1" forIndexPath:indexPath];
+            return cell;
         }
         else{
-            cell.type = 1;
-            cell.iconImage.image = [UIImage imageNamed:@"add_grid"];
-            cell.titleLabel.text = self.dataArr[indexPath.section][indexPath.item][@"name"];
+            HomeCell2 *cell = (HomeCell2 *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCell2" forIndexPath:indexPath];
+            cell.titleLabel.text = self.dataArr[indexPath.section][indexPath.item - 1][@"name"];
+            //        cell.iconImage.image = self.dataArr[indexPath.section][indexPath.item][@"icon"];
+            if (indexPath.item % 4 == 0) {
+                cell.rightLine.hidden = YES;
+            }
+            else{
+                cell.rightLine.hidden = NO;
+            }
+            return cell;
         }
     }
-    if ((indexPath.item + 1) % 4 == 0) {
-        cell.rightLine.hidden = YES;
-    }
-    
-    return cell;
 }
 
-static BOOL isAdd = NO;
+
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return nil;
     }
-    UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeReusableView" forIndexPath:indexPath];
-
-        isAdd = YES;
-        headerView.backgroundColor = COLOR(245, 245, 245, 1);
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT(20), SIZEHEIGHT, HEIGHT(110))];
-        view.backgroundColor = [UIColor whiteColor];
-        [headerView addSubview:view];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH(35), 0, SIZEHEIGHT - WIDTH(35), HEIGHT(110))];
-        label.text = indexPath.section == 1 ? @"部门" : @"主题";
-        label.font = [UIFont systemFontOfSize:HEIGHT(46)];
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT(110) - 1, SIZEWIDTH, 1)];
-        lineView.backgroundColor = COLOR(245, 245, 245, 1);
-        [view addSubview:lineView];
-        [view addSubview:label];
-    
+    HomeReusableView *headerView = (HomeReusableView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeReusableView" forIndexPath:indexPath];
+    headerView.title.text = indexPath.section == 1 ? @"部门" : @"主题";
     return headerView;
 }
 

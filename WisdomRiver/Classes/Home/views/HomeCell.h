@@ -11,7 +11,4 @@
 @interface HomeCell : UICollectionViewCell
 @property (nonatomic, strong) UIImageView *iconImage;
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, assign) NSInteger type;
-@property (nonatomic, strong) UIView *rightLine;
-@property (nonatomic, strong) UIView *bottomLine;
 @end
