@@ -22,6 +22,9 @@
 		114CF5EB1FE4F535004B5701 /* SelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5EA1FE4F535004B5701 /* SelectionView.m */; };
 		114CF5EF1FE502C5004B5701 /* AddCommitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5ED1FE502C5004B5701 /* AddCommitController.m */; };
 		114CF5F01FE502C5004B5701 /* AddCommitController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114CF5EE1FE502C5004B5701 /* AddCommitController.xib */; };
+		1161DBE41FE8E5010059A738 /* HomeCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161DBE31FE8E5010059A738 /* HomeCell1.m */; };
+		1161DBE71FE8E51D0059A738 /* HomeCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161DBE61FE8E51D0059A738 /* HomeCell2.m */; };
+		1161DBEA1FE8EA970059A738 /* HomeReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1161DBE91FE8EA970059A738 /* HomeReusableView.m */; };
 		11DD5B9B1FE5768D0053A3DB /* HotNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DD5B991FE5768D0053A3DB /* HotNewsDetailViewController.m */; };
 		11DD5B9C1FE5768D0053A3DB /* HotNewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11DD5B9A1FE5768D0053A3DB /* HotNewsDetailViewController.xib */; };
 		11DD5BA01FE580EF0053A3DB /* AddItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DD5B9E1FE580EF0053A3DB /* AddItemsViewController.m */; };
@@ -107,6 +110,12 @@
 		114CF5EC1FE502C5004B5701 /* AddCommitController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCommitController.h; sourceTree = "<group>"; };
 		114CF5ED1FE502C5004B5701 /* AddCommitController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCommitController.m; sourceTree = "<group>"; };
 		114CF5EE1FE502C5004B5701 /* AddCommitController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommitController.xib; sourceTree = "<group>"; };
+		1161DBE21FE8E5010059A738 /* HomeCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCell1.h; sourceTree = "<group>"; };
+		1161DBE31FE8E5010059A738 /* HomeCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCell1.m; sourceTree = "<group>"; };
+		1161DBE51FE8E51D0059A738 /* HomeCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCell2.h; sourceTree = "<group>"; };
+		1161DBE61FE8E51D0059A738 /* HomeCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCell2.m; sourceTree = "<group>"; };
+		1161DBE81FE8EA970059A738 /* HomeReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeReusableView.h; sourceTree = "<group>"; };
+		1161DBE91FE8EA970059A738 /* HomeReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeReusableView.m; sourceTree = "<group>"; };
 		11DD5B981FE5768D0053A3DB /* HotNewsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotNewsDetailViewController.h; sourceTree = "<group>"; };
 		11DD5B991FE5768D0053A3DB /* HotNewsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotNewsDetailViewController.m; sourceTree = "<group>"; };
 		11DD5B9A1FE5768D0053A3DB /* HotNewsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotNewsDetailViewController.xib; sourceTree = "<group>"; };
@@ -248,6 +257,10 @@
 			children = (
 				114CF5B01FE27718004B5701 /* HomeCell.h */,
 				114CF5B11FE27718004B5701 /* HomeCell.m */,
+				1161DBE21FE8E5010059A738 /* HomeCell1.h */,
+				1161DBE31FE8E5010059A738 /* HomeCell1.m */,
+				1161DBE51FE8E51D0059A738 /* HomeCell2.h */,
+				1161DBE61FE8E51D0059A738 /* HomeCell2.m */,
 				114CF5D51FE39DBF004B5701 /* CommonListCell.h */,
 				114CF5D61FE39DBF004B5701 /* CommonListCell.m */,
 				114CF5E41FE4E2C8004B5701 /* AppealCell.h */,
@@ -258,6 +271,8 @@
 				11DD5BA21FE585720053A3DB /* SelectCell.h */,
 				11DD5BA31FE585720053A3DB /* SelectCell.m */,
 				11DD5BA41FE585720053A3DB /* SelectCell.xib */,
+				1161DBE81FE8EA970059A738 /* HomeReusableView.h */,
+				1161DBE91FE8EA970059A738 /* HomeReusableView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -676,6 +691,7 @@
 				1A1A4D6C1FE4CE2100C66AA3 /* BussinCollectionViewCell.m in Sources */,
 				11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */,
 				1A8F9EDA1FE56DB400B062B1 /* PGIndexBannerSubiew.m in Sources */,
+				1161DBE71FE8E51D0059A738 /* HomeCell2.m in Sources */,
 				11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */,
 				11FE0AF51FE21E1200D10A5C /* TYTabTitleViewCell.m in Sources */,
 				114CF5E31FE3CAFA004B5701 /* AppealViewController.m in Sources */,
@@ -688,6 +704,7 @@
 				11FE0AF01FE21E1200D10A5C /* NSString+LocaString.m in Sources */,
 				11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */,
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
+				1161DBE41FE8E5010059A738 /* HomeCell1.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
 				11DD5BA51FE585720053A3DB /* SelectCell.m in Sources */,
 				114CF5EF1FE502C5004B5701 /* AddCommitController.m in Sources */,
@@ -702,6 +719,7 @@
 				114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */,
 				11FE0AFC1FE21E1200D10A5C /* UITableView+KREmptyData.m in Sources */,
 				1A6304CA1FE273B300AE1751 /* PublickViewController.m in Sources */,
+				1161DBEA1FE8EA970059A738 /* HomeReusableView.m in Sources */,
 				1A6304CE1FE2790D00AE1751 /* BussItemBtnView.m in Sources */,
 				1A5114981FE7F53000D87D02 /* BaseMineView.m in Sources */,
 				1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */,
