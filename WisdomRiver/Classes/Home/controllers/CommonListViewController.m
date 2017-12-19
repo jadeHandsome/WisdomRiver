@@ -65,6 +65,25 @@
             params[@"userid"] = @"";
         }
     }
+    else if ([self.naviTitle isEqualToString:@"全程代办"]) {
+        url = @"appGovernmentFront/getCommissionGovernmentService";
+        if (self.currentIndex == 0) {
+            params[@"userid"] = [KRUserInfo sharedKRUserInfo].userid;
+        }
+        else{
+            params[@"userid"] = @"";
+        }
+    }
+    else{
+        if (self.isTheme) {
+            url = @"appGovernmentFront/getGovernmentServiceByType";
+            params[@"type"] = self.itemId;
+        }
+        else{
+            url = @"appGovernmentFront/getGovernmentServiceByOrg";
+            params[@"orgid"] = self.itemId;
+        }
+    }
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:url params:params withModel:nil complateHandle:^(id showdata, NSString *error) {
         if (showdata) {
             if (isRefresh) {
@@ -76,9 +95,6 @@
                 self.currPage ++;
                 [self.data addObjectsFromArray:showdata[@"list"]];
                 [self.tableView.mj_footer endRefreshing];
-            }
-            if ([showdata[@"lastPage"] integerValue] == 1) {
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
             }
             [self.tableView reloadData];
         }

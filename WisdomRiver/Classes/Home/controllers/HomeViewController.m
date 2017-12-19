@@ -577,7 +577,15 @@
         }
         else{
             CommonListViewController *listVC = [CommonListViewController new];
-            listVC.naviTitle = self.dataArr[indexPath.section][indexPath.item - 1][@"title"];
+            listVC.naviTitle = self.dataArr[indexPath.section][indexPath.item - 1][@"name"];
+            if (indexPath.section == 1) {
+                listVC.isTheme = NO;
+                listVC.itemId = self.dataArr[indexPath.section][indexPath.item - 1][@"id"];
+            }
+            else{
+                listVC.isTheme = YES;
+                listVC.itemId = self.dataArr[indexPath.section][indexPath.item - 1][@"id"];
+            }
             [listVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:listVC animated:YES];
         }

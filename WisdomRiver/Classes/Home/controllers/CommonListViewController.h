@@ -11,5 +11,6 @@
 @interface CommonListViewController : BaseViewController
 @property (nonatomic, strong) NSString *naviTitle;
 @property (nonatomic, assign) BOOL haveType;
-
+@property (nonatomic, strong) NSString *itemId;
+@property (nonatomic, assign) BOOL isTheme;//是否是主题
 @end
