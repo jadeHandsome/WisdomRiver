@@ -17,6 +17,8 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) NewPagedFlowView *pageFlowView;
+@property (nonatomic, strong) NSArray *todayTrafficArr;
+@property (nonatomic, strong) NSArray *nextTrafficArr;
 @end
 
 
@@ -30,24 +32,7 @@
                              @{@"title":@"全程代办",@"icon":@"button3"},
                              @{@"title":@"诉求互动",@"icon":@"button4"},
                              @{@"title":@"热点资讯",@"icon":@"button1"}],
-                         @[
-                           @{@"title":@"1",@"icon":@"button2"},
-                           @{@"title":@"2",@"icon":@"button2"},
-                           @{@"title":@"3",@"icon":@"button2"},
-                           @{@"title":@"4",@"icon":@"button2"},
-                           @{@"title":@"5",@"icon":@"button2"},
-                           @{@"title":@"6",@"icon":@"button2"},
-                           @{@"title":@"7",@"icon":@"button2"},],
-                         @[
-                             @{@"title":@"1",@"icon":@"button2"},
-                             @{@"title":@"2",@"icon":@"button2"},
-                             @{@"title":@"3",@"icon":@"button2"},
-                             @{@"title":@"4",@"icon":@"button2"},
-                             @{@"title":@"5",@"icon":@"button2"},
-                             @{@"title":@"6",@"icon":@"button2"},
-                             @{@"title":@"7",@"icon":@"button2"},
-                             @{@"title":@"8",@"icon":@"button2"},
-                             @{@"title":@"9",@"icon":@"button2"}]];
+                         @[],@[]];
         _dataArr = arr.mutableCopy;
     }
     return _dataArr;
@@ -67,8 +52,124 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self getBannerData];
     [self setUp];
+    [self getHomeData];
     // Do any additional setup after loading the view.
+}
+
+- (void)getBannerData{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *todayStr = [formatter stringFromDate:[NSDate date]];
+    NSString *todayWeek = [self getTheDayOfTheWeekByDateString:todayStr];
+    if ([todayWeek isEqualToString:@"星期一"]) {
+        self.todayTrafficArr = @[@"1",@"6"];
+        self.nextTrafficArr = @[@"2",@"7"];
+    }
+    else if ([todayWeek isEqualToString:@"星期二"]){
+        self.todayTrafficArr = @[@"2",@"7"];
+        self.nextTrafficArr = @[@"3",@"8"];
+    }
+    else if ([todayWeek isEqualToString:@"星期三"]){
+        self.todayTrafficArr = @[@"3",@"8"];
+        self.nextTrafficArr = @[@"4",@"9"];
+    }
+    else if ([todayWeek isEqualToString:@"星期四"]){
+        self.todayTrafficArr = @[@"4",@"9"];
+        self.nextTrafficArr = @[@"5",@"0"];
+    }
+    else if ([todayWeek isEqualToString:@"星期五"]){
+        self.todayTrafficArr = @[@"5",@"0"];
+        self.nextTrafficArr = @[@"不限行"];
+    }
+    else if ([todayWeek isEqualToString:@"星期六"]){
+        self.todayTrafficArr = @[@"不限行"];
+        self.nextTrafficArr = @[@"不限行"];
+    }
+    else if ([todayWeek isEqualToString:@"星期日"]){
+        self.todayTrafficArr = @[@"不限行"];
+        self.nextTrafficArr = @[@"1",@"6"];
+    }
+    
+    
+}
+
+///根据用户输入的时间(dateString)确定当天是星期几,输入的时间格式 yyyy-MM-dd ,如 2015-12-18
+- (NSString *)getTheDayOfTheWeekByDateString:(NSString *)dateString{
+    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+    [inputFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *formatterDate = [inputFormatter dateFromString:dateString];
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"EEEE-MMMM-d"];
+    NSString *outputDateStr = [outputFormatter stringFromDate:formatterDate];
+    NSArray *weekArray = [outputDateStr componentsSeparatedByString:@"-"];
+    return [weekArray objectAtIndex:0];
+}
+//获取首页数据
+- (void)getHomeData{
+    NSArray *allDepartments = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allDepartments"]];
+    if (allDepartments.count > 0) {
+        NSArray *selectDepartments = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectDepartments"]];
+        NSMutableArray *MuArr = [selectDepartments mutableCopy];
+        [MuArr insertObject:@"1" atIndex:0];
+        [self.dataArr replaceObjectAtIndex:1 withObject:MuArr];
+        [self.collectionView reloadData];
+    }
+    else{
+        [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/getOrgs" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
+            if (showdata) {
+                NSArray *arr = showdata[@"orgs"];
+                NSData *arrData = [NSKeyedArchiver archivedDataWithRootObject:arr];
+                [[NSUserDefaults standardUserDefaults] setObject:arrData forKey:@"allDepartments"];
+                NSArray *selectArr;
+                if (arr.count > 7) {
+                    selectArr = [arr subarrayWithRange:NSMakeRange(0, 7)];
+                }
+                else{
+                    selectArr = arr;
+                }
+                NSData *selectData = [NSKeyedArchiver archivedDataWithRootObject:selectArr];
+                [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectDepartments"];
+                NSMutableArray *MuArr = [selectArr mutableCopy];
+                [MuArr insertObject:@"1" atIndex:0];
+                [self.dataArr replaceObjectAtIndex:1 withObject:MuArr];
+                [self.collectionView reloadData];
+            }
+        }];
+    }
+    [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"]];
+    NSArray *allThemes = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"]];
+    if (allThemes.count > 0) {
+        NSArray *selectThemes = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectThemes"]];
+        NSMutableArray *MuArr = [selectThemes mutableCopy];
+        [MuArr insertObject:@"1" atIndex:0];
+        [self.dataArr replaceObjectAtIndex:2 withObject:MuArr];
+        [self.collectionView reloadData];
+    }
+    else{
+        [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/getGovernmentServiceType" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
+            if (showdata) {
+                NSArray *arr = showdata[@"bds"];
+                NSData *arrData = [NSKeyedArchiver archivedDataWithRootObject:arr];
+                [[NSUserDefaults standardUserDefaults] setObject:arrData forKey:@"allThemes"];
+                NSArray *selectArr;
+                if (arr.count > 7) {
+                    selectArr = [arr subarrayWithRange:NSMakeRange(0, 7)];
+                }
+                else{
+                    selectArr = arr;
+                }
+                NSData *selectData = [NSKeyedArchiver archivedDataWithRootObject:selectArr];
+                [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectThemes"];
+                NSMutableArray *MuArr = [selectArr mutableCopy];
+                [MuArr insertObject:@"1" atIndex:0];
+                [self.dataArr replaceObjectAtIndex:2 withObject:MuArr];
+                [self.collectionView reloadData];
+            }
+        }];
+    }
+    
 }
 
 - (void)setUp{
@@ -147,45 +248,58 @@
             make.top.equalTo(leftView).offset(HEIGHT(50));
             make.centerX.equalTo(leftView.mas_centerX);
         }];
-        UILabel *leftText = [[UILabel alloc] init];
-        leftText.text = @"和";
-        leftText.textColor = [UIColor whiteColor];
-        leftText.font = [UIFont systemFontOfSize:HEIGHT(40)];
-        [leftView addSubview:leftText];
-        [leftText mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(leftView).offset(HEIGHT(-65));
-            make.centerX.equalTo(leftView.mas_centerX);
-        }];
-        UILabel *todayText1 = [[UILabel alloc] init];
-        todayText1.text = @"2";
-        todayText1.textColor = [UIColor whiteColor];
-        todayText1.font = [UIFont systemFontOfSize:HEIGHT(80)];
-        todayText1.backgroundColor = COLOR(93, 202, 147, 1);
-        todayText1.layer.cornerRadius = HEIGHT(10);
-        todayText1.layer.masksToBounds = YES;
-        todayText1.textAlignment = NSTextAlignmentCenter;
-        [leftView addSubview:todayText1];
-        [todayText1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(leftView).offset(HEIGHT(-25));
-            make.height.mas_equalTo(HEIGHT(143));
-            make.width.mas_equalTo(WIDTH(100));
-            make.right.equalTo(leftText.mas_left).offset(WIDTH(-25));
-        }];
-        UILabel *todayText2 = [[UILabel alloc] init];
-        todayText2.text = @"8";
-        todayText2.textColor = [UIColor whiteColor];
-        todayText2.font = [UIFont systemFontOfSize:HEIGHT(80)];
-        todayText2.backgroundColor = COLOR(93, 202, 147, 1);
-        todayText2.layer.cornerRadius = HEIGHT(10);
-        todayText2.layer.masksToBounds = YES;
-        todayText2.textAlignment = NSTextAlignmentCenter;
-        [leftView addSubview:todayText2];
-        [todayText2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(leftView).offset(HEIGHT(-25));
-            make.height.mas_equalTo(HEIGHT(143));
-            make.width.mas_equalTo(WIDTH(100));
-            make.left.equalTo(leftText.mas_right).offset(WIDTH(25));
-        }];
+        if (self.todayTrafficArr.count == 2) {
+            UILabel *leftText = [[UILabel alloc] init];
+            leftText.text = @"和";
+            leftText.textColor = [UIColor whiteColor];
+            leftText.font = [UIFont systemFontOfSize:HEIGHT(40)];
+            [leftView addSubview:leftText];
+            [leftText mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(leftView).offset(HEIGHT(-65));
+                make.centerX.equalTo(leftView.mas_centerX);
+            }];
+            UILabel *todayText1 = [[UILabel alloc] init];
+            todayText1.text = self.todayTrafficArr[0];
+            todayText1.textColor = [UIColor whiteColor];
+            todayText1.font = [UIFont systemFontOfSize:HEIGHT(80)];
+            todayText1.backgroundColor = COLOR(93, 202, 147, 1);
+            todayText1.layer.cornerRadius = HEIGHT(10);
+            todayText1.layer.masksToBounds = YES;
+            todayText1.textAlignment = NSTextAlignmentCenter;
+            [leftView addSubview:todayText1];
+            [todayText1 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(leftView).offset(HEIGHT(-25));
+                make.height.mas_equalTo(HEIGHT(143));
+                make.width.mas_equalTo(WIDTH(100));
+                make.right.equalTo(leftText.mas_left).offset(WIDTH(-25));
+            }];
+            UILabel *todayText2 = [[UILabel alloc] init];
+            todayText2.text = self.todayTrafficArr[1];
+            todayText2.textColor = [UIColor whiteColor];
+            todayText2.font = [UIFont systemFontOfSize:HEIGHT(80)];
+            todayText2.backgroundColor = COLOR(93, 202, 147, 1);
+            todayText2.layer.cornerRadius = HEIGHT(10);
+            todayText2.layer.masksToBounds = YES;
+            todayText2.textAlignment = NSTextAlignmentCenter;
+            [leftView addSubview:todayText2];
+            [todayText2 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(leftView).offset(HEIGHT(-25));
+                make.height.mas_equalTo(HEIGHT(143));
+                make.width.mas_equalTo(WIDTH(100));
+                make.left.equalTo(leftText.mas_right).offset(WIDTH(25));
+            }];
+        }
+        else{
+            UILabel *leftText = [[UILabel alloc] init];
+            leftText.text = @"不限行";
+            leftText.textColor = [UIColor whiteColor];
+            leftText.font = [UIFont systemFontOfSize:HEIGHT(55)];
+            [leftView addSubview:leftText];
+            [leftText mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(leftView).offset(HEIGHT(-80));
+                make.centerX.equalTo(leftView.mas_centerX);
+            }];
+        }
         UIView *rightView = [[UIView alloc] init];
         rightView.backgroundColor = [UIColor clearColor];
         [bannerView addSubview:rightView];
@@ -202,45 +316,58 @@
             make.top.equalTo(rightView).offset(HEIGHT(50));
             make.centerX.equalTo(rightView.mas_centerX);
         }];
-        UILabel *rightText = [[UILabel alloc] init];
-        rightText.text = @"和";
-        rightText.textColor = [UIColor whiteColor];
-        rightText.font = [UIFont systemFontOfSize:HEIGHT(40)];
-        [rightView addSubview:rightText];
-        [rightText mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(rightView).offset(HEIGHT(-65));
-            make.centerX.equalTo(rightView.mas_centerX);
-        }];
-        UILabel *nextDayText1 = [[UILabel alloc] init];
-        nextDayText1.text = @"3";
-        nextDayText1.textColor = [UIColor whiteColor];
-        nextDayText1.font = [UIFont systemFontOfSize:HEIGHT(80)];
-        nextDayText1.backgroundColor = COLOR(93, 202, 147, 1);
-        nextDayText1.layer.cornerRadius = HEIGHT(10);
-        nextDayText1.layer.masksToBounds = YES;
-        nextDayText1.textAlignment = NSTextAlignmentCenter;
-        [rightView addSubview:nextDayText1];
-        [nextDayText1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(rightView).offset(HEIGHT(-25));
-            make.height.mas_equalTo(HEIGHT(143));
-            make.width.mas_equalTo(WIDTH(100));
-            make.right.equalTo(rightText.mas_left).offset(WIDTH(-25));
-        }];
-        UILabel *nextDatText2 = [[UILabel alloc] init];
-        nextDatText2.text = @"7";
-        nextDatText2.textColor = [UIColor whiteColor];
-        nextDatText2.font = [UIFont systemFontOfSize:HEIGHT(80)];
-        nextDatText2.backgroundColor = COLOR(93, 202, 147, 1);
-        nextDatText2.layer.cornerRadius = HEIGHT(10);
-        nextDatText2.layer.masksToBounds = YES;
-        nextDatText2.textAlignment = NSTextAlignmentCenter;
-        [rightView addSubview:nextDatText2];
-        [nextDatText2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(rightView).offset(HEIGHT(-25));
-            make.height.mas_equalTo(HEIGHT(143));
-            make.width.mas_equalTo(WIDTH(100));
-            make.left.equalTo(rightText.mas_right).offset(WIDTH(25));
-        }];
+        if (self.nextTrafficArr.count == 2) {
+            UILabel *rightText = [[UILabel alloc] init];
+            rightText.text = @"和";
+            rightText.textColor = [UIColor whiteColor];
+            rightText.font = [UIFont systemFontOfSize:HEIGHT(40)];
+            [rightView addSubview:rightText];
+            [rightText mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(rightView).offset(HEIGHT(-65));
+                make.centerX.equalTo(rightView.mas_centerX);
+            }];
+            UILabel *nextDayText1 = [[UILabel alloc] init];
+            nextDayText1.text = self.nextTrafficArr[0];
+            nextDayText1.textColor = [UIColor whiteColor];
+            nextDayText1.font = [UIFont systemFontOfSize:HEIGHT(80)];
+            nextDayText1.backgroundColor = COLOR(93, 202, 147, 1);
+            nextDayText1.layer.cornerRadius = HEIGHT(10);
+            nextDayText1.layer.masksToBounds = YES;
+            nextDayText1.textAlignment = NSTextAlignmentCenter;
+            [rightView addSubview:nextDayText1];
+            [nextDayText1 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(rightView).offset(HEIGHT(-25));
+                make.height.mas_equalTo(HEIGHT(143));
+                make.width.mas_equalTo(WIDTH(100));
+                make.right.equalTo(rightText.mas_left).offset(WIDTH(-25));
+            }];
+            UILabel *nextDatText2 = [[UILabel alloc] init];
+            nextDatText2.text = self.nextTrafficArr[1];
+            nextDatText2.textColor = [UIColor whiteColor];
+            nextDatText2.font = [UIFont systemFontOfSize:HEIGHT(80)];
+            nextDatText2.backgroundColor = COLOR(93, 202, 147, 1);
+            nextDatText2.layer.cornerRadius = HEIGHT(10);
+            nextDatText2.layer.masksToBounds = YES;
+            nextDatText2.textAlignment = NSTextAlignmentCenter;
+            [rightView addSubview:nextDatText2];
+            [nextDatText2 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(rightView).offset(HEIGHT(-25));
+                make.height.mas_equalTo(HEIGHT(143));
+                make.width.mas_equalTo(WIDTH(100));
+                make.left.equalTo(rightText.mas_right).offset(WIDTH(25));
+            }];
+        }
+        else{
+            UILabel *rightText = [[UILabel alloc] init];
+            rightText.text = @"不限行";
+            rightText.textColor = [UIColor whiteColor];
+            rightText.font = [UIFont systemFontOfSize:HEIGHT(55)];
+            [rightView addSubview:rightText];
+            [rightText mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(rightView).offset(HEIGHT(-80));
+                make.centerX.equalTo(rightView.mas_centerX);
+            }];
+        }
     }
     else{
         UIView *topView = [[UIView alloc] init];
@@ -329,10 +456,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if (section == 0) {
-        return [self.dataArr[section] count];
-    }
-    return [self.dataArr[section] count] + 1;
+    return [self.dataArr[section] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -352,8 +476,8 @@
         }
         else{
             cell.type = 1;
-            cell.iconImage.image = [UIImage imageNamed:self.dataArr[indexPath.section][indexPath.item - 1][@"icon"]];
-            cell.titleLabel.text = self.dataArr[indexPath.section][indexPath.item - 1][@"title"];
+            cell.iconImage.image = [UIImage imageNamed:@"add_grid"];
+            cell.titleLabel.text = self.dataArr[indexPath.section][indexPath.item][@"name"];
         }
     }
     if ((indexPath.item + 1) % 4 == 0) {
@@ -363,22 +487,27 @@
     return cell;
 }
 
+static BOOL isAdd = NO;
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return nil;
     }
     UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HomeReusableView" forIndexPath:indexPath];
-    headerView.backgroundColor = COLOR(245, 245, 245, 1);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT(20), SIZEHEIGHT, HEIGHT(110))];
-    view.backgroundColor = [UIColor whiteColor];
-    [headerView addSubview:view];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH(35), 0, SIZEHEIGHT - WIDTH(35), HEIGHT(110))];
-    label.text = indexPath.section == 1 ? @"部门" : @"主题";
-    label.font = [UIFont systemFontOfSize:HEIGHT(46)];
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT(110) - 1, SIZEWIDTH, 1)];
-    lineView.backgroundColor = COLOR(245, 245, 245, 1);
-    [view addSubview:lineView];
-    [view addSubview:label];
+
+        isAdd = YES;
+        headerView.backgroundColor = COLOR(245, 245, 245, 1);
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT(20), SIZEHEIGHT, HEIGHT(110))];
+        view.backgroundColor = [UIColor whiteColor];
+        [headerView addSubview:view];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH(35), 0, SIZEHEIGHT - WIDTH(35), HEIGHT(110))];
+        label.text = indexPath.section == 1 ? @"部门" : @"主题";
+        label.font = [UIFont systemFontOfSize:HEIGHT(46)];
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT(110) - 1, SIZEWIDTH, 1)];
+        lineView.backgroundColor = COLOR(245, 245, 245, 1);
+        [view addSubview:lineView];
+        [view addSubview:label];
+    
     return headerView;
 }
 
