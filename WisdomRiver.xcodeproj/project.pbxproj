@@ -49,6 +49,7 @@
 		11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B021FE21E2100D10A5C /* BaseViewController.m */; };
 		11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B0A1FE21F6800D10A5C /* CALayer+CircleBoard.m */; };
 		11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B0C1FE21F6800D10A5C /* UIView+EX.m */; };
+		1A07D24F1FE8E6A000B2BF31 /* InfoManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A07D24E1FE8E6A000B2BF31 /* InfoManagerViewController.m */; };
 		1A1A4D6C1FE4CE2100C66AA3 /* BussinCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6A1FE4CE2100C66AA3 /* BussinCollectionViewCell.m */; };
 		1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */; };
 		1A1A4D711FE4D8D300C66AA3 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */; };
@@ -161,6 +162,8 @@
 		11FE0B0A1FE21F6800D10A5C /* CALayer+CircleBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CircleBoard.m"; sourceTree = "<group>"; };
 		11FE0B0B1FE21F6800D10A5C /* UIView+EX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EX.h"; sourceTree = "<group>"; };
 		11FE0B0C1FE21F6800D10A5C /* UIView+EX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EX.m"; sourceTree = "<group>"; };
+		1A07D24D1FE8E6A000B2BF31 /* InfoManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoManagerViewController.h; sourceTree = "<group>"; };
+		1A07D24E1FE8E6A000B2BF31 /* InfoManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoManagerViewController.m; sourceTree = "<group>"; };
 		1A1A4D691FE4CE2100C66AA3 /* BussinCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussinCollectionViewCell.h; sourceTree = "<group>"; };
 		1A1A4D6A1FE4CE2100C66AA3 /* BussinCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussinCollectionViewCell.m; sourceTree = "<group>"; };
 		1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BussinCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 				1A5114961FE7F53000D87D02 /* BaseMineView.h */,
 				1A5114971FE7F53000D87D02 /* BaseMineView.m */,
 				1A5114991FE7F54100D87D02 /* BaseMineView.xib */,
+				1A07D24D1FE8E6A000B2BF31 /* InfoManagerViewController.h */,
+				1A07D24E1FE8E6A000B2BF31 /* InfoManagerViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -666,6 +671,7 @@
 				1A61F7FA1FE75B9900C07E7C /* BaseWebViewController.m in Sources */,
 				114CF59D1FE250BD004B5701 /* LoginViewController.m in Sources */,
 				114CF5DD1FE3B35D004B5701 /* ItemDetailsViewController.m in Sources */,
+				1A07D24F1FE8E6A000B2BF31 /* InfoManagerViewController.m in Sources */,
 				11FE0AF31FE21E1200D10A5C /* TYTabButtonPagerController.m in Sources */,
 				1A1A4D6C1FE4CE2100C66AA3 /* BussinCollectionViewCell.m in Sources */,
 				11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */,
