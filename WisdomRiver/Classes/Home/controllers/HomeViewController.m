@@ -137,7 +137,6 @@
             }
         }];
     }
-    [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"]];
     NSArray *allThemes = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"]];
     if (allThemes.count > 0) {
         NSArray *selectThemes = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectThemes"]];
@@ -476,7 +475,6 @@
         else{
             HomeCell2 *cell = (HomeCell2 *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCell2" forIndexPath:indexPath];
             cell.titleLabel.text = self.dataArr[indexPath.section][indexPath.item - 1][@"name"];
-            //        cell.iconImage.image = self.dataArr[indexPath.section][indexPath.item][@"icon"];
             NSArray *fileName = self.dataArr[indexPath.section][indexPath.item - 1][@"fileName"];
             if (fileName.count > 0) {
                 [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseImage,fileName[0][@"id"]]]];
@@ -562,16 +560,32 @@
             AddItemsViewController *addItemsVC = [AddItemsViewController new];
             if (indexPath.section == 1) {
                 addItemsVC.naviTitle = @"选择部门";
+                addItemsVC.block = ^(NSArray *selectArr) {
+                    [self.dataArr replaceObjectAtIndex:1 withObject:selectArr];
+                    [self.collectionView reloadData];
+                };
             }
             else{
                 addItemsVC.naviTitle = @"选择主题";
+                addItemsVC.block = ^(NSArray *selectArr) {
+                    [self.dataArr replaceObjectAtIndex:2 withObject:selectArr];
+                    [self.collectionView reloadData];
+                };
             }
             addItemsVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:addItemsVC animated:YES];
         }
         else{
             CommonListViewController *listVC = [CommonListViewController new];
-            listVC.naviTitle = self.dataArr[indexPath.section][indexPath.item - 1][@"title"];
+            listVC.naviTitle = self.dataArr[indexPath.section][indexPath.item - 1][@"name"];
+            if (indexPath.section == 1) {
+                listVC.isTheme = NO;
+                listVC.itemId = self.dataArr[indexPath.section][indexPath.item - 1][@"id"];
+            }
+            else{
+                listVC.isTheme = YES;
+                listVC.itemId = self.dataArr[indexPath.section][indexPath.item - 1][@"id"];
+            }
             [listVC setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:listVC animated:YES];
         }

@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void (^Selected) (NSArray *);
 @interface AddItemsViewController : BaseViewController
 @property (nonatomic, strong) NSString *naviTitle;
+@property (nonatomic, strong) Selected block;
 @end

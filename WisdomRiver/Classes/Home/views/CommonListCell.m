@@ -27,26 +27,30 @@
         make.height.width.mas_equalTo(HEIGHT(138));
         make.centerY.equalTo(self);
     }];
+    UIView *contentView = [[UIView alloc] init];
+    contentView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(iconImage.mas_right).offset(WIDTH(28));
+        make.right.equalTo(self).offset(WIDTH(-50));
+        make.centerY.equalTo(self.mas_centerY);
+    }];
     UILabel *title = [[UILabel alloc] init];
     title.font = [UIFont boldSystemFontOfSize:HEIGHT(42)];
     self.title = title;
-    [self addSubview:title];
+    [contentView addSubview:title];
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(iconImage.mas_right).offset(WIDTH(28));
-        make.right.equalTo(self).offset(WIDTH(-50));
-        make.top.equalTo(self).offset(HEIGHT(66));
+        make.left.right.top.equalTo(contentView);
     }];
     UILabel *content = [[UILabel alloc] init];
     content.font = [UIFont systemFontOfSize:HEIGHT(38)];
     content.textColor = COLOR(120, 120, 120, 1);
-    content.numberOfLines = 0;
+    content.numberOfLines = 2;
     self.content = content;
-    [self addSubview:content];
+    [contentView addSubview:content];
     [content mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(iconImage.mas_right).offset(WIDTH(28));
         make.top.equalTo(title.mas_bottom).offset(HEIGHT(15));
-        make.right.equalTo(self).offset(WIDTH(-50));
-        make.bottom.equalTo(self).offset(HEIGHT(-43));
+        make.left.right.bottom.equalTo(contentView);
     }];
     
     UIView *lineView = [[UIView alloc] init];
