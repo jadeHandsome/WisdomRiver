@@ -153,10 +153,7 @@
                 if (showdata) {
                     [self showHUDWithText:showdata[@"mess"]];
                     [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"isLogin"];
-                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:showdata[@"user"]
-                                                                       options:NSJSONWritingPrettyPrinted
-                                                                         error:nil];
-                    [[NSUserDefaults standardUserDefaults] setObject:jsonData forKey:@"userInfo"];
+                    [[NSUserDefaults standardUserDefaults] setObject:showdata[@"user"] forKey:@"userInfo"];
                     [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:showdata[@"user"]];
                     BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];
                     self.view.window.rootViewController = tab;

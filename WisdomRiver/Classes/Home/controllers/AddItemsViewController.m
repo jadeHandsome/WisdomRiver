@@ -21,10 +21,10 @@
 - (NSArray *)allData{
     if (!_allData) {
         if ([self.naviTitle isEqualToString:@"选择部门"]) {
-            _allData = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allDepartments"]];
+            _allData = [[NSUserDefaults standardUserDefaults] objectForKey:@"allDepartments"];
         }
         else{
-            _allData = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"]];
+            _allData = [[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"];
         }
     }
     return _allData;
@@ -34,10 +34,10 @@
     if (!_selectData) {
         NSArray *arr;
         if ([self.naviTitle isEqualToString:@"选择部门"]) {
-            arr = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectDepartments"]];
+            arr = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectDepartments"];
         }
         else{
-            arr = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectThemes"]];
+            arr =[[NSUserDefaults standardUserDefaults] objectForKey:@"selectThemes"];
         }
         _selectData = arr.mutableCopy;
     }
@@ -106,12 +106,11 @@
             [self.selectData addObject:self.allData[i]];
         }
     }
-    NSData *selectData = [NSKeyedArchiver archivedDataWithRootObject:self.selectData];
     if ([self.naviTitle isEqualToString:@"选择部门"]) {
-        [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectDepartments"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.selectData forKey:@"selectDepartments"];
     }
     else{
-        [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectThemes"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.selectData forKey:@"selectThemes"];
     }
     self.block(self.selectData);
     [self.navigationController popViewControllerAnimated:YES];

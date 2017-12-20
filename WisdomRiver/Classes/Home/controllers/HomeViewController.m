@@ -111,9 +111,9 @@
 }
 //获取首页数据
 - (void)getHomeData{
-    NSArray *allDepartments = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allDepartments"]];
+    NSArray *allDepartments = [[NSUserDefaults standardUserDefaults] objectForKey:@"allDepartments"];
     if (allDepartments.count > 0) {
-        NSArray *selectDepartments = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectDepartments"]];
+        NSArray *selectDepartments = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectDepartments"];
         [self.dataArr replaceObjectAtIndex:1 withObject:selectDepartments];
         [self.collectionView reloadData];
     }
@@ -121,8 +121,7 @@
         [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/getOrgs" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
             if (showdata) {
                 NSArray *arr = showdata[@"orgs"];
-                NSData *arrData = [NSKeyedArchiver archivedDataWithRootObject:arr];
-                [[NSUserDefaults standardUserDefaults] setObject:arrData forKey:@"allDepartments"];
+                [[NSUserDefaults standardUserDefaults] setObject:arr forKey:@"allDepartments"];
                 NSArray *selectArr;
                 if (arr.count > 7) {
                     selectArr = [arr subarrayWithRange:NSMakeRange(0, 7)];
@@ -130,16 +129,15 @@
                 else{
                     selectArr = arr;
                 }
-                NSData *selectData = [NSKeyedArchiver archivedDataWithRootObject:selectArr];
-                [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectDepartments"];
+                [[NSUserDefaults standardUserDefaults] setObject:selectArr forKey:@"selectDepartments"];
                 [self.dataArr replaceObjectAtIndex:1 withObject:selectArr];
                 [self.collectionView reloadData];
             }
         }];
     }
-    NSArray *allThemes = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"]];
+    NSArray *allThemes = [[NSUserDefaults standardUserDefaults] objectForKey:@"allThemes"];
     if (allThemes.count > 0) {
-        NSArray *selectThemes = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"selectThemes"]];
+        NSArray *selectThemes = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectThemes"];
         [self.dataArr replaceObjectAtIndex:2 withObject:selectThemes];
         [self.collectionView reloadData];
     }
@@ -147,8 +145,7 @@
         [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/getGovernmentServiceType" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
             if (showdata) {
                 NSArray *arr = showdata[@"bds"];
-                NSData *arrData = [NSKeyedArchiver archivedDataWithRootObject:arr];
-                [[NSUserDefaults standardUserDefaults] setObject:arrData forKey:@"allThemes"];
+                [[NSUserDefaults standardUserDefaults] setObject:arr forKey:@"allThemes"];
                 NSArray *selectArr;
                 if (arr.count > 7) {
                     selectArr = [arr subarrayWithRange:NSMakeRange(0, 7)];
@@ -156,8 +153,7 @@
                 else{
                     selectArr = arr;
                 }
-                NSData *selectData = [NSKeyedArchiver archivedDataWithRootObject:selectArr];
-                [[NSUserDefaults standardUserDefaults] setObject:selectData forKey:@"selectThemes"];
+                [[NSUserDefaults standardUserDefaults] setObject:selectArr forKey:@"selectThemes"];
                 [self.dataArr replaceObjectAtIndex:2 withObject:selectArr];
                 [self.collectionView reloadData];
             }

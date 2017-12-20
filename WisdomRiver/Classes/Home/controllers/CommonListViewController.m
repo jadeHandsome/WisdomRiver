@@ -96,6 +96,12 @@
                 [self.data addObjectsFromArray:showdata[@"list"]];
                 [self.tableView.mj_footer endRefreshing];
             }
+            if ([showdata[@"lastPage"] integerValue] == 1) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            else{
+                self.tableView.mj_footer.state = MJRefreshStateIdle;
+            }
             [self.tableView reloadData];
         }
         if (!showdata || self.data.count == 0) {
@@ -160,7 +166,7 @@
 }
 
 - (void)typeItem{
-    [self.view endEditing:YES];
+    [self.textField resignFirstResponder];
     SelectionView *selectionView = [[SelectionView alloc] initWithDataArr:@[@"全部社区",@"本社区"] title:@"事项开放社区" currentIndex:self.currentIndex seleted:^(NSInteger index, NSString *selectStr) {
         self.currentIndex = index;
         [self.tableView.mj_header beginRefreshing];
@@ -187,6 +193,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ItemDetailsViewController *itemVC = [ItemDetailsViewController new];
+    itemVC.dic = self.data[indexPath.row];
     [self.navigationController pushViewController:itemVC animated:YES];
 }
 

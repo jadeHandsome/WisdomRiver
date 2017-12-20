@@ -103,6 +103,9 @@
                 if ([showdata[@"lastPage"] integerValue] == 1) {
                     [_policyTableView.mj_footer endRefreshingWithNoMoreData];
                 }
+                else{
+                    _policyTableView.mj_footer.state = MJRefreshStateIdle;
+                }
                 [_policyTableView reloadData];
             }
             else if ([type isEqualToString:@"2"]){
@@ -119,6 +122,9 @@
                 if ([showdata[@"lastPage"] integerValue] == 1) {
                     [_notificationTableView.mj_footer endRefreshingWithNoMoreData];
                 }
+                else{
+                    _notificationTableView.mj_footer.state = MJRefreshStateIdle;
+                }
                 [_notificationTableView reloadData];
             }
             else{
@@ -134,6 +140,9 @@
                 }
                 if ([showdata[@"lastPage"] integerValue] == 1) {
                     [_informationTableView.mj_footer endRefreshingWithNoMoreData];
+                }
+                else{
+                    _informationTableView.mj_footer.state = MJRefreshStateIdle;
                 }
                 [_informationTableView reloadData];
             }

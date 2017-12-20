@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11197F1B1FE9621500989579 /* AppealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11197F1A1FE9621500989579 /* AppealDetailViewController.m */; };
 		114CF59D1FE250BD004B5701 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF59C1FE250BD004B5701 /* LoginViewController.m */; };
 		114CF5A01FE258C2004B5701 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF59F1FE258C2004B5701 /* UIImage+Color.m */; };
 		114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5A21FE26AEA004B5701 /* RegisterViewController.m */; };
@@ -80,6 +81,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11197F191FE9621500989579 /* AppealDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppealDetailViewController.h; sourceTree = "<group>"; };
+		11197F1A1FE9621500989579 /* AppealDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppealDetailViewController.m; sourceTree = "<group>"; };
 		114CF59B1FE250BD004B5701 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		114CF59C1FE250BD004B5701 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		114CF59E1FE258C2004B5701 /* UIImage+Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				11DD5B9A1FE5768D0053A3DB /* HotNewsDetailViewController.xib */,
 				114CF5E11FE3CAFA004B5701 /* AppealViewController.h */,
 				114CF5E21FE3CAFA004B5701 /* AppealViewController.m */,
+				11197F191FE9621500989579 /* AppealDetailViewController.h */,
+				11197F1A1FE9621500989579 /* AppealDetailViewController.m */,
 				114CF5EC1FE502C5004B5701 /* AddCommitController.h */,
 				114CF5ED1FE502C5004B5701 /* AddCommitController.m */,
 				114CF5EE1FE502C5004B5701 /* AddCommitController.xib */,
@@ -708,6 +713,7 @@
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,
 				11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */,
 				114CF5D41FE39334004B5701 /* CommonListViewController.m in Sources */,
+				11197F1B1FE9621500989579 /* AppealDetailViewController.m in Sources */,
 				1A61F7F61FE750C900C07E7C /* PublicCollectionViewCell.m in Sources */,
 				1A6304C41FE2739C00AE1751 /* MineViewController.m in Sources */,
 				114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */,
