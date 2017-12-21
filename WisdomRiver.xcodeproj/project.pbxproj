@@ -855,7 +855,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -872,7 +873,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
