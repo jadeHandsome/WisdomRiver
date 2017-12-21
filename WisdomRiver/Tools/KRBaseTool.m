@@ -326,7 +326,7 @@ singleton_implementation(KRBaseTool)
 #pragma mark——————————增加上拉加载更多
 + (void)tableViewAddRefreshFooter:(UIScrollView *)scrollView withTarget:(id)target refreshingAction:(SEL)action
 {
-    MJRefreshAutoStateFooter *footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:target refreshingAction:action];
+    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:target refreshingAction:action];
 //    [footer setTitle:@"" forState:MJRefreshStateIdle];
 //    [footer setTitle:@"" forState:MJRefreshStatePulling];
 //    [footer setTitle:@"" forState:MJRefreshStateRefreshing];

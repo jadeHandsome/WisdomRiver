@@ -81,7 +81,7 @@
         make.width.mas_equalTo(SIZEWIDTH / 4);
     }];
     UIButton *button4 = [[UIButton alloc] init];
-    [button4 setTitle:@"前置条件" forState:UIControlStateNormal];
+    [button4 setTitle:@"申请材料" forState:UIControlStateNormal];
     [button4 setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button4 setTitleColor:COLOR(78, 78, 78, 1) forState:UIControlStateNormal];
     button4.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(44)];
@@ -98,22 +98,7 @@
     lineView.backgroundColor = ThemeColor;
     self.lineView = lineView;
     [buttonsView addSubview:lineView];
-    
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, HEIGHT(152), SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(302))];
-#ifdef __IPHONE_11_0
-    if ([scrollView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
-        scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
-#endif
-    scrollView.contentSize = CGSizeMake(SIZEWIDTH * 4, SIZEHEIGHT - navHight - HEIGHT(302));
-    scrollView.pagingEnabled = YES;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.bounces = NO;
-    scrollView.backgroundColor = COLOR(245, 245, 245, 1);
-    scrollView.delegate = self;
-    self.scrollView = scrollView;
-    [self.view addSubview:scrollView];
+
     
     UIView *bottomView =[[UIView alloc] init];
     bottomView.backgroundColor = COLOR(245, 245, 245, 1);
@@ -150,6 +135,146 @@
         make.right.equalTo(bottomView).offset(WIDTH(-30));
         make.centerY.equalTo(bottomView.mas_centerY);
     }];
+    
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+#ifdef __IPHONE_11_0
+    if ([scrollView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+#endif
+    //    scrollView.contentSize = CGSizeMake(SIZEWIDTH * 4, SIZEHEIGHT - navHight - HEIGHT(302));
+    scrollView.pagingEnabled = YES;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.bounces = NO;
+    scrollView.backgroundColor = COLOR(245, 245, 245, 1);
+    scrollView.delegate = self;
+    self.scrollView = scrollView;
+    [self.view addSubview:scrollView];
+    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(buttonsView.mas_bottom);
+        make.bottom.equalTo(bottomView.mas_top);
+    }];
+    UIView *containerView = [[UIView alloc] init];
+    containerView.backgroundColor = COLOR(245, 245, 245, 1);
+    [scrollView addSubview:containerView];
+    [containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(scrollView);
+        make.height.mas_equalTo(scrollView);
+        make.width.mas_equalTo(SIZEWIDTH * 4);
+    }];
+    UIView *baseInfoView = [[UIView alloc] init];
+    baseInfoView.backgroundColor = [UIColor whiteColor];
+    LRViewBorderRadius(baseInfoView, HEIGHT(15), 0.5, [UIColor lightTextColor]);
+    LRViewShadow(baseInfoView, [UIColor blackColor], CGSizeMake(2, 2), 0.3, 5);
+    [containerView addSubview:baseInfoView];
+    [baseInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(containerView).offset(10);
+        make.top.equalTo(containerView).offset(10);
+        make.width.mas_equalTo(SIZEWIDTH - 20);
+        make.height.mas_equalTo(150);
+    }];
+    UIView *temp;
+    for (int i = 0; i < 3; i ++) {
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor whiteColor];
+        [baseInfoView addSubview:view];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(baseInfoView).offset(10);
+            make.right.equalTo(baseInfoView).offset(-10);
+            make.height.mas_equalTo(50);
+            if (i == 0) {
+                make.top.equalTo(baseInfoView);
+            }
+            else{
+                make.top.equalTo(temp.mas_bottom);
+            }
+        }];
+        temp = view;
+        UILabel *title = [[UILabel alloc] init];
+        title.textColor = [UIColor lightGrayColor];
+        title.font = [UIFont systemFontOfSize:14];
+        [view addSubview:title];
+        [title mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(view);
+            make.width.mas_equalTo(62);
+            make.centerY.equalTo(view.mas_centerY);
+        }];
+        UILabel *content = [[UILabel alloc] init];
+        content.textColor = [UIColor blackColor];
+        content.font = [UIFont systemFontOfSize:14];
+        [view addSubview:content];
+        [content mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(title.mas_right).offset(5);
+            make.right.equalTo(view).offset(-10);
+            make.centerY.equalTo(view.mas_centerY);
+        }];
+        if (i != 2) {
+            UIView *line = [[UIView alloc] init];
+            line.backgroundColor = [UIColor lightGrayColor];
+            [view addSubview:line];
+            [line mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.bottom.right.equalTo(view);
+                make.height.mas_equalTo(0.5);
+            }];
+        }
+        if (i == 0) {
+            title.text = @"事项名称:";
+            content.text = self.dic[@"name"];
+        }
+        else if (i == 1) {
+            title.text = @"事项类型:";
+            content.text = self.dic[@"typeName"];
+        }
+        else if (i == 2) {
+            title.text = @"所属部门:";
+            content.text = self.dic[@"orgName"];
+        }
+    }
+    
+    UIView *conditionView = [[UIView alloc] init];
+    conditionView.backgroundColor = [UIColor whiteColor];
+    LRViewBorderRadius(conditionView, HEIGHT(15), 0.5, [UIColor lightTextColor]);
+    LRViewShadow(conditionView, [UIColor blackColor], CGSizeMake(2, 2), 0.3, 5);
+    [containerView addSubview:conditionView];
+    [conditionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(containerView).offset(SIZEWIDTH + 10);
+        make.top.equalTo(containerView).offset(10);
+        make.width.mas_equalTo(SIZEWIDTH - 20);
+    }];
+    UILabel *conditionLabel = [[UILabel alloc] init];
+    conditionLabel.textColor = [UIColor blackColor];
+    conditionLabel.font = [UIFont systemFontOfSize:14];
+    conditionLabel.numberOfLines = 0;
+    conditionLabel.attributedText = [self attributedStringWithHTMLString:[self htmlEntityDecode:self.dic[@"precondition"]]];
+    [conditionView addSubview:conditionLabel];
+    [conditionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(conditionView).offset(10);
+        make.bottom.right.equalTo(conditionView).offset(-10);
+    }];
+    
+    UIView *processView = [[UIView alloc] init];
+    processView.backgroundColor = [UIColor whiteColor];
+    LRViewBorderRadius(processView, HEIGHT(15), 0.5, [UIColor lightTextColor]);
+    LRViewShadow(processView, [UIColor blackColor], CGSizeMake(2, 2), 0.3, 5);
+    [containerView addSubview:processView];
+    [processView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(containerView).offset(SIZEWIDTH * 2 + 10);
+        make.top.equalTo(containerView).offset(10);
+        make.width.mas_equalTo(SIZEWIDTH - 20);
+    }];
+    UILabel *processLabel = [[UILabel alloc] init];
+    processLabel.textColor = [UIColor blackColor];
+    processLabel.font = [UIFont systemFontOfSize:14];
+    processLabel.numberOfLines = 0;
+    processLabel.attributedText = [self attributedStringWithHTMLString:[self htmlEntityDecode:self.dic[@"processingProcess"]]];
+    [processView addSubview:processLabel];
+    [processLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(processView).offset(10);
+        make.bottom.right.equalTo(processView).offset(-10);
+    }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -170,12 +295,52 @@
 }
 //预审
 - (void)preliminary:(UIButton *)sender{
-    
+    if ([KRUserInfo sharedKRUserInfo].card.length > 0) {
+        
+    }
+    else{
+        //去身份认证
+    }
 }
 //代办
 - (void)commission:(UIButton *)sender{
+    if ([KRUserInfo sharedKRUserInfo].card.length > 0) {
+        
+    }
+    else{
+        //去身份认证
+    }
+}
+
+- (void)handle:(NSString *)auditType{
     
 }
+
+
+//将 &lt 等类似的字符转化为HTML中的“<”等
+- (NSString *)htmlEntityDecode:(NSString *)string
+{
+    string = [string stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+    string = [string stringByReplacingOccurrencesOfString:@"&apos;" withString:@"'"];
+    string = [string stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+    string = [string stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+    string = [string stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    // Do this last so that, e.g. @"&amp;lt;" goes to @"&lt;" not @"<"
+    
+    return string;
+}
+
+//将HTML字符串转化为NSAttributedString富文本字符串
+- (NSAttributedString *)attributedStringWithHTMLString:(NSString *)htmlString
+{
+    NSDictionary *options = @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType,
+                               NSCharacterEncodingDocumentAttribute :@(NSUTF8StringEncoding) };
+    
+    NSData *data = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    return [[NSAttributedString alloc] initWithData:data options:options documentAttributes:nil error:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

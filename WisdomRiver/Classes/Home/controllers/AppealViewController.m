@@ -10,6 +10,7 @@
 #import "AppealCell.h"
 #import "SelectionView.h"
 #import "AddCommitController.h"
+#import "AppealDetailViewController.h"
 @interface AppealViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *data;
@@ -153,7 +154,7 @@
 }
 
 - (void)typeItem{
-    [self.view endEditing:YES];
+    [self.textField resignFirstResponder];
     SelectionView *selectionView = [[SelectionView alloc] initWithDataArr:@[@"全部",@"未回复",@"已回复"] title:@"回复状态" currentIndex:self.currentIndex seleted:^(NSInteger index, NSString *selectStr) {
         self.currentIndex = index;
         [self.tableView.mj_header beginRefreshing];
@@ -172,7 +173,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AppealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppealCell" forIndexPath:indexPath];
     cell.title.text = self.data[indexPath.row][@"title"];
-    cell.content.text = [NSString stringWithFormat:@"诉求内容：%@",self.data[indexPath.row][@"content"]];
+    NSString *content = self.data[indexPath.row][@"content"];
+    cell.content.text = [NSString stringWithFormat:@"诉求内容：%@",[content stringByReplacingOccurrencesOfString:@"\n" withString:@""]];
     cell.time.text = [NSString stringWithFormat:@"提交时间：%@",self.data[indexPath.row][@"createdate"]];
     BOOL status = self.data[indexPath.row][@"reply"] != [NSNull null];
     cell.status.text =  status? @"已回复" : @"未回复";
@@ -182,7 +184,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    AppealDetailViewController *detailVC = [AppealDetailViewController new];
+    detailVC.dic = self.data[indexPath.row];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)add:(UIButton *)sender{

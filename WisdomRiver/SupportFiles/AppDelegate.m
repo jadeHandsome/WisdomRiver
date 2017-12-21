@@ -31,8 +31,7 @@
     NSString *isLogin = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"];
     UIViewController *firstVC = nil;
     if ([isLogin isEqualToString:@"1"]) {
-        NSData *jsonData = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
-        NSDictionary *userInfo = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
         [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:userInfo];
         BaseTabbarViewController *tab = [[BaseTabbarViewController alloc] init];
         firstVC = tab;
