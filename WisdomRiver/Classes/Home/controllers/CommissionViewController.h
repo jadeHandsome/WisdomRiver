@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface CommissionViewController : BaseViewController
-
+@property (nonatomic, strong) NSDictionary *dic;
 @end
