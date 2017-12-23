@@ -19,7 +19,7 @@
     UINavigationBar *bar = [UINavigationBar appearance];
     bar.shadowImage=[UIImage new];
     [bar setTintColor:[UIColor whiteColor]];
-    [bar setBackgroundImage:[UIImage imageWithColor:ThemeColor Size:CGSizeMake(SIZEWIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
+    [bar setBackgroundImage:[UIImage imageWithColor:ThemeColor Size:CGSizeMake(SIZEWIDTH, navHight)] forBarMetrics:UIBarMetricsDefault];
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
 }

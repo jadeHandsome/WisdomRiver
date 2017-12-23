@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CommsissionReusableView" id="U6b-Vx-4bR" customClass="CommsissionReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3N-gA-kHn">
+                    <rect key="frame" x="10" y="16" width="37.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6d-Qk-cu2">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="0.5"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="mc7-a3-k9a"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lao-iv-a0l">
+                    <rect key="frame" x="0.0" y="49.5" width="320" height="0.5"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="PjY-kH-sOX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="a6d-Qk-cu2" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="1yh-BH-rIf"/>
+                <constraint firstItem="a6d-Qk-cu2" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="NJc-G9-zw5"/>
+                <constraint firstAttribute="trailing" secondItem="a6d-Qk-cu2" secondAttribute="trailing" id="XP5-PY-9OJ"/>
+                <constraint firstItem="V3N-gA-kHn" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="jx8-Ss-jJT"/>
+                <constraint firstItem="lao-iv-a0l" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="mSE-sM-UtH"/>
+                <constraint firstAttribute="bottom" secondItem="lao-iv-a0l" secondAttribute="bottom" id="ngd-Rl-aOH"/>
+                <constraint firstAttribute="trailing" secondItem="lao-iv-a0l" secondAttribute="trailing" id="p0v-0J-Jad"/>
+                <constraint firstItem="V3N-gA-kHn" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="u1f-NW-cDq"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="V3N-gA-kHn" id="1Cn-fY-bX6"/>
+            </connections>
+        </collectionReusableView>
+    </objects>
+</document>

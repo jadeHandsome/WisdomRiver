@@ -7,7 +7,8 @@
 //
 
 #import "ItemDetailsViewController.h"
-
+#import "InquiryViewController.h"
+#import "CommissionViewController.h"
 @interface ItemDetailsViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIButton *preBtn;
 @property (nonatomic, strong) UIButton *button1;
@@ -296,16 +297,20 @@
 //预审
 - (void)preliminary:(UIButton *)sender{
     if ([KRUserInfo sharedKRUserInfo].card.length > 0) {
-        
+        CommissionViewController *commissionVC = [CommissionViewController new];
+        [self.navigationController pushViewController:commissionVC animated:YES];
     }
     else{
         //去身份认证
+        
     }
 }
 //代办
 - (void)commission:(UIButton *)sender{
     if ([KRUserInfo sharedKRUserInfo].card.length > 0) {
-        
+        InquiryViewController *inquiryVC = [InquiryViewController new];
+        inquiryVC.dic = self.dic;
+        [self.navigationController pushViewController:inquiryVC animated:YES];
     }
     else{
         //去身份认证
