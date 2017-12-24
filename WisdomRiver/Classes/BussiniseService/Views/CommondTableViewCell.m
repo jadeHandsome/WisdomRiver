@@ -65,7 +65,9 @@
     self.nameLabel.text = data[@"uid"];
     self.timeLabel.text = data[@"date"];
     self.CONTENvIEW.text = data[@"note"];
-    [self.countView removeAllSubviews];
+    for (UIView *sub in self.countView.subviews) {
+        [sub removeFromSuperview];
+    }
     NSInteger f = [data[@"evaluate"] integerValue];
     UIView *temp = self.countView;
     for (int i = 0; i < 5; i ++) {

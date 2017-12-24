@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		11197F1B1FE9621500989579 /* AppealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11197F1A1FE9621500989579 /* AppealDetailViewController.m */; };
+		11197FF91FEE32BB00989579 /* InquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11197FF71FEE32BB00989579 /* InquiryViewController.m */; };
+		11197FFA1FEE32BB00989579 /* InquiryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11197FF81FEE32BB00989579 /* InquiryViewController.xib */; };
+		11197FFD1FEE4A8500989579 /* CommissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11197FFC1FEE4A8500989579 /* CommissionViewController.m */; };
+		111980011FEE4D9700989579 /* CommissionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11197FFF1FEE4D9700989579 /* CommissionCell.m */; };
+		111980021FEE4D9700989579 /* CommissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111980001FEE4D9700989579 /* CommissionCell.xib */; };
+		111980061FEE4F8200989579 /* CommsissionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 111980041FEE4F8200989579 /* CommsissionReusableView.m */; };
+		111980071FEE4F8200989579 /* CommsissionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111980051FEE4F8200989579 /* CommsissionReusableView.xib */; };
+		111980C81FEE5B8E00989579 /* ZLPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 111980C01FEE5B8E00989579 /* ZLPhotoCell.m */; };
+		111980C91FEE5B8E00989579 /* ZLPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111980C11FEE5B8E00989579 /* ZLPhotoCell.xib */; };
+		111980CA1FEE5B8E00989579 /* ZLPhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 111980C31FEE5B8E00989579 /* ZLPhotoHelper.m */; };
+		111980CB1FEE5B8E00989579 /* ZLPickPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111980C51FEE5B8E00989579 /* ZLPickPhotoViewController.m */; };
+		111980CC1FEE5B8E00989579 /* ZLShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111980C71FEE5B8E00989579 /* ZLShowImageViewController.m */; };
+		111980D01FEE5E4700989579 /* CommsissonReusableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 111980CE1FEE5E4700989579 /* CommsissonReusableFooter.m */; };
+		111980D11FEE5E4700989579 /* CommsissonReusableFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111980CF1FEE5E4700989579 /* CommsissonReusableFooter.xib */; };
 		114CF59D1FE250BD004B5701 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF59C1FE250BD004B5701 /* LoginViewController.m */; };
 		114CF5A01FE258C2004B5701 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF59F1FE258C2004B5701 /* UIImage+Color.m */; };
 		114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114CF5A21FE26AEA004B5701 /* RegisterViewController.m */; };
@@ -52,7 +66,6 @@
 		11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B001FE21E2100D10A5C /* BaseNaviViewController.m */; };
 		11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B021FE21E2100D10A5C /* BaseViewController.m */; };
 		11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B0A1FE21F6800D10A5C /* CALayer+CircleBoard.m */; };
-		11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FE0B0C1FE21F6800D10A5C /* UIView+EX.m */; };
 		1A07D24F1FE8E6A000B2BF31 /* InfoManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A07D24E1FE8E6A000B2BF31 /* InfoManagerViewController.m */; };
 		1A1A4D6C1FE4CE2100C66AA3 /* BussinCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6A1FE4CE2100C66AA3 /* BussinCollectionViewCell.m */; };
 		1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */; };
@@ -107,6 +120,29 @@
 /* Begin PBXFileReference section */
 		11197F191FE9621500989579 /* AppealDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppealDetailViewController.h; sourceTree = "<group>"; };
 		11197F1A1FE9621500989579 /* AppealDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppealDetailViewController.m; sourceTree = "<group>"; };
+		11197FF61FEE32BB00989579 /* InquiryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InquiryViewController.h; sourceTree = "<group>"; };
+		11197FF71FEE32BB00989579 /* InquiryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InquiryViewController.m; sourceTree = "<group>"; };
+		11197FF81FEE32BB00989579 /* InquiryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InquiryViewController.xib; sourceTree = "<group>"; };
+		11197FFB1FEE4A8500989579 /* CommissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommissionViewController.h; sourceTree = "<group>"; };
+		11197FFC1FEE4A8500989579 /* CommissionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommissionViewController.m; sourceTree = "<group>"; };
+		11197FFE1FEE4D9700989579 /* CommissionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommissionCell.h; sourceTree = "<group>"; };
+		11197FFF1FEE4D9700989579 /* CommissionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommissionCell.m; sourceTree = "<group>"; };
+		111980001FEE4D9700989579 /* CommissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommissionCell.xib; sourceTree = "<group>"; };
+		111980031FEE4F8200989579 /* CommsissionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommsissionReusableView.h; sourceTree = "<group>"; };
+		111980041FEE4F8200989579 /* CommsissionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommsissionReusableView.m; sourceTree = "<group>"; };
+		111980051FEE4F8200989579 /* CommsissionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommsissionReusableView.xib; sourceTree = "<group>"; };
+		111980BF1FEE5B8E00989579 /* ZLPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPhotoCell.h; sourceTree = "<group>"; };
+		111980C01FEE5B8E00989579 /* ZLPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPhotoCell.m; sourceTree = "<group>"; };
+		111980C11FEE5B8E00989579 /* ZLPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLPhotoCell.xib; sourceTree = "<group>"; };
+		111980C21FEE5B8E00989579 /* ZLPhotoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPhotoHelper.h; sourceTree = "<group>"; };
+		111980C31FEE5B8E00989579 /* ZLPhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPhotoHelper.m; sourceTree = "<group>"; };
+		111980C41FEE5B8E00989579 /* ZLPickPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPickPhotoViewController.h; sourceTree = "<group>"; };
+		111980C51FEE5B8E00989579 /* ZLPickPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPickPhotoViewController.m; sourceTree = "<group>"; };
+		111980C61FEE5B8E00989579 /* ZLShowImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLShowImageViewController.h; sourceTree = "<group>"; };
+		111980C71FEE5B8E00989579 /* ZLShowImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLShowImageViewController.m; sourceTree = "<group>"; };
+		111980CD1FEE5E4700989579 /* CommsissonReusableFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommsissonReusableFooter.h; sourceTree = "<group>"; };
+		111980CE1FEE5E4700989579 /* CommsissonReusableFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommsissonReusableFooter.m; sourceTree = "<group>"; };
+		111980CF1FEE5E4700989579 /* CommsissonReusableFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommsissonReusableFooter.xib; sourceTree = "<group>"; };
 		114CF59B1FE250BD004B5701 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		114CF59C1FE250BD004B5701 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		114CF59E1FE258C2004B5701 /* UIImage+Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
@@ -195,8 +231,6 @@
 		11FE0B071FE21F3A00D10A5C /* Url.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
 		11FE0B091FE21F6800D10A5C /* CALayer+CircleBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+CircleBoard.h"; sourceTree = "<group>"; };
 		11FE0B0A1FE21F6800D10A5C /* CALayer+CircleBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CircleBoard.m"; sourceTree = "<group>"; };
-		11FE0B0B1FE21F6800D10A5C /* UIView+EX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EX.h"; sourceTree = "<group>"; };
-		11FE0B0C1FE21F6800D10A5C /* UIView+EX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EX.m"; sourceTree = "<group>"; };
 		1A07D24D1FE8E6A000B2BF31 /* InfoManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoManagerViewController.h; sourceTree = "<group>"; };
 		1A07D24E1FE8E6A000B2BF31 /* InfoManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoManagerViewController.m; sourceTree = "<group>"; };
 		1A1A4D691FE4CE2100C66AA3 /* BussinCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussinCollectionViewCell.h; sourceTree = "<group>"; };
@@ -297,6 +331,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111980BE1FEE5B8E00989579 /* ZLPickPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				111980BF1FEE5B8E00989579 /* ZLPhotoCell.h */,
+				111980C01FEE5B8E00989579 /* ZLPhotoCell.m */,
+				111980C11FEE5B8E00989579 /* ZLPhotoCell.xib */,
+				111980C21FEE5B8E00989579 /* ZLPhotoHelper.h */,
+				111980C31FEE5B8E00989579 /* ZLPhotoHelper.m */,
+				111980C41FEE5B8E00989579 /* ZLPickPhotoViewController.h */,
+				111980C51FEE5B8E00989579 /* ZLPickPhotoViewController.m */,
+				111980C61FEE5B8E00989579 /* ZLShowImageViewController.h */,
+				111980C71FEE5B8E00989579 /* ZLShowImageViewController.m */,
+			);
+			path = ZLPickPhoto;
+			sourceTree = "<group>";
+		};
 		114CF59A1FE24FC9004B5701 /* Login&Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +388,15 @@
 				11DD5BA41FE585720053A3DB /* SelectCell.xib */,
 				1161DBE81FE8EA970059A738 /* HomeReusableView.h */,
 				1161DBE91FE8EA970059A738 /* HomeReusableView.m */,
+				11197FFE1FEE4D9700989579 /* CommissionCell.h */,
+				11197FFF1FEE4D9700989579 /* CommissionCell.m */,
+				111980001FEE4D9700989579 /* CommissionCell.xib */,
+				111980031FEE4F8200989579 /* CommsissionReusableView.h */,
+				111980041FEE4F8200989579 /* CommsissionReusableView.m */,
+				111980051FEE4F8200989579 /* CommsissionReusableView.xib */,
+				111980CD1FEE5E4700989579 /* CommsissonReusableFooter.h */,
+				111980CE1FEE5E4700989579 /* CommsissonReusableFooter.m */,
+				111980CF1FEE5E4700989579 /* CommsissonReusableFooter.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -366,6 +425,11 @@
 				11DD5B9D1FE580EF0053A3DB /* AddItemsViewController.h */,
 				11DD5B9E1FE580EF0053A3DB /* AddItemsViewController.m */,
 				11DD5B9F1FE580EF0053A3DB /* AddItemsViewController.xib */,
+				11197FF61FEE32BB00989579 /* InquiryViewController.h */,
+				11197FF71FEE32BB00989579 /* InquiryViewController.m */,
+				11197FF81FEE32BB00989579 /* InquiryViewController.xib */,
+				11197FFB1FEE4A8500989579 /* CommissionViewController.h */,
+				11197FFC1FEE4A8500989579 /* CommissionViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -394,6 +458,7 @@
 				1AAF2BEE1FEE55CC00B6DA18 /* KRMySegmentView.m */,
 				1A8F9EDC1FE657B300B062B1 /* CBSegmentView.h */,
 				1A8F9EDD1FE657B300B062B1 /* CBSegmentView.m */,
+				111980BE1FEE5B8E00989579 /* ZLPickPhoto */,
 				1A8F9ED51FE56DB400B062B1 /* 自定义banner */,
 				11FE0B081FE21F6800D10A5C /* Category */,
 				11FE0AC41FE21E1100D10A5C /* ImageCenterButton.h */,
@@ -487,8 +552,6 @@
 			children = (
 				11FE0B091FE21F6800D10A5C /* CALayer+CircleBoard.h */,
 				11FE0B0A1FE21F6800D10A5C /* CALayer+CircleBoard.m */,
-				11FE0B0B1FE21F6800D10A5C /* UIView+EX.h */,
-				11FE0B0C1FE21F6800D10A5C /* UIView+EX.m */,
 				114CF59E1FE258C2004B5701 /* UIImage+Color.h */,
 				114CF59F1FE258C2004B5701 /* UIImage+Color.m */,
 			);
@@ -751,6 +814,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A51149A1FE7F54100D87D02 /* BaseMineView.xib in Resources */,
+				111980021FEE4D9700989579 /* CommissionCell.xib in Resources */,
+				111980C91FEE5B8E00989579 /* ZLPhotoCell.xib in Resources */,
 				1A6304D01FE2791500AE1751 /* BussItemBtnView.xib in Resources */,
 				1AAF2BF51FEE57D600B6DA18 /* CommondTableViewCell.xib in Resources */,
 				11FE0AF91FE21E1200D10A5C /* MBProgressHUD.bundle in Resources */,
@@ -760,8 +825,10 @@
 				1AAF2BD71FEE268400B6DA18 /* MysuiquListTableViewCell.xib in Resources */,
 				114CF5F01FE502C5004B5701 /* AddCommitController.xib in Resources */,
 				1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */,
+				11197FFA1FEE32BB00989579 /* InquiryViewController.xib in Resources */,
 				11DD5BA11FE580EF0053A3DB /* AddItemsViewController.xib in Resources */,
 				1AAF2BE31FEE3C8100B6DA18 /* MyApplyTableViewCell.xib in Resources */,
+				111980D11FEE5E4700989579 /* CommsissonReusableFooter.xib in Resources */,
 				114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */,
 				1AAF2BCE1FEE236000B6DA18 /* ReparePwsViewController.xib in Resources */,
 				1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */,
@@ -769,6 +836,7 @@
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
 				1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */,
 				1AC0A1EE1FEFB76E009D3939 /* LaunchScreen.storyboard in Resources */,
+				111980071FEE4F8200989579 /* CommsissionReusableView.xib in Resources */,
 				1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -836,6 +904,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AAF2BE21FEE3C8100B6DA18 /* MyApplyTableViewCell.m in Sources */,
+				11197FF91FEE32BB00989579 /* InquiryViewController.m in Sources */,
 				11FE0AF41FE21E1200D10A5C /* TYTabPagerController.m in Sources */,
 				1A61F7FA1FE75B9900C07E7C /* BaseWebViewController.m in Sources */,
 				1AC0A1EB1FEFAF9D009D3939 /* BussCommondViewController.m in Sources */,
@@ -846,6 +915,7 @@
 				1A07D24F1FE8E6A000B2BF31 /* InfoManagerViewController.m in Sources */,
 				11FE0AF31FE21E1200D10A5C /* TYTabButtonPagerController.m in Sources */,
 				1A1A4D6C1FE4CE2100C66AA3 /* BussinCollectionViewCell.m in Sources */,
+				111980C81FEE5B8E00989579 /* ZLPhotoCell.m in Sources */,
 				11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */,
 				1A8F9EDA1FE56DB400B062B1 /* PGIndexBannerSubiew.m in Sources */,
 				1161DBE71FE8E51D0059A738 /* HomeCell2.m in Sources */,
@@ -862,18 +932,20 @@
 				114CF5EB1FE4F535004B5701 /* SelectionView.m in Sources */,
 				1A6304C71FE273A800AE1751 /* BussinessViewController.m in Sources */,
 				11FE0AF01FE21E1200D10A5C /* NSString+LocaString.m in Sources */,
-				11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */,
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
 				1AAF2BDA1FEE357200B6DA18 /* SuqiuDetailViewController.m in Sources */,
+				111980CA1FEE5B8E00989579 /* ZLPhotoHelper.m in Sources */,
 				1161DBE41FE8E5010059A738 /* HomeCell1.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
 				11DD5BA51FE585720053A3DB /* SelectCell.m in Sources */,
 				1AAF2BCD1FEE236000B6DA18 /* ReparePwsViewController.m in Sources */,
 				114CF5EF1FE502C5004B5701 /* AddCommitController.m in Sources */,
 				114CF5E01FE3C7ED004B5701 /* HotNewsViewController.m in Sources */,
+				11197FFD1FEE4A8500989579 /* CommissionViewController.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
 				1AC0A1E41FEFA9DE009D3939 /* KRMyTextView.m in Sources */,
 				11FE0AF21FE21E1200D10A5C /* TYPagerController.m in Sources */,
+				111980CC1FEE5B8E00989579 /* ZLShowImageViewController.m in Sources */,
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,
 				11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */,
 				1AC0A1E71FEFAF77009D3939 /* LDXScore.m in Sources */,
@@ -882,9 +954,12 @@
 				1A61F7F61FE750C900C07E7C /* PublicCollectionViewCell.m in Sources */,
 				1A6304C41FE2739C00AE1751 /* MineViewController.m in Sources */,
 				114CF5A31FE26AEA004B5701 /* RegisterViewController.m in Sources */,
+				111980CB1FEE5B8E00989579 /* ZLPickPhotoViewController.m in Sources */,
 				11FE0AFC1FE21E1200D10A5C /* UITableView+KREmptyData.m in Sources */,
+				111980061FEE4F8200989579 /* CommsissionReusableView.m in Sources */,
 				1A6304CA1FE273B300AE1751 /* PublickViewController.m in Sources */,
 				1161DBEA1FE8EA970059A738 /* HomeReusableView.m in Sources */,
+				111980D01FEE5E4700989579 /* CommsissonReusableFooter.m in Sources */,
 				1A6304CE1FE2790D00AE1751 /* BussItemBtnView.m in Sources */,
 				1A5114981FE7F53000D87D02 /* BaseMineView.m in Sources */,
 				1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */,
@@ -906,6 +981,7 @@
 				1AAF2BD21FEE264A00B6DA18 /* MySuqiuViewController.m in Sources */,
 				114CF5E71FE4E2C8004B5701 /* AppealCell.m in Sources */,
 				11FE0AF71FE21E1200D10A5C /* YHMath.m in Sources */,
+				111980011FEE4D9700989579 /* CommissionCell.m in Sources */,
 				11DD5BA01FE580EF0053A3DB /* AddItemsViewController.m in Sources */,
 				1A6304DD1FE3ACDB00AE1751 /* BussinessSubViewController.m in Sources */,
 				114CF5A71FE26C74004B5701 /* HomeViewController.m in Sources */,

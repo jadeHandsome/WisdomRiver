@@ -7,7 +7,8 @@
 //
 
 #import "ItemDetailsViewController.h"
-
+#import "InquiryViewController.h"
+#import "CommissionViewController.h"
 @interface ItemDetailsViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIButton *preBtn;
 @property (nonatomic, strong) UIButton *button1;
@@ -296,24 +297,39 @@
 //预审
 - (void)preliminary:(UIButton *)sender{
     if ([KRUserInfo sharedKRUserInfo].card.length > 0) {
+        [self handle:@"0" complete:^{
+            CommissionViewController *commissionVC = [CommissionViewController new];
+            commissionVC.dic = self.dic;
+            [self.navigationController pushViewController:commissionVC animated:YES];
+        }];
         
     }
     else{
         //去身份认证
+        
     }
 }
 //代办
 - (void)commission:(UIButton *)sender{
     if ([KRUserInfo sharedKRUserInfo].card.length > 0) {
-        
+        [self handle:@"1" complete:^{
+            InquiryViewController *inquiryVC = [InquiryViewController new];
+            inquiryVC.dic = self.dic;
+            [self.navigationController pushViewController:inquiryVC animated:YES];
+        }];
     }
     else{
         //去身份认证
     }
 }
 
-- (void)handle:(NSString *)auditType{
-    
+- (void)handle:(NSString *)auditType complete:(void(^)(void))complete{
+    NSDictionary *params = @{@"id":self.dic[@"id"],@"auditType":auditType};
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/yyDBValidate" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            complete();
+        }
+    }];
 }
 
 

@@ -10,7 +10,6 @@
 #define PrefixHeader_pch
 
 #import "Url.h"
-#import "UIView+EX.h"
 #import "CALayer+CircleBoard.h"
 #import "UIView+BorderLine.h"
 #import "KRUserInfo.h"

@@ -7,7 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-
+#import <UIKit/UIKit.h>
 @interface CALayer (CircleBoard)
 
 - (void)addCircleBoardWithRadius:(CGFloat)radius boardColor:(UIColor *)boardColor boardWidth:(CGFloat)boardWidth;
