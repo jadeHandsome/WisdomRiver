@@ -114,6 +114,9 @@
 		1AC0A1EB1FEFAF9D009D3939 /* BussCommondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0A1E91FEFAF9D009D3939 /* BussCommondViewController.m */; };
 		1AC0A1EC1FEFAF9D009D3939 /* BussCommondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0A1EA1FEFAF9D009D3939 /* BussCommondViewController.xib */; };
 		1AC0A1EE1FEFB76E009D3939 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0A1ED1FEFB76E009D3939 /* LaunchScreen.storyboard */; };
+		1AFFDAEF1FEFF97600C6D6FD /* CommondPic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFFDAEE1FEFF97600C6D6FD /* CommondPic.m */; };
+		1AFFDAF21FF0000100C6D6FD /* CailiaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFFDAF11FF0000100C6D6FD /* CailiaoView.m */; };
+		1AFFDAF41FF0000C00C6D6FD /* CailiaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFFDAF31FF0000C00C6D6FD /* CailiaoView.xib */; };
 		2F009ED99ED1713A8D96FC3A /* libPods-WisdomRiver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C4FF3A16DAF878FEC03101 /* libPods-WisdomRiver.a */; };
 /* End PBXBuildFile section */
 
@@ -314,6 +317,11 @@
 		1AC0A1E91FEFAF9D009D3939 /* BussCommondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussCommondViewController.m; sourceTree = "<group>"; };
 		1AC0A1EA1FEFAF9D009D3939 /* BussCommondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BussCommondViewController.xib; sourceTree = "<group>"; };
 		1AC0A1ED1FEFB76E009D3939 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1AFFDAED1FEFF97600C6D6FD /* CommondPic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommondPic.h; sourceTree = "<group>"; };
+		1AFFDAEE1FEFF97600C6D6FD /* CommondPic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommondPic.m; sourceTree = "<group>"; };
+		1AFFDAF01FF0000100C6D6FD /* CailiaoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CailiaoView.h; sourceTree = "<group>"; };
+		1AFFDAF11FF0000100C6D6FD /* CailiaoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CailiaoView.m; sourceTree = "<group>"; };
+		1AFFDAF31FF0000C00C6D6FD /* CailiaoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CailiaoView.xib; sourceTree = "<group>"; };
 		3053E2B87EDCB750AFCF926B /* Pods-WisdomRiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomRiver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomRiver/Pods-WisdomRiver.debug.xcconfig"; sourceTree = "<group>"; };
 		36E4BBA5093BC898F3DF8F2F /* Pods-WisdomRiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomRiver.release.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomRiver/Pods-WisdomRiver.release.xcconfig"; sourceTree = "<group>"; };
 		C1C4FF3A16DAF878FEC03101 /* libPods-WisdomRiver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WisdomRiver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -656,6 +664,8 @@
 				1AAF2BF11FEE57D600B6DA18 /* CommondTableViewCell.h */,
 				1AAF2BF21FEE57D600B6DA18 /* CommondTableViewCell.m */,
 				1AAF2BF31FEE57D600B6DA18 /* CommondTableViewCell.xib */,
+				1AFFDAED1FEFF97600C6D6FD /* CommondPic.h */,
+				1AFFDAEE1FEFF97600C6D6FD /* CommondPic.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -722,6 +732,9 @@
 			children = (
 				1AAF2BEB1FEE49A400B6DA18 /* YushenDetailViewController.h */,
 				1AAF2BEC1FEE49A400B6DA18 /* YushenDetailViewController.m */,
+				1AFFDAF01FF0000100C6D6FD /* CailiaoView.h */,
+				1AFFDAF11FF0000100C6D6FD /* CailiaoView.m */,
+				1AFFDAF31FF0000C00C6D6FD /* CailiaoView.xib */,
 			);
 			path = "我的预审";
 			sourceTree = "<group>";
@@ -836,6 +849,7 @@
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
 				1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */,
 				1AC0A1EE1FEFB76E009D3939 /* LaunchScreen.storyboard in Resources */,
+				1AFFDAF41FF0000C00C6D6FD /* CailiaoView.xib in Resources */,
 				111980071FEE4F8200989579 /* CommsissionReusableView.xib in Resources */,
 				1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */,
 			);
@@ -893,7 +907,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -944,6 +958,7 @@
 				11197FFD1FEE4A8500989579 /* CommissionViewController.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
 				1AC0A1E41FEFA9DE009D3939 /* KRMyTextView.m in Sources */,
+				1AFFDAF21FF0000100C6D6FD /* CailiaoView.m in Sources */,
 				11FE0AF21FE21E1200D10A5C /* TYPagerController.m in Sources */,
 				111980CC1FEE5B8E00989579 /* ZLShowImageViewController.m in Sources */,
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,
@@ -980,6 +995,7 @@
 				1AAF2BF41FEE57D600B6DA18 /* CommondTableViewCell.m in Sources */,
 				1AAF2BD21FEE264A00B6DA18 /* MySuqiuViewController.m in Sources */,
 				114CF5E71FE4E2C8004B5701 /* AppealCell.m in Sources */,
+				1AFFDAEF1FEFF97600C6D6FD /* CommondPic.m in Sources */,
 				11FE0AF71FE21E1200D10A5C /* YHMath.m in Sources */,
 				111980011FEE4D9700989579 /* CommissionCell.m in Sources */,
 				11DD5BA01FE580EF0053A3DB /* AddItemsViewController.m in Sources */,

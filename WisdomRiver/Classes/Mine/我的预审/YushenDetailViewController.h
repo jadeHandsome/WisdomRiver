@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface YushenDetailViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *ID;
 @end

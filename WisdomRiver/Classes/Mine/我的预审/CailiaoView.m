@@ -1,0 +1,62 @@
+//
+//  CailiaoView.m
+//  WisdomRiver
+//
+//  Created by 曾洪磊 on 2017/12/24.
+//  Copyright © 2017年 曾洪磊. All rights reserved.
+//
+
+#import "CailiaoView.h"
+#import "UILabel+YBAttributeTextTapAction.h"
+@interface CailiaoView()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cailiaoLabel;
+
+@end
+@implementation CailiaoView
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
+- (void)setDataWithDic:(NSDictionary *)dic {
+    self.nameLabel.text = dic[@"name"];
+    if (dic[@"pass"]) {
+        if ([dic[@"pass"] integerValue]) {
+            self.statusLabel.text = @"审核通过";
+        } else {
+            self.statusLabel.text = @"审核不通过";
+        }
+    } else {
+        self.statusLabel.text = @"审核中";
+    }
+    NSMutableArray *array = [NSMutableArray array];
+    NSMutableString *str = [[NSMutableString alloc]init];
+    for (NSDictionary *file in dic[@"fileName"]) {
+        [str appendString:[file[@"name"] stringByAppendingString:@"\n"]];
+        [array addObject:file[@"name"]];
+    }
+    NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    
+    [paragraphStyle setLineSpacing:10];//行间距
+    
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
+    self.cailiaoLabel.userInteractionEnabled = YES;
+    [self.cailiaoLabel setAttributedText:attributedString];
+    [self.cailiaoLabel yb_addAttributeTapActionWithStrings:array tapClicked:^(NSString *string, NSRange range, NSInteger index) {
+        NSDictionary *file = dic[@"fileName"][index];
+        [KRBaseTool showAlert:string with_Controller:self.superVC with_titleArr:@[@"确定"] withShowType:UIAlertControllerStyleAlert with_Block:^(int index) {
+            
+        }];
+    }];
+    
+}
+
+@end

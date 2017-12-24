@@ -9,4 +9,5 @@ target ‘WisdomRiver’ do
   pod ’SDWebImage’ 
   pod ‘Masonry’
   pod 'HYBLoopScrollView'
+  pod 'YBAttributeTextTapAction'
 end

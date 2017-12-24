@@ -11,6 +11,7 @@
 #import "AddCommitController.h"
 #import "SuqiuDetailViewController.h"
 #import "YushenDetailViewController.h"
+
 @interface MySuqiuViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *allList;
@@ -122,7 +123,10 @@
         detail.suqiuId = dic[@"id"];
         [self.navigationController pushViewController:detail animated:YES];
     } else {
-        
+        NSDictionary *dic = self.allList[indexPath.row];
+        YushenDetailViewController *detail = [YushenDetailViewController new];
+        detail.ID = dic[@"id"];
+        [self.navigationController pushViewController:detail animated:YES];
     }
     
 }
