@@ -9,6 +9,7 @@
 #import "ItemDetailsViewController.h"
 #import "InquiryViewController.h"
 #import "CommissionViewController.h"
+#import "InfoManagerViewController.h"
 @interface ItemDetailsViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIButton *preBtn;
 @property (nonatomic, strong) UIButton *button1;
@@ -306,7 +307,8 @@
     }
     else{
         //去身份认证
-        
+        InfoManagerViewController *info = [InfoManagerViewController new];
+        [self.navigationController pushViewController:info animated:YES];
     }
 }
 //代办
@@ -320,6 +322,8 @@
     }
     else{
         //去身份认证
+        InfoManagerViewController *info = [InfoManagerViewController new];
+        [self.navigationController pushViewController:info animated:YES];
     }
 }
 
