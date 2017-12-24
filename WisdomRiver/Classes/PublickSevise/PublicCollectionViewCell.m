@@ -11,8 +11,8 @@
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *watchCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *statusLabel;
+@property (weak, nonatomic) IBOutlet UIButton *watchCountLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameHeight;
 
@@ -23,7 +23,8 @@
     [super awakeFromNib];
     self.imageHeight.constant = HEIGHT(500);
     self.nameHeight.constant = HEIGHT(90);
-    self.statusLabel.textColor = ThemeColor;
+    [self.statusLabel setTitleColor:ThemeColor forState:UIControlStateNormal];
+    //self.statusLabel.textColor = ThemeColor;
     LRViewBorderRadius(self.backView, 10, 0, [UIColor clearColor]);
 }
 - (void)setDataWithDic:(NSDictionary *)data {
@@ -39,17 +40,27 @@
 //    lxzt
 //    int
 //    预约或报名（-1未开始0报名中2名额已满1一结束）
-    NSString *title = @"";
-    if ([data[@"lxzt"] integerValue] == -1) {
-        title = @"未开始";
-    } else if ([data[@"lxzt"] integerValue] == 0) {
-        title = @"报名中";
-    } else if ([data[@"lxzt"] integerValue] == 2) {
-        title = @"名额已满";
-    } else if ([data[@"lxzt"] integerValue] == 1) {
-        title = @"已结束";
+//    @"" containsString:<#(nonnull NSString *)#>
+    if ([data[@"typeName"] containsString:@"报名"]) {
+        NSString *title = @"";
+        if ([data[@"lxzt"] integerValue] == -1) {
+            title = @" 未开始";
+        } else if ([data[@"lxzt"] integerValue] == 0) {
+            title = @" 报名中";
+        } else if ([data[@"lxzt"] integerValue] == 2) {
+            title = @" 名额已满";
+        } else if ([data[@" lxzt"] integerValue] == 1) {
+            title = @"已结束";
+        }
+        [self.statusLabel setTitle:title forState:UIControlStateNormal];
+    } else {
+        [self.statusLabel setTitle:data[@"abstract"] forState:UIControlStateNormal];
     }
-    self.statusLabel.text = title;
-    self.watchCountLabel.text = [NSString stringWithFormat:@"%@",data[@"viewNumber"]];
+    
+    [self.watchCountLabel setTitle:[@" " stringByAppendingString:[NSString stringWithFormat:@"%@",data[@"viewNumber"]]] forState:UIControlStateNormal];
+    [self.statusLabel setImage:[UIImage imageNamed:@"order"] forState:UIControlStateNormal];
+    [self.watchCountLabel setImage:[UIImage imageNamed:@"see"] forState:UIControlStateNormal];
+//    self.statusLabel.text = title;
+//     self.watchCountLabel.text = [NSString stringWithFormat:@"%@",data[@"viewNumber"]];
 }
 @end

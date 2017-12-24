@@ -756,5 +756,12 @@ singleton_implementation(KRBaseTool)
     // 弹出对话框
     [controller presentViewController:alert animated:true completion:nil];
     
+    
+}
++ (void)callCellPhone:(NSString *)phoneNumber {
+    NSString *tel = [NSString stringWithFormat:@"tel://%@",phoneNumber];
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:tel]]){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
+    }
 }
 @end

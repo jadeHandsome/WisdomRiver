@@ -26,10 +26,18 @@
 @property (weak, nonatomic) IBOutlet UIView *shadView;
 @property (weak, nonatomic) IBOutlet UILabel *topNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *topCountName;
-@property (nonatomic, strong) NSArray *allItem;
+@property (nonatomic, strong) NSMutableArray *allItem;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSString *chooseType;
 @end
 
 @implementation BussinessSubViewController
+- (NSMutableArray *)allItem {
+    if (!_allItem) {
+        _allItem = [NSMutableArray array];
+    }
+    return _allItem;
+}
 -(UICollectionViewFlowLayout *)collectionFlowyout{
 
 if (_collectionFlowyout == nil) {
@@ -70,6 +78,8 @@ return _collectionFlowyout;
     self.collectionView.backgroundColor = LRRGBColor(244, 244, 244);
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    [KRBaseTool tableViewAddRefreshFooter:self.collectionView withTarget:self refreshingAction:@selector(footerFresh)];
+    [KRBaseTool tableViewAddRefreshHeader:self.collectionView withTarget:self refreshingAction:@selector(headerFresh)];
     [self.collectionView registerNib:[UINib nibWithNibName:@"BussinCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
 }
 - (void)loadData {
@@ -85,7 +95,9 @@ return _collectionFlowyout;
         self.allTypes = [showdata[@"types"] copy];
         [self addHeader];
         [self setBtns];
-        [self getBottomData:self.allTypes[0][@"id"]];
+        self.chooseType = self.allTypes[0][@"id"];
+        [self headerFresh];
+//        [self getBottomData:];
     }];
 }
 - (void)setBtns {
@@ -155,7 +167,9 @@ return _collectionFlowyout;
         [self.btnView layoutIfNeeded];
     } completion:^(BOOL finished) {
         sender.selected = YES;
-        [self getBottomData:self.allTypes[sender.tag - 100][@"id"]];
+//        self.page = 1;
+        self.chooseType = self.allTypes[sender.tag - 100][@"id"];
+        [self headerFresh];
     }];
 }
 - (IBAction)pop:(id)sender {
@@ -215,17 +229,32 @@ return _collectionFlowyout;
     detail.ID = self.allItem[indexPath.row][@"id"];
     [self.navigationController pushViewController:detail animated:YES];
 }
+- (void)footerFresh {
+    self.page ++;
+    [self getBottomData:nil];
+}
+- (void)headerFresh {
+    self.page = 1;
+    [self getBottomData:nil];
+}
 - (void)getBottomData:(NSString *)ID {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"moduleId"] = self.moduleId;
-    param[@"currPage"] = @1;
+    param[@"currPage"] = @(self.page);
     param[@"pageSize"] = @10;
-    param[@"type"] = ID;
+    param[@"type"] = self.chooseType;
     [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appBusiness/getServiceManagementByProgramManagement" params:param withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        [self.collectionView.mj_footer endRefreshing];
+        [self.collectionView.mj_header endRefreshing];
         if (showdata == nil) {
             return ;
         }
-        self.allItem = [showdata[@"list"] copy];
+        if (self.page == 1) {
+            self.allItem = [showdata[@"list"] mutableCopy];
+        } else {
+            [self.allItem addObjectsFromArray:showdata[@"list"]];
+        }
+        
         [self.collectionView reloadData];
     }];
 }

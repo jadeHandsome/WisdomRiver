@@ -9,6 +9,7 @@
 #import "PublickViewController.h"
 #import "CBSegmentView.h"
 #import "PublicCollectionViewCell.h"
+#import "PublicDetailViewController.h"
 @interface PublickViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UISearchBar *seachBar;
 @property (nonatomic, strong) UICollectionViewFlowLayout *collectionFlowyout;
@@ -135,11 +136,18 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dic = self.allGoods[indexPath.row];
-    if (![dic[@"requesturl"] isEqual:[NSNull null]]) {
+   
+    if ([dic[@"typeName"] containsString:@"外链"] || [dic[@"typeName"] containsString:@"内链"]) {
         BaseWebViewController *web = [[BaseWebViewController alloc]init];
         web.urlStr = dic[@"requesturl"];
         web.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:web animated:YES];
+    } else {
+        PublicDetailViewController *detail = [PublicDetailViewController new];
+        detail.ID = dic[@"id"];
+        detail.hidesBottomBarWhenPushed = YES;
+        detail.title = dic[@"name"];
+        [self.navigationController pushViewController:detail animated:YES];
     }
 }
 @end

@@ -31,7 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
-    // Do any additional setup after loading the view.
+    self.phoneField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"phone"];
+    self.pwdField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
 }
 
 - (void)setUp{
@@ -152,7 +153,8 @@
             [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appMain/login" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
                 if (showdata) {
                     [self showHUDWithText:showdata[@"mess"]];
-                    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"isLogin"];
+                    [[NSUserDefaults standardUserDefaults] setObject:self.phoneField.text forKey:@"phone"];
+                    [[NSUserDefaults standardUserDefaults] setObject:self.pwdField.text forKey:@"pwd"];
                     [[NSUserDefaults standardUserDefaults] setObject:showdata[@"user"] forKey:@"userInfo"];
                     [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:showdata[@"user"]];
                     BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];

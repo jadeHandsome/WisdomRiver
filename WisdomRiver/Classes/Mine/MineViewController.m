@@ -8,6 +8,10 @@
 
 #import "MineViewController.h"
 #import "BaseMineView.h"
+#import "InfoManagerViewController.h"
+#import "ReparePwsViewController.h"
+#import "MySuqiuViewController.h"
+#import "MyApplyViewController.h"
 @interface MineViewController ()
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIScrollView *mainScoll;
@@ -19,6 +23,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = ThemeColor;
     [self setUpMainScoll];
+    
 }
 - (void)setUpMainScoll {
     self.mainScoll = [[UIScrollView alloc]init];
@@ -46,7 +51,11 @@
     }];
     UIImageView *headImage = [[UIImageView alloc]init];
     [self.headView addSubview:headImage];
-    headImage.image = [UIImage imageNamed:@"头像"];
+    if ([KRUserInfo sharedKRUserInfo].micon) {
+        [headImage sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
+    } else {
+        [headImage sd_setImageWithURL:@"http://182.151.204.201:8081/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
+    }
     [headImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.centerY.equalTo(self.headView);
         make.height.width.equalTo(@(HEIGHT(240)));
@@ -58,7 +67,7 @@
         make.centerX.equalTo(headImage.mas_centerX);
         make.top.equalTo(headImage.mas_bottom).with.offset(HEIGHT(46));
     }];
-    nameLabel.text = @"188xxxxxxxxx";
+    nameLabel.text = [KRUserInfo sharedKRUserInfo].name;
     nameLabel.font = [UIFont systemFontOfSize:14];
     nameLabel.textColor = [UIColor whiteColor];
     self.headView.backgroundColor = [UIColor clearColor];
@@ -102,7 +111,7 @@
     }];
     LRViewBorderRadius(bottomView, 5, 0, [UIColor clearColor]);
     tempView = bottomView;
-    NSArray *bottomArray = @[@{@"image":@"1",@"name":@"我的预审"},@{@"image":@"2",@"name":@"我的待办"}];
+    NSArray *bottomArray = @[@{@"image":@"7",@"name":@"修改密码"},@{@"image":@"8",@"name":@"账号管理"}];
     for (int i = 0; i < 2; i ++) {
         BaseMineView *baseView = [[[NSBundle mainBundle]loadNibNamed:@"BaseMineView" owner:self options:nil]firstObject];
         [bottomView addSubview:baseView];
@@ -129,11 +138,19 @@
         case 0:
         {
             //预审
+            MySuqiuViewController *suqiu = [MySuqiuViewController new];
+            suqiu.hidesBottomBarWhenPushed = YES;
+            suqiu.viewType = @"2";
+            [self.navigationController pushViewController:suqiu animated:YES];
         }
             break;
         case 1:
         {
             //待办
+            MySuqiuViewController *suqiu = [MySuqiuViewController new];
+            suqiu.hidesBottomBarWhenPushed = YES;
+            suqiu.viewType = @"3";
+            [self.navigationController pushViewController:suqiu animated:YES];
         }
             break;
         case 2:
@@ -143,27 +160,47 @@
             break;
         case 3:
         {
+            
             //预约
+            MyApplyViewController *apple = [[MyApplyViewController alloc]init];
+            apple.hidesBottomBarWhenPushed = YES;
+            apple.viewType = @"2";
+            [self.navigationController pushViewController:apple animated:YES];
         }
             break;
         case 4:
         {
             //报名
+            MyApplyViewController *apple = [[MyApplyViewController alloc]init];
+            apple.hidesBottomBarWhenPushed = YES;
+            apple.viewType = @"1";
+            [self.navigationController pushViewController:apple animated:YES];
         }
             break;
         case 5:
         {
             //述求
+            MySuqiuViewController *suqiu = [MySuqiuViewController new];
+            suqiu.hidesBottomBarWhenPushed = YES;
+            suqiu.viewType = @"1";
+            [self.navigationController pushViewController:suqiu animated:YES];
+            
         }
             break;
         case 6:
         {
             //修改密码
+            ReparePwsViewController *repare = [ReparePwsViewController new];
+            repare.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:repare animated:YES];
         }
             break;
         case 7:
         {
             //账号管理
+            InfoManagerViewController *info = [[InfoManagerViewController alloc]init];
+            info.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:info animated:YES];
         }
             break;
             

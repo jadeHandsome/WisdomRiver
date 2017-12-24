@@ -34,6 +34,12 @@
     self.namelabel.text = dic[@"name"];
     self.priceLael.text = [@"¥ " stringByAppendingString:[NSString stringWithFormat:@"%@",dic[@"currentprice"]]];
     self.oldPriceLabel.text = [@"¥ " stringByAppendingString: [NSString stringWithFormat:@"%@",dic[@"originalprice"]]];
-    [self.nameBtn setTitle:dic[@"orgName"] forState:UIControlStateNormal];
+    if (dic[@"orgname"]) {
+        [self.nameBtn setTitle:[@" " stringByAppendingString:dic[@"orgName"]] forState:UIControlStateNormal];
+    } else {
+        [self.nameBtn setTitle:[@" " stringByAppendingString:dic[@"note"]] forState:UIControlStateNormal];
+    }
+    
+    [self.nameBtn setImage:[UIImage imageNamed:@"ic_bus_shop"] forState:UIControlStateNormal];
 }
 @end

@@ -21,26 +21,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setIQKeyboardManager];
     [self judesFirstView];
-    
+    NSURLSessionDataTask *data = [[NSURLSession sharedSession]dataTaskWithURL:[NSURL URLWithString:@"http://restapi.amap.com/v3/weather/weatherInfo?key=546a2a0139a40efc3a2e3f87e21f5ca7&city=101270101"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+      
+        NSDictionary *data1 = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"%@",data1);
+    }];
+    [data resume];
     // Override point for customization after application launch.
     return YES;
 }
 
 - (void)judesFirstView{
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    NSString *isLogin = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"];
+//    NSString *isLogin = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"];
     UIViewController *firstVC = nil;
-    if ([isLogin isEqualToString:@"1"]) {
-        NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
-        [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:userInfo];
-        BaseTabbarViewController *tab = [[BaseTabbarViewController alloc] init];
-        firstVC = tab;
-    }
-    else{
+//    if ([isLogin isEqualToString:@"1"]) {
+//        NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+//        [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:userInfo];
+//        BaseTabbarViewController *tab = [[BaseTabbarViewController alloc] init];
+//        firstVC = tab;
+//    }
+//    else{
         LoginViewController *loginVC = [LoginViewController new];
         BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
         firstVC = navi;
-    }
+//    }
     self.window.rootViewController = firstVC;
     [self.window makeKeyAndVisible];
 }

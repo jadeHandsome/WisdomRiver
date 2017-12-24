@@ -78,6 +78,29 @@
 		1A8F9EDA1FE56DB400B062B1 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9ED61FE56DB400B062B1 /* PGIndexBannerSubiew.m */; };
 		1A8F9EDB1FE56DB400B062B1 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9ED71FE56DB400B062B1 /* NewPagedFlowView.m */; };
 		1A8F9EDE1FE657B400B062B1 /* CBSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9EDD1FE657B300B062B1 /* CBSegmentView.m */; };
+		1AAF2BCD1FEE236000B6DA18 /* ReparePwsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BCB1FEE236000B6DA18 /* ReparePwsViewController.m */; };
+		1AAF2BCE1FEE236000B6DA18 /* ReparePwsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAF2BCC1FEE236000B6DA18 /* ReparePwsViewController.xib */; };
+		1AAF2BD21FEE264A00B6DA18 /* MySuqiuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BD11FEE264A00B6DA18 /* MySuqiuViewController.m */; };
+		1AAF2BD61FEE268400B6DA18 /* MysuiquListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BD41FEE268400B6DA18 /* MysuiquListTableViewCell.m */; };
+		1AAF2BD71FEE268400B6DA18 /* MysuiquListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAF2BD51FEE268400B6DA18 /* MysuiquListTableViewCell.xib */; };
+		1AAF2BDA1FEE357200B6DA18 /* SuqiuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BD91FEE357200B6DA18 /* SuqiuDetailViewController.m */; };
+		1AAF2BDE1FEE3C6E00B6DA18 /* MyApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BDD1FEE3C6E00B6DA18 /* MyApplyViewController.m */; };
+		1AAF2BE21FEE3C8100B6DA18 /* MyApplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BE01FEE3C8100B6DA18 /* MyApplyTableViewCell.m */; };
+		1AAF2BE31FEE3C8100B6DA18 /* MyApplyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAF2BE11FEE3C8100B6DA18 /* MyApplyTableViewCell.xib */; };
+		1AAF2BE61FEE41A600B6DA18 /* MyAppleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BE51FEE41A600B6DA18 /* MyAppleDetailViewController.m */; };
+		1AAF2BED1FEE49A400B6DA18 /* YushenDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BEC1FEE49A400B6DA18 /* YushenDetailViewController.m */; };
+		1AAF2BF01FEE55CC00B6DA18 /* KRMySegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BEE1FEE55CC00B6DA18 /* KRMySegmentView.m */; };
+		1AAF2BF41FEE57D600B6DA18 /* CommondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BF21FEE57D600B6DA18 /* CommondTableViewCell.m */; };
+		1AAF2BF51FEE57D600B6DA18 /* CommondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAF2BF31FEE57D600B6DA18 /* CommondTableViewCell.xib */; };
+		1AAF2BF81FEE601400B6DA18 /* PublicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF2BF71FEE601400B6DA18 /* PublicDetailViewController.m */; };
+		1AC0A1DC1FEF68E8009D3939 /* StoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0A1DB1FEF68E8009D3939 /* StoreDetailViewController.m */; };
+		1AC0A1E01FEFA342009D3939 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0A1DE1FEFA342009D3939 /* SignUpViewController.m */; };
+		1AC0A1E11FEFA342009D3939 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0A1DF1FEFA342009D3939 /* SignUpViewController.xib */; };
+		1AC0A1E41FEFA9DE009D3939 /* KRMyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0A1E21FEFA9DD009D3939 /* KRMyTextView.m */; };
+		1AC0A1E71FEFAF77009D3939 /* LDXScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0A1E61FEFAF77009D3939 /* LDXScore.m */; };
+		1AC0A1EB1FEFAF9D009D3939 /* BussCommondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0A1E91FEFAF9D009D3939 /* BussCommondViewController.m */; };
+		1AC0A1EC1FEFAF9D009D3939 /* BussCommondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0A1EA1FEFAF9D009D3939 /* BussCommondViewController.xib */; };
+		1AC0A1EE1FEFB76E009D3939 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0A1ED1FEFB76E009D3939 /* LaunchScreen.storyboard */; };
 		2F009ED99ED1713A8D96FC3A /* libPods-WisdomRiver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C4FF3A16DAF878FEC03101 /* libPods-WisdomRiver.a */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +241,45 @@
 		1A8F9ED91FE56DB400B062B1 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
 		1A8F9EDC1FE657B300B062B1 /* CBSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSegmentView.h; sourceTree = "<group>"; };
 		1A8F9EDD1FE657B300B062B1 /* CBSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSegmentView.m; sourceTree = "<group>"; };
+		1AAF2BCA1FEE236000B6DA18 /* ReparePwsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReparePwsViewController.h; sourceTree = "<group>"; };
+		1AAF2BCB1FEE236000B6DA18 /* ReparePwsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReparePwsViewController.m; sourceTree = "<group>"; };
+		1AAF2BCC1FEE236000B6DA18 /* ReparePwsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReparePwsViewController.xib; sourceTree = "<group>"; };
+		1AAF2BD01FEE264A00B6DA18 /* MySuqiuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySuqiuViewController.h; sourceTree = "<group>"; };
+		1AAF2BD11FEE264A00B6DA18 /* MySuqiuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySuqiuViewController.m; sourceTree = "<group>"; };
+		1AAF2BD31FEE268400B6DA18 /* MysuiquListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MysuiquListTableViewCell.h; sourceTree = "<group>"; };
+		1AAF2BD41FEE268400B6DA18 /* MysuiquListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MysuiquListTableViewCell.m; sourceTree = "<group>"; };
+		1AAF2BD51FEE268400B6DA18 /* MysuiquListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MysuiquListTableViewCell.xib; sourceTree = "<group>"; };
+		1AAF2BD81FEE357200B6DA18 /* SuqiuDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuqiuDetailViewController.h; sourceTree = "<group>"; };
+		1AAF2BD91FEE357200B6DA18 /* SuqiuDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuqiuDetailViewController.m; sourceTree = "<group>"; };
+		1AAF2BDC1FEE3C6E00B6DA18 /* MyApplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyApplyViewController.h; sourceTree = "<group>"; };
+		1AAF2BDD1FEE3C6E00B6DA18 /* MyApplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyApplyViewController.m; sourceTree = "<group>"; };
+		1AAF2BDF1FEE3C8100B6DA18 /* MyApplyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyApplyTableViewCell.h; sourceTree = "<group>"; };
+		1AAF2BE01FEE3C8100B6DA18 /* MyApplyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyApplyTableViewCell.m; sourceTree = "<group>"; };
+		1AAF2BE11FEE3C8100B6DA18 /* MyApplyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyApplyTableViewCell.xib; sourceTree = "<group>"; };
+		1AAF2BE41FEE41A600B6DA18 /* MyAppleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAppleDetailViewController.h; sourceTree = "<group>"; };
+		1AAF2BE51FEE41A600B6DA18 /* MyAppleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyAppleDetailViewController.m; sourceTree = "<group>"; };
+		1AAF2BEB1FEE49A400B6DA18 /* YushenDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YushenDetailViewController.h; sourceTree = "<group>"; };
+		1AAF2BEC1FEE49A400B6DA18 /* YushenDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YushenDetailViewController.m; sourceTree = "<group>"; };
+		1AAF2BEE1FEE55CC00B6DA18 /* KRMySegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMySegmentView.m; sourceTree = "<group>"; };
+		1AAF2BEF1FEE55CC00B6DA18 /* KRMySegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMySegmentView.h; sourceTree = "<group>"; };
+		1AAF2BF11FEE57D600B6DA18 /* CommondTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommondTableViewCell.h; sourceTree = "<group>"; };
+		1AAF2BF21FEE57D600B6DA18 /* CommondTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommondTableViewCell.m; sourceTree = "<group>"; };
+		1AAF2BF31FEE57D600B6DA18 /* CommondTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommondTableViewCell.xib; sourceTree = "<group>"; };
+		1AAF2BF61FEE601400B6DA18 /* PublicDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicDetailViewController.h; sourceTree = "<group>"; };
+		1AAF2BF71FEE601400B6DA18 /* PublicDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicDetailViewController.m; sourceTree = "<group>"; };
+		1AC0A1DA1FEF68E8009D3939 /* StoreDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreDetailViewController.h; sourceTree = "<group>"; };
+		1AC0A1DB1FEF68E8009D3939 /* StoreDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreDetailViewController.m; sourceTree = "<group>"; };
+		1AC0A1DD1FEFA342009D3939 /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		1AC0A1DE1FEFA342009D3939 /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		1AC0A1DF1FEFA342009D3939 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		1AC0A1E21FEFA9DD009D3939 /* KRMyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMyTextView.m; sourceTree = "<group>"; };
+		1AC0A1E31FEFA9DE009D3939 /* KRMyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMyTextView.h; sourceTree = "<group>"; };
+		1AC0A1E51FEFAF77009D3939 /* LDXScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDXScore.h; sourceTree = "<group>"; };
+		1AC0A1E61FEFAF77009D3939 /* LDXScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDXScore.m; sourceTree = "<group>"; };
+		1AC0A1E81FEFAF9D009D3939 /* BussCommondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussCommondViewController.h; sourceTree = "<group>"; };
+		1AC0A1E91FEFAF9D009D3939 /* BussCommondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussCommondViewController.m; sourceTree = "<group>"; };
+		1AC0A1EA1FEFAF9D009D3939 /* BussCommondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BussCommondViewController.xib; sourceTree = "<group>"; };
+		1AC0A1ED1FEFB76E009D3939 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3053E2B87EDCB750AFCF926B /* Pods-WisdomRiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomRiver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomRiver/Pods-WisdomRiver.debug.xcconfig"; sourceTree = "<group>"; };
 		36E4BBA5093BC898F3DF8F2F /* Pods-WisdomRiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomRiver.release.xcconfig"; path = "Pods/Target Support Files/Pods-WisdomRiver/Pods-WisdomRiver.release.xcconfig"; sourceTree = "<group>"; };
 		C1C4FF3A16DAF878FEC03101 /* libPods-WisdomRiver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WisdomRiver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +386,12 @@
 		11FE0AC31FE21E1100D10A5C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1AC0A1E51FEFAF77009D3939 /* LDXScore.h */,
+				1AC0A1E61FEFAF77009D3939 /* LDXScore.m */,
+				1AC0A1E31FEFA9DE009D3939 /* KRMyTextView.h */,
+				1AC0A1E21FEFA9DD009D3939 /* KRMyTextView.m */,
+				1AAF2BEF1FEE55CC00B6DA18 /* KRMySegmentView.h */,
+				1AAF2BEE1FEE55CC00B6DA18 /* KRMySegmentView.m */,
 				1A8F9EDC1FE657B300B062B1 /* CBSegmentView.h */,
 				1A8F9EDD1FE657B300B062B1 /* CBSegmentView.m */,
 				1A8F9ED51FE56DB400B062B1 /* 自定义banner */,
@@ -409,6 +477,7 @@
 				1A6304B21FE2196400AE1751 /* main.m */,
 				11FE0B051FE21E6200D10A5C /* PrefixHeader.pch */,
 				11FE0B071FE21F3A00D10A5C /* Url.h */,
+				1AC0A1ED1FEFB76E009D3939 /* LaunchScreen.storyboard */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -463,6 +532,11 @@
 				1A61F7F31FE750C900C07E7C /* PublicCollectionViewCell.h */,
 				1A61F7F41FE750C900C07E7C /* PublicCollectionViewCell.m */,
 				1A61F7F51FE750C900C07E7C /* PublicCollectionViewCell.xib */,
+				1AAF2BF61FEE601400B6DA18 /* PublicDetailViewController.h */,
+				1AAF2BF71FEE601400B6DA18 /* PublicDetailViewController.m */,
+				1AC0A1DD1FEFA342009D3939 /* SignUpViewController.h */,
+				1AC0A1DE1FEFA342009D3939 /* SignUpViewController.m */,
+				1AC0A1DF1FEFA342009D3939 /* SignUpViewController.xib */,
 			);
 			path = PublickSevise;
 			sourceTree = "<group>";
@@ -470,6 +544,10 @@
 		1A6304C01FE2738E00AE1751 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				1AAF2BE71FEE483100B6DA18 /* 我的预审 */,
+				1AAF2BDB1FEE3C5F00B6DA18 /* 我的报名 */,
+				1AAF2BCF1FEE263B00B6DA18 /* 我的诉求 */,
+				1AAF2BC91FEE234B00B6DA18 /* 修改密码 */,
 				1A6304C21FE2739C00AE1751 /* MineViewController.h */,
 				1A6304C31FE2739C00AE1751 /* MineViewController.m */,
 				1A5114961FE7F53000D87D02 /* BaseMineView.h */,
@@ -484,6 +562,7 @@
 		1A6304C11FE2738F00AE1751 /* BussiniseService */ = {
 			isa = PBXGroup;
 			children = (
+				1AC0A1D91FEF681E009D3939 /* 商家详情 */,
 				1A6304CB1FE278F400AE1751 /* Views */,
 				1A6304C51FE273A800AE1751 /* BussinessViewController.h */,
 				1A6304C61FE273A800AE1751 /* BussinessViewController.m */,
@@ -493,6 +572,9 @@
 				1A1A4D6E1FE4D8D300C66AA3 /* GoodsDetailViewController.h */,
 				1A1A4D6F1FE4D8D300C66AA3 /* GoodsDetailViewController.m */,
 				1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */,
+				1AC0A1E81FEFAF9D009D3939 /* BussCommondViewController.h */,
+				1AC0A1E91FEFAF9D009D3939 /* BussCommondViewController.m */,
+				1AC0A1EA1FEFAF9D009D3939 /* BussCommondViewController.xib */,
 			);
 			path = BussiniseService;
 			sourceTree = "<group>";
@@ -508,6 +590,9 @@
 				1A1A4D691FE4CE2100C66AA3 /* BussinCollectionViewCell.h */,
 				1A1A4D6A1FE4CE2100C66AA3 /* BussinCollectionViewCell.m */,
 				1A1A4D6B1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib */,
+				1AAF2BF11FEE57D600B6DA18 /* CommondTableViewCell.h */,
+				1AAF2BF21FEE57D600B6DA18 /* CommondTableViewCell.m */,
+				1AAF2BF31FEE57D600B6DA18 /* CommondTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -529,6 +614,62 @@
 				1A8F9ED91FE56DB400B062B1 /* NewPagedFlowView.h */,
 			);
 			path = "自定义banner";
+			sourceTree = "<group>";
+		};
+		1AAF2BC91FEE234B00B6DA18 /* 修改密码 */ = {
+			isa = PBXGroup;
+			children = (
+				1AAF2BCA1FEE236000B6DA18 /* ReparePwsViewController.h */,
+				1AAF2BCB1FEE236000B6DA18 /* ReparePwsViewController.m */,
+				1AAF2BCC1FEE236000B6DA18 /* ReparePwsViewController.xib */,
+			);
+			path = "修改密码";
+			sourceTree = "<group>";
+		};
+		1AAF2BCF1FEE263B00B6DA18 /* 我的诉求 */ = {
+			isa = PBXGroup;
+			children = (
+				1AAF2BD01FEE264A00B6DA18 /* MySuqiuViewController.h */,
+				1AAF2BD11FEE264A00B6DA18 /* MySuqiuViewController.m */,
+				1AAF2BD31FEE268400B6DA18 /* MysuiquListTableViewCell.h */,
+				1AAF2BD41FEE268400B6DA18 /* MysuiquListTableViewCell.m */,
+				1AAF2BD51FEE268400B6DA18 /* MysuiquListTableViewCell.xib */,
+				1AAF2BD81FEE357200B6DA18 /* SuqiuDetailViewController.h */,
+				1AAF2BD91FEE357200B6DA18 /* SuqiuDetailViewController.m */,
+			);
+			path = "我的诉求";
+			sourceTree = "<group>";
+		};
+		1AAF2BDB1FEE3C5F00B6DA18 /* 我的报名 */ = {
+			isa = PBXGroup;
+			children = (
+				1AAF2BDC1FEE3C6E00B6DA18 /* MyApplyViewController.h */,
+				1AAF2BDD1FEE3C6E00B6DA18 /* MyApplyViewController.m */,
+				1AAF2BDF1FEE3C8100B6DA18 /* MyApplyTableViewCell.h */,
+				1AAF2BE01FEE3C8100B6DA18 /* MyApplyTableViewCell.m */,
+				1AAF2BE11FEE3C8100B6DA18 /* MyApplyTableViewCell.xib */,
+				1AAF2BE41FEE41A600B6DA18 /* MyAppleDetailViewController.h */,
+				1AAF2BE51FEE41A600B6DA18 /* MyAppleDetailViewController.m */,
+			);
+			path = "我的报名";
+			sourceTree = "<group>";
+		};
+		1AAF2BE71FEE483100B6DA18 /* 我的预审 */ = {
+			isa = PBXGroup;
+			children = (
+				1AAF2BEB1FEE49A400B6DA18 /* YushenDetailViewController.h */,
+				1AAF2BEC1FEE49A400B6DA18 /* YushenDetailViewController.m */,
+			);
+			path = "我的预审";
+			sourceTree = "<group>";
+		};
+		1AC0A1D91FEF681E009D3939 /* 商家详情 */ = {
+			isa = PBXGroup;
+			children = (
+				1AC0A1DA1FEF68E8009D3939 /* StoreDetailViewController.h */,
+				1AC0A1DB1FEF68E8009D3939 /* StoreDetailViewController.m */,
+			);
+			path = "商家详情";
 			sourceTree = "<group>";
 		};
 		7733BA6F2455F5B3D2D9C9D8 /* Pods */ = {
@@ -611,16 +752,23 @@
 			files = (
 				1A51149A1FE7F54100D87D02 /* BaseMineView.xib in Resources */,
 				1A6304D01FE2791500AE1751 /* BussItemBtnView.xib in Resources */,
+				1AAF2BF51FEE57D600B6DA18 /* CommondTableViewCell.xib in Resources */,
 				11FE0AF91FE21E1200D10A5C /* MBProgressHUD.bundle in Resources */,
+				1AC0A1E11FEFA342009D3939 /* SignUpViewController.xib in Resources */,
+				1AC0A1EC1FEFAF9D009D3939 /* BussCommondViewController.xib in Resources */,
 				11DD5B9C1FE5768D0053A3DB /* HotNewsDetailViewController.xib in Resources */,
+				1AAF2BD71FEE268400B6DA18 /* MysuiquListTableViewCell.xib in Resources */,
 				114CF5F01FE502C5004B5701 /* AddCommitController.xib in Resources */,
 				1A6304AD1FE2196400AE1751 /* Assets.xcassets in Resources */,
 				11DD5BA11FE580EF0053A3DB /* AddItemsViewController.xib in Resources */,
+				1AAF2BE31FEE3C8100B6DA18 /* MyApplyTableViewCell.xib in Resources */,
 				114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */,
+				1AAF2BCE1FEE236000B6DA18 /* ReparePwsViewController.xib in Resources */,
 				1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */,
 				11DD5BA61FE585720053A3DB /* SelectCell.xib in Resources */,
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
 				1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */,
+				1AC0A1EE1FEFB76E009D3939 /* LaunchScreen.storyboard in Resources */,
 				1A1A4D6D1FE4CE2100C66AA3 /* BussinCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,9 +835,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAF2BE21FEE3C8100B6DA18 /* MyApplyTableViewCell.m in Sources */,
 				11FE0AF41FE21E1200D10A5C /* TYTabPagerController.m in Sources */,
 				1A61F7FA1FE75B9900C07E7C /* BaseWebViewController.m in Sources */,
+				1AC0A1EB1FEFAF9D009D3939 /* BussCommondViewController.m in Sources */,
+				1AC0A1E01FEFA342009D3939 /* SignUpViewController.m in Sources */,
 				114CF59D1FE250BD004B5701 /* LoginViewController.m in Sources */,
+				1AAF2BF81FEE601400B6DA18 /* PublicDetailViewController.m in Sources */,
 				114CF5DD1FE3B35D004B5701 /* ItemDetailsViewController.m in Sources */,
 				1A07D24F1FE8E6A000B2BF31 /* InfoManagerViewController.m in Sources */,
 				11FE0AF31FE21E1200D10A5C /* TYTabButtonPagerController.m in Sources */,
@@ -697,6 +849,7 @@
 				11FE0B0D1FE21F6900D10A5C /* CALayer+CircleBoard.m in Sources */,
 				1A8F9EDA1FE56DB400B062B1 /* PGIndexBannerSubiew.m in Sources */,
 				1161DBE71FE8E51D0059A738 /* HomeCell2.m in Sources */,
+				1AAF2BED1FEE49A400B6DA18 /* YushenDetailViewController.m in Sources */,
 				11FE0AED1FE21E1200D10A5C /* KRBaseTool.m in Sources */,
 				11FE0AF51FE21E1200D10A5C /* TYTabTitleViewCell.m in Sources */,
 				114CF5E31FE3CAFA004B5701 /* AppealViewController.m in Sources */,
@@ -704,20 +857,26 @@
 				114CF5B21FE27718004B5701 /* HomeCell.m in Sources */,
 				1A1A4D711FE4D8D300C66AA3 /* GoodsDetailViewController.m in Sources */,
 				11FE0AFD1FE21E1200D10A5C /* UIView+BorderLine.m in Sources */,
+				1AAF2BF01FEE55CC00B6DA18 /* KRMySegmentView.m in Sources */,
+				1AAF2BD61FEE268400B6DA18 /* MysuiquListTableViewCell.m in Sources */,
 				114CF5EB1FE4F535004B5701 /* SelectionView.m in Sources */,
 				1A6304C71FE273A800AE1751 /* BussinessViewController.m in Sources */,
 				11FE0AF01FE21E1200D10A5C /* NSString+LocaString.m in Sources */,
 				11FE0B0E1FE21F6900D10A5C /* UIView+EX.m in Sources */,
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
+				1AAF2BDA1FEE357200B6DA18 /* SuqiuDetailViewController.m in Sources */,
 				1161DBE41FE8E5010059A738 /* HomeCell1.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
 				11DD5BA51FE585720053A3DB /* SelectCell.m in Sources */,
+				1AAF2BCD1FEE236000B6DA18 /* ReparePwsViewController.m in Sources */,
 				114CF5EF1FE502C5004B5701 /* AddCommitController.m in Sources */,
 				114CF5E01FE3C7ED004B5701 /* HotNewsViewController.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
+				1AC0A1E41FEFA9DE009D3939 /* KRMyTextView.m in Sources */,
 				11FE0AF21FE21E1200D10A5C /* TYPagerController.m in Sources */,
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,
 				11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */,
+				1AC0A1E71FEFAF77009D3939 /* LDXScore.m in Sources */,
 				114CF5D41FE39334004B5701 /* CommonListViewController.m in Sources */,
 				11197F1B1FE9621500989579 /* AppealDetailViewController.m in Sources */,
 				1A61F7F61FE750C900C07E7C /* PublicCollectionViewCell.m in Sources */,
@@ -729,17 +888,22 @@
 				1A6304CE1FE2790D00AE1751 /* BussItemBtnView.m in Sources */,
 				1A5114981FE7F53000D87D02 /* BaseMineView.m in Sources */,
 				1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */,
+				1AAF2BE61FEE41A600B6DA18 /* MyAppleDetailViewController.m in Sources */,
 				1A6304B31FE2196400AE1751 /* main.m in Sources */,
+				1AAF2BDE1FEE3C6E00B6DA18 /* MyApplyViewController.m in Sources */,
 				114CF5D71FE39DBF004B5701 /* CommonListCell.m in Sources */,
 				1A6304BE1FE26F1B00AE1751 /* BaseTabbarViewController.m in Sources */,
 				11FE0AF81FE21E1200D10A5C /* MBProgressHUD+KR.m in Sources */,
 				11FE0AEE1FE21E1200D10A5C /* KRMainNetTool.m in Sources */,
 				11FE0AEF1FE21E1200D10A5C /* KRUserInfo.m in Sources */,
+				1AC0A1DC1FEF68E8009D3939 /* StoreDetailViewController.m in Sources */,
 				1A8F9EDE1FE657B400B062B1 /* CBSegmentView.m in Sources */,
 				11DD5B9B1FE5768D0053A3DB /* HotNewsDetailViewController.m in Sources */,
 				11FE0AEC1FE21E1200D10A5C /* ImageCenterButton.m in Sources */,
 				114CF5A01FE258C2004B5701 /* UIImage+Color.m in Sources */,
 				1A6304A51FE2196400AE1751 /* AppDelegate.m in Sources */,
+				1AAF2BF41FEE57D600B6DA18 /* CommondTableViewCell.m in Sources */,
+				1AAF2BD21FEE264A00B6DA18 /* MySuqiuViewController.m in Sources */,
 				114CF5E71FE4E2C8004B5701 /* AppealCell.m in Sources */,
 				11FE0AF71FE21E1200D10A5C /* YHMath.m in Sources */,
 				11DD5BA01FE580EF0053A3DB /* AddItemsViewController.m in Sources */,
@@ -867,7 +1031,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = text.WisdomRiver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WisdomRiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -885,7 +1049,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = text.WisdomRiver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WisdomRiver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

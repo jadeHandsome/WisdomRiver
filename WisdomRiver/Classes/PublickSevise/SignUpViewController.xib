@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController">
+            <connections>
+                <outlet property="bottomView" destination="Q3q-S5-kHt" id="QIx-So-bAA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3q-S5-kHt">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGa-9w-yyG">
+                            <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                            <state key="normal" title="取消报名">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cancleClick:" destination="-1" eventType="touchUpInside" id="BGi-Qx-iaa"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmc-dw-KIF">
+                            <rect key="frame" x="150" y="0.0" width="225" height="50"/>
+                            <color key="backgroundColor" red="0.92534452676773071" green="0.46151715517044067" blue="0.32151460647583008" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <state key="normal" title="立即报名">
+                                <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="aplyeClick:" destination="-1" eventType="touchUpInside" id="VDH-yu-I5i"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="kmc-dw-KIF" secondAttribute="trailing" id="M9U-ac-Sny"/>
+                        <constraint firstItem="PGa-9w-yyG" firstAttribute="leading" secondItem="Q3q-S5-kHt" secondAttribute="leading" id="OlI-so-axT"/>
+                        <constraint firstAttribute="height" constant="50" id="PUF-OO-9Bx"/>
+                        <constraint firstAttribute="bottom" secondItem="kmc-dw-KIF" secondAttribute="bottom" id="RmB-87-J7Q"/>
+                        <constraint firstItem="PGa-9w-yyG" firstAttribute="top" secondItem="Q3q-S5-kHt" secondAttribute="top" id="SBb-Kv-XZN"/>
+                        <constraint firstAttribute="bottom" secondItem="PGa-9w-yyG" secondAttribute="bottom" id="X9z-7k-y0C"/>
+                        <constraint firstItem="PGa-9w-yyG" firstAttribute="width" secondItem="Q3q-S5-kHt" secondAttribute="width" multiplier="0.4" id="YbZ-eR-5XF"/>
+                        <constraint firstItem="kmc-dw-KIF" firstAttribute="top" secondItem="Q3q-S5-kHt" secondAttribute="top" id="sGN-4A-7hd"/>
+                        <constraint firstItem="kmc-dw-KIF" firstAttribute="leading" secondItem="PGa-9w-yyG" secondAttribute="trailing" id="uaM-z1-XIX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.96077531576156616" green="0.96077817678451538" blue="0.96078461408615112" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="Q3q-S5-kHt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tot-aQ-51c"/>
+                <constraint firstAttribute="bottom" secondItem="Q3q-S5-kHt" secondAttribute="bottom" id="W92-OG-Zd7"/>
+                <constraint firstAttribute="trailing" secondItem="Q3q-S5-kHt" secondAttribute="trailing" id="zSX-Zq-I1P"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

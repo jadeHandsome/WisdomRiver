@@ -53,13 +53,16 @@ singleton_implementation(KRMainNetTool)
     response.removesKeysWithNullValues = YES;
     manager.requestSerializer.timeoutInterval = 10.f;
     manager.responseSerializer = response;
-
+    [manager.requestSerializer setHTTPShouldHandleCookies:YES];
+    
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params addEntriesFromDictionary:dic];
     if ([KRUserInfo sharedKRUserInfo].token) {
         params[@"token"] = [KRUserInfo sharedKRUserInfo].token;
     }
     [manager POST:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+       
         //请求成功，隐藏HUD并销毁
         [HUD hideAnimated:YES];
         //NSLog(@"%@",responseObject);
@@ -130,6 +133,7 @@ singleton_implementation(KRMainNetTool)
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10.f;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager.requestSerializer setHTTPShouldHandleCookies:YES];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params addEntriesFromDictionary:param];
     if ([KRUserInfo sharedKRUserInfo].token) {

@@ -20,7 +20,8 @@
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
     // 再设置模式
     hud.mode = MBProgressHUDModeCustomView;
-    
+    hud.bezelView.backgroundColor = [UIColor blackColor];
+    hud.contentColor = [UIColor whiteColor];
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;
     
@@ -46,6 +47,8 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = message;
     // 隐藏时候从父控件中移除
+    hud.bezelView.backgroundColor = [UIColor blackColor];
+    hud.contentColor = [UIColor whiteColor];
     hud.removeFromSuperViewOnHide = YES;
     //hud.backgroundColor = [UIColor blackColor];
     // YES代表需要蒙版效果
