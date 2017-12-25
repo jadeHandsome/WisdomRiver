@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1102B82E1FF1466200D9EBE0 /* CommuntyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1102B82C1FF1466200D9EBE0 /* CommuntyViewController.m */; };
+		1102B82F1FF1466200D9EBE0 /* CommuntyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1102B82D1FF1466200D9EBE0 /* CommuntyViewController.xib */; };
+		1102B8331FF1490D00D9EBE0 /* CommunityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1102B8311FF1490D00D9EBE0 /* CommunityDetailViewController.m */; };
+		1102B8341FF1490D00D9EBE0 /* CommunityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1102B8321FF1490D00D9EBE0 /* CommunityDetailViewController.xib */; };
 		11197F1B1FE9621500989579 /* AppealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11197F1A1FE9621500989579 /* AppealDetailViewController.m */; };
 		11197FF91FEE32BB00989579 /* InquiryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11197FF71FEE32BB00989579 /* InquiryViewController.m */; };
 		11197FFA1FEE32BB00989579 /* InquiryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11197FF81FEE32BB00989579 /* InquiryViewController.xib */; };
@@ -124,6 +128,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1102B82B1FF1466200D9EBE0 /* CommuntyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommuntyViewController.h; sourceTree = "<group>"; };
+		1102B82C1FF1466200D9EBE0 /* CommuntyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommuntyViewController.m; sourceTree = "<group>"; };
+		1102B82D1FF1466200D9EBE0 /* CommuntyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuntyViewController.xib; sourceTree = "<group>"; };
+		1102B8301FF1490D00D9EBE0 /* CommunityDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunityDetailViewController.h; sourceTree = "<group>"; };
+		1102B8311FF1490D00D9EBE0 /* CommunityDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunityDetailViewController.m; sourceTree = "<group>"; };
+		1102B8321FF1490D00D9EBE0 /* CommunityDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityDetailViewController.xib; sourceTree = "<group>"; };
 		11197F191FE9621500989579 /* AppealDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppealDetailViewController.h; sourceTree = "<group>"; };
 		11197F1A1FE9621500989579 /* AppealDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppealDetailViewController.m; sourceTree = "<group>"; };
 		11197FF61FEE32BB00989579 /* InquiryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InquiryViewController.h; sourceTree = "<group>"; };
@@ -370,6 +380,12 @@
 				114CF59C1FE250BD004B5701 /* LoginViewController.m */,
 				114CF5A11FE26AEA004B5701 /* RegisterViewController.h */,
 				114CF5A21FE26AEA004B5701 /* RegisterViewController.m */,
+				1102B82B1FF1466200D9EBE0 /* CommuntyViewController.h */,
+				1102B82C1FF1466200D9EBE0 /* CommuntyViewController.m */,
+				1102B82D1FF1466200D9EBE0 /* CommuntyViewController.xib */,
+				1102B8301FF1490D00D9EBE0 /* CommunityDetailViewController.h */,
+				1102B8311FF1490D00D9EBE0 /* CommunityDetailViewController.m */,
+				1102B8321FF1490D00D9EBE0 /* CommunityDetailViewController.xib */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -867,8 +883,10 @@
 				1AAF2BCE1FEE236000B6DA18 /* ReparePwsViewController.xib in Resources */,
 				1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */,
 				1AF7AE8A1FF09775006B1433 /* MyCommondTableViewCell.xib in Resources */,
+				1102B8341FF1490D00D9EBE0 /* CommunityDetailViewController.xib in Resources */,
 				11DD5BA61FE585720053A3DB /* SelectCell.xib in Resources */,
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
+				1102B82F1FF1466200D9EBE0 /* CommuntyViewController.xib in Resources */,
 				1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */,
 				1AC0A1EE1FEFB76E009D3939 /* LaunchScreen.storyboard in Resources */,
 				1AFFDAF41FF0000C00C6D6FD /* CailiaoView.xib in Resources */,
@@ -929,7 +947,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -988,6 +1006,7 @@
 				11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */,
 				1AC0A1E71FEFAF77009D3939 /* LDXScore.m in Sources */,
 				114CF5D41FE39334004B5701 /* CommonListViewController.m in Sources */,
+				1102B8331FF1490D00D9EBE0 /* CommunityDetailViewController.m in Sources */,
 				11197F1B1FE9621500989579 /* AppealDetailViewController.m in Sources */,
 				1A61F7F61FE750C900C07E7C /* PublicCollectionViewCell.m in Sources */,
 				1A6304C41FE2739C00AE1751 /* MineViewController.m in Sources */,
@@ -1005,6 +1024,7 @@
 				1AAF2BE61FEE41A600B6DA18 /* MyAppleDetailViewController.m in Sources */,
 				1A6304B31FE2196400AE1751 /* main.m in Sources */,
 				1AAF2BDE1FEE3C6E00B6DA18 /* MyApplyViewController.m in Sources */,
+				1102B82E1FF1466200D9EBE0 /* CommuntyViewController.m in Sources */,
 				114CF5D71FE39DBF004B5701 /* CommonListCell.m in Sources */,
 				1A6304BE1FE26F1B00AE1751 /* BaseTabbarViewController.m in Sources */,
 				11FE0AF81FE21E1200D10A5C /* MBProgressHUD+KR.m in Sources */,
@@ -1141,7 +1161,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
@@ -1159,7 +1179,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
