@@ -10,5 +10,5 @@
 
 @interface BussCommondViewController : BaseViewController
 @property (nonatomic, strong) NSString *ID;
-@property (nonatomic, strong) UIImage *headImage;
+@property (nonatomic, strong) NSString *headImageUrl;
 @end

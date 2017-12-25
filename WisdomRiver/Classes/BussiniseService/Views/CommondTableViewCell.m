@@ -7,6 +7,7 @@
 //
 
 #import "CommondTableViewCell.h"
+#import "CommondPic.h"
 @interface CommondTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;

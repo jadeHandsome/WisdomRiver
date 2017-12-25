@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CommondPic : UIView
-
+@property (nonatomic, strong) BaseViewController *superVC;
+@property (nonatomic, strong) NSMutableArray *allImage;
+@property (nonatomic, assign) BOOL isShow;
+- (void)setImageArray;
 @end

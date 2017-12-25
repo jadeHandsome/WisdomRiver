@@ -122,7 +122,7 @@ singleton_implementation(KRMainNetTool)
     NSString *path = [NSString stringWithFormat:@"%@%@",baseURL,url];
     //定义需要加载动画的HUD
     __block MBProgressHUD *HUD;
-    if (!waitView) {
+    if (waitView) {
          HUD = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
         UIView *cusTome = [[UIView alloc]init];
         cusTome.backgroundColor = [UIColor blackColor];

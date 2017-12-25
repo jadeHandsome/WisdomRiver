@@ -12,6 +12,7 @@
 #import "ReparePwsViewController.h"
 #import "MySuqiuViewController.h"
 #import "MyApplyViewController.h"
+#import "MyCommondViewController.h"
 @interface MineViewController ()
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIScrollView *mainScoll;
@@ -155,7 +156,11 @@
             break;
         case 2:
         {
+            
             //评价
+            MyCommondViewController *vc = [MyCommondViewController new];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 3:

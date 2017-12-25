@@ -219,6 +219,7 @@
     BussCommondViewController *commond = [[BussCommondViewController alloc]init];
 //    commond.headImage = ((UIImageView *)self.loop.subviews[1]).image;
     commond.ID = self.ID;
+    commond.headImageUrl = self.loop.imageUrls[0];
     [self.navigationController pushViewController:commond animated:YES];
     
 }
@@ -315,6 +316,7 @@
             make.top.equalTo(self.centerView.mas_top);
             make.bottom.equalTo(self.centerView.mas_bottom);
         }];
+        [self headerFresh];
     }
 }
 
@@ -328,6 +330,8 @@
         make.bottom.left.right.equalTo(_commondView);
     }];
     [self.commentTab registerNib:[UINib nibWithNibName:@"CommondTableViewCell" bundle:nil] forCellReuseIdentifier:@"commondCell"];
+    [KRBaseTool tableViewAddRefreshHeader:self.commentTab withTarget:self refreshingAction:@selector(headerFresh)];
+    [KRBaseTool tableViewAddRefreshFooter:self.commentTab withTarget:self refreshingAction:@selector(footerFresh)];
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

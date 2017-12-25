@@ -114,6 +114,9 @@
 		1AC0A1EB1FEFAF9D009D3939 /* BussCommondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0A1E91FEFAF9D009D3939 /* BussCommondViewController.m */; };
 		1AC0A1EC1FEFAF9D009D3939 /* BussCommondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0A1EA1FEFAF9D009D3939 /* BussCommondViewController.xib */; };
 		1AC0A1EE1FEFB76E009D3939 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0A1ED1FEFB76E009D3939 /* LaunchScreen.storyboard */; };
+		1AF7AE851FF0975F006B1433 /* MyCommondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7AE841FF0975F006B1433 /* MyCommondViewController.m */; };
+		1AF7AE891FF09775006B1433 /* MyCommondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7AE871FF09775006B1433 /* MyCommondTableViewCell.m */; };
+		1AF7AE8A1FF09775006B1433 /* MyCommondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF7AE881FF09775006B1433 /* MyCommondTableViewCell.xib */; };
 		1AFFDAEF1FEFF97600C6D6FD /* CommondPic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFFDAEE1FEFF97600C6D6FD /* CommondPic.m */; };
 		1AFFDAF21FF0000100C6D6FD /* CailiaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFFDAF11FF0000100C6D6FD /* CailiaoView.m */; };
 		1AFFDAF41FF0000C00C6D6FD /* CailiaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFFDAF31FF0000C00C6D6FD /* CailiaoView.xib */; };
@@ -317,6 +320,11 @@
 		1AC0A1E91FEFAF9D009D3939 /* BussCommondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussCommondViewController.m; sourceTree = "<group>"; };
 		1AC0A1EA1FEFAF9D009D3939 /* BussCommondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BussCommondViewController.xib; sourceTree = "<group>"; };
 		1AC0A1ED1FEFB76E009D3939 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1AF7AE831FF0975F006B1433 /* MyCommondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCommondViewController.h; sourceTree = "<group>"; };
+		1AF7AE841FF0975F006B1433 /* MyCommondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCommondViewController.m; sourceTree = "<group>"; };
+		1AF7AE861FF09775006B1433 /* MyCommondTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCommondTableViewCell.h; sourceTree = "<group>"; };
+		1AF7AE871FF09775006B1433 /* MyCommondTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCommondTableViewCell.m; sourceTree = "<group>"; };
+		1AF7AE881FF09775006B1433 /* MyCommondTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCommondTableViewCell.xib; sourceTree = "<group>"; };
 		1AFFDAED1FEFF97600C6D6FD /* CommondPic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommondPic.h; sourceTree = "<group>"; };
 		1AFFDAEE1FEFF97600C6D6FD /* CommondPic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommondPic.m; sourceTree = "<group>"; };
 		1AFFDAF01FF0000100C6D6FD /* CailiaoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CailiaoView.h; sourceTree = "<group>"; };
@@ -615,6 +623,7 @@
 		1A6304C01FE2738E00AE1751 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				1AF7AE821FF0974D006B1433 /* 我的评价 */,
 				1AAF2BE71FEE483100B6DA18 /* 我的预审 */,
 				1AAF2BDB1FEE3C5F00B6DA18 /* 我的报名 */,
 				1AAF2BCF1FEE263B00B6DA18 /* 我的诉求 */,
@@ -748,6 +757,18 @@
 			path = "商家详情";
 			sourceTree = "<group>";
 		};
+		1AF7AE821FF0974D006B1433 /* 我的评价 */ = {
+			isa = PBXGroup;
+			children = (
+				1AF7AE831FF0975F006B1433 /* MyCommondViewController.h */,
+				1AF7AE841FF0975F006B1433 /* MyCommondViewController.m */,
+				1AF7AE861FF09775006B1433 /* MyCommondTableViewCell.h */,
+				1AF7AE871FF09775006B1433 /* MyCommondTableViewCell.m */,
+				1AF7AE881FF09775006B1433 /* MyCommondTableViewCell.xib */,
+			);
+			path = "我的评价";
+			sourceTree = "<group>";
+		};
 		7733BA6F2455F5B3D2D9C9D8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,6 +866,7 @@
 				114CF5E81FE4E2C8004B5701 /* AppealCell.xib in Resources */,
 				1AAF2BCE1FEE236000B6DA18 /* ReparePwsViewController.xib in Resources */,
 				1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */,
+				1AF7AE8A1FF09775006B1433 /* MyCommondTableViewCell.xib in Resources */,
 				11DD5BA61FE585720053A3DB /* SelectCell.xib in Resources */,
 				1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */,
 				1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */,
@@ -960,6 +982,7 @@
 				1AC0A1E41FEFA9DE009D3939 /* KRMyTextView.m in Sources */,
 				1AFFDAF21FF0000100C6D6FD /* CailiaoView.m in Sources */,
 				11FE0AF21FE21E1200D10A5C /* TYPagerController.m in Sources */,
+				1AF7AE891FF09775006B1433 /* MyCommondTableViewCell.m in Sources */,
 				111980CC1FEE5B8E00989579 /* ZLShowImageViewController.m in Sources */,
 				11FE0AF61FE21E1200D10A5C /* YHArcSlider.m in Sources */,
 				11FE0B041FE21E2100D10A5C /* BaseViewController.m in Sources */,
@@ -977,6 +1000,7 @@
 				111980D01FEE5E4700989579 /* CommsissonReusableFooter.m in Sources */,
 				1A6304CE1FE2790D00AE1751 /* BussItemBtnView.m in Sources */,
 				1A5114981FE7F53000D87D02 /* BaseMineView.m in Sources */,
+				1AF7AE851FF0975F006B1433 /* MyCommondViewController.m in Sources */,
 				1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */,
 				1AAF2BE61FEE41A600B6DA18 /* MyAppleDetailViewController.m in Sources */,
 				1A6304B31FE2196400AE1751 /* main.m in Sources */,
