@@ -62,7 +62,7 @@ singleton_implementation(KRMainNetTool)
         params[@"token"] = [KRUserInfo sharedKRUserInfo].token;
     }
     [manager POST:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-       
+        
         //请求成功，隐藏HUD并销毁
         [HUD hideAnimated:YES];
         //NSLog(@"%@",responseObject);
@@ -73,6 +73,15 @@ singleton_implementation(KRMainNetTool)
             response = responseObject;
         }
         NSNumber *num = response[@"success"];
+        if (response[@"infocode"]) {
+            if ([response[@"infocode"] integerValue] == 10000) {
+                complet(response[@"lives"],nil);
+            } else {
+                [MBProgressHUD showError:response[@"info"] toView:waitView];
+                complet(nil,response[@"info"]);
+            }
+            return ;
+        }
         //判断返回的状态，200即为服务器查询成功，500服务器查询失败
         //NSLog(@"%@",responseObject);
         if ([num longValue] == 1) {

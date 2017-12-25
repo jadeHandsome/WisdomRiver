@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NewPagedFlowView *pageFlowView;
 @property (nonatomic, strong) NSArray *todayTrafficArr;
 @property (nonatomic, strong) NSArray *nextTrafficArr;
+@property (nonatomic, strong) NSArray *weatherData;
+
 @end
 
 
@@ -58,9 +60,29 @@
     [self getBannerData];
     [self setUp];
     [self getHomeData];
+    [self getWeather];
     // Do any additional setup after loading the view.
 }
+- (void)getWeather {
+    //获取天气
+    NSURLSessionDataTask *data = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://restapi.amap.com/v3/weather/weatherInfo?key=3a71439393b3b7eb2daea55f71134517&city=%E6%88%90%E9%83%BD"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"%@",dic);
+        self.weatherData = [dic[@"lives"] copy];
+        dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.pageFlowView reloadData];
+        });
+       
 
+    }];
+    [data resume];
+//    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"http://restapi.amap.com/v3/weather/weatherInfo?key=3a71439393b3b7eb2daea55f71134517&city=%E6%88%90%E9%83%BD" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
+//        if (showdata == nil) {
+//            return ;
+//        }
+//        NSLog(@"%@",showdata);
+//    }];
+}
 - (void)getBannerData{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
@@ -378,7 +400,7 @@
             make.centerY.equalTo(topView.mas_centerY);
         }];
         UILabel *weatherText = [[UILabel alloc] init];
-        weatherText.text = @"阴";
+        
         weatherText.textColor = [UIColor whiteColor];
         weatherText.font = [UIFont systemFontOfSize:HEIGHT(63)];
         [topView addSubview:weatherText];
@@ -403,7 +425,7 @@
             make.top.equalTo(topView.mas_bottom);
         }];
         UILabel *temperatureLabel = [[UILabel alloc] init];
-        temperatureLabel.text = @"7°~12°";
+        
         temperatureLabel.textColor = [UIColor whiteColor];
         temperatureLabel.font = [UIFont systemFontOfSize:HEIGHT(40)];
         [bottomView addSubview:temperatureLabel];
@@ -412,7 +434,16 @@
             make.centerY.equalTo(bottomView.mas_centerY);
         }];
         UILabel *detailLabel = [[UILabel alloc] init];
-        detailLabel.text = @"PM2.5：57 空气质量：良好°";
+        if (self.weatherData) {
+            detailLabel.text = [NSString stringWithFormat:@"风力：%@级 空气质量：%@",self.weatherData[0][@"windpower"],@"良好"];
+            temperatureLabel.text = [NSString stringWithFormat:@"%@°",self.weatherData[0][@"temperature"]];
+            weatherText.text = self.weatherData[0][@"weather"];
+        } else {
+            detailLabel.text = @"风力：0级 空气质量：良好°";
+            temperatureLabel.text = @"0°~0°";
+            weatherText.text = @"阴";
+        }
+        
         detailLabel.textColor = [UIColor whiteColor];
         detailLabel.backgroundColor = COLOR(93, 202, 147, 1);
         detailLabel.layer.cornerRadius = HEIGHT(10);

@@ -36,7 +36,7 @@
             imageView = [[UIImageView alloc]initWithImage:self.allImage[i]];
         }
         [self addSubview:imageView];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.clipsToBounds = YES;
         imageView.tag = 100 + i;
         if (!self.isShow) {
