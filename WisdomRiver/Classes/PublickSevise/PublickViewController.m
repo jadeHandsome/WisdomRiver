@@ -10,7 +10,7 @@
 #import "CBSegmentView.h"
 #import "PublicCollectionViewCell.h"
 #import "PublicDetailViewController.h"
-@interface PublickViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface PublickViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate>
 @property (nonatomic, strong) UISearchBar *seachBar;
 @property (nonatomic, strong) UICollectionViewFlowLayout *collectionFlowyout;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -18,6 +18,9 @@
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *allGoods;
 @property (nonatomic, strong) CBSegmentView *titleBtnView;
+@property (nonatomic, strong) NSDictionary *selectedModel;
+@property (nonatomic, strong) NSString *searchStr;
+
 @end
 
 @implementation PublickViewController
@@ -63,17 +66,24 @@
     self.collectionView.backgroundColor = LRRGBColor(244, 244, 244);
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    [KRBaseTool tableViewAddRefreshFooter:self.collectionView withTarget:self refreshingAction:@selector(footerFresh)];
+    [KRBaseTool tableViewAddRefreshHeader:self.collectionView withTarget:self refreshingAction:@selector(headerFresh)];
     [self.collectionView registerNib:[UINib nibWithNibName:@"PublicCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
 }
 - (void)loadData {
-    [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appPublicService/getProgramManagement" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appPublicService/getProgramManagement" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
         self.allItem = [showdata[@"pms"] copy];
         [self setUp];
         [self setUpCollec];
-        [self getFirstModel:self.allItem[0]];
+        if ([self.allItem count] > 0) {
+            self.selectedModel = self.allItem[0];
+        }
+        [self headerFresh];
+        
+//        [self getFirstModel:self.allItem[0]];
     }];
 }
 - (void)setUp {
@@ -89,15 +99,31 @@
     titlBtnView.titleChooseReturn = ^(NSInteger x) {
         NSLog(@"点了弟%d个",x);
         NSDictionary *dic = self.allItem[x];
-        [self getFirstModel:dic];
+        weakSelf.seachBar.placeholder = [NSString stringWithFormat:@"在 %@ 中搜索",dic[@"name"]];
+        weakSelf.selectedModel = [dic copy];
+//        [self getFirstModel:dic];
+        [weakSelf headerFresh];
     };
+}
+- (void)headerFresh {
+    self.page = 1;
+    [self getFirstModel:self.selectedModel];
+}
+- (void)footerFresh {
+    self.page ++;
+    [self getFirstModel:self.selectedModel];
 }
 - (void)getFirstModel:(NSDictionary *)model {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"moduleId"] = model[@"id"];
+    if (model) {
+        param[@"moduleId"] = model[@"id"];
+    }
+    
     param[@"currPage"] = @(self.page);
     param[@"pageSize"] = @20;
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appPublicService/getServiceManagementByProgramManagement" params:param withModel:nil complateHandle:^(id showdata, NSString *error) {
+        [self.collectionView.mj_header endRefreshing];
+        [self.collectionView.mj_footer endRefreshing];
         if (showdata == nil) {
             return ;
         }
@@ -115,6 +141,7 @@
     self.seachBar = [[UISearchBar alloc]init];
     self.navigationItem.titleView = self.seachBar;
     self.seachBar.placeholder = @"在 技能培训 中搜索";
+    self.seachBar.delegate = self;
 }
 
 
@@ -149,5 +176,8 @@
         detail.title = dic[@"name"];
         [self.navigationController pushViewController:detail animated:YES];
     }
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
 }
 @end

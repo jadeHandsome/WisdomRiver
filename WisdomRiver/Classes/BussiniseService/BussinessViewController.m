@@ -23,7 +23,7 @@
    
 }
 - (void)loadData {
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appBusiness/getProgramManagement" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appBusiness/getProgramManagement" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
@@ -32,6 +32,7 @@
         self.allItem = [showdata[@"pms"] copy];
         [self setUp];
     }];
+
 }
 
 - (void)didReceiveMemoryWarning {
