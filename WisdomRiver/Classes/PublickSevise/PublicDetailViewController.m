@@ -60,6 +60,9 @@
     
 }
 - (void)toBao {
+    if (![[self.payBtn titleForState:UIControlStateNormal] isEqualToString:@"立即参加"]) {
+        return;
+    }
     if (![KRUserInfo sharedKRUserInfo].card) {
         [KRBaseTool showAlert:@"办理该服务需要身份证细腻，请先完善您的身份证信息" with_Controller:self with_titleArr:@[@"确定"] withShowType:UIAlertControllerStyleAlert with_Block:^(int index) {
             if (index == 0) {
@@ -106,7 +109,7 @@
             if (self.myData[@"smv"][@"phone"]) {
                 [_payBtn setTitle:@"拨打电话" forState:UIControlStateNormal];
             } else {
-                [_payBtn setTitle:@"拨无电话" forState:UIControlStateNormal];
+                [_payBtn setTitle:@"暂无电话" forState:UIControlStateNormal];
             }
             
         }

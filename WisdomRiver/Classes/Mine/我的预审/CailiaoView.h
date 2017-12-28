@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CailiaoView : UIView
-@property (nonatomic, strong) UIViewController *superVC;
+@property (nonatomic, strong) BaseViewController *superVC;
 - (void)setDataWithDic:(NSDictionary *)dic;
 @end

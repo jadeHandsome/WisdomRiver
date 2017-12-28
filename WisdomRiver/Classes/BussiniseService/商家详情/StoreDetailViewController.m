@@ -143,6 +143,7 @@
         make.width.equalTo(@80);
     }];
     [guanzu setTitle:@"关注" forState:UIControlStateNormal];
+    [guanzu addTarget:self action:@selector(shouGuanzhu) forControlEvents:UIControlEventTouchUpInside];
     guanzu.backgroundColor = LRRGBColor(255, 38, 56);
     [guanzu setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     LRViewBorderRadius(guanzu, 5, 0, [UIColor clearColor]);
@@ -156,6 +157,9 @@
         make.centerX.equalTo(self.headView.mas_centerX);
         make.width.equalTo(@(SCREEN_WIDTH * 0.5));
     }];
+}
+- (void)shouGuanzhu {
+    [self showHUDWithText:@"暂未开放"];
 }
 - (void)footerFresh {
     self.page ++;

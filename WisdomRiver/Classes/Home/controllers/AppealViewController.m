@@ -63,7 +63,7 @@
     [addButton setTitle:@"+" forState:UIControlStateNormal];
     [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [addButton setBackgroundColor:ThemeColor];
-    addButton.titleLabel.font = [UIFont systemFontOfSize:30];
+    addButton.titleLabel.font = [UIFont systemFontOfSize:20];
     LRViewBorderRadius(addButton, 22.5, 0, ThemeColor);
     LRViewShadow(addButton, [UIColor blackColor], CGSizeMake(2, 2), 0.5, 5);
     [addButton addTarget:self action:@selector(add:) forControlEvents:UIControlEventTouchUpInside];

@@ -29,7 +29,7 @@
     }];
     
     UILabel *label = [[UILabel alloc] init];
-    label.font = [UIFont systemFontOfSize:HEIGHT(38)];
+    label.font = [UIFont systemFontOfSize:14];
     label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
     self.titleLabel = label;

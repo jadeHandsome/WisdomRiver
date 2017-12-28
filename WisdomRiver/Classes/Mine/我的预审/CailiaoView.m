@@ -43,19 +43,31 @@
     }
     NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:str];
     
-    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    
-    [paragraphStyle setLineSpacing:10];//行间距
-    
-    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
+//    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//
+//    [paragraphStyle setLineSpacing:10];//行间距
+//
+//    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
     self.cailiaoLabel.userInteractionEnabled = YES;
     [self.cailiaoLabel setAttributedText:attributedString];
     [self.cailiaoLabel yb_addAttributeTapActionWithStrings:array tapClicked:^(NSString *string, NSRange range, NSInteger index) {
-        NSDictionary *file = dic[@"fileName"][index];
-        [KRBaseTool showAlert:string with_Controller:self.superVC with_titleArr:@[@"确定"] withShowType:UIAlertControllerStyleAlert with_Block:^(int index) {
-            
-        }];
+        [self.superVC showLoadingHUD];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSDictionary *file = dic[@"fileName"][index];
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[baseImage stringByAppendingString:file[@"id"]]]]];
+            UIImageWriteToSavedPhotosAlbum(image, self, @selector(didend), NULL);
+        });
+        
+//        [KRBaseTool showAlert:string with_Controller:self.superVC with_titleArr:@[@"确定"] withShowType:UIAlertControllerStyleAlert with_Block:^(int index) {
+//            
+//        }];
     }];
+    
+}
+- (void)didend {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.superVC showHUDWithText:@"保存成功"];
+    });
     
 }
 

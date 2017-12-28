@@ -41,7 +41,7 @@
         [self showHUDWithText:@"请确认新密码"];
         return;
     }
-    if ([_repeatPwd.text isEqualToString:_nowPwd.text]) {
+    if (![_repeatPwd.text isEqualToString:_nowPwd.text]) {
         [self showHUDWithText:@"两次输入密码不匹配"];
         return;
     }

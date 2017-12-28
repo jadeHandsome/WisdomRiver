@@ -60,9 +60,12 @@
             return ;
         }
         [self showHUDWithText:@"评价成功"];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self performSelector:@selector(pop) withObject:nil afterDelay:1];
     }];
     
+}
+- (void)pop {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)textViewDidChange:(UITextView *)textView {
     

@@ -60,7 +60,8 @@ return _collectionFlowyout;
     self.titleHeght.constant = HEIGHT(160);
     self.topHeight.constant = HEIGHT(740);
     [self.searchBar setBackgroundImage:[UIImage new]];
-    self.searchBar.backgroundColor = LRRGBColor(245, 245, 245);
+    LRViewBorderRadius(self.searchBar, 30, 1, LRRGBColor(245, 245, 245));
+//    self.searchBar.backgroundColor = LRRGBColor(245, 245, 245);
     self.leftItemLabel.text = self.titleStr;
     [self loadData];
     [self setCollec];
@@ -195,7 +196,9 @@ return _collectionFlowyout;
     }
     
     HYBLoopScrollView *loop = [HYBLoopScrollView loopScrollViewWithFrame:CGRectMake(0, 0, self.topView.frame.size.width, self.topView.frame.size.height) imageUrls:im timeInterval:3 didSelect:^(NSInteger atIndex) {
-        
+        GoodsDetailViewController *detail = [GoodsDetailViewController new];
+        detail.ID = self.allImage[atIndex][@"id"];
+        [self.navigationController pushViewController:detail animated:YES];
     } didScroll:^(NSInteger toIndex) {
         NSDictionary *dic = self.allImage[toIndex];
         self.topNameLabel.text = dic[@"name"];

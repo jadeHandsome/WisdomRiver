@@ -164,7 +164,7 @@
     [button1 setTitle:@"政策解读" forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button1 setTitleColor:COLOR(78, 78, 78, 1) forState:UIControlStateNormal];
-    button1.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(44)];
+    button1.titleLabel.font = [UIFont systemFontOfSize:14];
     [button1 addTarget:self action:@selector(change:) forControlEvents:UIControlEventTouchUpInside];
     button1.selected = YES;
     button1.tag = 1;
@@ -179,7 +179,7 @@
     [button2 setTitle:@"通知公告" forState:UIControlStateNormal];
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button2 setTitleColor:COLOR(78, 78, 78, 1) forState:UIControlStateNormal];
-    button2.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(44)];
+    button2.titleLabel.font = [UIFont systemFontOfSize:14];
     [button2 addTarget:self action:@selector(change:) forControlEvents:UIControlEventTouchUpInside];
     button2.tag = 2;
     self.button2 = button2;
@@ -193,7 +193,7 @@
     [button3 setTitle:@"便民信息" forState:UIControlStateNormal];
     [button3 setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button3 setTitleColor:COLOR(78, 78, 78, 1) forState:UIControlStateNormal];
-    button3.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(44)];
+    button3.titleLabel.font = [UIFont systemFontOfSize:14];
     [button3 addTarget:self action:@selector(change:) forControlEvents:UIControlEventTouchUpInside];
     button3.tag = 3;
     self.button3 = button3;

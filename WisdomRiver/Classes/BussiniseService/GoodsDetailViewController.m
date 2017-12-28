@@ -110,6 +110,7 @@
         } else {
             self.chooseType = @"cha";
         }
+        [self headerFresh];
     }];
     [topView addSubview:segment];
 }
@@ -122,19 +123,21 @@
         make.edges.equalTo(sco);
         make.width.equalTo(sco.mas_width);
     }];
-        NSMutableArray *im = [NSMutableArray new];
-        for (NSDictionary *baner in self.allImage) {
-            [im addObject:[baseImage stringByAppendingString:baner[@"id"]]];
+    NSMutableArray *im = [NSMutableArray new];
+    for (NSDictionary *baner in self.allImage) {
+        [im addObject:[baseImage stringByAppendingString:baner[@"id"]]];
+        
+    }
     
-        }
-    
-        HYBLoopScrollView *loop = [HYBLoopScrollView loopScrollViewWithFrame:CGRectMake(0, 0, self.topView.frame.size.width, HEIGHT(1078)) imageUrls:im timeInterval:3 didSelect:^(NSInteger atIndex) {
-    
-        } didScroll:^(NSInteger toIndex) {
-           
-        }];
+    HYBLoopScrollView *loop = [HYBLoopScrollView loopScrollViewWithFrame:CGRectMake(0, 0, self.topView.frame.size.width, HEIGHT(1078)) imageUrls:im timeInterval:3 didSelect:^(NSInteger atIndex) {
+        
+    } didScroll:^(NSInteger toIndex) {
+        
+    }];
     _loop = loop;
         //loop.timeInterval = 3;
+    _loop.imageContentMode = UIViewContentModeScaleAspectFill;
+    _loop.clipsToBounds = YES;
         loop.placeholder = [UIImage new];
         [contans addSubview:loop];
     UIView *infoView = [[UIView alloc]init];

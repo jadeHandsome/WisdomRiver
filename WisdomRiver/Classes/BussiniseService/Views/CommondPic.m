@@ -7,7 +7,9 @@
 //
 
 #import "CommondPic.h"
-@interface CommondPic()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import "ZLPickPhotoViewController.h"
+#import "SDPhotoBrowser.h"
+@interface CommondPic()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,SDPhotoBrowserDelegate>
 
 @end
 @implementation CommondPic
@@ -43,10 +45,26 @@
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
             imageView.userInteractionEnabled = YES;
             [imageView addGestureRecognizer:tap];
+        } else {
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageView:)];
+            [imageView addGestureRecognizer:tap];
+            imageView.tag = i;
+            imageView.userInteractionEnabled = YES;
         }
         
     }
     [self replayLayout];
+}
+- (void)tapImageView:(UITapGestureRecognizer *)tap {
+    
+    UIView *imageView = tap.view;
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+    browser.currentImageIndex = imageView.tag;
+    browser.sourceImagesContainerView = self;
+    //NSLog(@"%ld",self.scrollView.subviews.count);
+    browser.imageCount = self.subviews.count;
+    browser.delegate = self;
+    [browser show];
 }
 - (void)replayLayout {
     NSMutableArray *allSubview = [NSMutableArray array];
@@ -94,25 +112,14 @@
     if (tap.view.tag == 100) {
         //选择
         __weak typeof(self) weakSelf = self;
-        [KRBaseTool showAlert:@"选择头像" with_Controller:self.superVC with_titleArr:@[@"相机",@"相册"] withShowType:UIAlertControllerStyleActionSheet with_Block:^(int index) {
-            if (index == 0) {
-                //打开相机
-                if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-                    UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
-                    pickerController.delegate = self;
-                    pickerController.allowsEditing = YES;
-                    pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                    [weakSelf.superVC presentViewController:pickerController animated:YES completion:nil];
-                }
-            } else {
-                //相册
-                UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
-                pickerController.delegate = self;
-                pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                pickerController.allowsEditing = YES;
-                [weakSelf.superVC presentViewController:pickerController animated:YES completion:nil];
-            }
+        ZLPickPhotoViewController *pickVC = [[ZLPickPhotoViewController alloc] initWithCompleteHandle:^(NSArray *images) {
+            [weakSelf.allImage addObjectsFromArray:images];
+            
+            [weakSelf setImageArray];
+//            [weakSelf.clickBtn setTitle:[NSString stringWithFormat:@"%ld/4",self.allImage.count] forState:UIControlStateNormal];
         }];
+        pickVC.limitCount = 4;
+        [self.superVC.navigationController pushViewController:pickVC animated:YES];
     } else {
         //点了照片
         [KRBaseTool showAlert:@"编辑" with_Controller:self.superVC with_titleArr:@[@"删除"] withShowType:UIAlertControllerStyleActionSheet with_Block:^(int index) {
@@ -138,5 +145,21 @@
     }
     
     [self.superVC dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - SDPhotoBrowserDelegate
+
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    //NSString *imageName = self.imagsArray[index];
+    NSURL *url = [NSURL URLWithString:self.allImage[index]];
+    return url;
+}
+
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    
+    UIImageView *imageView = self.subviews[index];
+    return imageView.image;
 }
 @end

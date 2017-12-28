@@ -40,7 +40,7 @@
     if (self.infoParam[@"sexId"]) {
         self.infoParam[@"sex"] = self.infoParam[@"sexId"];
     }
-    [[KRMainNetTool sharedKRMainNetTool]upLoadData:@"appPersonalCenter/updatePersonal" params:self.infoParam andData:array complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool]upLoadData:@"appPersonalCenter/updatePersonal" params:self.infoParam andData:array waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata) {
 //            self.infoParam = [showdata[@"mess"] mutableCopy];
 //            [[NSUserDefaults standardUserDefaults] setObject:showdata[@"mess"] forKey:@"userInfo"];
@@ -80,7 +80,7 @@
     UIButton *repareBtn = [[UIButton alloc]init];
     [bottomView addSubview:repareBtn];
     [repareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(bottomView.mas_bottom).with.offset(-10);
+        make.top.equalTo(bottomView.mas_top);
         make.left.equalTo(bottomView.mas_left).with.offset(15);
         make.right.equalTo(bottomView.mas_right).with.offset(-15);
         make.height.equalTo(@40);
@@ -92,7 +92,9 @@
     UIButton *logOutBtn = [[UIButton alloc]init];
     [bottomView addSubview:logOutBtn];
     [logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(bottomView.mas_top);
+        
+        
+        make.bottom.equalTo(bottomView.mas_bottom).with.offset(-10);
         make.left.equalTo(bottomView.mas_left).with.offset(15);
         make.right.equalTo(bottomView.mas_right).with.offset(-15);
         make.height.equalTo(@40);
@@ -255,7 +257,14 @@
                     baseCell.accessoryType = UITableViewCellAccessoryNone;
                     baseCell.textLabel.text = @"手机号";
                     input.text = @"";
-                    input.placeholder = self.infoParam[@"phone"];
+                    if (self.infoParam[@"phone"]) {
+                        NSString *str1 = [self.infoParam[@"phone"] substringToIndex:3];
+                        NSString *str2 = [self.infoParam[@"phone"] substringFromIndex:[self.infoParam[@"phone"] length] - 4];
+                        input.placeholder = [NSString stringWithFormat:@"%@****%@",str1,str2];
+                    } else {
+                        input.placeholder = self.infoParam[@"phone"];
+                        
+                    }
                     input.userInteractionEnabled = NO;
                 } else {
                     //身份证
@@ -281,7 +290,14 @@
                     baseCell.accessoryType = UITableViewCellAccessoryNone;
                     baseCell.textLabel.text = @"手机号";
                     input.text = @"";
-                    input.placeholder = self.infoParam[@"phone"];
+                    if (self.infoParam[@"phone"]) {
+                        NSString *str1 = [self.infoParam[@"phone"] substringToIndex:3];
+                        NSString *str2 = [self.infoParam[@"phone"] substringFromIndex:[self.infoParam[@"phone"] length] - 4];
+                        input.placeholder = [NSString stringWithFormat:@"%@****%@",str1,str2];
+                    } else {
+                        input.placeholder = self.infoParam[@"phone"];
+                        
+                    }
                     input.userInteractionEnabled = NO;
                 }
                 

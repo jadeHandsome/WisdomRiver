@@ -32,8 +32,10 @@
     [self setUp];
     if ([self.viewType isEqualToString:@"1"]) {
         self.navigationItem.title = @"我的诉求";
-    } else {
+    } else if ([self.viewType isEqualToString:@"2"]) {
         self.navigationItem.title = @"我的预审";
+    } else {
+        self.navigationItem.title = @"我的代办";
     }
     
     
@@ -122,10 +124,17 @@
         SuqiuDetailViewController *detail = [SuqiuDetailViewController new];
         detail.suqiuId = dic[@"id"];
         [self.navigationController pushViewController:detail animated:YES];
+    } else if ([self.viewType isEqualToString:@"2"]) {
+        NSDictionary *dic = self.allList[indexPath.row];
+        YushenDetailViewController *detail = [YushenDetailViewController new];
+        detail.ID = dic[@"id"];
+        detail.viewType = @"1";
+        [self.navigationController pushViewController:detail animated:YES];
     } else {
         NSDictionary *dic = self.allList[indexPath.row];
         YushenDetailViewController *detail = [YushenDetailViewController new];
         detail.ID = dic[@"id"];
+        detail.viewType = @"2";
         [self.navigationController pushViewController:detail animated:YES];
     }
     

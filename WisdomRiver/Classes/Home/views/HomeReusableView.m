@@ -17,7 +17,7 @@
         [self addSubview:view];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(WIDTH(35), 0, SIZEHEIGHT - WIDTH(35), HEIGHT(110))];
         self.title = label;
-        label.font = [UIFont systemFontOfSize:HEIGHT(46)];
+        label.font = [UIFont systemFontOfSize:15];
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT(110) - 1, SIZEWIDTH, 1)];
         lineView.backgroundColor = COLOR(245, 245, 245, 1);
         [view addSubview:lineView];

@@ -326,12 +326,14 @@ singleton_implementation(KRBaseTool)
 #pragma mark——————————增加上拉加载更多
 + (void)tableViewAddRefreshFooter:(UIScrollView *)scrollView withTarget:(id)target refreshingAction:(SEL)action
 {
-    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:target refreshingAction:action];
-//    [footer setTitle:@"" forState:MJRefreshStateIdle];
-//    [footer setTitle:@"" forState:MJRefreshStatePulling];
-//    [footer setTitle:@"" forState:MJRefreshStateRefreshing];
-//    [footer setTitle:@"" forState:MJRefreshStateWillRefresh];
-//    [footer setTitle:@"" forState:MJRefreshStateNoMoreData];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:target refreshingAction:action];
+    [footer setRefreshingTitleHidden:YES];
+    [footer setTitle:@"" forState:MJRefreshStateIdle];
+    [footer setTitle:@"" forState:MJRefreshStatePulling];
+    [footer setTitle:@"" forState:MJRefreshStateRefreshing];
+    [footer setTitle:@"" forState:MJRefreshStateWillRefresh];
+    [footer setTitle:@"" forState:MJRefreshStateNoMoreData];
+    
     scrollView.mj_footer = footer;
 }
 #pragma mark————————————计算两个经纬度间的距离

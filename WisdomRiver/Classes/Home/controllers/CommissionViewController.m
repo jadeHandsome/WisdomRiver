@@ -75,7 +75,7 @@
 {
     CommissionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CommissionCell" forIndexPath:indexPath];
     if (indexPath.item == [self.imagesArr[indexPath.section] count]) {
-        cell.iconImage.image = [UIImage imageNamed:@"add"];
+        cell.iconImage.image = [UIImage imageNamed:@"线圈"];
     }
     else{
         cell.iconImage.image = self.imagesArr[indexPath.section][indexPath.item];

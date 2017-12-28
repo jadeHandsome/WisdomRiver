@@ -241,7 +241,7 @@
         lineView.backgroundColor = [UIColor whiteColor];
         [bannerView addSubview:lineView];
         [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(bannerView).offset(HEIGHT(40));
+            make.top.equalTo(bannerView).offset(14);
             make.bottom.equalTo(bannerView).offset(HEIGHT(-40));
             make.centerX.equalTo(bannerView.mas_centerX);
             make.width.mas_equalTo(1);
@@ -266,7 +266,7 @@
             UILabel *leftText = [[UILabel alloc] init];
             leftText.text = @"和";
             leftText.textColor = [UIColor whiteColor];
-            leftText.font = [UIFont systemFontOfSize:HEIGHT(40)];
+            leftText.font = [UIFont systemFontOfSize:14];
             [leftView addSubview:leftText];
             [leftText mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(leftView).offset(HEIGHT(-65));
@@ -275,7 +275,7 @@
             UILabel *todayText1 = [[UILabel alloc] init];
             todayText1.text = self.todayTrafficArr[0];
             todayText1.textColor = [UIColor whiteColor];
-            todayText1.font = [UIFont systemFontOfSize:HEIGHT(80)];
+            todayText1.font = [UIFont systemFontOfSize:16];
             todayText1.backgroundColor = COLOR(93, 202, 147, 1);
             todayText1.layer.cornerRadius = HEIGHT(10);
             todayText1.layer.masksToBounds = YES;
@@ -290,7 +290,7 @@
             UILabel *todayText2 = [[UILabel alloc] init];
             todayText2.text = self.todayTrafficArr[1];
             todayText2.textColor = [UIColor whiteColor];
-            todayText2.font = [UIFont systemFontOfSize:HEIGHT(80)];
+            todayText2.font = [UIFont systemFontOfSize:16];
             todayText2.backgroundColor = COLOR(93, 202, 147, 1);
             todayText2.layer.cornerRadius = HEIGHT(10);
             todayText2.layer.masksToBounds = YES;
@@ -334,7 +334,7 @@
             UILabel *rightText = [[UILabel alloc] init];
             rightText.text = @"和";
             rightText.textColor = [UIColor whiteColor];
-            rightText.font = [UIFont systemFontOfSize:HEIGHT(40)];
+            rightText.font = [UIFont systemFontOfSize:14];
             [rightView addSubview:rightText];
             [rightText mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(rightView).offset(HEIGHT(-65));
@@ -343,7 +343,7 @@
             UILabel *nextDayText1 = [[UILabel alloc] init];
             nextDayText1.text = self.nextTrafficArr[0];
             nextDayText1.textColor = [UIColor whiteColor];
-            nextDayText1.font = [UIFont systemFontOfSize:HEIGHT(80)];
+            nextDayText1.font = [UIFont systemFontOfSize:16];
             nextDayText1.backgroundColor = COLOR(93, 202, 147, 1);
             nextDayText1.layer.cornerRadius = HEIGHT(10);
             nextDayText1.layer.masksToBounds = YES;
@@ -358,7 +358,7 @@
             UILabel *nextDatText2 = [[UILabel alloc] init];
             nextDatText2.text = self.nextTrafficArr[1];
             nextDatText2.textColor = [UIColor whiteColor];
-            nextDatText2.font = [UIFont systemFontOfSize:HEIGHT(80)];
+            nextDatText2.font = [UIFont systemFontOfSize:16];
             nextDatText2.backgroundColor = COLOR(93, 202, 147, 1);
             nextDatText2.layer.cornerRadius = HEIGHT(10);
             nextDatText2.layer.masksToBounds = YES;
@@ -427,7 +427,7 @@
         UILabel *temperatureLabel = [[UILabel alloc] init];
         
         temperatureLabel.textColor = [UIColor whiteColor];
-        temperatureLabel.font = [UIFont systemFontOfSize:HEIGHT(40)];
+        temperatureLabel.font = [UIFont systemFontOfSize:14];
         [bottomView addSubview:temperatureLabel];
         [temperatureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(bottomView).offset(WIDTH(40));

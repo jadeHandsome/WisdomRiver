@@ -62,12 +62,13 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(topImage.mas_bottom).with.offset(-HEIGHT(50));
+        make.top.equalTo(topImage.mas_bottom).with.offset(-HEIGHT(70));
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView registerClass:[BussinessTableViewCell class] forCellReuseIdentifier:@"cell"];
     
 }
@@ -83,6 +84,7 @@
     [cell setUpWithDic:self.allItem[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     __weak typeof(self) weakSelf = self;
+    cell.backgroundColor = [UIColor clearColor];
     cell.block = ^(NSDictionary *dic) {
         BussinessSubViewController *sub = [BussinessSubViewController new];
         sub.moduleId = dic[@"id"];

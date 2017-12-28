@@ -92,6 +92,9 @@
 		1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304D81FE3A41F00AE1751 /* BussinessTableViewCell.m */; };
 		1A6304DD1FE3ACDB00AE1751 /* BussinessSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6304DB1FE3ACDB00AE1751 /* BussinessSubViewController.m */; };
 		1A6304DE1FE3ACDB00AE1751 /* BussinessSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6304DC1FE3ACDB00AE1751 /* BussinessSubViewController.xib */; };
+		1A748DB91FF4843400C2025F /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A748DB31FF4843400C2025F /* SDPhotoBrowser.m */; };
+		1A748DBA1FF4843400C2025F /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A748DB41FF4843400C2025F /* SDWaitingView.m */; };
+		1A748DBB1FF4843400C2025F /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A748DB51FF4843400C2025F /* SDBrowserImageView.m */; };
 		1A8F9EDA1FE56DB400B062B1 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9ED61FE56DB400B062B1 /* PGIndexBannerSubiew.m */; };
 		1A8F9EDB1FE56DB400B062B1 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9ED71FE56DB400B062B1 /* NewPagedFlowView.m */; };
 		1A8F9EDE1FE657B400B062B1 /* CBSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F9EDD1FE657B300B062B1 /* CBSegmentView.m */; };
@@ -285,6 +288,13 @@
 		1A6304DA1FE3ACDB00AE1751 /* BussinessSubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussinessSubViewController.h; sourceTree = "<group>"; };
 		1A6304DB1FE3ACDB00AE1751 /* BussinessSubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BussinessSubViewController.m; sourceTree = "<group>"; };
 		1A6304DC1FE3ACDB00AE1751 /* BussinessSubViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BussinessSubViewController.xib; sourceTree = "<group>"; };
+		1A748DB21FF4843400C2025F /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		1A748DB31FF4843400C2025F /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		1A748DB41FF4843400C2025F /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		1A748DB51FF4843400C2025F /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		1A748DB61FF4843400C2025F /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		1A748DB71FF4843400C2025F /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		1A748DB81FF4843400C2025F /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		1A8F9ED61FE56DB400B062B1 /* PGIndexBannerSubiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGIndexBannerSubiew.m; sourceTree = "<group>"; };
 		1A8F9ED71FE56DB400B062B1 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
 		1A8F9ED81FE56DB400B062B1 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
@@ -482,6 +492,7 @@
 		11FE0AC31FE21E1100D10A5C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1A748DB11FF4843400C2025F /* SDPhotoBrowser */,
 				1AC0A1E51FEFAF77009D3939 /* LDXScore.h */,
 				1AC0A1E61FEFAF77009D3939 /* LDXScore.m */,
 				1AC0A1E31FEFA9DE009D3939 /* KRMyTextView.h */,
@@ -693,6 +704,20 @@
 				1AFFDAEE1FEFF97600C6D6FD /* CommondPic.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1A748DB11FF4843400C2025F /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				1A748DB21FF4843400C2025F /* SDPhotoBrowserConfig.h */,
+				1A748DB31FF4843400C2025F /* SDPhotoBrowser.m */,
+				1A748DB41FF4843400C2025F /* SDWaitingView.m */,
+				1A748DB51FF4843400C2025F /* SDBrowserImageView.m */,
+				1A748DB61FF4843400C2025F /* SDWaitingView.h */,
+				1A748DB71FF4843400C2025F /* SDPhotoBrowser.h */,
+				1A748DB81FF4843400C2025F /* SDBrowserImageView.h */,
+			);
+			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		1A8F9ED41FE56CCD00B062B1 /* Recovered References */ = {
@@ -989,12 +1014,14 @@
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
 				1AAF2BDA1FEE357200B6DA18 /* SuqiuDetailViewController.m in Sources */,
 				111980CA1FEE5B8E00989579 /* ZLPhotoHelper.m in Sources */,
+				1A748DB91FF4843400C2025F /* SDPhotoBrowser.m in Sources */,
 				1161DBE41FE8E5010059A738 /* HomeCell1.m in Sources */,
 				11FE0AFA1FE21E1200D10A5C /* NSObject+KRExtention.m in Sources */,
 				11DD5BA51FE585720053A3DB /* SelectCell.m in Sources */,
 				1AAF2BCD1FEE236000B6DA18 /* ReparePwsViewController.m in Sources */,
 				114CF5EF1FE502C5004B5701 /* AddCommitController.m in Sources */,
 				114CF5E01FE3C7ED004B5701 /* HotNewsViewController.m in Sources */,
+				1A748DBB1FF4843400C2025F /* SDBrowserImageView.m in Sources */,
 				11197FFD1FEE4A8500989579 /* CommissionViewController.m in Sources */,
 				11FE0AFB1FE21E1200D10A5C /* NSString+CZNSStringExt.m in Sources */,
 				1AC0A1E41FEFA9DE009D3939 /* KRMyTextView.m in Sources */,
@@ -1021,6 +1048,7 @@
 				1A5114981FE7F53000D87D02 /* BaseMineView.m in Sources */,
 				1AF7AE851FF0975F006B1433 /* MyCommondViewController.m in Sources */,
 				1A6304D91FE3A41F00AE1751 /* BussinessTableViewCell.m in Sources */,
+				1A748DBA1FF4843400C2025F /* SDWaitingView.m in Sources */,
 				1AAF2BE61FEE41A600B6DA18 /* MyAppleDetailViewController.m in Sources */,
 				1A6304B31FE2196400AE1751 /* main.m in Sources */,
 				1AAF2BDE1FEE3C6E00B6DA18 /* MyApplyViewController.m in Sources */,
@@ -1161,7 +1189,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
@@ -1179,7 +1207,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";

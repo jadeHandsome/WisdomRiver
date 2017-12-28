@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"我要报名";
-
+    self.view.backgroundColor = LRRGBColor(245, 245, 245);
     [self setUp];
 }
 - (void)setUp {
@@ -58,7 +58,7 @@
         make.left.equalTo(topView.mas_left).with.offset(10);
         make.centerY.equalTo(topView.mas_centerY);
     }];
-    nameLabel.font = [UIFont systemFontOfSize:14];
+    nameLabel.font = [UIFont systemFontOfSize:15];
     nameLabel.text = self.name;
     UIView *firstView = [[UIView alloc]init];
     firstView.backgroundColor = [UIColor whiteColor];

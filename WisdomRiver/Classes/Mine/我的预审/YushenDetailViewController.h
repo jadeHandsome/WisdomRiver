@@ -10,4 +10,5 @@
 
 @interface YushenDetailViewController : BaseViewController
 @property (nonatomic, strong) NSString *ID;
+@property (nonatomic, strong) NSString *viewType;//1.预审 2.代办
 @end

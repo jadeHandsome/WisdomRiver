@@ -78,11 +78,11 @@
         make.left.equalTo(container.mas_left).with.offset(15);
         make.right.equalTo(container.mas_right).with.offset(-15);
         make.top.equalTo(self.headView.mas_bottom);
-        make.height.equalTo(@(HEIGHT(148) * 6));
+        make.height.equalTo(@(HEIGHT(120) * 6));
     }];
     LRViewBorderRadius(topView, 5, 0, [UIColor clearColor]);
     UIView *tempView = topView;
-    NSArray *topArray = @[@{@"image":@"1",@"name":@"我的预审"},@{@"image":@"2",@"name":@"我的待办"},@{@"image":@"3",@"name":@"我的评价"},@{@"image":@"4",@"name":@"我的预约"},@{@"image":@"5",@"name":@"我的报名"},@{@"image":@"6",@"name":@"我的述求"}];
+    NSArray *topArray = @[@{@"image":@"1",@"name":@"我的预审"},@{@"image":@"2",@"name":@"我的代办"},@{@"image":@"3",@"name":@"我的评价"},@{@"image":@"4",@"name":@"我的预约"},@{@"image":@"5",@"name":@"我的报名"},@{@"image":@"6",@"name":@"我的诉求"}];
     for (int i = 0; i < 6; i ++) {
         BaseMineView *baseView = [[[NSBundle mainBundle]loadNibNamed:@"BaseMineView" owner:self options:nil]firstObject];
         [topView addSubview:baseView];
@@ -93,7 +93,7 @@
                 make.top.equalTo(tempView.mas_bottom);
             }
             make.left.right.equalTo(topView);
-            make.height.equalTo(@(HEIGHT(148)));
+            make.height.equalTo(@(HEIGHT(120)));
         }];
         [baseView setDataWithDic:topArray[i]];
         tempView = baseView;
@@ -107,7 +107,7 @@
         make.left.equalTo(container.mas_left).with.offset(15);
         make.right.equalTo(container.mas_right).with.offset(-15);
         make.top.equalTo(topView.mas_bottom).with.offset(10);
-        make.height.equalTo(@(HEIGHT(148) * 2));
+        make.height.equalTo(@(HEIGHT(120) * 2));
         make.bottom.equalTo(container.mas_bottom).with.offset(-30);
     }];
     LRViewBorderRadius(bottomView, 5, 0, [UIColor clearColor]);
@@ -123,7 +123,7 @@
                 make.top.equalTo(tempView.mas_bottom);
             }
             make.left.right.equalTo(bottomView);
-            make.height.equalTo(@(HEIGHT(148)));
+            make.height.equalTo(@(HEIGHT(120)));
         }];
         [baseView setDataWithDic:bottomArray[i]];
         tempView = baseView;

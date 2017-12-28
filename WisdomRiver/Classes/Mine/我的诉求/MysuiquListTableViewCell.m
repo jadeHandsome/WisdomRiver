@@ -38,6 +38,12 @@
         self.timeLabel.text = [NSString stringWithFormat:@"申请时间：%@",data[@"applyDate"]];
         self.statusLabel.text = [data[@"auditStatus"] integerValue] == 0 ?@"待处理":@"已处理";
         self.statusLabel.textColor = LRRGBColor(101, 216, 165);
+    } else if ([self.cellType isEqualToString:@"3"]) {
+        self.namelable.text = data[@"serviceName"];
+        self.contenLabel.text = [NSString stringWithFormat:@"事项类型：%@",data[@"typeName"]];
+        self.timeLabel.text = [NSString stringWithFormat:@"申请时间：%@",data[@"applyDate"]];
+        self.statusLabel.text = [data[@"auditStatus"] integerValue] == 0 ?@"待处理":@"已处理";
+        self.statusLabel.textColor = LRRGBColor(101, 216, 165);
     }
     
 //    self.statusLabel.text = data[@""]

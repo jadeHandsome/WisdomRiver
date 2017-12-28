@@ -43,7 +43,7 @@
     [button1 setTitle:@"基本信息" forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button1 setTitleColor:COLOR(78, 78, 78, 1) forState:UIControlStateNormal];
-    button1.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(44)];
+    button1.titleLabel.font = [UIFont systemFontOfSize:14];
     [button1 addTarget:self action:@selector(change:) forControlEvents:UIControlEventTouchUpInside];
     button1.selected = YES;
     button1.tag = 1;
@@ -58,7 +58,7 @@
     [button2 setTitle:@"前置条件" forState:UIControlStateNormal];
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button2 setTitleColor:COLOR(78, 78, 78, 1) forState:UIControlStateNormal];
-    button2.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(44)];
+    button2.titleLabel.font = [UIFont systemFontOfSize:14];
     [button2 addTarget:self action:@selector(change:) forControlEvents:UIControlEventTouchUpInside];
     button2.tag = 2;
     self.button2 = button2;
@@ -72,7 +72,7 @@
     [button3 setTitle:@"办理流程" forState:UIControlStateNormal];
     [button3 setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button3 setTitleColor:COLOR(78, 78, 78, 1) forState:UIControlStateNormal];
-    button3.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(44)];
+    button3.titleLabel.font = [UIFont systemFontOfSize:14];
     [button3 addTarget:self action:@selector(change:) forControlEvents:UIControlEventTouchUpInside];
     button3.tag = 3;
     self.button3 = button3;
@@ -86,7 +86,7 @@
     [button4 setTitle:@"申请材料" forState:UIControlStateNormal];
     [button4 setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [button4 setTitleColor:COLOR(78, 78, 78, 1) forState:UIControlStateNormal];
-    button4.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(44)];
+    button4.titleLabel.font = [UIFont systemFontOfSize:14];
     [button4 addTarget:self action:@selector(change:) forControlEvents:UIControlEventTouchUpInside];
     self.button4 = button4;
     button4.tag = 4;
@@ -113,7 +113,7 @@
     [leftBtn setTitle:@"预审" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [leftBtn setBackgroundColor:COLOR(4, 153, 204, 1)];
-    leftBtn.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(40)];
+    leftBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [leftBtn addTarget:self action:@selector(preliminary:) forControlEvents:UIControlEventTouchUpInside];
     LRViewBorderRadius(leftBtn, HEIGHT(10), 0, COLOR(4, 153, 204, 1));
     [bottomView addSubview:leftBtn];
@@ -127,7 +127,7 @@
     [rightBtn setTitle:@"代办" forState:UIControlStateNormal];
     [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [rightBtn setBackgroundColor:COLOR(105, 148, 225, 1)];
-    rightBtn.titleLabel.font = [UIFont systemFontOfSize:HEIGHT(40)];
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [rightBtn addTarget:self action:@selector(commission:) forControlEvents:UIControlEventTouchUpInside];
     LRViewBorderRadius(rightBtn, HEIGHT(10), 0, COLOR(105, 148, 225, 1));
     [bottomView addSubview:rightBtn];
