@@ -183,11 +183,12 @@ singleton_implementation(KRMainNetTool)
                 [MBProgressHUD showError:response[@"info"] toView:waitView];
                 complet(nil,response[@"info"]);
             }
+            
             return ;
         }
         //判断返回的状态，200即为服务器查询成功，500服务器查询失败
         //NSLog(@"%@",responseObject);
-
+        
         if ([num longValue] == 1) {
             
             if (response) {
@@ -195,26 +196,29 @@ singleton_implementation(KRMainNetTool)
                     //[waitView hideBubble];
                 }
                 
-                complet(response,nil);
-            } else {
-                if ([self.isShow isEqualToString:@"1"]) {
-                    //[waitView hideBubble];
+                
+                if (response) {
+                    complet(response,nil);
+                } else {
+                    if ([self.isShow isEqualToString:@"1"]) {
+                        //[waitView hideBubble];
+                    }
+                    [MBProgressHUD showError:response[@"mess"] toView:waitView];
+                    complet(nil,response[@"mess"]);
                 }
+                
+                
+            } else if ([num longLongValue] == 6) {
+                //登录失效
+                [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];
+                [KRUserInfo sharedKRUserInfo].token = nil;
+                //            [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
+                [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
+            } else {
+                
                 [MBProgressHUD showError:response[@"mess"] toView:waitView];
                 complet(nil,response[@"mess"]);
             }
-            
-            
-        } else if ([num longLongValue] == 6) {
-            //登录失效
-            [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];
-            [KRUserInfo sharedKRUserInfo].token = nil;
-            //            [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
-            [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
-        } else {
-            
-            [MBProgressHUD showError:response[@"mess"] toView:waitView];
-            complet(nil,response[@"mess"]);
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

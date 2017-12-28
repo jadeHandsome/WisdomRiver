@@ -20,7 +20,8 @@
 @property (nonatomic, strong) CBSegmentView *titleBtnView;
 @property (nonatomic, strong) NSDictionary *selectedModel;
 @property (nonatomic, strong) NSString *searchStr;
-
+@property (nonatomic, strong) NSString *titles;
+@property (nonatomic, strong) UIImageView *noDataImage;
 @end
 
 @implementation PublickViewController
@@ -69,6 +70,16 @@
     [KRBaseTool tableViewAddRefreshFooter:self.collectionView withTarget:self refreshingAction:@selector(footerFresh)];
     [KRBaseTool tableViewAddRefreshHeader:self.collectionView withTarget:self refreshingAction:@selector(headerFresh)];
     [self.collectionView registerNib:[UINib nibWithNibName:@"PublicCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+    UIImageView *noDataImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"empty"]];
+    noDataImage.contentMode = UIViewContentModeScaleAspectFit;
+    noDataImage.hidden = YES;
+    self.noDataImage = noDataImage;
+    [self.view addSubview:noDataImage];
+    [noDataImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.height.width.mas_equalTo(80);
+    }];
 }
 - (void)loadData {
     [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appPublicService/getProgramManagement" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
@@ -99,11 +110,15 @@
     titlBtnView.titleChooseReturn = ^(NSInteger x) {
         NSLog(@"点了弟%d个",x);
         NSDictionary *dic = self.allItem[x];
+        self.titles = dic[@"name"];
         weakSelf.seachBar.placeholder = [NSString stringWithFormat:@"在 %@ 中搜索",dic[@"name"]];
         weakSelf.selectedModel = [dic copy];
 //        [self getFirstModel:dic];
         [weakSelf headerFresh];
     };
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 - (void)headerFresh {
     self.page = 1;
@@ -121,6 +136,7 @@
     
     param[@"currPage"] = @(self.page);
     param[@"pageSize"] = @20;
+    param[@"name"] = self.searchStr;
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appPublicService/getServiceManagementByProgramManagement" params:param withModel:nil complateHandle:^(id showdata, NSString *error) {
         [self.collectionView.mj_header endRefreshing];
         [self.collectionView.mj_footer endRefreshing];
@@ -132,6 +148,12 @@
             
         } else {
             [self.allGoods addObjectsFromArray:showdata[@"list"]];
+        }
+        if (!showdata || self.allGoods.count == 0) {
+            self.noDataImage.hidden = NO;
+        }
+        else{
+            self.noDataImage.hidden = YES;
         }
         [self.collectionView reloadData];
         NSLog(@"%@",showdata);
@@ -174,10 +196,13 @@
         detail.ID = dic[@"id"];
         detail.hidesBottomBarWhenPushed = YES;
         detail.title = dic[@"name"];
+        detail.parenTitle = self.titles;
         [self.navigationController pushViewController:detail animated:YES];
     }
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.searchStr = searchBar.text;
+    [self headerFresh];
     [self.seachBar resignFirstResponder];
 }
 @end

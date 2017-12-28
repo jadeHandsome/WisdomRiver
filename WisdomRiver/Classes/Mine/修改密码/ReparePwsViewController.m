@@ -7,7 +7,8 @@
 //
 
 #import "ReparePwsViewController.h"
-
+#import "LoginViewController.h"
+#import "BaseNaviViewController.h"
 @interface ReparePwsViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *orginPwd;
 @property (weak, nonatomic) IBOutlet UITextField *nowPwd;
@@ -51,6 +52,11 @@
             return ;
         }
         [self showHUDWithText:@"修改成功"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"logOut" object:nil];
+        LoginViewController *loginVC = [LoginViewController new];
+        BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
+        self.view.window.rootViewController = navi;
+        
     }];
 }
 

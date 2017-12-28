@@ -232,6 +232,7 @@
     [self.navigationController pushViewController:store animated:YES];
 }
 - (IBAction)guanzuClick:(id)sender {
+    [self showHUDWithText:@"尚未开放"];
 }
 - (IBAction)callClick:(id)sender {
     [KRBaseTool callCellPhone:self.myData[@"org"][@"phone"]];
@@ -268,7 +269,7 @@
     param[@"pageSize"] = @10;
     param[@"evaluateType"] = self.chooseType;
     param[@"sid"] = self.ID;
-    [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appPublicService/findEvaluate" params:param withModel:nil complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appPublicService/findEvaluate" params:param withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         [self.commentTab.mj_footer endRefreshing];
         [self.commentTab.mj_header endRefreshing];
         if (showdata == nil) {
@@ -332,6 +333,7 @@
         make.top.equalTo(_commondView.mas_top).with.offset(HEIGHT(240));
         make.bottom.left.right.equalTo(_commondView);
     }];
+    self.commentTab.tableFooterView = [UIView new];
     [self.commentTab registerNib:[UINib nibWithNibName:@"CommondTableViewCell" bundle:nil] forCellReuseIdentifier:@"commondCell"];
     [KRBaseTool tableViewAddRefreshHeader:self.commentTab withTarget:self refreshingAction:@selector(headerFresh)];
     [KRBaseTool tableViewAddRefreshFooter:self.commentTab withTarget:self refreshingAction:@selector(footerFresh)];
@@ -352,7 +354,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 /*
 #pragma mark - Navigation
 

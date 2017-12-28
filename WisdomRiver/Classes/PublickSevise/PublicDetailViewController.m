@@ -151,11 +151,21 @@
     
     first.backgroundColor = [UIColor whiteColor];
     CGSize size = [KRBaseTool getNSStringSize:self.myData[@"smv"][@"abstract"] andViewWight:SCREEN_WIDTH - 40 andFont:12];
+    NSInteger count = 0;
+    if ([self.myData[@"smv"][@"typeName"] isEqualToString:@"咨询"]) {
+        if ([self.parenTitle isEqualToString:@"安居乐业"]) {
+            count = 3;
+        } else {
+            count = 2;
+        }
+    } else {
+        count = 6;
+    }
     [first mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_pageFlowView.mas_bottom).with.offset(10);
         make.left.equalTo(contans.mas_left).with.offset(10);
         make.right.equalTo(contans.mas_right).with.offset(-10);
-        make.height.equalTo(@(30 + size.height + 10 + 40 + 6 * 30));
+        make.height.equalTo(@(30 + size.height + 10 + 40 + count * 30));
 //        make.bottom.equalTo(contans.mas_bottom).with.offset(-10);
     }];
     UILabel *nameLabel = [[UILabel alloc]init];
@@ -206,10 +216,24 @@
     [addressBtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
     [addressBtn setTitleColor:ThemeColor forState:UIControlStateNormal];
     addressBtn.userInteractionEnabled = NO;
-    NSArray *leftArray = @[@"开展单位：",@"开课时间：",@"开班人数：",@"已报名人数：",@"开始报名时间：",@"结束报名时间："];
-    NSArray *rightArray = @[self.myData[@"smv"][@"orgName"],self.myData[@"smv"][@"hdsj"]?self.myData[@"smv"][@"hdsj"]:@"无",@"无限制",@"0",@"无限制",@"无限制"];
+    NSArray *leftArray = nil;
+    NSArray *rightArray = nil;
+    if ([self.myData[@"smv"][@"typeName"] isEqualToString:@"咨询"]) {
+        if ([self.parenTitle isEqualToString:@"安居乐业"]) {
+            leftArray = @[@"开展单位：",@"联系人：",@"电话：",@"价格："];
+            rightArray = @[self.myData[@"smv"][@"orgName"],self.myData[@"smv"][@"contacts"]?self.myData[@"smv"][@"contacts"]:@"暂无",self.myData[@"smv"][@"phone"]?self.myData[@"smv"][@"phone"]:@"暂无",self.myData[@"smv"][@"houseprice"]];
+        } else {
+            leftArray = @[@"开展单位：",@"联系人：",@"电话："];
+            rightArray = @[self.myData[@"smv"][@"orgName"],self.myData[@"smv"][@"contacts"]?self.myData[@"smv"][@"contacts"]:@"暂无",self.myData[@"smv"][@"phone"]?self.myData[@"smv"][@"phone"]:@"暂无"];
+        }
+    } else {
+        leftArray = @[@"开展单位：",@"开课时间：",@"开班人数：",@"已报名人数：",@"开始报名时间：",@"结束报名时间："];
+        rightArray = @[self.myData[@"smv"][@"orgName"],self.myData[@"smv"][@"hdsj"]?self.myData[@"smv"][@"hdsj"]:@"无",@"无限制",@"0",@"无限制",@"无限制"];
+    }
+//    NSArray *leftArray = @[@"开展单位：",@"开课时间：",@"开班人数：",@"已报名人数：",@"开始报名时间：",@"结束报名时间："];
+//    NSArray *rightArray = @[self.myData[@"smv"][@"orgName"],self.myData[@"smv"][@"hdsj"]?self.myData[@"smv"][@"hdsj"]:@"无",@"无限制",@"0",@"无限制",@"无限制"];
     UIView *temp = addressBtn;
-    for (int i = 0; i < 6; i ++) {
+    for (int i = 0; i < leftArray.count; i ++) {
         UIView *sub = [[UIView alloc]init];
         [first addSubview:sub];
         [sub mas_makeConstraints:^(MASConstraintMaker *make) {

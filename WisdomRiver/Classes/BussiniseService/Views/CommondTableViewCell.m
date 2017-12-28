@@ -62,8 +62,12 @@
     } else {
         self.centerHeight.constant = 0;
     }
+    NSString *str = nil;
     
-    self.nameLabel.text = data[@"uid"];
+    if ([data[@"uid"] length] > 0) {
+        str = [data[@"uid"] substringToIndex:1];
+    }
+    self.nameLabel.text = [NSString stringWithFormat:@"%@**",str];
     self.timeLabel.text = data[@"date"];
     self.CONTENvIEW.text = data[@"note"];
     for (UIView *sub in self.countView.subviews) {

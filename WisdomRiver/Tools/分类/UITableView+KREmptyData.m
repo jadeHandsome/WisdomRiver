@@ -14,15 +14,27 @@
     if (rowCount == 0) {
         // Display a message when the table is empty
         // 没有数据的时候，UILabel的显示样式
-        UILabel *messageLabel = [UILabel new];
+        UIView *back = [[UIView alloc]init];
         
-        messageLabel.text = message;
-        messageLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-        messageLabel.textColor = [UIColor lightGrayColor];
-        messageLabel.textAlignment = NSTextAlignmentCenter;
-        [messageLabel sizeToFit];
+        UIImageView *noDataImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"empty"]];
+        [back addSubview:noDataImage];
+        [noDataImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@80);
+            make.centerY.equalTo(back.mas_centerY);
+            make.centerX.equalTo(back.mas_centerX);
+        }];
+        [back sizeToFit];
+        self.backgroundView = back;
         
-        self.backgroundView = messageLabel;
+//        UILabel *messageLabel = [UILabel new];
+//
+//        messageLabel.text = message;
+//        messageLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+//        messageLabel.textColor = [UIColor lightGrayColor];
+//        messageLabel.textAlignment = NSTextAlignmentCenter;
+//        [messageLabel sizeToFit];
+//
+//        self.backgroundView = messageLabel;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
     } else {
         self.backgroundView = nil;

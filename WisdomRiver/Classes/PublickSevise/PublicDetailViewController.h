@@ -11,4 +11,5 @@
 @interface PublicDetailViewController : BaseViewController
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSDictionary *oldData;
+@property (nonatomic, strong) NSString *parenTitle;
 @end
