@@ -47,9 +47,9 @@
                             </connections>
                         </label>
                         <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="83Y-2M-WAn">
-                            <rect key="frame" x="43" y="13" width="292" height="60"/>
+                            <rect key="frame" x="43" y="21" width="292" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="60" id="qmi-Wa-Hd7"/>
+                                <constraint firstAttribute="height" constant="44" id="qmi-Wa-Hd7"/>
                             </constraints>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>

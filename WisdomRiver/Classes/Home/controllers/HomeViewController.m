@@ -61,6 +61,7 @@
     [self setUp];
     [self getHomeData];
     [self getWeather];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didLogOut) name:@"logOut" object:nil];
     // Do any additional setup after loading the view.
 }
 - (void)getWeather {
@@ -434,6 +435,7 @@
             make.centerY.equalTo(bottomView.mas_centerY);
         }];
         UILabel *detailLabel = [[UILabel alloc] init];
+        
         if (self.weatherData) {
             detailLabel.text = [NSString stringWithFormat:@"风力：%@级 空气质量：%@",self.weatherData[0][@"windpower"],@"良好"];
             temperatureLabel.text = [NSString stringWithFormat:@"%@°",self.weatherData[0][@"temperature"]];
@@ -459,6 +461,9 @@
         }];
     }
     return bannerView;
+}
+- (void)didLogOut {
+    [self.pageFlowView.timer invalidate];
 }
 - (NSInteger)numberOfPagesInFlowView:(NewPagedFlowView *)flowView {
     return 2;

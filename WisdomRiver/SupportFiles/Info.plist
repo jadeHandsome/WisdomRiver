@@ -27,6 +27,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>访问相机</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>添加图片</string>
 	<key>NSPhotoLibraryUsageDescription</key>

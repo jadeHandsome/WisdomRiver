@@ -42,8 +42,8 @@
     }
     [[KRMainNetTool sharedKRMainNetTool]upLoadData:@"appPersonalCenter/updatePersonal" params:self.infoParam andData:array waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata) {
-//            self.infoParam = [showdata[@"mess"] mutableCopy];
-//            [[NSUserDefaults standardUserDefaults] setObject:showdata[@"mess"] forKey:@"userInfo"];
+            self.infoParam = [showdata[@"user"] mutableCopy];
+            [[NSUserDefaults standardUserDefaults] setObject:showdata[@"user"] forKey:@"userInfo"];
             for (NSDictionary *dic in self.sexArray) {
                 if ([dic[@"id"] isEqualToString:self.infoParam[@"sex"]]) {
                     self.infoParam[@"sex"] = dic[@"name"];
@@ -109,12 +109,21 @@
 }
 - (void)logOutClick {
     //退出登录
-    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userInfo"];
-//    [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:showdata[@"user"]];
-    LoginViewController *loginVC = [LoginViewController new];
-    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
-    self.view.window.rootViewController = navi;
+    [KRBaseTool showAlert:@"注销登录将会清空本地账号信息，是否注销？" with_Controller:self with_titleArr:@[@"确定"] withShowType:UIAlertControllerStyleAlert with_Block:^(int index) {
+        if (index == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"logOut" object:nil];
+            [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userInfo"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"phone"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pwd"];
+            
+            //    [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:showdata[@"user"]];
+            LoginViewController *loginVC = [LoginViewController new];
+            BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
+            self.view.window.rootViewController = navi;
+        }
+    }];
+    
 }
 - (void)repareClick {
     //确认修改

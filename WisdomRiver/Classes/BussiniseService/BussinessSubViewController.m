@@ -9,7 +9,7 @@
 #import "BussinessSubViewController.h"
 #import "BussinCollectionViewCell.h"
 #import "GoodsDetailViewController.h"
-@interface BussinessSubViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface BussinessSubViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeght;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeight;
 @property (weak, nonatomic) IBOutlet UIView *btnView;
@@ -29,6 +29,8 @@
 @property (nonatomic, strong) NSMutableArray *allItem;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSString *chooseType;
+@property (nonatomic, strong) NSString *searchStr;
+@property (nonatomic, strong) UIImageView *noDataImage;
 @end
 
 @implementation BussinessSubViewController
@@ -60,7 +62,8 @@ return _collectionFlowyout;
     self.titleHeght.constant = HEIGHT(160);
     self.topHeight.constant = HEIGHT(740);
     [self.searchBar setBackgroundImage:[UIImage new]];
-    LRViewBorderRadius(self.searchBar, 30, 1, LRRGBColor(245, 245, 245));
+    self.searchBar.delegate = self;
+    LRViewBorderRadius(self.searchBar, 22, 2, LRRGBColor(245, 245, 245));
 //    self.searchBar.backgroundColor = LRRGBColor(245, 245, 245);
     self.leftItemLabel.text = self.titleStr;
     [self loadData];
@@ -82,6 +85,20 @@ return _collectionFlowyout;
     [KRBaseTool tableViewAddRefreshFooter:self.collectionView withTarget:self refreshingAction:@selector(footerFresh)];
     [KRBaseTool tableViewAddRefreshHeader:self.collectionView withTarget:self refreshingAction:@selector(headerFresh)];
     [self.collectionView registerNib:[UINib nibWithNibName:@"BussinCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+    UIView *back = [[UIView alloc]init];
+    UIImageView *noDataImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"empty"]];
+    noDataImage.contentMode = UIViewContentModeScaleAspectFit;
+    noDataImage.hidden = YES;
+    self.noDataImage = noDataImage;
+    [back addSubview:noDataImage];
+    [noDataImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(back.mas_centerX);
+        make.centerY.equalTo(back.mas_centerY);
+        make.height.width.mas_equalTo(80);
+    }];
+    [back sizeToFit];
+    self.collectionView.backgroundView = back;
+    
 }
 - (void)loadData {
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
@@ -204,6 +221,8 @@ return _collectionFlowyout;
         self.topNameLabel.text = dic[@"name"];
         self.topCountName.text = [NSString stringWithFormat:@"%d/%d",toIndex + 1,self.allImage.count];
     }];
+    loop.imageContentMode = UIViewContentModeScaleAspectFill;
+    loop.clipsToBounds = YES;
     //loop.timeInterval = 3;
     loop.placeholder = [UIImage new];
     [self.topView addSubview:loop];
@@ -246,6 +265,7 @@ return _collectionFlowyout;
     param[@"currPage"] = @(self.page);
     param[@"pageSize"] = @10;
     param[@"type"] = self.chooseType;
+    param[@"name"] = self.searchStr;
     [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appBusiness/getServiceManagementByProgramManagement" params:param withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         [self.collectionView.mj_footer endRefreshing];
         [self.collectionView.mj_header endRefreshing];
@@ -257,9 +277,19 @@ return _collectionFlowyout;
         } else {
             [self.allItem addObjectsFromArray:showdata[@"list"]];
         }
-        
+        if (!showdata || self.allItem.count == 0) {
+            self.noDataImage.hidden = NO;
+        }
+        else{
+            self.noDataImage.hidden = YES;
+        }
         [self.collectionView reloadData];
     }];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.searchStr = searchBar.text;
+    [self headerFresh];
+    [self.searchBar resignFirstResponder];
 }
 
 @end

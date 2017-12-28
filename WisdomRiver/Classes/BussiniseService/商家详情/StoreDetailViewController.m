@@ -89,8 +89,9 @@
     UIImageView *storeImageView = [[UIImageView alloc]init];
     [leftView addSubview:storeImageView];
     [storeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(leftView);
-        make.height.width.equalTo(@(80));
+        make.left.equalTo(leftView);
+        make.height.width.equalTo(@(50));
+        make.centerY.equalTo(leftView.mas_centerY);
     }];
     storeImageView.contentMode = UIViewContentModeCenter;
     _headImageView = storeImageView;
@@ -159,7 +160,7 @@
     }];
 }
 - (void)shouGuanzhu {
-    [self showHUDWithText:@"暂未开放"];
+    [self showHUDWithText:@"尚未开放"];
 }
 - (void)footerFresh {
     self.page ++;

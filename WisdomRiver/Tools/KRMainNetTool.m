@@ -175,8 +175,8 @@ singleton_implementation(KRMainNetTool)
             if ([self.isShow isEqualToString:@"1"]) {
                 //[waitView hideBubble];
             }
-            if (response[@"responseParams"]) {
-                complet(response[@"responseParams"],nil);
+            if (response) {
+                complet(response,nil);
             } else {
                 complet(@"修改成功",nil);
             }

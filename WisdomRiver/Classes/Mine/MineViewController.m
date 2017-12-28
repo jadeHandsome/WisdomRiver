@@ -16,16 +16,26 @@
 @interface MineViewController ()
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIScrollView *mainScoll;
+@property (nonatomic, strong) UIImageView *back;
 @end
 
 @implementation MineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImageView *imageView = [[UIImageView alloc]init];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.back = imageView;
+    [self.view addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     self.view.backgroundColor = ThemeColor;
     [self setUpMainScoll];
     
 }
+
 - (void)setUpMainScoll {
     self.mainScoll = [[UIScrollView alloc]init];
     [self.view addSubview:self.mainScoll];
@@ -215,6 +225,11 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = YES;
+    if ([KRUserInfo sharedKRUserInfo].micon) {
+        [self.back sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
+    } else {
+        [self.back sd_setImageWithURL:@"http://182.151.204.201:8081/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = NO;
