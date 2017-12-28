@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UIButton *button4;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) NSDictionary *dic;
+@property (nonatomic, strong) NSArray *material;
 @end
 
 @implementation ItemDetailsViewController
@@ -25,8 +27,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self popOut];
-    [self setUp];
+    [self requestData];
     // Do any additional setup after loading the view.
+}
+
+- (void)requestData{
+    NSDictionary *params = @{@"id":self.ids};
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/detail" params:params withModel:nil complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            self.dic = showdata[@"gs"];
+            self.material = showdata[@"material"];
+            [self setUp];
+        }
+    }];
 }
 
 - (void)setUp{
@@ -250,7 +263,9 @@
     conditionLabel.textColor = [UIColor blackColor];
     conditionLabel.font = [UIFont systemFontOfSize:14];
     conditionLabel.numberOfLines = 0;
-    conditionLabel.attributedText = [self attributedStringWithHTMLString:[self htmlEntityDecode:self.dic[@"precondition"]]];
+    NSMutableAttributedString *muatt1 = [self attributedStringWithHTMLString:[self htmlEntityDecode:self.dic[@"precondition"]]].mutableCopy;
+    [muatt1 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,  muatt1.length - 1)];
+    conditionLabel.attributedText = muatt1;
     [conditionView addSubview:conditionLabel];
     [conditionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(conditionView).offset(10);
@@ -271,12 +286,48 @@
     processLabel.textColor = [UIColor blackColor];
     processLabel.font = [UIFont systemFontOfSize:14];
     processLabel.numberOfLines = 0;
-    processLabel.attributedText = [self attributedStringWithHTMLString:[self htmlEntityDecode:self.dic[@"processingProcess"]]];
+    NSMutableAttributedString *muatt2 = [self attributedStringWithHTMLString:[self htmlEntityDecode:self.dic[@"processingProcess"]]].mutableCopy;
+    [muatt2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,  muatt2.length - 1)];
+    processLabel.attributedText = muatt2;
     [processView addSubview:processLabel];
     [processLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(processView).offset(10);
         make.bottom.right.equalTo(processView).offset(-10);
     }];
+    
+    UIView *materialsView = [[UIView alloc] init];
+    materialsView.backgroundColor = [UIColor whiteColor];
+    LRViewBorderRadius(materialsView, HEIGHT(15), 0.5, [UIColor lightTextColor]);
+    LRViewShadow(materialsView, [UIColor blackColor], CGSizeMake(2, 2), 0.3, 5);
+    [containerView addSubview:materialsView];
+    [materialsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(containerView).offset(SIZEWIDTH * 3 + 10);
+        make.top.equalTo(containerView).offset(10);
+        make.width.mas_equalTo(SIZEWIDTH - 20);
+    }];
+    UIView *materialsTemp;
+    for (int i = 0; i < self.material.count; i ++) {
+        UILabel *materialsLabel = [[UILabel alloc] init];
+        materialsLabel.textColor = [UIColor blackColor];
+        materialsLabel.font = [UIFont systemFontOfSize:14];
+        materialsLabel.numberOfLines = 0;
+        materialsLabel.text = [NSString stringWithFormat:@"%d、%@",i+1,self.material[i][@"name"]];
+        [materialsView addSubview:materialsLabel];
+        [materialsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(materialsView).offset(10);
+            if (i == 0) {
+                make.top.equalTo(materialsView).offset(10);
+            }
+            else{
+                make.top.equalTo(materialsTemp.mas_bottom).offset(10);
+            }
+            make.right.equalTo(materialsView).offset(-10);
+            if (i == self.material.count - 1) {
+                make.bottom.equalTo(materialsView).offset(-10);
+            }
+        }];
+        materialsTemp = materialsLabel;
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -300,7 +351,8 @@
     if ([KRUserInfo sharedKRUserInfo].card.length > 0) {
         [self handle:@"0" complete:^{
             CommissionViewController *commissionVC = [CommissionViewController new];
-            commissionVC.dic = self.dic;
+            commissionVC.material = self.material;
+            commissionVC.ids = self.dic[@"id"];
             [self.navigationController pushViewController:commissionVC animated:YES];
         }];
         

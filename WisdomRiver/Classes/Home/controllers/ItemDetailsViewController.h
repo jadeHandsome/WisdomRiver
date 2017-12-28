@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ItemDetailsViewController : BaseViewController
-@property (nonatomic, strong) NSDictionary *dic;
+@property (nonatomic, strong) NSString *ids;
 @end

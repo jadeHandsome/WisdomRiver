@@ -17,16 +17,33 @@
 @interface CommissionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *imagesArr;
+@property (nonatomic, strong) NSArray *heightArr;
 @end
 
 @implementation CommissionViewController
 
 - (NSMutableArray *)imagesArr{
     if (!_imagesArr) {
-        _imagesArr = @[[NSArray array],[NSArray array],[NSArray array]].mutableCopy;
+        _imagesArr = [NSMutableArray array];
+        for (int i = 0; i < self.material.count; i++) {
+            [_imagesArr addObject:[NSArray array]];
+        }
     }
     return _imagesArr;
 }
+
+- (NSArray *)heightArr{
+    if (!_heightArr) {
+        NSMutableArray *arr = [NSMutableArray array];
+        for (NSDictionary *dic in self.material) {
+            CGRect rect = [dic[@"name"] boundingRectWithSize:CGSizeMake(SIZEWIDTH - 20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil];
+            [arr addObject:@(rect.size.height + 20)];
+        }
+        _heightArr = arr;
+    }
+    return _heightArr;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -88,22 +105,30 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if (kind == UICollectionElementKindSectionHeader) {
         CommsissionReusableView *headerView = (CommsissionReusableView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CommsissionReusableView" forIndexPath:indexPath];
-        if (indexPath.section == 0) {
-            headerView.titleLabel.text = @"当事人或亲属持身份证或户口本原件及复印件";
-        }
-        else if (indexPath.section == 1){
-            headerView.titleLabel.text = @"提供经济困难的情况说明";
-        }
-        else{
-            headerView.titleLabel.text = @"工作人员通过走访、询问等方式进行情况核实";
-        }
+        headerView.titleLabel.text = self.material[indexPath.section][@"name"];
         return headerView;
     }
     else{
-        if (indexPath.section == 2) {
+        if (indexPath.section == self.imagesArr.count - 1) {
             CommsissonReusableFooter *footerView = (CommsissonReusableFooter *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"CommsissonReusableFooter" forIndexPath:indexPath];
             footerView.block = ^{
-                
+                NSDictionary *params = @{@"id":self.ids,@"auditType":@"0"};
+                NSMutableArray *arr = [NSMutableArray array];
+                for (NSArray *images in self.imagesArr) {
+                    if (images.count == 0) {
+                        [self showHUDWithText:@"请选择相应的照片"];
+                        return ;
+                    }
+                    for (UIImage *image in images) {
+                        [arr addObject:@{@"data":UIImageJPEGRepresentation(image, 1.0),@"name":@"file"}];
+                    }
+                }
+                [[KRMainNetTool sharedKRMainNetTool] upLoadData:@"appGovernmentFront/serviceYYDB" params:params andData:arr waitView:self.view complateHandle:^(id showdata, NSString *error) {
+                    if (showdata) {
+                        [self showHUDWithText:@"提交成功"];
+                        [self performSelector:@selector(popOutAction) withObject:nil afterDelay:1.0];
+                    }
+                }];
             };
             return footerView;
         }
@@ -112,10 +137,11 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(SIZEWIDTH, 45);
+    return CGSizeMake(SIZEWIDTH, [self.heightArr[section] floatValue]);
 }
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
-    if (section != 2) {
+    if (section != self.imagesArr.count - 1) {
         return CGSizeZero;
     }
     else{

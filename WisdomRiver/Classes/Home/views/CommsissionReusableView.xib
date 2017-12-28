@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3N-gA-kHn">
-                    <rect key="frame" x="10" y="16" width="37.5" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3N-gA-kHn">
+                    <rect key="frame" x="10" y="16" width="300" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -39,6 +39,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="a6d-Qk-cu2" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="1yh-BH-rIf"/>
+                <constraint firstAttribute="trailing" secondItem="V3N-gA-kHn" secondAttribute="trailing" constant="10" id="98y-Fk-pTY"/>
                 <constraint firstItem="a6d-Qk-cu2" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="NJc-G9-zw5"/>
                 <constraint firstAttribute="trailing" secondItem="a6d-Qk-cu2" secondAttribute="trailing" id="XP5-PY-9OJ"/>
                 <constraint firstItem="V3N-gA-kHn" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="jx8-Ss-jJT"/>
@@ -48,7 +49,7 @@
                 <constraint firstItem="V3N-gA-kHn" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="u1f-NW-cDq"/>
             </constraints>
             <connections>
-                <outlet property="titleLabel" destination="V3N-gA-kHn" id="1Cn-fY-bX6"/>
+                <outlet property="titleLabel" destination="V3N-gA-kHn" id="1MG-ug-0HI"/>
             </connections>
         </collectionReusableView>
     </objects>

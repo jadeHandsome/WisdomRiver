@@ -167,36 +167,54 @@ singleton_implementation(KRMainNetTool)
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {
         //请求成功，隐藏HUD并销毁
-        //NSLog(@"%@",responseObject);
         [HUD hideAnimated:YES];
+        //NSLog(@"%@",responseObject);
         NSDictionary *response = nil;
         if ([responseObject isKindOfClass:[NSData class]]) {
             response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         } else {
             response = responseObject;
         }
-        NSNumber *num = response[@"errorCode"];
-        //判断返回的状态，200即为服务器查询成功，500服务器查询失败
-        if ([num longLongValue] == 0) {
-            if ([self.isShow isEqualToString:@"1"]) {
-                //[waitView hideBubble];
-            }
-            if (response[@"responseParams"]) {
-                complet(response[@"responseParams"],nil);
+        NSNumber *num = response[@"success"];
+        if (response[@"infocode"]) {
+            if ([response[@"infocode"] integerValue] == 10000) {
+                complet(response[@"lives"],nil);
             } else {
-                complet(@"修改成功",nil);
+                [MBProgressHUD showError:response[@"info"] toView:waitView];
+                complet(nil,response[@"info"]);
             }
+            return ;
+        }
+        //判断返回的状态，200即为服务器查询成功，500服务器查询失败
+        //NSLog(@"%@",responseObject);
+
+        if ([num longValue] == 1) {
+            
+            if (response) {
+                if ([self.isShow isEqualToString:@"1"]) {
+                    //[waitView hideBubble];
+                }
+                
+                complet(response,nil);
+            } else {
+                if ([self.isShow isEqualToString:@"1"]) {
+                    //[waitView hideBubble];
+                }
+                [MBProgressHUD showError:response[@"mess"] toView:waitView];
+                complet(nil,response[@"mess"]);
+            }
+            
             
         } else if ([num longLongValue] == 6) {
             //登录失效
             [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];
             [KRUserInfo sharedKRUserInfo].token = nil;
-//            [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
+            //            [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
             [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
         } else {
-            [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
-            //[waitView showErrorWithTitle:responseObject[@"message"] autoCloseTime:2];
-            complet(nil,response[@"errorMsg"]);
+            
+            [MBProgressHUD showError:response[@"mess"] toView:waitView];
+            complet(nil,response[@"mess"]);
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

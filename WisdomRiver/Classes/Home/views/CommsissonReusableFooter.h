@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^submitBlock) ();
+typedef void(^submitBlock) (void);
 @interface CommsissonReusableFooter : UICollectionReusableView
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 @property (nonatomic, strong) submitBlock block;

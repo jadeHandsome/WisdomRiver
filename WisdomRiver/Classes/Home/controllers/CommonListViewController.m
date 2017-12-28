@@ -59,20 +59,20 @@
     if ([self.naviTitle isEqualToString:@"网上预审"]) {
         url = @"appGovernmentFront/getSubscribeGovernmentService";
         if (self.currentIndex == 0) {
-            params[@"userid"] = [KRUserInfo sharedKRUserInfo].userid;
+            params[@"userid"] = @"";
         }
         else{
-            params[@"userid"] = @"";
+            params[@"userid"] = [KRUserInfo sharedKRUserInfo].userid;
         }
     }
     else if ([self.naviTitle isEqualToString:@"全程代办"]) {
         url = @"appGovernmentFront/getCommissionGovernmentService";
         
         if (self.currentIndex == 0) {
-            params[@"userid"] = [KRUserInfo sharedKRUserInfo].userid;
+            params[@"userid"] = @"";
         }
         else{
-            params[@"userid"] = @"";
+            params[@"userid"] = [KRUserInfo sharedKRUserInfo].userid;
         }
     }
     else{
@@ -194,7 +194,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ItemDetailsViewController *itemVC = [ItemDetailsViewController new];
-    itemVC.dic = self.data[indexPath.row];
+    itemVC.ids = self.data[indexPath.row][@"id"];
     [self.navigationController pushViewController:itemVC animated:YES];
 }
 
