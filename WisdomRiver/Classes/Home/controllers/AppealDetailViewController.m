@@ -7,7 +7,7 @@
 //
 
 #import "AppealDetailViewController.h"
-
+#import "MyLabel.h"
 @interface AppealDetailViewController ()
 
 @end
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"诉讼详情";
+    self.navigationItem.title = @"诉求详情";
     [self popOut];
     [self setUp];
     // Do any additional setup after loading the view.
@@ -87,7 +87,7 @@
             }
         }];
         temp = view;
-        UILabel *title = [[UILabel alloc] init];
+        MyLabel *title = [[MyLabel alloc] init];
         title.textColor = [UIColor lightGrayColor];
         title.font = [UIFont systemFontOfSize:14];
         [view addSubview:title];
@@ -95,14 +95,15 @@
             make.left.equalTo(view);
             make.width.mas_equalTo(62);
             if (i == 3) {
-                make.top.equalTo(view).offset(16.5);
+                make.top.equalTo(view).offset(4.5);
             }
             else{
                 make.centerY.equalTo(view.mas_centerY);
             }
+            
         }];
         
-        UILabel *content = [[UILabel alloc] init];
+        MyLabel *content = [[MyLabel alloc] init];
         content.textColor = i == 2 ? (status ? ThemeColor : ColorRgbValue(0xE2D423)) : [UIColor blackColor];
         content.font = [UIFont systemFontOfSize:14];
         content.numberOfLines = 0;
@@ -185,7 +186,7 @@
                 }
             }];
             bottomTemp = view;
-            UILabel *title = [[UILabel alloc] init];
+            MyLabel *title = [[MyLabel alloc] init];
             title.textColor = [UIColor lightGrayColor];
             title.font = [UIFont systemFontOfSize:14];
             [view addSubview:title];
@@ -193,14 +194,14 @@
                 make.left.equalTo(view);
                 make.width.mas_equalTo(62);
                 if (i == 0) {
-                    make.top.equalTo(view).offset(16.5);
+                    make.top.equalTo(view).offset(4.5);
                 }
                 else{
                     make.centerY.equalTo(view.mas_centerY);
                 }
             }];
             
-            UILabel *content = [[UILabel alloc] init];
+            MyLabel *content = [[MyLabel alloc] init];
             content.textColor = [UIColor blackColor];
             content.font = [UIFont systemFontOfSize:14];
             content.numberOfLines = 0;

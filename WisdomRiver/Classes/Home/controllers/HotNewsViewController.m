@@ -227,7 +227,7 @@
     _policyTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
     _policyTableView.delegate = self;
     _policyTableView.dataSource = self;
-    _policyTableView.rowHeight = HEIGHT(300);
+    _policyTableView.rowHeight = HEIGHT(240);
     _policyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 #ifdef __IPHONE_11_0
     if ([_policyTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
@@ -242,7 +242,7 @@
     _notificationTableView = [[UITableView alloc] initWithFrame:CGRectMake(SIZEWIDTH, 0, SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
     _notificationTableView.delegate = self;
     _notificationTableView.dataSource = self;
-    _notificationTableView.rowHeight = HEIGHT(300);
+    _notificationTableView.rowHeight = HEIGHT(240);
     _notificationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 #ifdef __IPHONE_11_0
     if ([_notificationTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
@@ -257,7 +257,7 @@
     _informationTableView = [[UITableView alloc] initWithFrame:CGRectMake(SIZEWIDTH*2, 0, SIZEWIDTH, SIZEHEIGHT - navHight - HEIGHT(152))];
     _informationTableView.delegate = self;
     _informationTableView.dataSource = self;
-    _informationTableView.rowHeight = HEIGHT(300);
+    _informationTableView.rowHeight = HEIGHT(240);
     _informationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 #ifdef __IPHONE_11_0
     if ([_informationTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {

@@ -197,7 +197,7 @@
     _pageFlowView.delegate = self;
     _pageFlowView.dataSource = self;
     _pageFlowView.minimumPageAlpha = 1;
-    _pageFlowView.isCarousel = NO;
+    _pageFlowView.isCarousel = YES;
     _pageFlowView.orientation = NewPagedFlowViewOrientationHorizontal;
     _pageFlowView.isOpenAutoScroll = YES;
     _pageFlowView.autoTime = 3.0;

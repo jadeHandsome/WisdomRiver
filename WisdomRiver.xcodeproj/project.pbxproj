@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110246901FF49D66008AEE4C /* MyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1102468F1FF49D66008AEE4C /* MyLabel.m */; };
 		1102B82E1FF1466200D9EBE0 /* CommuntyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1102B82C1FF1466200D9EBE0 /* CommuntyViewController.m */; };
 		1102B82F1FF1466200D9EBE0 /* CommuntyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1102B82D1FF1466200D9EBE0 /* CommuntyViewController.xib */; };
 		1102B8331FF1490D00D9EBE0 /* CommunityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1102B8311FF1490D00D9EBE0 /* CommunityDetailViewController.m */; };
@@ -131,6 +132,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1102468E1FF49D66008AEE4C /* MyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLabel.h; sourceTree = "<group>"; };
+		1102468F1FF49D66008AEE4C /* MyLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLabel.m; sourceTree = "<group>"; };
 		1102B82B1FF1466200D9EBE0 /* CommuntyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommuntyViewController.h; sourceTree = "<group>"; };
 		1102B82C1FF1466200D9EBE0 /* CommuntyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommuntyViewController.m; sourceTree = "<group>"; };
 		1102B82D1FF1466200D9EBE0 /* CommuntyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommuntyViewController.xib; sourceTree = "<group>"; };
@@ -439,6 +442,8 @@
 				111980CD1FEE5E4700989579 /* CommsissonReusableFooter.h */,
 				111980CE1FEE5E4700989579 /* CommsissonReusableFooter.m */,
 				111980CF1FEE5E4700989579 /* CommsissonReusableFooter.xib */,
+				1102468E1FF49D66008AEE4C /* MyLabel.h */,
+				1102468F1FF49D66008AEE4C /* MyLabel.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1060,6 +1065,7 @@
 				11FE0AEF1FE21E1200D10A5C /* KRUserInfo.m in Sources */,
 				1AC0A1DC1FEF68E8009D3939 /* StoreDetailViewController.m in Sources */,
 				1A8F9EDE1FE657B400B062B1 /* CBSegmentView.m in Sources */,
+				110246901FF49D66008AEE4C /* MyLabel.m in Sources */,
 				11DD5B9B1FE5768D0053A3DB /* HotNewsDetailViewController.m in Sources */,
 				11FE0AEC1FE21E1200D10A5C /* ImageCenterButton.m in Sources */,
 				114CF5A01FE258C2004B5701 /* UIImage+Color.m in Sources */,
@@ -1189,7 +1195,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
@@ -1207,7 +1213,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
