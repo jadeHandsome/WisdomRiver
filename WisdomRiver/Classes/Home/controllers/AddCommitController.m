@@ -35,6 +35,7 @@
 }
 
 - (void)getTypeData{
+    [KRMainNetTool sharedKRMainNetTool].isShaBiHouTai = YES;
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appGovernmentFront/appealManagementType" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
         if (showdata) {
             self.typeArr = showdata[@"list"];

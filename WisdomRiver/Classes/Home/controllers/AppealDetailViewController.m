@@ -23,7 +23,10 @@
 }
 
 - (void)setUp{
-    BOOL status = self.dic[@"reply"] != [NSNull null];
+    BOOL status = YES;
+    if (self.dic[@"reply"] == [NSNull null] || [self.dic[@"reply"] isEqualToString:@""] || !self.dic[@"reply"]) {
+        status = NO;
+    }
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = COLOR(245, 245, 245, 1);
     [self.view addSubview:scrollView];
@@ -104,7 +107,7 @@
         }];
         
         MyLabel *content = [[MyLabel alloc] init];
-        content.textColor = i == 2 ? (status ? ThemeColor : ColorRgbValue(0xE2D423)) : [UIColor blackColor];
+        content.textColor = i == 2 ? (status ? ColorRgbValue(0x03A9F4) : ColorRgbValue(0xFFCC33)) : [UIColor blackColor];
         content.font = [UIFont systemFontOfSize:14];
         content.numberOfLines = 0;
         [view addSubview:content];

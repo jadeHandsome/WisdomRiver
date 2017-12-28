@@ -191,10 +191,10 @@
     [self.view addSubview:topImage];
     [topImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self.view);
-        make.height.mas_equalTo(HEIGHT(566) - 64 + navHight);
+        make.height.mas_equalTo(HEIGHT(500) - 64 + navHight);
     }];
     
-    _pageFlowView = [[NewPagedFlowView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH, HEIGHT(566) - 64 + navHight)];
+    _pageFlowView = [[NewPagedFlowView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH, HEIGHT(500) - 64 + navHight)];
     _pageFlowView.delegate = self;
     _pageFlowView.dataSource = self;
     _pageFlowView.minimumPageAlpha = 1;
@@ -204,7 +204,7 @@
     _pageFlowView.autoTime = 3.0;
     
     //初始化pageControl
-    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,(HEIGHT(896) - 64 + navHight) / 2 , SIZEWIDTH, (HEIGHT(236) - 64 + navHight) / 2)];
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,(HEIGHT(800) - 64 + navHight) / 2 , SIZEWIDTH, (HEIGHT(200) - 64 + navHight) / 2)];
     _pageFlowView.pageControl = pageControl;
     [_pageFlowView addSubview:pageControl];
     pageControl.alpha = 1;
@@ -215,7 +215,7 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
 
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,HEIGHT(586) - 64 + navHight , SIZEWIDTH, SIZEHEIGHT - (HEIGHT(586) - 64 + navHight) - self.tabBarController.tabBar.frame.size.height) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,HEIGHT(520) - 64 + navHight , SIZEWIDTH, SIZEHEIGHT - (HEIGHT(520) - 64 + navHight) - self.tabBarController.tabBar.frame.size.height) collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.delegate = self;
     collectionView.dataSource = self;
@@ -257,7 +257,7 @@
         UILabel *today = [[UILabel alloc] init];
         today.text = @"今天(限行)";
         today.textColor = [UIColor whiteColor];
-        today.font = [UIFont systemFontOfSize:HEIGHT(55)];
+        today.font = [UIFont systemFontOfSize:17];
         [leftView addSubview:today];
         [today mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(leftView).offset(HEIGHT(50));
@@ -284,7 +284,7 @@
             [leftView addSubview:todayText1];
             [todayText1 mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(leftView).offset(HEIGHT(-25));
-                make.height.mas_equalTo(HEIGHT(143));
+                make.height.mas_equalTo(HEIGHT(120));
                 make.width.mas_equalTo(WIDTH(100));
                 make.right.equalTo(leftText.mas_left).offset(WIDTH(-25));
             }];
@@ -299,7 +299,7 @@
             [leftView addSubview:todayText2];
             [todayText2 mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(leftView).offset(HEIGHT(-25));
-                make.height.mas_equalTo(HEIGHT(143));
+                make.height.mas_equalTo(HEIGHT(120));
                 make.width.mas_equalTo(WIDTH(100));
                 make.left.equalTo(leftText.mas_right).offset(WIDTH(25));
             }];
@@ -308,7 +308,7 @@
             UILabel *leftText = [[UILabel alloc] init];
             leftText.text = @"不限行";
             leftText.textColor = [UIColor whiteColor];
-            leftText.font = [UIFont systemFontOfSize:HEIGHT(55)];
+            leftText.font = [UIFont systemFontOfSize:17];
             [leftView addSubview:leftText];
             [leftText mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(leftView).offset(HEIGHT(-80));
@@ -325,7 +325,7 @@
         UILabel *nextDay = [[UILabel alloc] init];
         nextDay.text = @"明天(限行)";
         nextDay.textColor = [UIColor whiteColor];
-        nextDay.font = [UIFont systemFontOfSize:HEIGHT(55)];
+        nextDay.font = [UIFont systemFontOfSize:17];
         [rightView addSubview:nextDay];
         [nextDay mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(rightView).offset(HEIGHT(50));
@@ -352,7 +352,7 @@
             [rightView addSubview:nextDayText1];
             [nextDayText1 mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(rightView).offset(HEIGHT(-25));
-                make.height.mas_equalTo(HEIGHT(143));
+                make.height.mas_equalTo(HEIGHT(120));
                 make.width.mas_equalTo(WIDTH(100));
                 make.right.equalTo(rightText.mas_left).offset(WIDTH(-25));
             }];
@@ -367,7 +367,7 @@
             [rightView addSubview:nextDatText2];
             [nextDatText2 mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(rightView).offset(HEIGHT(-25));
-                make.height.mas_equalTo(HEIGHT(143));
+                make.height.mas_equalTo(HEIGHT(120));
                 make.width.mas_equalTo(WIDTH(100));
                 make.left.equalTo(rightText.mas_right).offset(WIDTH(25));
             }];
@@ -376,7 +376,7 @@
             UILabel *rightText = [[UILabel alloc] init];
             rightText.text = @"不限行";
             rightText.textColor = [UIColor whiteColor];
-            rightText.font = [UIFont systemFontOfSize:HEIGHT(55)];
+            rightText.font = [UIFont systemFontOfSize:17];
             [rightView addSubview:rightText];
             [rightText mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(rightView).offset(HEIGHT(-80));
@@ -409,8 +409,12 @@
             make.left.equalTo(imageView.mas_right).offset(WIDTH(45));
             make.centerY.equalTo(topView.mas_centerY);
         }];
+        NSDate *date = [NSDate date];
+        NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
+        [objDateformat setDateFormat:@"MM月dd日"];
+        NSString * timeStr = [NSString stringWithFormat:@"%@",[objDateformat stringFromDate: date]];
         UILabel *dateLabel = [[UILabel alloc] init];
-        dateLabel.text = @"12月15日";
+        dateLabel.text = timeStr;
         dateLabel.textColor = [UIColor whiteColor];
         dateLabel.font = [UIFont systemFontOfSize:HEIGHT(42)];
         [topView addSubview:dateLabel];
@@ -474,7 +478,7 @@
 }
 
 - (CGSize)sizeForPageInFlowView:(NewPagedFlowView *)flowView {
-    return CGSizeMake(WIDTH(780), HEIGHT(330));
+    return CGSizeMake(WIDTH(780), HEIGHT(300));
 }
 
 #pragma mark ------ UICollectionView -------------------
