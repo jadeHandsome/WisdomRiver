@@ -81,7 +81,7 @@
     [noDataImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
         make.centerY.equalTo(self.view.mas_centerY);
-        make.height.width.mas_equalTo(128);
+        make.height.width.mas_equalTo(70);
     }];
     
 }
@@ -176,9 +176,12 @@
     NSString *content = self.data[indexPath.row][@"content"];
     cell.content.text = [NSString stringWithFormat:@"诉求内容：%@",[content stringByReplacingOccurrencesOfString:@"\n" withString:@""]];
     cell.time.text = [NSString stringWithFormat:@"提交时间：%@",self.data[indexPath.row][@"createdate"]];
-    BOOL status = self.data[indexPath.row][@"reply"] != [NSNull null];
+    BOOL status = YES;
+    if (self.data[indexPath.row][@"reply"] == [NSNull null] || [self.data[indexPath.row][@"reply"] isEqualToString:@""] || !self.data[indexPath.row][@"reply"]) {
+        status = NO;
+    }
     cell.status.text =  status? @"已回复" : @"未回复";
-    cell.status.textColor = status ? ThemeColor : ColorRgbValue(0xE2D423);
+    cell.status.textColor = status ? ColorRgbValue(0x03A9F4) : ColorRgbValue(0xFFCC33);
     return cell;
 }
 

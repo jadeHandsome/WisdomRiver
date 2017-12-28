@@ -28,6 +28,6 @@ singleton_interface(KRMainNetTool)
  */
 - (void)upLoadData:(NSString *)url params:(NSDictionary *)param andData:(NSArray *)array waitView:(UIView *)waitView complateHandle:(void(^)(id showdata,NSString *error))complet;
 @property (nonatomic, strong) NSString *isShow;
-
+@property (nonatomic, assign) BOOL isShaBiHouTai;
 
 @end

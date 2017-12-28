@@ -214,7 +214,7 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
 
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,HEIGHT(520) - 64 + navHight , SIZEWIDTH, SIZEHEIGHT - (HEIGHT(586) - 64 + navHight) - self.tabBarController.tabBar.frame.size.height) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0,HEIGHT(520) - 64 + navHight , SIZEWIDTH, SIZEHEIGHT - (HEIGHT(520) - 64 + navHight) - self.tabBarController.tabBar.frame.size.height) collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.delegate = self;
     collectionView.dataSource = self;

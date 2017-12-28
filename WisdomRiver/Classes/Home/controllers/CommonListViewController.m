@@ -67,6 +67,7 @@
     }
     else if ([self.naviTitle isEqualToString:@"全程代办"]) {
         url = @"appGovernmentFront/getCommissionGovernmentService";
+        
         if (self.currentIndex == 0) {
             params[@"userid"] = [KRUserInfo sharedKRUserInfo].userid;
         }
@@ -144,7 +145,7 @@
     [noDataImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
         make.centerY.equalTo(self.view.mas_centerY);
-        make.height.width.mas_equalTo(128);
+        make.height.width.mas_equalTo(70);
     }];
     
 }
