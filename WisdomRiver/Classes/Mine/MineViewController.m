@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIScrollView *mainScoll;
 @property (nonatomic, strong) UIImageView *back;
+
 @end
 
 @implementation MineViewController
