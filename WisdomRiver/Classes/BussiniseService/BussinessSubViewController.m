@@ -63,7 +63,7 @@ return _collectionFlowyout;
     self.topHeight.constant = HEIGHT(740);
     [self.searchBar setBackgroundImage:[UIImage new]];
     self.searchBar.delegate = self;
-    LRViewBorderRadius(self.searchBar, 22, 2, LRRGBColor(245, 245, 245));
+    LRViewBorderRadius(self.searchBar, 5, 2, LRRGBColor(245, 245, 245));
 //    self.searchBar.backgroundColor = LRRGBColor(245, 245, 245);
     self.leftItemLabel.text = self.titleStr;
     [self loadData];
@@ -290,6 +290,9 @@ return _collectionFlowyout;
     self.searchStr = searchBar.text;
     [self headerFresh];
     [self.searchBar resignFirstResponder];
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.searchStr = searchBar.text;
 }
 
 @end

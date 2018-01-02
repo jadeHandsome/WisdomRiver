@@ -146,6 +146,8 @@ singleton_implementation(KRMainNetTool)
     }
     //[waitView showRoundProgressWithTitle:nil];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    AFJSONResponseSerializer *response = [AFJSONResponseSerializer serializer];
+    response.removesKeysWithNullValues = YES;
     manager.requestSerializer.timeoutInterval = 10.f;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager.requestSerializer setHTTPShouldHandleCookies:YES];
@@ -162,7 +164,8 @@ singleton_implementation(KRMainNetTool)
         for (NSDictionary *data in array) {
             //NSString *str = [NSString stringWithFormat:@"pic%ld.png",[array indexOfObject:data]];
             //NSLog(@"%@",str);
-            [formData appendPartWithFileData:data[@"data"] name:data[@"name"] fileName:@"up-file.png" mimeType:@"image/jpeg"];
+            NSString *name = [NSString stringWithFormat:@"%ld.png",[[NSDate date] timeIntervalSince1970]];
+            [formData appendPartWithFileData:data[@"data"] name:data[@"name"] fileName:name mimeType:@"image/jpeg"];
         }
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {

@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIScrollView *mainScoll;
 @property (nonatomic, strong) UIImageView *back;
+@property (nonatomic, strong) UIImageView *headImage;
 
 @end
 
@@ -63,6 +64,7 @@
     }];
     UIImageView *headImage = [[UIImageView alloc]init];
     [self.headView addSubview:headImage];
+    _headImage = headImage;
     if ([KRUserInfo sharedKRUserInfo].micon) {
         [headImage sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
     } else {
@@ -230,6 +232,11 @@
         [self.back sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
     } else {
         [self.back sd_setImageWithURL:@"http://182.151.204.201:8081/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
+    }
+    if ([KRUserInfo sharedKRUserInfo].micon) {
+        [self.headImage sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
+    } else {
+        [self.headImage sd_setImageWithURL:@"http://182.151.204.201:8081/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
     }
 }
 - (void)viewWillDisappear:(BOOL)animated {

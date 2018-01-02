@@ -232,7 +232,7 @@
     [self.navigationController pushViewController:store animated:YES];
 }
 - (IBAction)guanzuClick:(id)sender {
-    [self showHUDWithText:@"尚未开放"];
+    [self showHUDWithText:@"该功能尚未开放"];
 }
 - (IBAction)callClick:(id)sender {
     [KRBaseTool callCellPhone:self.myData[@"org"][@"phone"]];
@@ -343,11 +343,13 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    [self.commentTab tableViewDisplayWitMsg:@"暂无数据" ifNecessaryForRowCount:self.commondArray.count];
     return self.commondArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CommondTableViewCell *comond = [tableView dequeueReusableCellWithIdentifier:@"commondCell"];
     [comond setDataWith:self.commondArray[indexPath.row]];
+    comond.selectionStyle = UITableViewCellSelectionStyleNone;
     return comond;
 }
 - (void)didReceiveMemoryWarning {

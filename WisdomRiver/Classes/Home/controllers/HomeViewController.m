@@ -455,13 +455,13 @@
         detailLabel.layer.cornerRadius = HEIGHT(10);
         detailLabel.layer.masksToBounds = YES;
         detailLabel.textAlignment = NSTextAlignmentCenter;
-        detailLabel.font = [UIFont systemFontOfSize:HEIGHT(36)];
+        detailLabel.font = [UIFont systemFontOfSize:HEIGHT(30)];
         [bottomView addSubview:detailLabel];
         [detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(temperatureLabel.mas_right).offset(WIDTH(20));
             make.centerY.equalTo(bottomView.mas_centerY);
             make.height.mas_equalTo(HEIGHT(52));
-            make.width.mas_equalTo(WIDTH(530));
+            make.width.mas_equalTo(WIDTH(560));
         }];
     }
     return bannerView;

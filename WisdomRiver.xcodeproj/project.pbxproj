@@ -78,6 +78,7 @@
 		1A1A4D721FE4D8D300C66AA3 /* GoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1A4D701FE4D8D300C66AA3 /* GoodsDetailViewController.xib */; };
 		1A5114981FE7F53000D87D02 /* BaseMineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5114971FE7F53000D87D02 /* BaseMineView.m */; };
 		1A51149A1FE7F54100D87D02 /* BaseMineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A5114991FE7F54100D87D02 /* BaseMineView.xib */; };
+		1A585E0A1FF5CBF400504DAA /* NSDictionary+deletNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A585E091FF5CBF300504DAA /* NSDictionary+deletNull.m */; };
 		1A61F7F61FE750C900C07E7C /* PublicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61F7F41FE750C900C07E7C /* PublicCollectionViewCell.m */; };
 		1A61F7F71FE750C900C07E7C /* PublicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A61F7F51FE750C900C07E7C /* PublicCollectionViewCell.xib */; };
 		1A61F7FA1FE75B9900C07E7C /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A61F7F91FE75B9900C07E7C /* BaseWebViewController.m */; };
@@ -264,6 +265,8 @@
 		1A5114961FE7F53000D87D02 /* BaseMineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseMineView.h; sourceTree = "<group>"; };
 		1A5114971FE7F53000D87D02 /* BaseMineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseMineView.m; sourceTree = "<group>"; };
 		1A5114991FE7F54100D87D02 /* BaseMineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseMineView.xib; sourceTree = "<group>"; };
+		1A585E081FF5CBF300504DAA /* NSDictionary+deletNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+deletNull.h"; sourceTree = "<group>"; };
+		1A585E091FF5CBF300504DAA /* NSDictionary+deletNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+deletNull.m"; sourceTree = "<group>"; };
 		1A61F7F31FE750C900C07E7C /* PublicCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCollectionViewCell.h; sourceTree = "<group>"; };
 		1A61F7F41FE750C900C07E7C /* PublicCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCollectionViewCell.m; sourceTree = "<group>"; };
 		1A61F7F51FE750C900C07E7C /* PublicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -497,6 +500,8 @@
 		11FE0AC31FE21E1100D10A5C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1A585E081FF5CBF300504DAA /* NSDictionary+deletNull.h */,
+				1A585E091FF5CBF300504DAA /* NSDictionary+deletNull.m */,
 				1A748DB11FF4843400C2025F /* SDPhotoBrowser */,
 				1AC0A1E51FEFAF77009D3939 /* LDXScore.h */,
 				1AC0A1E61FEFAF77009D3939 /* LDXScore.m */,
@@ -1016,6 +1021,7 @@
 				114CF5EB1FE4F535004B5701 /* SelectionView.m in Sources */,
 				1A6304C71FE273A800AE1751 /* BussinessViewController.m in Sources */,
 				11FE0AF01FE21E1200D10A5C /* NSString+LocaString.m in Sources */,
+				1A585E0A1FF5CBF400504DAA /* NSDictionary+deletNull.m in Sources */,
 				11FE0B031FE21E2100D10A5C /* BaseNaviViewController.m in Sources */,
 				1AAF2BDA1FEE357200B6DA18 /* SuqiuDetailViewController.m in Sources */,
 				111980CA1FEE5B8E00989579 /* ZLPhotoHelper.m in Sources */,
@@ -1195,7 +1201,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";
@@ -1213,7 +1219,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = WisdomRiver/SupportFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/WisdomRiver/SupportFiles/Info.plist";

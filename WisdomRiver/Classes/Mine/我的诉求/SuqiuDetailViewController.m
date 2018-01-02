@@ -170,7 +170,7 @@
             bottomView.backgroundColor = [UIColor whiteColor];
         }
 //        LRViewBorderRadius(bottomView, 5, 1, LRRGBColor(246, 246, 246));
-        topView.backgroundColor = [UIColor whiteColor];
+        bottomView.backgroundColor = [UIColor whiteColor];
 //        bottomView.backgroundColor = [UIColor whiteColor];
         self.view.backgroundColor = LRRGBColor(245, 245, 245);
     }

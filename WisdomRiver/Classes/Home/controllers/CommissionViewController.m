@@ -119,8 +119,12 @@
                         [self showHUDWithText:@"请选择相应的照片"];
                         return ;
                     }
+                    NSString *name = self.material[[self.imagesArr indexOfObject:images]][@"name"];
+                    NSMutableArray *array = [NSMutableArray array];
                     for (UIImage *image in images) {
-                        [arr addObject:@{@"data":UIImageJPEGRepresentation(image, 1.0),@"name":@"file"}];
+
+//                        [array addObject:UIImageJPEGRepresentation(image, 1.0)];
+                        [arr addObject:@{@"data":UIImageJPEGRepresentation(image, 1.0),@"name":[NSString stringWithFormat:@"%@%d",name,[images indexOfObject:image] + 1]}];
                     }
                 }
                 [[KRMainNetTool sharedKRMainNetTool] upLoadData:@"appGovernmentFront/serviceYYDB" params:params andData:arr waitView:self.view complateHandle:^(id showdata, NSString *error) {

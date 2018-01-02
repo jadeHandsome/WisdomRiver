@@ -26,8 +26,8 @@
 */
 - (void)setDataWithDic:(NSDictionary *)dic {
     self.nameLabel.text = dic[@"name"];
-    if (dic[@"pass"]) {
-        if ([dic[@"pass"] integerValue]) {
+    if (dic[@"isPass"]) {
+        if ([dic[@"isPass"] integerValue]) {
             self.statusLabel.text = @"审核通过";
         } else {
             self.statusLabel.text = @"审核不通过";
@@ -55,7 +55,7 @@
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSDictionary *file = dic[@"fileName"][index];
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[baseImage stringByAppendingString:file[@"id"]]]]];
-            UIImageWriteToSavedPhotosAlbum(image, self, @selector(didend), NULL);
+            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
         });
         
 //        [KRBaseTool showAlert:string with_Controller:self.superVC with_titleArr:@[@"确定"] withShowType:UIAlertControllerStyleAlert with_Block:^(int index) {
@@ -64,11 +64,14 @@
     }];
     
 }
-- (void)didend {
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.superVC showHUDWithText:@"保存成功"];
+        [self.superVC showHUDWithText:@"材料已保存到本地相册"];
     });
-    
 }
+//- (void)didend {
+//    
+//    
+//}
 
 @end

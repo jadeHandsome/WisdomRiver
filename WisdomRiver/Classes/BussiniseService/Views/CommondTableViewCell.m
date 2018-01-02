@@ -8,7 +8,8 @@
 
 #import "CommondTableViewCell.h"
 #import "CommondPic.h"
-@interface CommondTableViewCell()
+#import "SDPhotoBrowser.h"
+@interface CommondTableViewCell()<SDPhotoBrowserDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UIView *countView;
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *CONTENvIEW;
 @property (weak, nonatomic) IBOutlet UIView *centerImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerHeight;
-
+@property (nonatomic, strong) NSDictionary *myData;
 @end
 @implementation CommondTableViewCell
 
@@ -34,6 +35,7 @@
     for (UIView *sub in self.centerImageView.subviews) {
         [sub removeFromSuperview];
     }
+    self.myData = [data copy];
     if (data[@"fileName"]) {
         if ([data[@"fileName"] count] == 0) {
             self.centerHeight.constant = 0;
@@ -56,6 +58,9 @@
                 }];
                 [contenImage sd_setImageWithURL:[baseImage stringByAppendingString:data[@"fileName"][i][@"id"]] placeholderImage:[UIImage new]];
                 temp = contenImage;
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImage:)];
+                contenImage.userInteractionEnabled = YES;
+                [contenImage addGestureRecognizer:tap];
             }
             
         }
@@ -99,5 +104,29 @@
     }
     
 }
+- (void)tapImage:(UITapGestureRecognizer *)tap {
+    UIView *imageView = tap.view;
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+    browser.currentImageIndex = imageView.tag;
+    browser.sourceImagesContainerView = self;
+    //NSLog(@"%ld",self.scrollView.subviews.count);
+    browser.imageCount = [self.myData[@"fileName"] count];
+    browser.delegate = self;
+    [browser show];
+}
+#pragma mark - SDPhotoBrowserDelegate
 
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    //NSString *imageName = self.imagsArray[index];
+    NSURL *url = [NSURL URLWithString:[baseImage stringByAppendingString:self.myData[@"fileName"][index][@"id"]]];
+    return url;
+}
+
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    
+    UIImageView *imageView = self.centerImageView.subviews[index];
+    return imageView.image;
+}
 @end

@@ -9,6 +9,7 @@
 #import "InfoManagerViewController.h"
 #import "LoginViewController.h"
 #import "BaseNaviViewController.h"
+#import "NSDictionary+deletNull.h"
 @interface InfoManagerViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableDictionary *infoParam;
@@ -40,15 +41,19 @@
     if (self.infoParam[@"sexId"]) {
         self.infoParam[@"sex"] = self.infoParam[@"sexId"];
     }
+    NSLog(@"修改前 --> %@",[KRUserInfo sharedKRUserInfo].micon);
     [[KRMainNetTool sharedKRMainNetTool]upLoadData:@"appPersonalCenter/updatePersonal" params:self.infoParam andData:array waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata) {
-            self.infoParam = [showdata[@"user"] mutableCopy];
-            [[NSUserDefaults standardUserDefaults] setObject:showdata[@"user"] forKey:@"userInfo"];
+            self.infoParam = [[showdata[@"user"] deleteNull] mutableCopy];
+            [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:[showdata[@"user"] deleteNull]];
+            [[NSUserDefaults standardUserDefaults] setObject:[showdata[@"user"] deleteNull] forKey:@"userInfo"];
             for (NSDictionary *dic in self.sexArray) {
                 if ([dic[@"id"] isEqualToString:self.infoParam[@"sex"]]) {
                     self.infoParam[@"sex"] = dic[@"name"];
                 }
             }
+            NSLog(@"修改后 --> %@",[KRUserInfo sharedKRUserInfo].micon);
+            [self showHUDWithText:@"修改成功"];
             [self.tableView reloadData];
         }
         else{
@@ -154,17 +159,26 @@
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.textLabel.text = @"头像";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        UIView *subView = [[UIView alloc]init];
+//        [cell addSubview:subView];
+//        [subView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.right.equalTo(cell.mas_right).with.offset(-30);
+//            make.top.equalTo(cell.mas_top).with.offset(10);
+//            make.bottom.equalTo(cell.mas_bottom).with.offset(-10);
+//            make.height.with.equalTo(@30);
+//            make.width.equalTo(@30);
+//        }];
         UIImageView *headImageView = [[UIImageView alloc]init];
         [cell addSubview:headImageView];
         [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(cell.mas_right).with.offset(-30);
             make.top.equalTo(cell.mas_top).with.offset(10);
             make.bottom.equalTo(cell.mas_bottom).with.offset(-10);
-            make.height.with.equalTo(@30);
-            make.width.equalTo(@30);
+            make.height.with.equalTo(@50);
+            make.width.equalTo(@50);
         }];
         headImageView.contentMode = UIViewContentModeScaleAspectFill;
-        LRViewBorderRadius(headImageView, 15, 0, [UIColor clearColor]);
+        LRViewBorderRadius(headImageView, 25, 0, [UIColor clearColor]);
         if (self.infoParam[@"headImg"]) {
             headImageView.image = [UIImage imageWithData:self.infoParam[@"headImg"][@"data"]];
         } else {

@@ -154,9 +154,9 @@
     NSInteger count = 0;
     if ([self.myData[@"smv"][@"typeName"] isEqualToString:@"咨询"]) {
         if ([self.parenTitle isEqualToString:@"安居乐业"]) {
-            count = 3;
+            count = 4;
         } else {
-            count = 2;
+            count = 3;
         }
     } else {
         count = 6;
@@ -248,6 +248,16 @@
         [left mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(sub.mas_left);
             make.centerY.equalTo(sub.mas_centerY);
+            if ([self.myData[@"smv"][@"typeName"] isEqualToString:@"咨询"]) {
+                if ([self.parenTitle isEqualToString:@"安居乐业"]) {
+                    make.width.equalTo(@80);
+                    
+                } else {
+                    make.width.equalTo(@80);
+                }
+            } else {
+            }
+            
         }];
         left.font = [UIFont systemFontOfSize:14];
         UILabel *right = [[UILabel alloc]init];
@@ -264,14 +274,28 @@
         }];
         right.text = rightArray[i];
         left.text = leftArray[i];
+//        if ([self.myData[@"smv"][@"typeName"] isEqualToString:@"咨询"]) {
+//            if ([self.parenTitle isEqualToString:@"安居乐业"]) {
+////                make.width.equalTo(@80);
+////                left.text = leftArray[i];
+//                [self conversionCharacterInterval:4.5 current:leftArray[i] withLabel:left];
+//            } else {
+////                left.text = leftArray[i];
+////                make.width.equalTo(@80);
+//                [self conversionCharacterInterval:4.5 current:leftArray[i] withLabel:left];
+//            }
+//        } else {
+//            left.text = leftArray[i];
+//        }
+        
     }
     UIView *second = [[UIView alloc]init];
     [contans addSubview:second];
     second.backgroundColor = [UIColor whiteColor];
     [second mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(first.mas_bottom).with.offset(10);
-        make.left.equalTo(contans.mas_left).with.offset(5);
-        make.right.equalTo(contans.mas_right).with.offset(-5);
+        make.left.equalTo(contans.mas_left).with.offset(10);
+        make.right.equalTo(contans.mas_right).with.offset(-10);
         make.bottom.equalTo(contans.mas_bottom).with.offset(-10);
         
     }];
@@ -345,15 +369,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/**
+ *  设置UILable里的文字两边对齐
+ *  maxInteger    : 应占字符数 （中文为1，英文为0.5/个）
+ *  currentString : 要显示的文字
+ */
+- (void)conversionCharacterInterval:(NSInteger)maxInteger current:(NSString *)currentString withLabel:(UILabel *)label
+{
+    CGRect rect = [[currentString substringToIndex:1] boundingRectWithSize:CGSizeMake(200,label.frame.size.height)
+                                                                   options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                                                                attributes:@{NSFontAttributeName: label.font}
+                                                                   context:nil];
+    
+    
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:currentString];
+    float strLength = [self getLengthOfString:currentString];
+    [attrString addAttribute:NSKernAttributeName value:@(((maxInteger - strLength) * rect.size.width)/(strLength - 1)) range:NSMakeRange(0, strLength)];
+    label.attributedText = attrString;
 }
-*/
+
+-  (float)getLengthOfString:(NSString*)str {
+    
+    float strLength = 0;
+    char *p = (char *)[str cStringUsingEncoding:NSUnicodeStringEncoding];
+    for (NSInteger i = 0 ; i < [str lengthOfBytesUsingEncoding:NSUnicodeStringEncoding]; i++) {
+        if (*p) {
+            strLength++;
+        }
+        p++;
+    }
+    return strLength/2;
+}
+
 
 @end

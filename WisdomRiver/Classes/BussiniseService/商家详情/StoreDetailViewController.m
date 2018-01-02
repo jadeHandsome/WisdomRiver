@@ -89,17 +89,18 @@
     UIImageView *storeImageView = [[UIImageView alloc]init];
     [leftView addSubview:storeImageView];
     [storeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(leftView);
-        make.height.width.equalTo(@(50));
+        make.left.equalTo(leftView).with.offset(10);
+        make.height.width.equalTo(@(40));
         make.centerY.equalTo(leftView.mas_centerY);
     }];
-    storeImageView.contentMode = UIViewContentModeCenter;
+    storeImageView.contentMode = UIViewContentModeScaleAspectFill;
     _headImageView = storeImageView;
     UILabel *nameLabel = [[UILabel alloc]init];
     [leftView addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(storeImageView.mas_right);
+        make.left.equalTo(storeImageView.mas_right).with.offset(10);
         make.centerY.equalTo(storeImageView.mas_centerY);
+        make.right.equalTo(leftView.mas_right).with.offset(-10);
     }];
     _nameLabel = nameLabel;
     nameLabel.numberOfLines = 0;
@@ -160,7 +161,7 @@
     }];
 }
 - (void)shouGuanzhu {
-    [self showHUDWithText:@"尚未开放"];
+    [self showHUDWithText:@"该功能尚未开放"];
 }
 - (void)footerFresh {
     self.page ++;

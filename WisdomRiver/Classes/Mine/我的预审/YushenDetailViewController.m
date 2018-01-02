@@ -124,8 +124,22 @@
         make.bottom.equalTo(contans.mas_bottom).with.offset(-10);
     }];
     UIView *temp1 = bottomView;
+    NSString *result = @"未审核";
+    if (nowDic[@"gsa"][@"auditStatus"]) {
+        if ([nowDic[@"gsa"][@"auditStatus"] integerValue]) {
+            if ([nowDic[@"gsa"][@"auditResult"] integerValue]) {
+                result = @"审核不通过";
+                
+            } else {
+                result = @"审核通过";
+            }
+            
+        } else {
+            result = @"审核中";
+        }
+    }
     NSArray *titleArray1 = @[@"材料信息",@"审核意见："];
-    NSArray *rightArray1 = @[@"",[self.myData[@"gsa"][@"auditStatus"] integerValue] ? ([self.myData[@"gsa"][@"auditResult"] integerValue]?@"审核通过":@"审核不通过"):@"正在审核中"];
+    NSArray *rightArray1 = @[@"",result];
     for (int i = 0; i < 2; i ++) {
         UIView *subView = [[UIView alloc]init];
         [bottomView addSubview:subView];
@@ -281,7 +295,10 @@
         make.right.equalTo(contans.mas_right).with.offset(-5);
         make.height.equalTo(@240);
         make.top.equalTo(topView.mas_bottom).with.offset(10);
-        make.bottom.equalTo(contans.mas_bottom).with.offset(-10);
+        if ([nowDic[@"gsa"][@"auditResult"] isEqual:[NSNull null]]) {
+            make.bottom.equalTo(contans.mas_bottom).with.offset(-10);
+        }
+        
     }];
     UIView *temp1 = bottomView;
     NSArray *titleArray1 = @[@"申请信息",@"姓名：",@"电话：",@"代办时间：",@"上门地址：",@"备注："];
@@ -340,6 +357,90 @@
         topView.backgroundColor = [UIColor whiteColor];
         //        bottomView.backgroundColor = [UIColor whiteColor];
         self.view.backgroundColor = LRRGBColor(245, 245, 245);
+    }
+    LRViewBorderRadius(bottomView, 5, 1, LRRGBColor(246, 246, 246));
+    if (![nowDic[@"gsa"][@"auditResult"] isEqual:[NSNull null]]) {
+        UIView *bottomView1 = [[UIView alloc]init];
+        [contans addSubview:bottomView1];
+        
+        [bottomView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(contans.mas_left).with.offset(5);
+            make.right.equalTo(contans.mas_right).with.offset(-5);
+            make.height.equalTo(@120);
+            make.top.equalTo(bottomView.mas_bottom).with.offset(10);
+            make.bottom.equalTo(contans.mas_bottom).with.offset(-10);
+        }];
+        UIView *temp1 = bottomView1;
+        NSArray *titleArray1 = @[@"审核信息",@"办理结果：",@"审核意见："];
+        NSString *result = @"未审核";
+        if (nowDic[@"gsa"][@"auditStatus"]) {
+            if ([nowDic[@"gsa"][@"auditStatus"] integerValue]) {
+                if ([nowDic[@"gsa"][@"auditResult"] integerValue]) {
+                    result = @"审核不通过";
+                    
+                } else {
+                    result = @"审核通过";
+                }
+                
+            } else {
+                result = @"审核中";
+            }
+        }
+        NSArray *rightArray1 = @[@"",result,@"-"];
+        for (int i = 0; i < 3; i ++) {
+            UIView *subView = [[UIView alloc]init];
+            [bottomView1 addSubview:subView];
+            [subView mas_makeConstraints:^(MASConstraintMaker *make) {
+                if (i == 0) {
+                    make.top.equalTo(temp1.mas_top);
+                } else {
+                    make.top.equalTo(temp1.mas_bottom);
+                }
+                make.height.equalTo(@40);
+                make.left.right.equalTo(bottomView1);
+                
+            }];
+            
+            temp1 = subView;
+            UILabel *leftLabel = [[UILabel alloc]init];
+            [subView addSubview:leftLabel];
+            [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(subView.mas_left).with.offset(15);
+                make.centerY.equalTo(subView.mas_centerY);
+            }];
+            leftLabel.font = [UIFont systemFontOfSize:14];
+            if (i == 0) {
+                leftLabel.textColor = ThemeColor;
+            } else {
+                leftLabel.textColor = LRRGBColor(136, 136, 136);
+            }
+            leftLabel.text = titleArray1[i];
+            UILabel *rightLabel = [[UILabel alloc]init];
+            [subView addSubview:rightLabel];
+            [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(leftLabel.mas_right);
+                make.centerY.equalTo(leftLabel.mas_centerY);
+            }];
+            if (i == 1) {
+                rightLabel.textColor = ThemeColor;
+            } else {
+                rightLabel.textColor = [UIColor blackColor];
+            }
+            
+            
+            rightLabel.font = [UIFont systemFontOfSize:14];
+            UIView *lineView = [[UIView alloc]init];
+            [subView addSubview:lineView];
+            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.bottom.right.equalTo(subView);
+                make.height.equalTo(@1);
+            }];
+            lineView.backgroundColor = LRRGBColor(246, 246, 246);
+            rightLabel.text = rightArray1[i];
+            
+        }
+        bottomView1.backgroundColor = [UIColor whiteColor];
+        LRViewBorderRadius(bottomView1, 5, 1, LRRGBColor(246, 246, 246));
     }
 }
 - (void)didReceiveMemoryWarning {

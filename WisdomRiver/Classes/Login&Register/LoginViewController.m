@@ -33,6 +33,9 @@
     [self setUp];
     self.phoneField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"phone"];
     self.pwdField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    if (self.phoneField.text && self.pwdField.text) {
+        [self loginAction:nil];
+    }
 }
 
 - (void)setUp{

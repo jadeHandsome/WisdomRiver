@@ -45,30 +45,36 @@
         self.namelable.text = data[@"serviceName"];
         self.contenLabel.text = [NSString stringWithFormat:@"事项类型：%@",data[@"typeName"]];
         self.timeLabel.text = [NSString stringWithFormat:@"申请时间：%@",data[@"applyDate"]];
-        self.statusLabel.text = [data[@"auditStatus"] integerValue] == 0 ?@"待处理":@"已处理";
-        if (![data[@"auditResult"] isEqual:[NSNull null]]) {
-            if ([data[@"auditResult"] integerValue]) {
+//        self.statusLabel.text = [data[@"auditStatus"] integerValue] == 0 ?@"待处理":@"已处理";
+        if (data[@"auditResult"]) {
+            if (![data[@"auditResult"] integerValue]) {
                 self.statusLabel.textColor = ColorRgbValue(0x03A9F4);
+                self.statusLabel.text = @"通过";
             } else {
                 self.statusLabel.textColor = ColorRgbValue(0xFFCC33);
+                self.statusLabel.text = @"未通过";
             }
         } else {
-            self.statusLabel.textColor = ColorRgbValue(0x5dca93);;
+            self.statusLabel.textColor = ColorRgbValue(0x5dca93);
+            self.statusLabel.text = @"待处理";
         }
     } else if ([self.cellType isEqualToString:@"3"]) {
         self.namelable.text = data[@"serviceName"];
         self.contenLabel.text = [NSString stringWithFormat:@"事项类型：%@",data[@"typeName"]];
         self.timeLabel.text = [NSString stringWithFormat:@"申请时间：%@",data[@"applyDate"]];
         if (![data[@"auditResult"] isEqual:[NSNull null]]) {
-            if ([data[@"auditResult"] integerValue]) {
+            if (![data[@"auditResult"] integerValue]) {
                 self.statusLabel.textColor = ColorRgbValue(0x03A9F4);
+                self.statusLabel.text = @"通过";
             } else {
                 self.statusLabel.textColor = ColorRgbValue(0xFFCC33);
+                self.statusLabel.text = @"未通过";
             }
         } else {
-            self.statusLabel.textColor = ColorRgbValue(0x5dca93);;
+            self.statusLabel.textColor = ColorRgbValue(0x5dca93);
+            self.statusLabel.text = @"待处理";
         }
-        self.statusLabel.text = [data[@"auditStatus"] integerValue] == 0 ?@"待处理":@"已处理";
+        //self.statusLabel.text = [data[@"auditStatus"] integerValue] == 0 ?@"待处理":@"已处理";
         //self.statusLabel.textColor = LRRGBColor(101, 216, 165);
     }
     

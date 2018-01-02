@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.myText.myPlaceholder = @"长度在100-300字之间\n写下购买体验和使用过程中带来的帮助等，可以给小伙伴提供参考哦！";
+    self.myText.myPlaceholder = @"长度在10-300字之间\n写下购买体验和使用过程中带来的帮助等，可以给小伙伴提供参考哦！";
     self.count = 0;
     self.myText.delegate = self;
     self.navigationItem.title = @"评价";

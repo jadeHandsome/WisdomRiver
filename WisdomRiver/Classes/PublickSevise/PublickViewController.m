@@ -205,4 +205,7 @@
     [self headerFresh];
     [self.seachBar resignFirstResponder];
 }
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.searchStr = searchBar.text;
+}
 @end
