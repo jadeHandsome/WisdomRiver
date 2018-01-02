@@ -125,17 +125,21 @@
     }];
     UIView *temp1 = bottomView;
     NSString *result = @"未审核";
+    UIColor *color = nil;
     if (nowDic[@"gsa"][@"auditStatus"]) {
         if ([nowDic[@"gsa"][@"auditStatus"] integerValue]) {
             if ([nowDic[@"gsa"][@"auditResult"] integerValue]) {
                 result = @"审核不通过";
+                color = ColorRgbValue(0xFFCC33);
                 
             } else {
                 result = @"审核通过";
+                color = ColorRgbValue(0x03A9F4);
             }
             
         } else {
             result = @"审核中";
+            color = ColorRgbValue(0x5dca93);
         }
     }
     NSArray *titleArray1 = @[@"材料信息",@"审核意见："];
@@ -165,7 +169,7 @@
         }];
         leftLabel.font = [UIFont systemFontOfSize:14];
         if (i == 0) {
-            leftLabel.textColor = ThemeColor;
+            leftLabel.textColor = color;
         } else {
             leftLabel.textColor = LRRGBColor(136, 136, 136);
         }
@@ -373,17 +377,21 @@
         UIView *temp1 = bottomView1;
         NSArray *titleArray1 = @[@"审核信息",@"办理结果：",@"审核意见："];
         NSString *result = @"未审核";
+        UIColor *color = nil;
         if (nowDic[@"gsa"][@"auditStatus"]) {
             if ([nowDic[@"gsa"][@"auditStatus"] integerValue]) {
                 if ([nowDic[@"gsa"][@"auditResult"] integerValue]) {
                     result = @"审核不通过";
+                    color = ColorRgbValue(0xFFCC33);
                     
                 } else {
                     result = @"审核通过";
+                    color = ColorRgbValue(0x03A9F4);
                 }
                 
             } else {
                 result = @"审核中";
+                color = ColorRgbValue(0x5dca93);
             }
         }
         NSArray *rightArray1 = @[@"",result,@"-"];
@@ -410,7 +418,7 @@
             }];
             leftLabel.font = [UIFont systemFontOfSize:14];
             if (i == 0) {
-                leftLabel.textColor = ThemeColor;
+                leftLabel.textColor = color;
             } else {
                 leftLabel.textColor = LRRGBColor(136, 136, 136);
             }
