@@ -57,7 +57,7 @@
         [self.statusLabel setTitle:data[@"abstract"] forState:UIControlStateNormal];
     }
     NSString *str = @"0";
-    if (![data[@"viewNumber"] isEqual:[NSNull null]]) {
+    if (data[@"viewNumber"] && ![data[@"viewNumber"] isEqual:[NSNull null]] ) {
         str = data[@"viewNumber"];
     }
     [self.watchCountLabel setTitle:[@" " stringByAppendingString:[NSString stringWithFormat:@"%@",str]] forState:UIControlStateNormal];
