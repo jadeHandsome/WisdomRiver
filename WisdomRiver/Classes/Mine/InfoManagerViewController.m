@@ -183,9 +183,9 @@
             headImageView.image = [UIImage imageWithData:self.infoParam[@"headImg"][@"data"]];
         } else {
         if ([KRUserInfo sharedKRUserInfo].micon) {
-            [headImageView sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
+            [headImageView sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
         } else {
-            [headImageView sd_setImageWithURL:@"http://182.151.204.201:8081/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
+            [headImageView sd_setImageWithURL:@"http://182.151.204.201/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
         }
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

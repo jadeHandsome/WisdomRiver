@@ -40,21 +40,35 @@
         if ([data[@"fileName"] count] == 0) {
             self.centerHeight.constant = 0;
         } else {
-            self.centerHeight.constant = 100;
-            UIView *temp = self.centerImageView;
+            NSInteger count = [data[@"fileName"] count];
+            self.centerHeight.constant = (count / 3 + (count % 3 == 0 ? 0 : 1)) * 100 ;
+            UIView *temp ;
             for (int i = 0; i < [data[@"fileName"] count]; i ++) {
                 UIImageView *contenImage = [[UIImageView alloc]init];
+                contenImage.tag = i;
                 contenImage.clipsToBounds = YES;
                 contenImage.contentMode = UIViewContentModeScaleAspectFill;
                 [self.centerImageView addSubview:contenImage];
                 [contenImage mas_makeConstraints:^(MASConstraintMaker *make) {
-                    if (i == 0) {
-                        make.left.equalTo(temp.mas_left);
+                    if (i % 3 == 0) {
+                        make.left.equalTo(self.centerImageView);
                     } else {
                         make.left.equalTo(temp.mas_right);
                     }
                     make.width.equalTo(@((SCREEN_WIDTH - 100)/3.0));
-                    make.top.bottom.equalTo(self.centerImageView);
+                    make.height.equalTo(@100);
+                    if (i == 0 ) {
+                        make.top.equalTo(self.centerImageView);
+                    }
+                    else if (i % 3 == 0){
+                        make.top.equalTo(temp.mas_bottom);
+                    }
+                    else{
+                        make.top.equalTo(temp.mas_top);
+                    }
+                    if (i == count - 1) {
+                        make.bottom.equalTo(self.centerImageView);
+                    }
                 }];
                 [contenImage sd_setImageWithURL:[baseImage stringByAppendingString:data[@"fileName"][i][@"id"]] placeholderImage:[UIImage new]];
                 temp = contenImage;
@@ -108,7 +122,7 @@
     UIView *imageView = tap.view;
     SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
     browser.currentImageIndex = imageView.tag;
-    browser.sourceImagesContainerView = self;
+    browser.sourceImagesContainerView = self.centerImageView;
     //NSLog(@"%ld",self.scrollView.subviews.count);
     browser.imageCount = [self.myData[@"fileName"] count];
     browser.delegate = self;

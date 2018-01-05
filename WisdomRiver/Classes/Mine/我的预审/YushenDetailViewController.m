@@ -389,66 +389,73 @@
                     color = ColorRgbValue(0x03A9F4);
                 }
                 
+                
+                NSArray *rightArray1 = @[@"",result,@"-"];
+                for (int i = 0; i < 3; i ++) {
+                    UIView *subView = [[UIView alloc]init];
+                    [bottomView1 addSubview:subView];
+                    [subView mas_makeConstraints:^(MASConstraintMaker *make) {
+                        if (i == 0) {
+                            make.top.equalTo(temp1.mas_top);
+                        } else {
+                            make.top.equalTo(temp1.mas_bottom);
+                        }
+                        make.height.equalTo(@40);
+                        make.left.right.equalTo(bottomView1);
+                        
+                    }];
+                    
+                    temp1 = subView;
+                    UILabel *leftLabel = [[UILabel alloc]init];
+                    [subView addSubview:leftLabel];
+                    [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.left.equalTo(subView.mas_left).with.offset(15);
+                        make.centerY.equalTo(subView.mas_centerY);
+                    }];
+                    leftLabel.font = [UIFont systemFontOfSize:14];
+                    if (i == 0) {
+                        leftLabel.textColor = color;
+                    } else {
+                        leftLabel.textColor = LRRGBColor(136, 136, 136);
+                    }
+                    leftLabel.text = titleArray1[i];
+                    UILabel *rightLabel = [[UILabel alloc]init];
+                    [subView addSubview:rightLabel];
+                    [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.left.equalTo(leftLabel.mas_right);
+                        make.centerY.equalTo(leftLabel.mas_centerY);
+                    }];
+                    if (i == 1) {
+                        rightLabel.textColor = ThemeColor;
+                    } else {
+                        rightLabel.textColor = [UIColor blackColor];
+                    }
+                    
+                    
+                    rightLabel.font = [UIFont systemFontOfSize:14];
+                    UIView *lineView = [[UIView alloc]init];
+                    [subView addSubview:lineView];
+                    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.left.bottom.right.equalTo(subView);
+                        make.height.equalTo(@1);
+                    }];
+                    lineView.backgroundColor = LRRGBColor(246, 246, 246);
+                    rightLabel.text = rightArray1[i];
+                    
+                }
+                bottomView1.backgroundColor = [UIColor whiteColor];
+                LRViewBorderRadius(bottomView1, 5, 1, LRRGBColor(246, 246, 246));
+                
+                
             } else {
                 result = @"审核中";
                 color = ColorRgbValue(0x5dca93);
             }
         }
-        NSArray *rightArray1 = @[@"",result,@"-"];
-        for (int i = 0; i < 3; i ++) {
-            UIView *subView = [[UIView alloc]init];
-            [bottomView1 addSubview:subView];
-            [subView mas_makeConstraints:^(MASConstraintMaker *make) {
-                if (i == 0) {
-                    make.top.equalTo(temp1.mas_top);
-                } else {
-                    make.top.equalTo(temp1.mas_bottom);
-                }
-                make.height.equalTo(@40);
-                make.left.right.equalTo(bottomView1);
-                
-            }];
-            
-            temp1 = subView;
-            UILabel *leftLabel = [[UILabel alloc]init];
-            [subView addSubview:leftLabel];
-            [leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(subView.mas_left).with.offset(15);
-                make.centerY.equalTo(subView.mas_centerY);
-            }];
-            leftLabel.font = [UIFont systemFontOfSize:14];
-            if (i == 0) {
-                leftLabel.textColor = color;
-            } else {
-                leftLabel.textColor = LRRGBColor(136, 136, 136);
-            }
-            leftLabel.text = titleArray1[i];
-            UILabel *rightLabel = [[UILabel alloc]init];
-            [subView addSubview:rightLabel];
-            [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(leftLabel.mas_right);
-                make.centerY.equalTo(leftLabel.mas_centerY);
-            }];
-            if (i == 1) {
-                rightLabel.textColor = ThemeColor;
-            } else {
-                rightLabel.textColor = [UIColor blackColor];
-            }
-            
-            
-            rightLabel.font = [UIFont systemFontOfSize:14];
-            UIView *lineView = [[UIView alloc]init];
-            [subView addSubview:lineView];
-            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.bottom.right.equalTo(subView);
-                make.height.equalTo(@1);
-            }];
-            lineView.backgroundColor = LRRGBColor(246, 246, 246);
-            rightLabel.text = rightArray1[i];
-            
-        }
-        bottomView1.backgroundColor = [UIColor whiteColor];
-        LRViewBorderRadius(bottomView1, 5, 1, LRRGBColor(246, 246, 246));
+        
+        
+        
+        
     }
 }
 - (void)didReceiveMemoryWarning {

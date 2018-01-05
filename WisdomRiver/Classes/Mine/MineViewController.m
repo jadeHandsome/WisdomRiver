@@ -66,9 +66,9 @@
     [self.headView addSubview:headImage];
     _headImage = headImage;
     if ([KRUserInfo sharedKRUserInfo].micon) {
-        [headImage sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
+        [headImage sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
     } else {
-        [headImage sd_setImageWithURL:@"http://182.151.204.201:8081/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
+        [headImage sd_setImageWithURL:@"http://182.151.204.201/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
     }
     [headImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.centerY.equalTo(self.headView);
@@ -229,14 +229,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = YES;
     if ([KRUserInfo sharedKRUserInfo].micon) {
-        [self.back sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
+        [self.back sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
     } else {
-        [self.back sd_setImageWithURL:@"http://182.151.204.201:8081/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
+        [self.back sd_setImageWithURL:@"http://182.151.204.201/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
     }
     if ([KRUserInfo sharedKRUserInfo].micon) {
-        [self.headImage sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201:8081/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
+        [self.headImage sd_setImageWithURL:[NSString stringWithFormat:@"http://182.151.204.201/gfile/show?id=%@",[KRUserInfo sharedKRUserInfo].micon] placeholderImage:_zhanweiImageData];
     } else {
-        [self.headImage sd_setImageWithURL:@"http://182.151.204.201:8081/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
+        [self.headImage sd_setImageWithURL:@"http://182.151.204.201/static/wjzhfwpt/img/headSculpture.png" placeholderImage:_zhanweiImageData];
     }
 }
 - (void)viewWillDisappear:(BOOL)animated {

@@ -314,6 +314,7 @@
     if (self.time == 0) {
         [self.codeBtn setTitle:@"重新获取" forState:UIControlStateNormal];
         self.codeBtn.enabled = YES;
+        self.time = 60;
         [sender invalidate];
         sender = nil;
     }

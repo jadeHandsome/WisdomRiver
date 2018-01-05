@@ -318,7 +318,7 @@
         make.bottom.equalTo(second.mas_bottom).with.offset(-10);
     }];
     webLabel.numberOfLines = 0;
-    NSString *str = [self.myData[@"smv"][@"content"] stringByReplacingOccurrencesOfString:@"/gfile/downloadURL" withString:@"http://182.151.204.201:8081/gfile/downloadURL"];
+    NSString *str = [self.myData[@"smv"][@"content"] stringByReplacingOccurrencesOfString:@"/gfile/downloadURL" withString:@"http://182.151.204.201/gfile/downloadURL"];
     NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[str dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     [webLabel setAttributedText:attrStr];
     [webLabel sizeToFit];

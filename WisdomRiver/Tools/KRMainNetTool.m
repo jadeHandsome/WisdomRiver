@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseNaviViewController.h"
 
-#define baseURL @"http://182.151.204.201:8081/"
+#define baseURL @"http://182.151.204.201/"
 @implementation KRMainNetTool
 singleton_implementation(KRMainNetTool)
 //不需要上传文件的接口方法

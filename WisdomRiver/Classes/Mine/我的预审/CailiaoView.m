@@ -26,15 +26,20 @@
 */
 - (void)setDataWithDic:(NSDictionary *)dic {
     self.nameLabel.text = dic[@"name"];
+    UIColor *color = nil;
     if (dic[@"isPass"]) {
         if ([dic[@"isPass"] integerValue]) {
             self.statusLabel.text = @"审核通过";
+            color = ColorRgbValue(0xFFCC33);
         } else {
             self.statusLabel.text = @"审核不通过";
+            color = ColorRgbValue(0x03A9F4);
         }
     } else {
         self.statusLabel.text = @"审核中";
+        color = ColorRgbValue(0x5dca93);
     }
+    self.statusLabel.textColor = color;
     NSMutableArray *array = [NSMutableArray array];
     NSMutableString *str = [[NSMutableString alloc]init];
     for (NSDictionary *file in dic[@"fileName"]) {

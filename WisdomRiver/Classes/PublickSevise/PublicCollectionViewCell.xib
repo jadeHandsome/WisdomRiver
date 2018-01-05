@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5b-1F-BMR">
-                                <rect key="frame" x="10" y="200" width="37.5" height="45"/>
+                                <rect key="frame" x="10" y="200" width="194" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="N1B-xC-gra"/>
                                 </constraints>
@@ -66,6 +66,7 @@
                             <constraint firstItem="3hk-6N-NYc" firstAttribute="top" secondItem="X5b-1F-BMR" secondAttribute="bottom" id="bzo-8i-1Gc"/>
                             <constraint firstItem="X5b-1F-BMR" firstAttribute="top" secondItem="Ajd-Rt-p7c" secondAttribute="bottom" id="cAX-fh-Lsf"/>
                             <constraint firstAttribute="trailing" secondItem="AQp-yI-i6k" secondAttribute="trailing" constant="10" id="eZX-sn-86Y"/>
+                            <constraint firstAttribute="trailing" secondItem="X5b-1F-BMR" secondAttribute="trailing" constant="10" id="j5F-M3-CY5"/>
                             <constraint firstAttribute="trailing" secondItem="Ajd-Rt-p7c" secondAttribute="trailing" id="kd3-JG-6He"/>
                         </constraints>
                     </view>

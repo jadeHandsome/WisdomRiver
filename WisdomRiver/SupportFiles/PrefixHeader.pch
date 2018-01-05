@@ -40,7 +40,7 @@
 
 #define ColorRgbAValue(rgbValue,A) [UIColor colorWithRed:((float)((rgbValue &0xFF0000) >>16))/255.0 green:((float)((rgbValue &0xFF00) >>8))/255.0 blue:((float)(rgbValue &0xFF))/255.0 alpha:A]
 //图片地址
-#define baseImage @"http://182.151.204.201:8081/gfile/download?id="
+#define baseImage @"http://182.151.204.201/gfile/download?id="
 //主题色
 #define ThemeColor COLOR(6, 168, 244, 1)
 

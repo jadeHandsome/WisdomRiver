@@ -12,7 +12,8 @@
 @interface BussinessSubViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeght;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeight;
-@property (weak, nonatomic) IBOutlet UIView *btnView;
+@property (weak, nonatomic) IBOutlet UIScrollView *btnScrollView;
+@property (strong, nonatomic)  UIView *btnContainer;
 @property (weak, nonatomic) IBOutlet UILabel *imageTitlelabel;
 @property (weak, nonatomic) IBOutlet UILabel *imageNumLabel;
 @property (weak, nonatomic) IBOutlet UIView *topView;
@@ -74,7 +75,7 @@ return _collectionFlowyout;
     [self.view addSubview:self.collectionView];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.btnView.mas_bottom);
+        make.top.equalTo(self.btnScrollView.mas_bottom);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom);
@@ -119,22 +120,29 @@ return _collectionFlowyout;
     }];
 }
 - (void)setBtns {
-    
-    UIView *temp = self.btnView;
+    UIView *container = [[UIView alloc] init];
+    container.backgroundColor = [UIColor whiteColor];
+    self.btnContainer = container;
+    [self.btnScrollView addSubview:container];
+    [container mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.btnScrollView);
+        make.height.equalTo(self.btnScrollView.mas_height);
+    }];
+    UIView *temp = container;
     for (int i = 0; i < self.allTypes.count; i ++) {
         UIButton *btn = [[UIButton alloc]init];
         NSDictionary *dic = self.allTypes[i];
-        [_btnView addSubview:btn];
+        [container addSubview:btn];
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
             if (i == 0) {
-                make.left.equalTo(temp.mas_left);
+                make.left.equalTo(temp);
             } else {
                 make.left.equalTo(temp.mas_right);
             }
-            make.top.equalTo(_btnView.mas_top);
-            make.bottom.equalTo(self.btnView.mas_bottom);
+            make.top.equalTo(container.mas_top);
+            make.bottom.equalTo(container.mas_bottom);
             if (i == self.allTypes.count - 1) {
-                make.right.equalTo(_btnView.mas_right);
+                make.right.equalTo(container.mas_right);
             }
             if (i > 0) {
                 make.width.equalTo(temp.mas_width);
@@ -155,19 +163,19 @@ return _collectionFlowyout;
     }
     
     self.lineView = [[UIView alloc]init];
-    [self.btnView addSubview:self.lineView];
+    [container addSubview:self.lineView];
     CGSize size = [KRBaseTool getNSStringSize:self.allTypes[0][@"name"] andViewWight:MAXFLOAT andFont:14];
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@1);
-        make.bottom.equalTo(self.btnView.mas_bottom);
+        make.bottom.equalTo(self.btnScrollView.mas_bottom);
         make.width.equalTo(@(size.width));
-        make.centerX.equalTo([self.btnView viewWithTag:100].mas_centerX);
+        make.centerX.equalTo([container viewWithTag:100].mas_centerX);
     }];
     _lineView.backgroundColor = ThemeColor;
     
 }
 - (void)btnClick:(UIButton *)sender {
-    for (UIButton *btn in self.btnView.subviews) {
+    for (UIButton *btn in self.btnContainer.subviews) {
         if ([btn isKindOfClass:[UIButton class]]) {
             [btn setSelected:NO];
         }
@@ -177,12 +185,12 @@ return _collectionFlowyout;
     self.searchBar.placeholder = [NSString stringWithFormat:@"在 %@中 搜索",[sender titleForState:UIControlStateNormal]];
     [self.lineView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@1);
-        make.bottom.equalTo(self.btnView.mas_bottom);
+        make.bottom.equalTo(self.btnContainer.mas_bottom);
         make.width.equalTo(@(size.width));
         make.centerX.equalTo(sender.mas_centerX);
     }];
     [UIView animateWithDuration:0.3 animations:^{
-        [self.btnView layoutIfNeeded];
+        [self.btnContainer layoutIfNeeded];
     } completion:^(BOOL finished) {
         sender.selected = YES;
 //        self.page = 1;
@@ -205,9 +213,9 @@ return _collectionFlowyout;
     NSMutableArray *im = [NSMutableArray new];
     for (NSDictionary *baner in self.allImage) {
         if ([baner[@"isPic"] integerValue]) {
-            [im addObject:[[@"http://182.151.204.201:8081/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:baner[@"module"]]stringByAppendingString:@"&cname=programManagement"]];
+            [im addObject:[[@"http://182.151.204.201/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:baner[@"module"]]stringByAppendingString:@"&cname=programManagement"]];
         } else {
-            [im addObject:[[@"http://182.151.204.201:8081/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:baner[@"id"]]stringByAppendingString:@"&cname=businesssermanpic"]];
+            [im addObject:[[@"http://182.151.204.201/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:baner[@"id"]]stringByAppendingString:@"&cname=businesssermanpic"]];
         }
         
     }
