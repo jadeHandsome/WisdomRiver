@@ -62,7 +62,7 @@
         self.namelable.text = data[@"serviceName"];
         self.contenLabel.text = [NSString stringWithFormat:@"事项类型：%@",data[@"typeName"]];
         self.timeLabel.text = [NSString stringWithFormat:@"申请时间：%@",data[@"applyDate"]];
-        if (![data[@"auditResult"] isEqual:[NSNull null]]) {
+        if (data[@"auditResult"]) {
             if (![data[@"auditResult"] integerValue]) {
                 self.statusLabel.textColor = ColorRgbValue(0x03A9F4);
                 self.statusLabel.text = @"通过";

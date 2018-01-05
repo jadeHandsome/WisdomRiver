@@ -56,8 +56,11 @@
     } else {
         [self.statusLabel setTitle:data[@"abstract"] forState:UIControlStateNormal];
     }
-    
-    [self.watchCountLabel setTitle:[@" " stringByAppendingString:[NSString stringWithFormat:@"%@",data[@"viewNumber"]]] forState:UIControlStateNormal];
+    NSString *str = @"0";
+    if (![data[@"viewNumber"] isEqual:[NSNull null]]) {
+        str = data[@"viewNumber"];
+    }
+    [self.watchCountLabel setTitle:[@" " stringByAppendingString:[NSString stringWithFormat:@"%@",str]] forState:UIControlStateNormal];
     [self.statusLabel setImage:[UIImage imageNamed:@"order"] forState:UIControlStateNormal];
     [self.watchCountLabel setImage:[UIImage imageNamed:@"see"] forState:UIControlStateNormal];
 //    self.statusLabel.text = title;

@@ -18,13 +18,14 @@
 @property (nonatomic, strong) UILabel *statusLabel;
 @property (nonatomic, strong) UIButton *payBtn;
 @property (nonatomic, strong) UIView *bottomView;
+
 @end
 
 @implementation PublicDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUp];
+    
     [self loadData];
     self.view.backgroundColor = LRRGBColor(245, 245, 245);
 }
@@ -64,7 +65,7 @@
         return;
     }
     if (![KRUserInfo sharedKRUserInfo].card) {
-        [KRBaseTool showAlert:@"办理该服务需要身份证细腻，请先完善您的身份证信息" with_Controller:self with_titleArr:@[@"确定"] withShowType:UIAlertControllerStyleAlert with_Block:^(int index) {
+        [KRBaseTool showAlert:@"办理该服务需要身份证信息，请先完善您的身份证信息" with_Controller:self with_titleArr:@[@"确定"] withShowType:UIAlertControllerStyleAlert with_Block:^(int index) {
             if (index == 0) {
                 InfoManagerViewController *mine = [InfoManagerViewController new];
                 [self.navigationController pushViewController:mine animated:YES];
@@ -87,29 +88,45 @@
         if (showdata == nil) {
             return ;
         }
-        [self setUp];
         self.myData = [showdata copy];
-        self.allImage = [showdata[@"images"] copy];
-        [self addHeader:self.mainSco];
-        if ([self.myData[@"smv"][@"typeName"] containsString:@"报名"]) {
-            NSString *str = [NSString stringWithFormat:@"状态：%@中",self.myData[@"smv"][@"typeName"]];
-            NSMutableAttributedString *atta = [[NSMutableAttributedString alloc]initWithString:str];
-            [atta addAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} range:[str rangeOfString:@"状态："]];
-            [self.statusLabel setAttributedText:atta];
+        if ([self.myData[@"smv"][@"typeName"] containsString:@"图文"]) {
+            [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.left.right.equalTo(self.view);
+                make.height.equalTo(@0.00001);
+            }];
+            self.bottomView.hidden = YES;
+            UIWebView *webView = [[UIWebView alloc]init];
+            [self.view addSubview:webView];
+            [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(self.view);
+            }];
+            [webView loadHTMLString:[self.myData[@"smv"][@"content"] stringByReplacingOccurrencesOfString:@"/gfile/downloadURL" withString:@"http://182.151.204.201/gfile/downloadURL"] baseURL:nil];
         } else {
-            NSString *str = @"状态：寄售中";
-            NSMutableAttributedString *atta = [[NSMutableAttributedString alloc]initWithString:str];
-            [atta addAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} range:[str rangeOfString:@"状态："]];
-            [_statusLabel setAttributedText:atta];
+            [self setUp];
             
-        }
-        if ([self.myData[@"smv"][@"typeName"] isEqualToString:@"报名"]) {
-            [_payBtn setTitle:@"立即参加" forState:UIControlStateNormal];
-        } else {
-            if (self.myData[@"smv"][@"phone"]) {
-                [_payBtn setTitle:@"拨打电话" forState:UIControlStateNormal];
+            self.allImage = [showdata[@"images"] copy];
+            [self addHeader:self.mainSco];
+            if ([self.myData[@"smv"][@"typeName"] containsString:@"报名"]) {
+                NSString *str = [NSString stringWithFormat:@"状态：%@中",self.myData[@"smv"][@"typeName"]];
+                NSMutableAttributedString *atta = [[NSMutableAttributedString alloc]initWithString:str];
+                [atta addAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} range:[str rangeOfString:@"状态："]];
+                [self.statusLabel setAttributedText:atta];
             } else {
-                [_payBtn setTitle:@"暂无电话" forState:UIControlStateNormal];
+                NSString *str = @"状态：有效";
+                NSMutableAttributedString *atta = [[NSMutableAttributedString alloc]initWithString:str];
+                [atta addAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} range:[str rangeOfString:@"状态："]];
+                [_statusLabel setAttributedText:atta];
+                
+            }
+            if ([self.myData[@"smv"][@"typeName"] isEqualToString:@"报名"]) {
+                [_payBtn setTitle:@"立即参加" forState:UIControlStateNormal];
+            } else {
+                if (self.myData[@"smv"][@"phone"]) {
+                    [_payBtn setTitle:@"拨打电话" forState:UIControlStateNormal];
+                } else {
+                    [_payBtn setTitle:@"暂无电话" forState:UIControlStateNormal];
+                }
+                
             }
             
         }

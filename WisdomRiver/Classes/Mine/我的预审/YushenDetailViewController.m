@@ -306,7 +306,7 @@
     }];
     UIView *temp1 = bottomView;
     NSArray *titleArray1 = @[@"申请信息",@"姓名：",@"电话：",@"代办时间：",@"上门地址：",@"备注："];
-    NSArray *rightArray1 = @[@"",nowDic[@"gsa"][@"userName"],nowDic[@"gsa"][@"phone"],nowDic[@"gsa"][@"emergencyContact"]?nowDic[@"gsa"][@"applyDate"]:@"-",nowDic[@"gsa"][@"auditPickupMap"]?nowDic[@"gsa"][@"auditPickupMap"]:@"-",nowDic[@"gsa"][@"note"]?nowDic[@"gsa"][@"note"]:@"-"];
+    NSArray *rightArray1 = @[@"",nowDic[@"gsa"][@"userName"],nowDic[@"gsa"][@"phone"],nowDic[@"gsa"][@"applyDate"]?nowDic[@"gsa"][@"applyDate"]:@"-",nowDic[@"gsa"][@"auditPickupMap"]?nowDic[@"gsa"][@"auditPickupMap"]:@"-",nowDic[@"gsa"][@"note"]?nowDic[@"gsa"][@"note"]:@"-"];
     for (int i = 0; i < 6; i ++) {
         UIView *subView = [[UIView alloc]init];
         [bottomView addSubview:subView];
@@ -389,8 +389,11 @@
                     color = ColorRgbValue(0x03A9F4);
                 }
                 
-                
-                NSArray *rightArray1 = @[@"",result,@"-"];
+                NSString *str = @"-";
+                if (nowDic[@"gsa"][@"opinion"]) {
+                    str = nowDic[@"gsa"][@"opinion"];
+                }
+                NSArray *rightArray1 = @[@"",result,str];
                 for (int i = 0; i < 3; i ++) {
                     UIView *subView = [[UIView alloc]init];
                     [bottomView1 addSubview:subView];
