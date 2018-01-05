@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BussinessSubViewController">
             <connections>
-                <outlet property="btnView" destination="r3q-hk-zFR" id="MM3-xY-Gnk"/>
+                <outlet property="btnScrollView" destination="XKb-tf-tDm" id="gCR-ab-VSL"/>
                 <outlet property="imageNumLabel" destination="bpg-kO-DVf" id="jZf-LA-nYD"/>
                 <outlet property="imageTitlelabel" destination="XDh-eS-fsr" id="Ojf-Tr-mtI"/>
                 <outlet property="leftItemLabel" destination="OrR-TA-0G6" id="cOk-b0-XA6"/>
@@ -102,21 +102,21 @@
                         <constraint firstAttribute="bottom" secondItem="2tL-Vs-xlI" secondAttribute="bottom" id="lPz-WQ-dcL"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3q-hk-zFR">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKb-tf-tDm">
                     <rect key="frame" x="0.0" y="465" width="375" height="40"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="mEH-an-tpf"/>
+                        <constraint firstAttribute="height" constant="40" id="JpF-mb-GH0"/>
                     </constraints>
-                </view>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="r3q-hk-zFR" secondAttribute="trailing" id="3MT-Xc-vGH"/>
-                <constraint firstItem="r3q-hk-zFR" firstAttribute="top" secondItem="Sr0-AX-qHE" secondAttribute="bottom" id="QTl-vb-lSC"/>
+                <constraint firstItem="XKb-tf-tDm" firstAttribute="top" secondItem="Sr0-AX-qHE" secondAttribute="bottom" id="0Cc-ZT-0Bg"/>
+                <constraint firstItem="XKb-tf-tDm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FSd-Pj-1VN"/>
                 <constraint firstAttribute="trailing" secondItem="Gbf-T8-Hgc" secondAttribute="trailing" id="U9S-UG-ZTE"/>
-                <constraint firstItem="r3q-hk-zFR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vpi-FK-nTZ"/>
                 <constraint firstItem="Sr0-AX-qHE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XyS-oT-Xlp"/>
+                <constraint firstAttribute="trailing" secondItem="XKb-tf-tDm" secondAttribute="trailing" id="Z2Q-iv-scW"/>
                 <constraint firstItem="Sr0-AX-qHE" firstAttribute="top" secondItem="Gbf-T8-Hgc" secondAttribute="bottom" id="mNU-zl-xv5"/>
                 <constraint firstAttribute="trailing" secondItem="Sr0-AX-qHE" secondAttribute="trailing" id="spi-wi-5fJ"/>
                 <constraint firstItem="Gbf-T8-Hgc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="vbw-r2-bhU"/>

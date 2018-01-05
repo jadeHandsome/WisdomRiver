@@ -118,7 +118,7 @@
             [weakSelf setImageArray];
 //            [weakSelf.clickBtn setTitle:[NSString stringWithFormat:@"%ld/4",self.allImage.count] forState:UIControlStateNormal];
         }];
-        pickVC.limitCount = 4;
+        pickVC.limitCount = 9;
         [self.superVC.navigationController pushViewController:pickVC animated:YES];
     } else {
         //点了照片

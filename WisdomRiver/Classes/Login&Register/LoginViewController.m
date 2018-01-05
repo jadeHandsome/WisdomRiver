@@ -163,9 +163,7 @@
                     BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];
                     self.view.window.rootViewController = tab;
                 }
-                else{
-                    [self showHUDWithText:@"服务器异常，请稍后再试"];
-                }
+               
             }];
         }
         else{

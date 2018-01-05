@@ -36,7 +36,7 @@
     self.oldPriceLabel.text = [@"¥ " stringByAppendingString: [NSString stringWithFormat:@"%@",dic[@"originalprice"]]];
     if (dic[@"orgname"]) {
         [self.nameBtn setTitle:[@" " stringByAppendingString:dic[@"orgName"]] forState:UIControlStateNormal];
-    } else {
+    } else if(dic[@"note"]) {
         [self.nameBtn setTitle:[@" " stringByAppendingString:dic[@"note"]] forState:UIControlStateNormal];
     }
     

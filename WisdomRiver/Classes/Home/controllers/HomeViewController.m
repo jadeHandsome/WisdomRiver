@@ -515,7 +515,7 @@
             if (fileName.count > 0) {
                 [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseImage,fileName[0][@"id"]]]];
             }
-            if (indexPath.item % 4 == 0) {
+            if ((indexPath.item + 1) % 4 == 0) {
                 cell.rightLine.hidden = YES;
             }
             else{
