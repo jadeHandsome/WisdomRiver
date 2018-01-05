@@ -169,6 +169,7 @@
     UITextField *pwdField = [[UITextField alloc] init];
     pwdField.placeholder = @"密码（必填）";
     pwdField.font = [UIFont systemFontOfSize:14];
+    pwdField.secureTextEntry = YES;
     self.pwdField = pwdField;
     [pwdContainer addSubview:pwdField];
     [pwdField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -193,6 +194,7 @@
     UITextField *surePwdField = [[UITextField alloc] init];
     surePwdField.placeholder = @"确认密码（必填）";
     surePwdField.font = [UIFont systemFontOfSize:14];
+    surePwdField.secureTextEntry = YES;
     self.surePwdField = surePwdField;
     [surePwdContainer addSubview:surePwdField];
     [surePwdField mas_makeConstraints:^(MASConstraintMaker *make) {

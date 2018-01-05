@@ -205,9 +205,9 @@ return _collectionFlowyout;
     NSMutableArray *im = [NSMutableArray new];
     for (NSDictionary *baner in self.allImage) {
         if ([baner[@"isPic"] integerValue]) {
-            [im addObject:[[@"http://182.151.204.201:8081/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:baner[@"module"]]stringByAppendingString:@"&cname=programManagement"]];
+            [im addObject:[[@"http://182.151.204.201/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:baner[@"module"]]stringByAppendingString:@"&cname=programManagement"]];
         } else {
-            [im addObject:[[@"http://182.151.204.201:8081/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:baner[@"id"]]stringByAppendingString:@"&cname=businesssermanpic"]];
+            [im addObject:[[@"http://182.151.204.201/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:baner[@"id"]]stringByAppendingString:@"&cname=businesssermanpic"]];
         }
         
     }

@@ -25,9 +25,9 @@
 - (void)setDataWithDic:(NSDictionary *)dic {
     NSString *im = @"";
     if ([dic[@"isPic"] integerValue]) {
-        im = [[@"http://182.151.204.201:8081/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:dic[@"module"]]stringByAppendingString:@"&cname=programManagement"];
+        im = [[@"http://182.151.204.201/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:dic[@"module"]]stringByAppendingString:@"&cname=programManagement"];
     } else {
-        im = [[@"http://182.151.204.201:8081/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:dic[@"id"]]stringByAppendingString:@"&cname=businesssermanpic"];
+        im = [[@"http://182.151.204.201/gfile/downloadByBidAndClassName?bid=" stringByAppendingString:dic[@"id"]]stringByAppendingString:@"&cname=businesssermanpic"];
         
     }
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:im] placeholderImage:[UIImage new]];
