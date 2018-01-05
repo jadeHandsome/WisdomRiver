@@ -107,14 +107,11 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQ9-uh-dYh" customClass="CommondPic">
-                    <rect key="frame" x="0.0" y="230" width="375" height="230"/>
+                    <rect key="frame" x="0.0" y="230" width="375" height="377"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="230" id="ElD-GK-HEQ"/>
-                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ieo-uB-rb9">
-                    <rect key="frame" x="10" y="470" width="355" height="40"/>
+                    <rect key="frame" x="10" y="617" width="355" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.66666666666666663" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="hnm-qR-bkD"/>
@@ -130,14 +127,15 @@
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Ieo-uB-rb9" firstAttribute="top" secondItem="oQ9-uh-dYh" secondAttribute="bottom" constant="10" id="0PW-RK-0Dy"/>
                 <constraint firstItem="oQ9-uh-dYh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0uA-dt-VvP"/>
                 <constraint firstItem="Lxi-vU-gmU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="F1T-HU-T4a"/>
                 <constraint firstAttribute="trailing" secondItem="Lxi-vU-gmU" secondAttribute="trailing" id="Sj8-oQ-Diy"/>
-                <constraint firstItem="Ieo-uB-rb9" firstAttribute="top" secondItem="oQ9-uh-dYh" secondAttribute="bottom" constant="10" id="Uge-bF-2Jd"/>
                 <constraint firstItem="hCR-FO-dcp" firstAttribute="top" secondItem="Lxi-vU-gmU" secondAttribute="bottom" id="Vab-Ss-rFI"/>
                 <constraint firstAttribute="trailing" secondItem="oQ9-uh-dYh" secondAttribute="trailing" id="dcI-d8-qIW"/>
                 <constraint firstAttribute="trailing" secondItem="Ieo-uB-rb9" secondAttribute="trailing" constant="10" id="e98-SO-v7v"/>
                 <constraint firstItem="hCR-FO-dcp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eQi-dB-mSP"/>
+                <constraint firstAttribute="bottom" secondItem="Ieo-uB-rb9" secondAttribute="bottom" constant="10" id="fdp-3q-UMc"/>
                 <constraint firstItem="oQ9-uh-dYh" firstAttribute="top" secondItem="hCR-FO-dcp" secondAttribute="bottom" constant="10" id="lbn-Zh-IBf"/>
                 <constraint firstItem="Lxi-vU-gmU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mN2-Sh-8PC"/>
                 <constraint firstItem="Ieo-uB-rb9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="oHv-Zs-11H"/>
