@@ -135,9 +135,9 @@ return _collectionFlowyout;
         [container addSubview:btn];
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
             if (i == 0) {
-                make.left.equalTo(temp);
+                make.left.equalTo(temp).with.offset(15);
             } else {
-                make.left.equalTo(temp.mas_right);
+                make.left.equalTo(temp.mas_right).with.offset(15);
             }
             make.top.equalTo(container.mas_top);
             make.bottom.equalTo(container.mas_bottom);

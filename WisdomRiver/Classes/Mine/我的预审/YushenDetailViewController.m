@@ -130,11 +130,12 @@
         if ([nowDic[@"gsa"][@"auditStatus"] integerValue]) {
             if ([nowDic[@"gsa"][@"auditResult"] integerValue]) {
                 result = @"审核不通过";
-                color = ColorRgbValue(0xFFCC33);
+                color = ColorRgbValue(0x03A9F4);
+                
                 
             } else {
                 result = @"审核通过";
-                color = ColorRgbValue(0x03A9F4);
+                color = ColorRgbValue(0xFFCC33);
             }
             
         } else {
