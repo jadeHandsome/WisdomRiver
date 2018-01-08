@@ -96,11 +96,59 @@
             }];
             self.bottomView.hidden = YES;
             UIWebView *webView = [[UIWebView alloc]init];
+            webView.scalesPageToFit = YES;
             [self.view addSubview:webView];
             [webView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self.view);
             }];
-            [webView loadHTMLString:[self.myData[@"smv"][@"content"] stringByReplacingOccurrencesOfString:@"/gfile/downloadURL" withString:@"http://182.151.204.201/gfile/downloadURL"] baseURL:nil];
+            
+            
+            UIView *webBrowserView = webView.scrollView.subviews[0];
+            webBrowserView.frame = CGRectMake(0, 70, SIZEWIDTH, SIZEHEIGHT - navHight - 70);
+
+
+            UIView *headView = [[UIView alloc]init];
+            headView.backgroundColor = [UIColor whiteColor];
+            headView.frame = CGRectMake(0, 0, SIZEWIDTH, 70);
+            [webView.scrollView addSubview:headView];
+            
+            UILabel *titleLabel = [[UILabel alloc] init];
+            titleLabel.textAlignment = NSTextAlignmentCenter;
+            titleLabel.text = self.myData[@"smv"][@"name"];
+            [headView addSubview:titleLabel];
+            [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(headView).offset(10);
+                make.right.equalTo(headView).offset(-10);
+                make.left.equalTo(headView).offset(10);
+            }];
+            
+            
+            UILabel *timeLabel = [[UILabel alloc] init];
+            timeLabel.font = [UIFont systemFontOfSize:13];
+            timeLabel.textColor = [UIColor grayColor];
+            timeLabel.text = self.myData[@"smv"][@"date"];
+            [headView addSubview:timeLabel];
+            [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(headView).offset(-10);
+                make.bottom.equalTo(headView);
+            }];
+            
+            
+            
+            
+            
+            
+            NSString *body = [self.myData[@"smv"][@"content"] stringByReplacingOccurrencesOfString:@"/gfile/downloadURL" withString:@"http://182.151.204.201/gfile/downloadURL"];
+            NSMutableString *mut = [NSMutableString string];
+            [mut appendString:@"<html>"];
+            [mut appendString:@"<head>"];
+            [mut appendString:@"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">"];
+            [mut appendFormat:@"<style>img{max-width: %lfpx; width:%lfpx; height:auto;}</style>",SCREEN_WIDTH - 20,SCREEN_WIDTH - 20];
+            [mut appendString:@"</head>"];
+            [mut appendString:@"<body>"];
+            [mut appendString:body];
+            [mut appendString:@"</body></html>"];
+            [webView loadHTMLString:mut baseURL:nil];
         } else {
             [self setUp];
             
