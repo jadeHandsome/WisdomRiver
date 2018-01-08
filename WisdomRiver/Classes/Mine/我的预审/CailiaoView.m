@@ -30,10 +30,11 @@
     if (dic[@"isPass"]) {
         if ([dic[@"isPass"] integerValue]) {
             self.statusLabel.text = @"审核通过";
-            color = ColorRgbValue(0xFFCC33);
+            color = ColorRgbValue(0x03A9F4);
+            
         } else {
             self.statusLabel.text = @"审核不通过";
-            color = ColorRgbValue(0x03A9F4);
+            color = ColorRgbValue(0xFFCC33);
         }
     } else {
         self.statusLabel.text = @"审核中";
