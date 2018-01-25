@@ -31,30 +31,32 @@
 #pragma mark - 初始化主tabbar
 
 - (void)setUp {
-    //首页
+    //政务服务
     BaseNaviViewController *homeNav = [[BaseNaviViewController alloc]initWithRootViewController:[HomeViewController new]];
-    
     [homeNav.tabBarItem setImage:[[UIImage imageNamed:@"首页未选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [homeNav.tabBarItem setSelectedImage:[[UIImage imageNamed:@"首页选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    //[home.tabBarItem setSelectedImage:[UIImage imageNamed:@"商城-已选中"]];
     homeNav.tabBarItem.title = @"政务服务";
-    //社区
+    //公共服务
     BaseNaviViewController *community = [[BaseNaviViewController alloc]initWithRootViewController:[PublickViewController new]];
     [community.tabBarItem setImage:[[UIImage imageNamed:@"公共服务未选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [community.tabBarItem setSelectedImage:[[UIImage imageNamed:@"公共服务选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     community.tabBarItem.title = @"公共服务";
-    //安装
+    //商业服务
     BaseNaviViewController *install = [[BaseNaviViewController alloc]initWithRootViewController:[BussinessViewController new]];
     [install.tabBarItem setImage:[[UIImage imageNamed:@"商业服务未选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [install.tabBarItem setSelectedImage:[[UIImage imageNamed:@"商业服务选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     install.tabBarItem.title = @"商业服务";
-    //购物车
+    //个人中心
     BaseNaviViewController *buyCar = [[BaseNaviViewController alloc]initWithRootViewController:[MineViewController new]];
     buyCar.tabBarItem.title = @"个人中心";
     [buyCar.tabBarItem setImage:[[UIImage imageNamed:@"个人中心未选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [buyCar.tabBarItem setSelectedImage:[[UIImage imageNamed:@"个人中心选中"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    //我的
-    self.viewControllers = @[homeNav,community,install,buyCar];
+    if (SharedUserInfo.show) {
+        self.viewControllers = @[homeNav,community,install,buyCar];
+    }
+    else{
+        self.viewControllers = @[community,install,buyCar];
+    }
     
 }
 /*

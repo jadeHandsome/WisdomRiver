@@ -160,8 +160,19 @@
                     [[NSUserDefaults standardUserDefaults] setObject:self.pwdField.text forKey:@"pwd"];
                     [[NSUserDefaults standardUserDefaults] setObject:showdata[@"user"] forKey:@"userInfo"];
                     [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:showdata[@"user"]];
-                    BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];
-                    self.view.window.rootViewController = tab;
+                    
+                    
+                    //判断开关
+                    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"appMain/iosgbsh" params:nil withModel:nil complateHandle:^(id showdata, NSString *error) {
+                        if (showdata) {
+                            SharedUserInfo.show = YES;
+                        }
+                        else{
+                            SharedUserInfo.show = NO;
+                        }
+                        BaseTabbarViewController *tab = [[BaseTabbarViewController alloc]init];
+                        self.view.window.rootViewController = tab;
+                    }];
                 }
                
             }];

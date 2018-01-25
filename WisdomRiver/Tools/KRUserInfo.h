@@ -37,4 +37,7 @@ singleton_interface(KRUserInfo)
 @property (nonatomic, strong) NSString *attrpwd;
 @property (nonatomic, strong) NSString *micon;//图片
 @property (nonatomic, strong) NSString *indexUrl;//后台首页链接
+
+
+@property (nonatomic, assign) BOOL show;//开关
 @end

@@ -92,6 +92,9 @@
         make.right.equalTo(container.mas_right).with.offset(-15);
         make.top.equalTo(self.headView.mas_bottom);
         make.height.equalTo(@(HEIGHT(120) * 6));
+        if (!SharedUserInfo.show) {
+            make.height.equalTo(@(HEIGHT(120) * 4));
+        }
     }];
     LRViewBorderRadius(topView, 5, 0, [UIColor clearColor]);
     UIView *tempView = topView;
@@ -107,6 +110,11 @@
             }
             make.left.right.equalTo(topView);
             make.height.equalTo(@(HEIGHT(120)));
+            if (!SharedUserInfo.show) {
+                if (i == 0 || i == 1) {
+                    make.height.equalTo(@(HEIGHT(0)));
+                }
+            }
         }];
         [baseView setDataWithDic:topArray[i]];
         tempView = baseView;

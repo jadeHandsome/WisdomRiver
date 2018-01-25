@@ -21,12 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setIQKeyboardManager];
     [self judesFirstView];
-    NSURLSessionDataTask *data = [[NSURLSession sharedSession]dataTaskWithURL:[NSURL URLWithString:@"http://restapi.amap.com/v3/weather/weatherInfo?key=546a2a0139a40efc3a2e3f87e21f5ca7&city=101270101"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-      
-        NSDictionary *data1 = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"%@",data1);
-    }];
-    [data resume];
+
+    
     // Override point for customization after application launch.
     return YES;
 }

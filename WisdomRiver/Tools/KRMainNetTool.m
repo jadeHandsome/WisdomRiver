@@ -116,8 +116,9 @@ singleton_implementation(KRMainNetTool)
                 //            [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
                 [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
             } else {
-                
-                [MBProgressHUD showError:response[@"mess"] toView:waitView];
+                if (![response[@"mess"] isEqualToString:@""] && response[@"mess"]) {
+                    [MBProgressHUD showError:response[@"mess"] toView:waitView];
+                }
                 complet(nil,response[@"mess"]);
             }
         }
