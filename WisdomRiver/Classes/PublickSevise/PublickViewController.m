@@ -84,6 +84,7 @@
 - (void)loadData {
     [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"appPublicService/getProgramManagement" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
+            [self addReLoadBtn];
             return ;
         }
         self.allItem = [showdata[@"pms"] copy];
@@ -97,6 +98,24 @@
 //        [self getFirstModel:self.allItem[0]];
     }];
 }
+
+- (void)addReLoadBtn{
+    UIButton *reloadBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    reloadBtn.backgroundColor = ThemeColor;
+    [reloadBtn setTitle:@"重新加载" forState:UIControlStateNormal];
+    [reloadBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    LRViewBorderRadius(reloadBtn, 5, 0, ThemeColor);
+    [reloadBtn addTarget:self action:@selector(reLoadData:) forControlEvents:UIControlEventTouchUpInside];
+    reloadBtn.center = self.view.center;
+    [self.view addSubview:reloadBtn];
+}
+
+- (void)reLoadData:(UIButton *)sender{
+    [self loadData];
+    [sender removeFromSuperview];
+}
+
+
 - (void)setUp {
     CBSegmentView *titlBtnView = [[CBSegmentView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     _titleBtnView = titlBtnView;
